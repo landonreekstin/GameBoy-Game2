@@ -24,6 +24,7 @@
 #include <gb/gb.h>
 #include <stdio.h>
 #include <stdint.h>
+#include "system.h"
 
 
 /* Bank of tiles. */
@@ -31,26 +32,45 @@
 /* Start of tile array. */
 extern unsigned char SmileToSurprised[];
 
-/* Sprite functions */
-#define SPRITE_SCROLL_SPEED 10
+/* Bank of tiles. */
+#define testMetaBank 0
+/* Start of tile array. */
+extern unsigned char testMeta[];
+
+/* Sprite constants */
+#define DEFAULT_SCROLL_SPEED 10
+#define DEFAULT_GRAVITY 5
+#define SPRITE_SIZE 8
 
 // ------------ Sprites ----------------
+// Sprite struct
 typedef struct {
   uint8_t id;
+  BOOLEAN isMetaSprite;
+  UBYTE metaIDs[4];
+  uint8_t* metaStartTilePtr;
+  uint8_t metaNoTiles;
   uint8_t initTile;
   uint8_t maxTile;
   uint8_t x;
   uint8_t y;
+  uint8_t metaWidth;
+  uint8_t metaHeight;
   uint8_t gravity;
   uint8_t velocity;
 } Sprite;
 
+
 // function prototypes
+void initSprite(struct Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
+    uint8_t metaWidth, uint8_t metaHeight, uint8_t gravity, uint8_t velocity);
 void change_sprite_tile(Sprite *s);
 void animate_sprite(Sprite *s);
 void translate_sprite(Sprite *s);
+void translate_meta_sprite(Sprite *s);
 void sprite_setup(Sprite *s, unsigned char pixels[]);
-void sprite_constructor(Sprite *s, uint8_t index, uint8_t startingTile, uint8_t endTile, uint8_t xPos, uint8_t yPos, uint8_t fallSpeed, uint8_t moveSpeed);
+void meta_sprite_setup(Sprite *s, unsigned char pixels[]);
+
 
 /** Returns a new sprite instance with the attributes provided.
  * @param s struct instance to initiate
@@ -61,14 +81,19 @@ void sprite_constructor(Sprite *s, uint8_t index, uint8_t startingTile, uint8_t 
  * @param yPos initial y coordinate
  * @param fallSpeed decrease in downward velocity per screen refresh
  * @param moveSpeed horizontal or planar sprite scroll speed */
-void sprite_constructor(Sprite *s, uint8_t index, uint8_t startingTile, uint8_t endTile, uint8_t xPos, uint8_t yPos, uint8_t fallSpeed, uint8_t moveSpeed) {
-    s-> id = index;
-    s-> initTile = startingTile;
-    s-> maxTile = endTile;
-    s-> x = xPos;
-    s-> y = yPos;
-    s-> gravity = fallSpeed;
-    s-> velocity = moveSpeed;
+void initSprite(struct Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
+    uint8_t metaWidth, uint8_t metaHeight, uint8_t gravity, uint8_t velocity) {
+    sprite->id = id;
+    sprite->metaStartTilePtr = metaStartTilePtr;
+    sprite->metaNoTiles = metaNoTiles;
+    sprite->initTile = initTile;
+    sprite->maxTile = maxTile;
+    sprite->x = x;
+    sprite->y = y;
+    sprite->metaWidth = metaWidth;
+    sprite->metaHeight = metaHeight;
+    sprite->gravity = gravity;
+    sprite->velocity = velocity;
 } 
 
 /** Loads sprite pixel data, sets initial tile and position
@@ -78,6 +103,17 @@ void sprite_setup(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data
     set_sprite_data(0, s->maxTile, pixels);    // (initial tile, final tile, sprite char array)
     set_sprite_tile(0, s->initTile);                      // (sprite index, tile)
     move_sprite(0, s->x, s->y);                     // (sprite index, x, y)
+
+    // set up meta sprite
+    if (s->isMetaSprite) {
+        uint8_t i = 0;
+        for (i = 0; i < s->metaNoTiles; i++) {
+            s->metaIDs[i] = s->initTile + i;
+        }
+        s->metaIDs[i] = s->id + i;
+        set_sprite_tile(s->metaIDs[i], s->metaIDs[i]);
+        move_sprite(s->id, s->x, s->y);
+    }
     SHOW_SPRITES;
 }
 
@@ -110,6 +146,17 @@ void change_sprite_tile(Sprite *s) {
     else {
         set_sprite_tile(s->id, 0);
     }
+
+    // change meta sprite tile
+    if (s->isMetaSprite) {
+        uint8_t currentTile = get_sprite_tile(s->id);
+        if (currentTile < s->metaIDs[s->metaNoTiles - 1]) {
+            set_sprite_tile(s->id, ++currentTile);
+        }
+        else {
+            set_sprite_tile(s->id, s->metaIDs[0]);
+        }
+    }
 }
 
 /** Loops through sprite tiles for a given sprite.
@@ -121,27 +168,53 @@ void animate_sprite(Sprite *s) {
     }
 }
 
+/** Awaits joypad input to move the sprite.
+ * @param sprite    index of the sprite to translate */
 void translate_sprite(Sprite *s) {
     
     switch(joypad()) {
         case J_LEFT:
-            scroll_sprite(s->id, -1 * SPRITE_SCROLL_SPEED, 0);
+            scroll_sprite(s->id, -1 * DEFAULT_SCROLL_SPEED, 0);
             change_sprite_tile(s);
             break;
         case J_RIGHT:
-            scroll_sprite(s->id, 1 * SPRITE_SCROLL_SPEED, 0);
+            scroll_sprite(s->id, 1 * DEFAULT_SCROLL_SPEED, 0);
             change_sprite_tile(s);
             break;
         case J_UP:
-            scroll_sprite(s->id, 0, -1 * SPRITE_SCROLL_SPEED);
+            scroll_sprite(s->id, 0, -1 * DEFAULT_SCROLL_SPEED);
             change_sprite_tile(s);
             break;
         case J_DOWN:
-            scroll_sprite(s->id, 0, 1 * SPRITE_SCROLL_SPEED);
+            scroll_sprite(s->id, 0, 1 * DEFAULT_SCROLL_SPEED);
             change_sprite_tile(s);
             break;
     }
-    delay(100);
+    refresh_delay(1000); // change to wait function
+}
+
+/** Awaits joypad input to move the sprite.
+ * @param sprite    index of the sprite to translate */
+void translate_meta_sprite(Sprite *s) {
+    
+    for (uint8_t i; i < s-> metaNoTiles; i++) {
+        switch(joypad()) {
+            
+            case J_LEFT:
+                scroll_sprite(s->metaIDs[i], -1 * DEFAULT_SCROLL_SPEED, 0);
+                break;
+            case J_RIGHT:
+                scroll_sprite(s->metaIDs[i], 1 * DEFAULT_SCROLL_SPEED, 0);
+                break;
+            case J_UP:
+                scroll_sprite(s->metaIDs[i], 0, -1 * DEFAULT_SCROLL_SPEED);
+                break;
+            case J_DOWN:
+                scroll_sprite(s->metaIDs[i], 0, 1 * DEFAULT_SCROLL_SPEED);
+                break;
+        }
+        refresh_delay(1000); // change to wait function
+    }
 }
 
 /* End of SPRITES.H */
