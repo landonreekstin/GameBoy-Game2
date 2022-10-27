@@ -8,31 +8,26 @@ Symbol Table
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
     _LCDC_REG                                                      ****** GX
-    _NR10_REG                                                      ****** GX
-    _NR11_REG                                                      ****** GX
-    _NR12_REG                                                      ****** GX
-    _NR13_REG                                                      ****** GX
-    _NR14_REG                                                      ****** GX
-    _NR50_REG                                                      ****** GX
-    _NR51_REG                                                      ****** GX
-    _NR52_REG                                                      ****** GX
   2 _SmileToSurprised                                              000000 GR
-  0 ___str_0                                                       000182 R
+  0 ___str_0                                                       000453 R
+    __divsint                                                      ****** GX
   7 __xinit__SmileToSurprised                                      000000 R
-  0 _animate_sprite                                                000060 GR
-  0 _change_sprite_tile                                            000000 GR
+  7 __xinit__testMeta                                              000060 R
+  0 _animate_sprite                                                00029C GR
+  0 _change_sprite_tile                                            0001CA GR
+  0 _cpu_wait                                                      000000 GR
     _delay                                                         ****** GX
-  0 _event_loop                                                    00016A GR
+  0 _event_loop                                                    000408 GR
+  0 _initSprite                                                    000052 GR
     _joypad                                                        ****** GX
-  0 _main                                                          000174 GR
+  0 _main                                                          000412 GR
     _printf                                                        ****** GX
-  0 _sample_sound                                                  000149 GR
     _set_sprite_data                                               ****** GX
     _shadow_OAM                                                    ****** GX
-  0 _sound_setup                                                   00013C GR
-  0 _sprite_setup                                                  00011B GR
-  0 _translate_sprite                                              000082 GR
-  0 _wait                                                          00015D GR
+  0 _sprite_setup                                                  0000C2 GR
+  2 _testMeta                                                      000060 GR
+  0 _translate_meta_sprite                                         00035F GR
+  0 _translate_sprite                                              0002DD GR
     _wait_vbl_done                                                 ****** GX
 
 
@@ -41,13 +36,13 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    19A   flags    0
+   0 _CODE                                      size    46B   flags    0
    1 _DATA                                      size      0   flags    0
-   2 _INITIALIZED                               size     60   flags    0
+   2 _INITIALIZED                               size     B0   flags    0
    3 _DABS                                      size      0   flags    8
    4 _HOME                                      size      0   flags    0
    5 _GSINIT                                    size      0   flags    0
    6 _GSFINAL                                   size      0   flags    0
-   7 _INITIALIZER                               size     60   flags    0
+   7 _INITIALIZER                               size     B0   flags    0
    8 _CABS                                      size      0   flags    8
 

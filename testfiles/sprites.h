@@ -62,7 +62,7 @@ typedef struct {
 
 
 // function prototypes
-void initSprite(struct Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
+void initSprite(Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
     uint8_t metaWidth, uint8_t metaHeight, uint8_t gravity, uint8_t velocity);
 void change_sprite_tile(Sprite *s);
 void animate_sprite(Sprite *s);
@@ -81,7 +81,7 @@ void meta_sprite_setup(Sprite *s, unsigned char pixels[]);
  * @param yPos initial y coordinate
  * @param fallSpeed decrease in downward velocity per screen refresh
  * @param moveSpeed horizontal or planar sprite scroll speed */
-void initSprite(struct Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
+void initSprite(Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
     uint8_t metaWidth, uint8_t metaHeight, uint8_t gravity, uint8_t velocity) {
     sprite->id = id;
     sprite->metaStartTilePtr = metaStartTilePtr;
@@ -190,14 +190,14 @@ void translate_sprite(Sprite *s) {
             change_sprite_tile(s);
             break;
     }
-    refresh_delay(1000); // change to wait function
+    cpu_wait(1000); // change to wait function
 }
 
 /** Awaits joypad input to move the sprite.
  * @param sprite    index of the sprite to translate */
 void translate_meta_sprite(Sprite *s) {
-    
-    for (uint8_t i; i < s-> metaNoTiles; i++) {
+    uint8_t i = 0;
+    for (i; i < s-> metaNoTiles; i++) {
         switch(joypad()) {
             
             case J_LEFT:
@@ -213,7 +213,7 @@ void translate_meta_sprite(Sprite *s) {
                 scroll_sprite(s->metaIDs[i], 0, 1 * DEFAULT_SCROLL_SPEED);
                 break;
         }
-        refresh_delay(1000); // change to wait function
+        cpu_wait(1000); // change to wait function
     }
 }
 
