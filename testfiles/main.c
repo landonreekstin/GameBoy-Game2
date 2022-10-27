@@ -6,8 +6,8 @@ Sprite design: Christian Blaney
 #include <gb/gb.h>
 #include <stdio.h>
 #include <stdint.h>
+#include "sprites.h"
 #include "sprites.c"
-#include "sprite.h"
 
 
 // ----------------- Map functions ----------------
@@ -54,8 +54,8 @@ void event_loop() {
 
 void main() {
     //struct Sprite *guyPtr = malloc (sizeof (struct Sprite));;
-    struct Sprite guy;      // Make struct object
-    struct Sprite* guyPtr;   // Make pointer
+    Sprite guy;      // Make struct object
+    Sprite* guyPtr;   // Make pointer
     guyPtr = &guy;           // Assign pointer to object
 
     sprite_constructor(guyPtr, 0, 0, 5, 84, 78, 0, 10);
