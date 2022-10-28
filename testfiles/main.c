@@ -15,31 +15,41 @@ Sprite design: Christian Blaney
 // ----------------- Game functions ----------------
 
 // main game event loop
-void event_loop() {
+void event_loop(MetaSprite16x16* meta) {
     uint8_t currentSpriteIdx = 0;
     
     while(1) {
 
-        translate_sprite(0);
+        translate_16x16_meta(meta);
         //animate_sprite(0);
 
     }
 }
 
 void main() {
-    //struct Sprite *guyPtr = malloc (sizeof (struct Sprite));;
-    Sprite guy;      // Make struct object
+    Sprite guy;       // Make struct object
     Sprite* guyPtr;   // Make pointer
-    guyPtr = &guy;           // Assign pointer to object
+    guyPtr = &guy;
 
-    Sprite meta;
-    Sprite* metaPtr;
+    MetaSprite16x16 meta;
+    MetaSprite16x16* metaPtr;
     metaPtr = &meta;
+    Sprite sub_tile0;
+    Sprite sub_tile1;
+    Sprite sub_tile2;
+    Sprite sub_tile3;
+    Sprite* sub_tile0Ptr = &sub_tile0;
+    Sprite* sub_tile1Ptr = &sub_tile1;
+    Sprite* sub_tile2Ptr = &sub_tile2;
+    Sprite* sub_tile3Ptr = &sub_tile3;
+    
 
-    initSprite(metaPtr, 0, testMeta, 4, 0, 5, 84, 78, 16, 16, 0, 10);
+    // initialize  meta 16x16 sprite
+    init_16x16_meta(metaPtr, 0, 0, 4, 0, 50, 50, sub_tile0Ptr, sub_tile1Ptr, sub_tile2Ptr, sub_tile3Ptr);
 
-    printf("My first \nGameBoy game!");
+
+    printf("My first \nGameBoy game!");     // delete in future, stdio wastes memory, implement own text tiles
     //sprite_setup(guyPtr, SmileToSurprised);
-    sprite_setup(metaPtr, testMeta);
-    event_loop();
+    setup_16x16_meta(metaPtr, Tomcat_pixels);
+    event_loop(metaPtr);
 }

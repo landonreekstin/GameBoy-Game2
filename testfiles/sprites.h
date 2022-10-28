@@ -30,90 +30,186 @@
 /* Bank of tiles. */
 #define SmileToSurprisedBank 0
 /* Start of tile array. */
-extern unsigned char SmileToSurprised[];
+extern const unsigned char SmileToSurprised[];
 
 /* Bank of tiles. */
 #define testMetaBank 0
 /* Start of tile array. */
-extern unsigned char testMeta[];
+extern const unsigned char testMeta[];
+
+#ifndef __Tomcat_S_h_INCLUDE
+#define __Tomcat_S_h_INCLUDE
+
+/* Bank of tiles. */
+#define Tomcat_pixelsBank 0
+/* Start of tile array. */
+extern const unsigned char Tomcat_pixels[];
+
+#endif
 
 /* Sprite constants */
-#define DEFAULT_SCROLL_SPEED 10
+#define DEFAULT_SCROLL_SPEED 1
 #define DEFAULT_GRAVITY 5
 #define SPRITE_SIZE 8
 
-// ------------ Sprites ----------------
+// ------------ Sprite Structs ----------------
 // Sprite struct
 typedef struct {
   uint8_t id;
-  BOOLEAN isMetaSprite;
-  UBYTE metaIDs[4];
-  uint8_t* metaStartTilePtr;
-  uint8_t metaNoTiles;
-  uint8_t initTile;
-  uint8_t maxTile;
+  uint8_t init_tile;
+  uint8_t max_tile;
   uint8_t x;
   uint8_t y;
-  uint8_t metaWidth;
-  uint8_t metaHeight;
   uint8_t gravity;
   uint8_t velocity;
 } Sprite;
 
+typedef struct {
+  uint8_t meta_id;
+  uint8_t init_tile;
+  uint8_t max_tile;
+  uint8_t texture_idx;
+  uint8_t x;
+  uint8_t y;
+  Sprite* tile0;
+  Sprite* tile1;
+  Sprite* tile2;
+  Sprite* tile3;
+} MetaSprite16x16;
+
 
 // function prototypes
-void initSprite(Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
-    uint8_t metaWidth, uint8_t metaHeight, uint8_t gravity, uint8_t velocity);
+void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t gravity, uint8_t velocity);
+void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, uint8_t x, uint8_t y, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
 void change_sprite_tile(Sprite *s);
 void animate_sprite(Sprite *s);
 void translate_sprite(Sprite *s);
-void translate_meta_sprite(Sprite *s);
+void translate_16x16_meta(MetaSprite16x16 *meta);
 void sprite_setup(Sprite *s, unsigned char pixels[]);
-void meta_sprite_setup(Sprite *s, unsigned char pixels[]);
+void setup_16x16_meta(MetaSprite16x16 *meta, unsigned char pixels[]);
 
 
-/** Returns a new sprite instance with the attributes provided.
- * @param s struct instance to initiate
- * @param index idx of the sprite. Sprite indexes increase from 0 to 39 when a new sprite is created and stored in the EOM
- * @param startingTile first tile idx to load
- * @param endTile last tile idx to load
- * @param xPos initial x coordinate
- * @param yPos initial y coordinate
- * @param fallSpeed decrease in downward velocity per screen refresh
- * @param moveSpeed horizontal or planar sprite scroll speed */
-void initSprite(Sprite* sprite, uint8_t id, uint8_t* metaStartTilePtr, uint8_t metaNoTiles, uint8_t initTile, uint8_t maxTile, uint8_t x, uint8_t y, 
-    uint8_t metaWidth, uint8_t metaHeight, uint8_t gravity, uint8_t velocity) {
+/** Initializes a passed in sprite instance with the attributes provided.
+ * @param sprite struct instance to initiate
+ * @param id sprite id
+ * @param initTile initial tile index
+ * @param maxTile max tile index
+ * @param x x position
+ * @param y y position
+ * @param gravity gravity value
+ * @param velocity velocity value
+ */
+void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t gravity, uint8_t velocity) {
     sprite->id = id;
-    sprite->metaStartTilePtr = metaStartTilePtr;
-    sprite->metaNoTiles = metaNoTiles;
-    sprite->initTile = initTile;
-    sprite->maxTile = maxTile;
+    sprite->init_tile = init_tile;
+    sprite->max_tile = max_tile;
     sprite->x = x;
     sprite->y = y;
-    sprite->metaWidth = metaWidth;
-    sprite->metaHeight = metaHeight;
     sprite->gravity = gravity;
     sprite->velocity = velocity;
-} 
+}
 
-/** Loads sprite pixel data, sets initial tile and position
- * @param s The sprite struct to setup
- * @param pixels The sprite.c pixel data char array to load to the sprite */
-void sprite_setup(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data is used elsewhere, then use pixel_data(). If setup is only function which needs the pixel data array, pass that in directly
-    set_sprite_data(0, s->maxTile, pixels);    // (initial tile, final tile, sprite char array)
-    set_sprite_tile(0, s->initTile);                      // (sprite index, tile)
-    move_sprite(0, s->x, s->y);                     // (sprite index, x, y)
+/** Initializes a passed in meta sprite instance with the attributes provided.
+ * @param sprite struct instance to initiate
+ * @param id sprite id
+ * @param init_tile initial tile index
+ * @param max_tile max tile index 
+ * @param texture_idx texture index, changes tile of each sub sprite id to the next texture
+ * @param sub_tile sub tile sprite
+ */
+void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, uint8_t x, uint8_t y, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3) {
+    meta->meta_id = meta_id;
+    meta->init_tile = init_tile;
+    meta->max_tile = max_tile;
+    meta->texture_idx = texture_idx;
+    meta->x = x;
+    meta->y = y;
 
-    // set up meta sprite
-    if (s->isMetaSprite) {
-        uint8_t i = 0;
-        for (i = 0; i < s->metaNoTiles; i++) {
-            s->metaIDs[i] = s->initTile + i;
-        }
-        s->metaIDs[i] = s->id + i;
-        set_sprite_tile(s->metaIDs[i], s->metaIDs[i]);
-        move_sprite(s->id, s->x, s->y);
+    // point to sub sprite structs
+    meta->tile0 = tile0;
+    meta->tile1 = tile1;
+    meta->tile2 = tile2;
+    meta->tile3 = tile3;
+
+    /* Change sub tiles to be stored in array and do initialization in a loop
+    uint8_t i = 0;
+    for (i = 0; i < 4; i++) {
+        // set sub sprite tile
+        tile0->init_tile = init_tile * texture_idx + i;
     }
+    */
+
+    // set sprite id for each sub sprite
+    meta->tile0->id = meta->meta_id;
+    meta->tile1->id = meta->meta_id + 1;
+    meta->tile2->id = meta->meta_id + 2;
+    meta->tile3->id = meta->meta_id + 3;
+
+    // set sprite tile for each sub sprite
+    meta->tile0->init_tile = (meta->init_tile * meta->texture_idx);
+    meta->tile1->init_tile = (meta->init_tile * meta->texture_idx) + 1;
+    meta->tile2->init_tile = (meta->init_tile * meta->texture_idx) + 2;
+    meta->tile3->init_tile = (meta->init_tile * meta->texture_idx) + 3;
+
+    // set sprite max tile for each sub sprite
+    meta->tile0->max_tile = (meta->max_tile * meta->texture_idx);
+    meta->tile1->max_tile = (meta->max_tile * meta->texture_idx) + 1;
+    meta->tile2->max_tile = (meta->max_tile * meta->texture_idx) + 2;
+    meta->tile3->max_tile = (meta->max_tile * meta->texture_idx) + 3;
+
+    // set sprite x for each sub sprite
+    meta->tile0->x = meta->x;
+    meta->tile1->x = meta->x + SPRITE_SIZE;
+    meta->tile2->x = meta->x;
+    meta->tile3->x = meta->x + SPRITE_SIZE;
+
+    // set sprite y for each sub sprite
+    meta->tile0->y = meta->y;
+    meta->tile1->y = meta->y;
+    meta->tile2->y = meta->y + SPRITE_SIZE;
+    meta->tile3->y = meta->y + SPRITE_SIZE;
+
+    // set sub sprite attributes
+    init_sprite(meta->tile0, meta->tile0->id, meta->tile0->init_tile, meta->tile0->max_tile, meta->tile0->x, meta->tile0->y, DEFAULT_GRAVITY, DEFAULT_SCROLL_SPEED);
+    init_sprite(meta->tile1, meta->tile1->id, meta->tile1->init_tile, meta->tile1->max_tile, meta->tile1->x, meta->tile1->y, DEFAULT_GRAVITY, DEFAULT_SCROLL_SPEED);
+    init_sprite(meta->tile2, meta->tile2->id, meta->tile2->init_tile, meta->tile2->max_tile, meta->tile2->x, meta->tile2->y, DEFAULT_GRAVITY, DEFAULT_SCROLL_SPEED);
+    init_sprite(meta->tile3, meta->tile3->id, meta->tile3->init_tile, meta->tile3->max_tile, meta->tile3->x, meta->tile3->y, DEFAULT_GRAVITY, DEFAULT_SCROLL_SPEED);
+
+}
+
+/** Loads sprite pixel data, sets initial tile and position. 
+ * @param s The sprite struct to setup
+ * @param pixels The sprite.c pixel data char array to load to the sprite 
+ */
+void sprite_setup(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data is used elsewhere, then use pixel_data(). If setup is only function which needs the pixel data array, pass that in directly
+    set_sprite_data(0, s->max_tile, pixels);    // (initial tile, final tile, sprite char array)
+    set_sprite_tile(0, s->init_tile);           // (sprite index, tile), gives sprite its id
+    move_sprite(0, s->x, s->y);                // (sprite index, x, y)
+
+    SHOW_SPRITES;
+}
+
+/** Loads meta sprite pixel data, sets initial tile and position. 
+ * @param s The meta sprite struct to setup
+ * @param pixels The sprite.c pixel data char array to load to the sprite 
+ */
+void setup_16x16_meta(MetaSprite16x16 *meta, unsigned char pixels[]) {   // if sprite pixel data is used elsewhere, then use pixel_data(). If setup is only function which needs the pixel data array, pass that in directly
+
+    // set sprite tile data
+    set_sprite_data(meta->init_tile, meta->max_tile, pixels);    // (initial tile, final tile, sprite char array)
+
+    // set sprite tile index
+    set_sprite_tile(meta->tile0->id, meta->tile0->init_tile);           // (sprite index, tile), gives sprite its id
+    set_sprite_tile(meta->tile1->id, meta->tile1->init_tile);           // (sprite index, tile), gives sprite its id
+    set_sprite_tile(meta->tile2->id, meta->tile2->init_tile);           // (sprite index, tile), gives sprite its id
+    set_sprite_tile(meta->tile3->id, meta->tile3->init_tile);           // (sprite index, tile), gives sprite its id
+
+    // set sprite position for each sub sprite
+    move_sprite(meta->tile0->id, meta->tile0->x, meta->tile0->y);
+    move_sprite(meta->tile1->id, meta->tile1->x, meta->tile1->y);
+    move_sprite(meta->tile2->id, meta->tile2->x, meta->tile2->y);
+    move_sprite(meta->tile3->id, meta->tile3->x, meta->tile3->y);
+
     SHOW_SPRITES;
 }
 
@@ -135,41 +231,29 @@ void sprite_setup(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data
 */
 
 /** Changes current sprite tile to the next in the char array.
- *  @param maxTile  the max tile index of the sprite
- *  @param sprite   index of the sprite to change */
+ *  @param s   ptr to the sprite to change */
 void change_sprite_tile(Sprite *s) {
     //Sprite s = &ps;
-    uint8_t currentTile = get_sprite_tile(s->id);
-    if (currentTile < s->maxTile - 1) {
-        set_sprite_tile(s->id, ++currentTile);
+    uint8_t current_tile = get_sprite_tile(s->id);
+    if (current_tile < s->max_tile - 1) {
+        set_sprite_tile(s->id, ++current_tile);
     }
     else {
         set_sprite_tile(s->id, 0);
-    }
-
-    // change meta sprite tile
-    if (s->isMetaSprite) {
-        uint8_t currentTile = get_sprite_tile(s->id);
-        if (currentTile < s->metaIDs[s->metaNoTiles - 1]) {
-            set_sprite_tile(s->id, ++currentTile);
-        }
-        else {
-            set_sprite_tile(s->id, s->metaIDs[0]);
-        }
     }
 }
 
 /** Loops through sprite tiles for a given sprite.
  * @param sprite   index of the sprite to animate */
 void animate_sprite(Sprite *s) {
-    for (uint8_t tileIdx = 0; tileIdx < s->maxTile; tileIdx++) {
-        set_sprite_tile(s->id, tileIdx);
+    for (uint8_t tile_idx = 0; tile_idx < s->max_tile; tile_idx++) {
+        set_sprite_tile(s->id, tile_idx);
         delay(350);
     }
 }
 
 /** Awaits joypad input to move the sprite.
- * @param sprite    index of the sprite to translate */
+ * @param s    ptr to the sprite to translate */
 void translate_sprite(Sprite *s) {
     
     switch(joypad()) {
@@ -190,31 +274,40 @@ void translate_sprite(Sprite *s) {
             change_sprite_tile(s);
             break;
     }
-    cpu_wait(1000); // change to wait function
+    cpu_wait(5000); // change to wait function
 }
 
 /** Awaits joypad input to move the sprite.
- * @param sprite    index of the sprite to translate */
-void translate_meta_sprite(Sprite *s) {
-    uint8_t i = 0;
-    for (i; i < s-> metaNoTiles; i++) {
-        switch(joypad()) {
-            
-            case J_LEFT:
-                scroll_sprite(s->metaIDs[i], -1 * DEFAULT_SCROLL_SPEED, 0);
-                break;
-            case J_RIGHT:
-                scroll_sprite(s->metaIDs[i], 1 * DEFAULT_SCROLL_SPEED, 0);
-                break;
-            case J_UP:
-                scroll_sprite(s->metaIDs[i], 0, -1 * DEFAULT_SCROLL_SPEED);
-                break;
-            case J_DOWN:
-                scroll_sprite(s->metaIDs[i], 0, 1 * DEFAULT_SCROLL_SPEED);
-                break;
-        }
-        cpu_wait(1000); // change to wait function
+ * @param s   ptr to the meta sprite to translate */
+void translate_16x16_meta(MetaSprite16x16 *meta) {
+        
+    switch(joypad()) {
+        case J_LEFT:
+            scroll_sprite(meta->tile0->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+            scroll_sprite(meta->tile1->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+            scroll_sprite(meta->tile2->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+            scroll_sprite(meta->tile3->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+            break;
+        case J_RIGHT:
+            scroll_sprite(meta->tile0->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+            scroll_sprite(meta->tile1->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+            scroll_sprite(meta->tile2->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+            scroll_sprite(meta->tile3->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+            break;
+        case J_UP:
+            scroll_sprite(meta->tile0->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+            scroll_sprite(meta->tile1->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+            scroll_sprite(meta->tile2->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+            scroll_sprite(meta->tile3->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+            break;
+        case J_DOWN:
+            scroll_sprite(meta->tile0->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+            scroll_sprite(meta->tile1->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+            scroll_sprite(meta->tile2->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+            scroll_sprite(meta->tile3->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+            break;
     }
+    cpu_wait(5000); // change to wait function
 }
 
 /* End of SPRITES.H */
