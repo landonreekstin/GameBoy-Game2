@@ -85,7 +85,7 @@ void change_sprite_tile(Sprite *s);
 void animate_sprite(Sprite *s);
 void translate_sprite(Sprite *s);
 void translate_16x16_meta(MetaSprite16x16 *meta);
-void sprite_setup(Sprite *s, unsigned char pixels[]);
+void setup_sprite(Sprite *s, unsigned char pixels[]);
 void setup_16x16_meta(MetaSprite16x16 *meta, unsigned char pixels[]);
 
 
@@ -181,9 +181,9 @@ void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, 
  * @param s The sprite struct to setup
  * @param pixels The sprite.c pixel data char array to load to the sprite 
  */
-void sprite_setup(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data is used elsewhere, then use pixel_data(). If setup is only function which needs the pixel data array, pass that in directly
-    set_sprite_data(0, s->max_tile, pixels);    // (initial tile, final tile, sprite char array)
-    set_sprite_tile(0, s->init_tile);           // (sprite index, tile), gives sprite its id
+void setup_sprite(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data is used elsewhere, then use pixel_data(). If setup is only function which needs the pixel data array, pass that in directly
+    set_sprite_data(s->init_tile, s->max_tile, pixels);    // (initial tile, final tile, sprite char array)
+    set_sprite_tile(s->id, s->init_tile);           // (sprite index, tile), gives sprite its id
     move_sprite(0, s->x, s->y);                // (sprite index, x, y)
 
     SHOW_SPRITES;

@@ -6,8 +6,8 @@ Sprite design: Christian Blaney
 #include <gb/gb.h>
 #include <stdio.h>
 #include <stdint.h>
-#include "sprites.h"
-#include "system.h"
+#include "../include/sprites.h"
+#include "../include/system.h"
 #include "sprites.c"
 
 
@@ -42,6 +42,9 @@ void main() {
     Sprite* sub_tile1Ptr = &sub_tile1;
     Sprite* sub_tile2Ptr = &sub_tile2;
     Sprite* sub_tile3Ptr = &sub_tile3;
+
+    // initialize guy sprite
+    init_sprite(guyPtr, 5, 0, 4, 80, 80, 0, 0);
     
 
     // initialize  meta 16x16 sprite
@@ -49,7 +52,8 @@ void main() {
 
 
     printf("My first \nGameBoy game!");     // delete in future, stdio wastes memory, implement own text tiles
-    //sprite_setup(guyPtr, SmileToSurprised);
+    setup_sprite(guyPtr, SmileToSurprised);
     setup_16x16_meta(metaPtr, Tomcat_pixels);
+    
     event_loop(metaPtr);
 }
