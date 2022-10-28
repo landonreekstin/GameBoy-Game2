@@ -7,60 +7,49 @@ Sprite design: Christian Blaney
 #include <stdio.h>
 #include <stdint.h>
 #include "sprites.h"
+#include "system.h"
 #include "sprites.c"
 
-
-// ----------------- Map functions ----------------
-/*
-
-void map_setup() {  // in the future will pass in parameters to specify what map is being setup
-    set_bkg_data(0, 7, maptilesname);
-    set_bkg_tiles(0, 0, x, y, mapname);
-    SHOW_BKG;
-    DISPLAY_ON;
-}
-
-void scroll_map() {
-    scroll_bkg(1, 0);
-    delay(100);
-}
-*/
-
-// ----------------- CPU functions ----------------
-
-/** A less CPU intensive delay() using screen refreshes.
- * @param numloops Number of screen refreshes to perform. */
-void wait(UINT8 numloops){
-    UINT8 i;
-    for(i = 0; i < numloops; i++){
-        wait_vbl_done();
-    }     
-}
 
 
 // ----------------- Game functions ----------------
 
 // main game event loop
-void event_loop() {
+void event_loop(MetaSprite16x16* meta) {
     uint8_t currentSpriteIdx = 0;
     
     while(1) {
 
-        translate_sprite(0);
+        translate_16x16_meta(meta);
         //animate_sprite(0);
 
     }
 }
 
 void main() {
-    //struct Sprite *guyPtr = malloc (sizeof (struct Sprite));;
-    Sprite guy;      // Make struct object
+    Sprite guy;       // Make struct object
     Sprite* guyPtr;   // Make pointer
-    guyPtr = &guy;           // Assign pointer to object
+    guyPtr = &guy;
 
-    sprite_constructor(guyPtr, 0, 0, 5, 84, 78, 0, 10);
+    MetaSprite16x16 meta;
+    MetaSprite16x16* metaPtr;
+    metaPtr = &meta;
+    Sprite sub_tile0;
+    Sprite sub_tile1;
+    Sprite sub_tile2;
+    Sprite sub_tile3;
+    Sprite* sub_tile0Ptr = &sub_tile0;
+    Sprite* sub_tile1Ptr = &sub_tile1;
+    Sprite* sub_tile2Ptr = &sub_tile2;
+    Sprite* sub_tile3Ptr = &sub_tile3;
+    
 
-    printf("My first \nGameBoy game!");
-    sprite_setup(guyPtr, SmileToSurprised);
-    event_loop();
+    // initialize  meta 16x16 sprite
+    init_16x16_meta(metaPtr, 0, 0, 4, 0, 50, 50, sub_tile0Ptr, sub_tile1Ptr, sub_tile2Ptr, sub_tile3Ptr);
+
+
+    printf("My first \nGameBoy game!");     // delete in future, stdio wastes memory, implement own text tiles
+    //sprite_setup(guyPtr, SmileToSurprised);
+    setup_16x16_meta(metaPtr, Tomcat_pixels);
+    event_loop(metaPtr);
 }

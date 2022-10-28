@@ -11,6 +11,10 @@ typedef struct {
   uint8_t pbAndFreqMsb;
 } Sound;
 
+void sound_setup();
+void play_sound(Sound *s);
+void sample_sound();
+
 // Run once to enable sound
 void sound_setup() {
     NR52_REG = 0x80; // enable sound

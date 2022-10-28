@@ -8,22 +8,28 @@ Symbol Table
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
     _LCDC_REG                                                      ****** GX
-  2 _SmileToSurprised                                              000000 GR
-  0 ___str_0                                                       0001E9 R
-  7 __xinit__SmileToSurprised                                      000000 R
-  0 _animate_sprite                                                0000DA GR
-  0 _change_sprite_tile                                            000076 GR
+  0 _SmileToSurprised                                              000738 GR
+  0 _Tomcat_pixels                                                 0007E8 GR
+  0 ___str_0                                                       00088D R
+    __divsint                                                      ****** GX
+    __muluchar                                                     ****** GX
+  0 _animate_sprite                                                0004E1 GR
+  0 _change_sprite_tile                                            00047D GR
+  0 _cpu_wait                                                      000000 GR
     _delay                                                         ****** GX
-  0 _event_loop                                                    0001AA GR
+  0 _event_loop                                                    00072C GR
+  0 _init_16x16_meta                                               00008B GR
+  0 _init_sprite                                                   000052 GR
     _joypad                                                        ****** GX
-  0 _main                                                          0001B4 GR
+  0 _main                                                          000828 GR
     _printf                                                        ****** GX
     _set_sprite_data                                               ****** GX
+  0 _setup_16x16_meta                                              000336 GR
     _shadow_OAM                                                    ****** GX
-  0 _sprite_constructor                                            000000 GR
-  0 _sprite_setup                                                  000039 GR
-  0 _translate_sprite                                              00011B GR
-  0 _wait                                                          00019D GR
+  0 _sprite_setup                                                  0002F9 GR
+  0 _testMeta                                                      000798 GR
+  0 _translate_16x16_meta                                          00059E GR
+  0 _translate_sprite                                              000522 GR
     _wait_vbl_done                                                 ****** GX
 
 
@@ -32,13 +38,13 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    201   flags    0
+   0 _CODE                                      size    8A5   flags    0
    1 _DATA                                      size      0   flags    0
-   2 _INITIALIZED                               size     60   flags    0
+   2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8
    4 _HOME                                      size      0   flags    0
    5 _GSINIT                                    size      0   flags    0
    6 _GSFINAL                                   size      0   flags    0
-   7 _INITIALIZER                               size     60   flags    0
+   7 _INITIALIZER                               size      0   flags    0
    8 _CABS                                      size      0   flags    8
 
