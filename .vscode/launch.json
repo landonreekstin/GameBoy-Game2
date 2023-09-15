@@ -11,7 +11,8 @@
             "name": "Launch in Emulicious",
             "program": "${workspaceFolder}/testfiles/test_builds/rom/game.gb",
             "port": 58870,
-            "stopOnEntry": true
+            "stopOnEntry": false,
+            "preLaunchTask": "./testfiles/old_compile.bat"
         }
     ]
 }

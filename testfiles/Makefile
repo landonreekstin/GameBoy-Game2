@@ -12,7 +12,10 @@ LCC = $(GBDK_HOME)bin/lcc
 #LCC = $(LCC) -debug
 
 # You can set the name of the .gb ROM file here
-PROJECTNAME    = test
+# Increment version number for each new release
+LAST_VERSION = 0
+VERSION_NUMBER = 1
+PROJECTNAME    = testfiles_$(VERSION_NUMBER).gb
 
 BINS	    = $(PROJECTNAME).gb
 CSOURCES   := $(wildcard *.c)

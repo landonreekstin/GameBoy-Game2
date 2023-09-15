@@ -2545,21 +2545,63 @@ _Tomcat_pixels:
 ; Function main
 ; ---------------------------------
 _main::
-	add	sp, #-49
+	add	sp, #-57
 	C$main.c$32$1_0$243	= .
 	.globl	C$main.c$32$1_0$243
 ;.\src\main.c:32: guyPtr = &guy;
 	ldhl	sp,	#0
-	ld	e, l
-	ld	d, h
+	ld	c, l
+	ld	b, h
+	ldhl	sp,	#49
+	ld	a, c
+	ld	(hl+), a
+	ld	(hl), b
 	C$main.c$36$1_1$244	= .
 	.globl	C$main.c$36$1_1$244
 ;.\src\main.c:36: metaPtr = &meta;
 	ldhl	sp,	#7
+	ld	c, l
+	ld	b, h
+	C$main.c$41$1_2$245	= .
+	.globl	C$main.c$41$1_2$245
+;.\src\main.c:41: Sprite* sub_tile0Ptr = &sub_tile0;
+	ldhl	sp,	#21
+	ld	e, l
+	ld	d, h
+	ldhl	sp,	#51
+	ld	a, e
+	ld	(hl+), a
+	ld	(hl), d
+	C$main.c$42$1_2$245	= .
+	.globl	C$main.c$42$1_2$245
+;.\src\main.c:42: Sprite* sub_tile1Ptr = &sub_tile1;
+	ldhl	sp,	#28
+	ld	e, l
+	ld	d, h
+	ldhl	sp,	#53
+	ld	a, e
+	ld	(hl+), a
+	ld	(hl), d
+	C$main.c$43$1_2$245	= .
+	.globl	C$main.c$43$1_2$245
+;.\src\main.c:43: Sprite* sub_tile2Ptr = &sub_tile2;
+	ldhl	sp,	#35
+	ld	e, l
+	ld	d, h
+	ldhl	sp,	#55
+	ld	a, e
+	ld	(hl+), a
+	ld	(hl), d
+	C$main.c$44$1_2$245	= .
+	.globl	C$main.c$44$1_2$245
+;.\src\main.c:44: Sprite* sub_tile3Ptr = &sub_tile3;
+	ldhl	sp,	#42
+	ld	e, l
+	ld	d, h
 	C$main.c$47$1_2$245	= .
 	.globl	C$main.c$47$1_2$245
 ;.\src\main.c:47: init_sprite(guyPtr, 5, 0, 4, 80, 80, 0, 0);
-	push	hl
+	push	bc
 	push	de
 	xor	a, a
 	rrca
@@ -2572,25 +2614,78 @@ _main::
 	inc	sp
 	ld	hl, #0x05
 	push	hl
-	push	de
+	ldhl	sp,	#60
+	ld	a, (hl+)
+	ld	h, (hl)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	l, a
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
 	call	_init_sprite
 	add	sp, #9
-	ld	hl, #___str_0
+	pop	de
+	pop	bc
+	C$main.c$51$1_2$245	= .
+	.globl	C$main.c$51$1_2$245
+;.\src\main.c:51: init_16x16_meta(metaPtr, 0, 0, 4, 0, 50, 50, sub_tile0Ptr, sub_tile1Ptr, sub_tile2Ptr, sub_tile3Ptr);
+	push	bc
+	push	de
+	ldhl	sp,	#59
+	ld	a, (hl+)
+	ld	e, a
+	ld	d, (hl)
+	push	de
+	ldhl	sp,	#59
+	ld	a, (hl+)
+	ld	e, a
+	ld	d, (hl)
+	push	de
+	ldhl	sp,	#59
+	ld	a, (hl+)
+	ld	e, a
+	ld	d, (hl)
+	push	de
+	ld	hl, #0x3232
 	push	hl
+	ld	hl, #0x04
+	push	hl
+	xor	a, a
+	rrca
+	push	af
+	push	bc
+	call	_init_16x16_meta
+	add	sp, #16
+	ld	de, #___str_0
+	push	de
 	call	_printf
 	pop	hl
-	pop	de
-	ld	hl, #_SmileToSurprised
-	push	hl
+	ld	de, #_SmileToSurprised
+	push	de
+	ldhl	sp,	#53
+	ld	a, (hl+)
+	ld	e, a
+	ld	d, (hl)
 	push	de
 	call	_setup_sprite
+	add	sp, #4
+	pop	bc
+	C$main.c$56$1_2$245	= .
+	.globl	C$main.c$56$1_2$245
+;.\src\main.c:56: setup_16x16_meta(metaPtr, Tomcat_pixels);
+	push	bc
+	ld	de, #_Tomcat_pixels
+	push	de
+	push	bc
+	call	_setup_16x16_meta
 	add	sp, #4
 	call	_event_loop
 	pop	hl
 	C$main.c$59$1_2$243	= .
 	.globl	C$main.c$59$1_2$243
 ;.\src\main.c:59: }
-	add	sp, #49
+	add	sp, #57
 	C$main.c$59$1_2$243	= .
 	.globl	C$main.c$59$1_2$243
 	XG$main$0$0	= .

@@ -2545,65 +2545,160 @@
                                    2545 ; Function main
                                    2546 ; ---------------------------------
       00083C                       2547 _main::
-      00083C E8 CF                 2548 	add	sp, #-49
+      00083C E8 C7                 2548 	add	sp, #-57
                            00083E  2549 	C$main.c$32$1_0$243	= .
                                    2550 	.globl	C$main.c$32$1_0$243
                                    2551 ;.\src\main.c:32: guyPtr = &guy;
       00083E F8 00                 2552 	ldhl	sp,	#0
-      000840 5D                    2553 	ld	e, l
-      000841 54                    2554 	ld	d, h
-                           000842  2555 	C$main.c$36$1_1$244	= .
-                                   2556 	.globl	C$main.c$36$1_1$244
-                                   2557 ;.\src\main.c:36: metaPtr = &meta;
-      000842 F8 07                 2558 	ldhl	sp,	#7
-                           000844  2559 	C$main.c$47$1_2$245	= .
-                                   2560 	.globl	C$main.c$47$1_2$245
-                                   2561 ;.\src\main.c:47: init_sprite(guyPtr, 5, 0, 4, 80, 80, 0, 0);
-      000844 E5                    2562 	push	hl
-      000845 D5                    2563 	push	de
-      000846 AF                    2564 	xor	a, a
-      000847 0F                    2565 	rrca
-      000848 F5                    2566 	push	af
-      000849 AF                    2567 	xor	a, a
-      00084A 21 50 50              2568 	ld	hl, #0x5050
-      00084D E5                    2569 	push	hl
-      00084E 3E 04                 2570 	ld	a, #0x04
-      000850 F5                    2571 	push	af
-      000851 33                    2572 	inc	sp
-      000852 21 05 00              2573 	ld	hl, #0x05
-      000855 E5                    2574 	push	hl
-      000856 D5                    2575 	push	de
-      000857 CDr52r00              2576 	call	_init_sprite
-      00085A E8 09                 2577 	add	sp, #9
-      00085C 21r76r08              2578 	ld	hl, #___str_0
-      00085F E5                    2579 	push	hl
-      000860 CDr00r00              2580 	call	_printf
-      000863 E1                    2581 	pop	hl
-      000864 D1                    2582 	pop	de
-      000865 21r4Cr07              2583 	ld	hl, #_SmileToSurprised
-      000868 E5                    2584 	push	hl
-      000869 D5                    2585 	push	de
-      00086A CDrF9r02              2586 	call	_setup_sprite
-      00086D E8 04                 2587 	add	sp, #4
-      00086F CDr40r07              2588 	call	_event_loop
-      000872 E1                    2589 	pop	hl
-                           000873  2590 	C$main.c$59$1_2$243	= .
-                                   2591 	.globl	C$main.c$59$1_2$243
-                                   2592 ;.\src\main.c:59: }
-      000873 E8 31                 2593 	add	sp, #49
-                           000875  2594 	C$main.c$59$1_2$243	= .
-                                   2595 	.globl	C$main.c$59$1_2$243
-                           000875  2596 	XG$main$0$0	= .
-                                   2597 	.globl	XG$main$0$0
-      000875 C9                    2598 	ret
-                           000876  2599 Fmain$__str_0$0_0$0 == .
-      000876                       2600 ___str_0:
-      000876 4D 79 20 66 69 72 73  2601 	.ascii "My first "
+      000840 4D                    2553 	ld	c, l
+      000841 44                    2554 	ld	b, h
+      000842 F8 31                 2555 	ldhl	sp,	#49
+      000844 79                    2556 	ld	a, c
+      000845 22                    2557 	ld	(hl+), a
+      000846 70                    2558 	ld	(hl), b
+                           000847  2559 	C$main.c$36$1_1$244	= .
+                                   2560 	.globl	C$main.c$36$1_1$244
+                                   2561 ;.\src\main.c:36: metaPtr = &meta;
+      000847 F8 07                 2562 	ldhl	sp,	#7
+      000849 4D                    2563 	ld	c, l
+      00084A 44                    2564 	ld	b, h
+                           00084B  2565 	C$main.c$41$1_2$245	= .
+                                   2566 	.globl	C$main.c$41$1_2$245
+                                   2567 ;.\src\main.c:41: Sprite* sub_tile0Ptr = &sub_tile0;
+      00084B F8 15                 2568 	ldhl	sp,	#21
+      00084D 5D                    2569 	ld	e, l
+      00084E 54                    2570 	ld	d, h
+      00084F F8 33                 2571 	ldhl	sp,	#51
+      000851 7B                    2572 	ld	a, e
+      000852 22                    2573 	ld	(hl+), a
+      000853 72                    2574 	ld	(hl), d
+                           000854  2575 	C$main.c$42$1_2$245	= .
+                                   2576 	.globl	C$main.c$42$1_2$245
+                                   2577 ;.\src\main.c:42: Sprite* sub_tile1Ptr = &sub_tile1;
+      000854 F8 1C                 2578 	ldhl	sp,	#28
+      000856 5D                    2579 	ld	e, l
+      000857 54                    2580 	ld	d, h
+      000858 F8 35                 2581 	ldhl	sp,	#53
+      00085A 7B                    2582 	ld	a, e
+      00085B 22                    2583 	ld	(hl+), a
+      00085C 72                    2584 	ld	(hl), d
+                           00085D  2585 	C$main.c$43$1_2$245	= .
+                                   2586 	.globl	C$main.c$43$1_2$245
+                                   2587 ;.\src\main.c:43: Sprite* sub_tile2Ptr = &sub_tile2;
+      00085D F8 23                 2588 	ldhl	sp,	#35
+      00085F 5D                    2589 	ld	e, l
+      000860 54                    2590 	ld	d, h
+      000861 F8 37                 2591 	ldhl	sp,	#55
+      000863 7B                    2592 	ld	a, e
+      000864 22                    2593 	ld	(hl+), a
+      000865 72                    2594 	ld	(hl), d
+                           000866  2595 	C$main.c$44$1_2$245	= .
+                                   2596 	.globl	C$main.c$44$1_2$245
+                                   2597 ;.\src\main.c:44: Sprite* sub_tile3Ptr = &sub_tile3;
+      000866 F8 2A                 2598 	ldhl	sp,	#42
+      000868 5D                    2599 	ld	e, l
+      000869 54                    2600 	ld	d, h
+                           00086A  2601 	C$main.c$47$1_2$245	= .
+                                   2602 	.globl	C$main.c$47$1_2$245
+                                   2603 ;.\src\main.c:47: init_sprite(guyPtr, 5, 0, 4, 80, 80, 0, 0);
+      00086A C5                    2604 	push	bc
+      00086B D5                    2605 	push	de
+      00086C AF                    2606 	xor	a, a
+      00086D 0F                    2607 	rrca
+      00086E F5                    2608 	push	af
+      00086F AF                    2609 	xor	a, a
+      000870 21 50 50              2610 	ld	hl, #0x5050
+      000873 E5                    2611 	push	hl
+      000874 3E 04                 2612 	ld	a, #0x04
+      000876 F5                    2613 	push	af
+      000877 33                    2614 	inc	sp
+      000878 21 05 00              2615 	ld	hl, #0x05
+      00087B E5                    2616 	push	hl
+      00087C F8 3C                 2617 	ldhl	sp,	#60
+      00087E 2A                    2618 	ld	a, (hl+)
+      00087F 66                    2619 	ld	h, (hl)
+                                   2620 ;	spillPairReg hl
+                                   2621 ;	spillPairReg hl
+      000880 6F                    2622 	ld	l, a
+                                   2623 ;	spillPairReg hl
+                                   2624 ;	spillPairReg hl
+      000881 E5                    2625 	push	hl
+      000882 CDr52r00              2626 	call	_init_sprite
+      000885 E8 09                 2627 	add	sp, #9
+      000887 D1                    2628 	pop	de
+      000888 C1                    2629 	pop	bc
+                           000889  2630 	C$main.c$51$1_2$245	= .
+                                   2631 	.globl	C$main.c$51$1_2$245
+                                   2632 ;.\src\main.c:51: init_16x16_meta(metaPtr, 0, 0, 4, 0, 50, 50, sub_tile0Ptr, sub_tile1Ptr, sub_tile2Ptr, sub_tile3Ptr);
+      000889 C5                    2633 	push	bc
+      00088A D5                    2634 	push	de
+      00088B F8 3B                 2635 	ldhl	sp,	#59
+      00088D 2A                    2636 	ld	a, (hl+)
+      00088E 5F                    2637 	ld	e, a
+      00088F 56                    2638 	ld	d, (hl)
+      000890 D5                    2639 	push	de
+      000891 F8 3B                 2640 	ldhl	sp,	#59
+      000893 2A                    2641 	ld	a, (hl+)
+      000894 5F                    2642 	ld	e, a
+      000895 56                    2643 	ld	d, (hl)
+      000896 D5                    2644 	push	de
+      000897 F8 3B                 2645 	ldhl	sp,	#59
+      000899 2A                    2646 	ld	a, (hl+)
+      00089A 5F                    2647 	ld	e, a
+      00089B 56                    2648 	ld	d, (hl)
+      00089C D5                    2649 	push	de
+      00089D 21 32 32              2650 	ld	hl, #0x3232
+      0008A0 E5                    2651 	push	hl
+      0008A1 21 04 00              2652 	ld	hl, #0x04
+      0008A4 E5                    2653 	push	hl
+      0008A5 AF                    2654 	xor	a, a
+      0008A6 0F                    2655 	rrca
+      0008A7 F5                    2656 	push	af
+      0008A8 C5                    2657 	push	bc
+      0008A9 CDr8Br00              2658 	call	_init_16x16_meta
+      0008AC E8 10                 2659 	add	sp, #16
+      0008AE 11rD8r08              2660 	ld	de, #___str_0
+      0008B1 D5                    2661 	push	de
+      0008B2 CDr00r00              2662 	call	_printf
+      0008B5 E1                    2663 	pop	hl
+      0008B6 11r4Cr07              2664 	ld	de, #_SmileToSurprised
+      0008B9 D5                    2665 	push	de
+      0008BA F8 35                 2666 	ldhl	sp,	#53
+      0008BC 2A                    2667 	ld	a, (hl+)
+      0008BD 5F                    2668 	ld	e, a
+      0008BE 56                    2669 	ld	d, (hl)
+      0008BF D5                    2670 	push	de
+      0008C0 CDrF9r02              2671 	call	_setup_sprite
+      0008C3 E8 04                 2672 	add	sp, #4
+      0008C5 C1                    2673 	pop	bc
+                           0008C6  2674 	C$main.c$56$1_2$245	= .
+                                   2675 	.globl	C$main.c$56$1_2$245
+                                   2676 ;.\src\main.c:56: setup_16x16_meta(metaPtr, Tomcat_pixels);
+      0008C6 C5                    2677 	push	bc
+      0008C7 11rFCr07              2678 	ld	de, #_Tomcat_pixels
+      0008CA D5                    2679 	push	de
+      0008CB C5                    2680 	push	bc
+      0008CC CDr4Ar03              2681 	call	_setup_16x16_meta
+      0008CF E8 04                 2682 	add	sp, #4
+      0008D1 CDr40r07              2683 	call	_event_loop
+      0008D4 E1                    2684 	pop	hl
+                           0008D5  2685 	C$main.c$59$1_2$243	= .
+                                   2686 	.globl	C$main.c$59$1_2$243
+                                   2687 ;.\src\main.c:59: }
+      0008D5 E8 39                 2688 	add	sp, #57
+                           0008D7  2689 	C$main.c$59$1_2$243	= .
+                                   2690 	.globl	C$main.c$59$1_2$243
+                           0008D7  2691 	XG$main$0$0	= .
+                                   2692 	.globl	XG$main$0$0
+      0008D7 C9                    2693 	ret
+                           0008D8  2694 Fmain$__str_0$0_0$0 == .
+      0008D8                       2695 ___str_0:
+      0008D8 4D 79 20 66 69 72 73  2696 	.ascii "My first "
              74 20
-      00087F 0A                    2602 	.db 0x0a
-      000880 47 61 6D 65 42 6F 79  2603 	.ascii "GameBoy game!"
+      0008E1 0A                    2697 	.db 0x0a
+      0008E2 47 61 6D 65 42 6F 79  2698 	.ascii "GameBoy game!"
              20 67 61 6D 65 21
-      00088D 00                    2604 	.db 0x00
-                                   2605 	.area _CODE
-                                   2606 	.area _INITIALIZER
-                                   2607 	.area _CABS (ABS)
+      0008EF 00                    2699 	.db 0x00
+                                   2700 	.area _CODE
+                                   2701 	.area _INITIALIZER
+                                   2702 	.area _CABS (ABS)

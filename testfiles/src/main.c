@@ -51,7 +51,7 @@ void main() {
     init_16x16_meta(metaPtr, 0, 0, 4, 0, 50, 50, sub_tile0Ptr, sub_tile1Ptr, sub_tile2Ptr, sub_tile3Ptr);
 
 
-    printf("My first \nGameBoy game!");     // delete in future, stdio wastes memory, implement own text tiles
+    printf("My first \nGameBoy game2!");     // delete in future, stdio wastes memory, implement own text tiles
     setup_sprite(guyPtr, SmileToSurprised);
     setup_16x16_meta(metaPtr, Tomcat_pixels);
     
