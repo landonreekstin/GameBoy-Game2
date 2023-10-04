@@ -12,6 +12,13 @@
  * Includes
  * ************************************/
 #include <gb/gb.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "../include/engine/Sprite_Engine.h"
+#include "../include/engine/Sound.h"
+#include "../include/engine/Map_Engine.h"
+#include "../include/engine/System.h"
+
 
 /***************************************
  * Defines
@@ -43,13 +50,22 @@ void input();
  * 
  * @details This function initializes the game and starts the main game loop.
  * 
+ * @param argc Number of command line arguments. 2
+ * 
+ * @param argv Array of command line arguments.
+ *             argv[0] - Name of the program. "Clean_Up_Crew"
+ *             argv[1] - Name of a map file to load on startup. 
+ *                       Default: Main Menu
+ * 
  * @return int 
  */
-int main() 
+int main(int argc, char *argv[]) 
 {
     // TODO: initialize game
+    init_game();
 
     // TODO: start game loop
+    game_loop();
 
     return 0;
 }
@@ -63,6 +79,8 @@ int main()
 void init_game()
 {
     // TODO: initialize game
+
+    // TODO: Load the starting map
 }
 
 /**
@@ -73,20 +91,14 @@ void init_game()
  */
 void game_loop()
 {
+    while(1)
+    {
+
     // TODO: update game state
 
-
-}
-
-/**
- * @brief Function for rendering the game.
- * 
- * @details This function is responsible for rendering the game.
- * 
- */
-void render()
-{
     // TODO: render game
+    render();
+    }
 }
 
 /**

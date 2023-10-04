@@ -8,6 +8,9 @@
 /***************************************
  * Includes
  * ************************************/
+#ifndef SPRITE_ENGINE_H
+#define SPRITE_ENGINE_H
+#include <gb/gb.h>
 
 /***************************************
  * Defines
@@ -21,8 +24,9 @@ typedef struct {
   uint8_t max_tile;
   uint8_t x;
   uint8_t y;
-  uint8_t gravity;
   uint8_t velocity;
+  bool    is_visible;
+  bool    has_hitbox;
 } Sprite;
 
 typedef struct {
@@ -32,6 +36,9 @@ typedef struct {
   uint8_t texture_idx;
   uint8_t x;
   uint8_t y;
+  uint8_t velocity;
+  bool    is_visible;
+  bool    has_hitbox;
   Sprite* tile0;
   Sprite* tile1;
   Sprite* tile2;
@@ -51,10 +58,12 @@ typedef struct {
  * @param x The sprite's x position.
  * @param y The sprite's y position.
  * @param velocity The sprite's velocity.
+ * @param is_visible Whether the sprite is visible or not.
+ * @param has_hitbox Whether the sprite has a hitbox or not.
  * 
  * @return void
 */
-void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity);
+void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, bool is_visible, bool has_hitbox);
 
 /**
  * @brief Initializes a 16x16 meta sprite.
@@ -66,6 +75,8 @@ void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile
  * @param texture_idx  The meta sprite's texture index.
  * @param x  The meta sprite's x position.
  * @param y  The meta sprite's y position.
+ * @param velocity  The meta sprite's velocity.
+ * @param is_visible  Whether the meta sprite is visible or not.
  * @param tile0  
  * @param tile1 
  * @param tile2 
@@ -73,10 +84,13 @@ void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile
  * 
  * @return void
  */
-void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, uint8_t x, uint8_t y, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
+void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, 
+                    uint8_t x, uint8_t y, uint8_t velocity, bool is_visible, bool has_hitbox, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
 
 /**
  * @brief Changes the meta sprite's texture index.
+ *        If sprite pixel data is used elsewhere, then use pixel_data(). 
+ *        If setup is only function which needs the pixel data array, pass that in directly.
  * 
  * @param meta Pointer to the meta sprite to change.
  * @param texture_idx The new texture index.
@@ -105,6 +119,8 @@ void translate_16x16_meta(MetaSprite16x16 *meta);
 
 /**
  * @brief Loads sprite pixel data, sets initial tile and position.
+ *        If sprite pixel data is used elsewhere, then use pixel_data(). 
+ *        If setup_sprite is only function which needs the pixel data array, pass that in directly.
  * 
  * @param sprite Pointer to the sprite to set up.
  * @param pixels The pixel data char array to load to the sprite.
@@ -166,3 +182,5 @@ uint8_t detect_map_collision(Sprite *sprite, unsigned char *map);
  * 
  */
 uint8_t detect_meta_map_collision(MetaSprite16x16 *meta, unsigned char *map);
+
+#endif // SPRITE_ENGINE_H

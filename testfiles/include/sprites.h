@@ -185,7 +185,7 @@ void setup_sprite(Sprite *s, unsigned char pixels[]) {   // if sprite pixel data
     set_sprite_data(s->init_tile, s->max_tile, pixels);    // (initial tile, final tile, sprite char array)
     set_sprite_tile(s->id, s->init_tile);           // (sprite index, tile), gives sprite its id
     move_sprite(0, s->x, s->y);                // (sprite index, x, y)
-
+    
     SHOW_SPRITES;
 }
 
