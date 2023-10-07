@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/Clean_Up_Crew/include/**",
                 "C:\\gbdk/**"
             ],
             "defines": [

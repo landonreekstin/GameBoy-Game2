@@ -7,7 +7,7 @@
 /***************************************
  * Includes
  * ************************************/
-#include "Player.h"
+#include "../../../include/gameplay/Players/Player.h"
 
 /* Start of tile array. */
 unsigned char PhasmoPlaceholder[] =

@@ -2,13 +2,31 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Rom",
+            "label": "Build Game Boy",
             "type": "shell",
-            "command": "..\\testfiles\\make",
-            "problemMatcher": ["$msCompile"],
+            "command": "make", // Use the "make" command
+            "args": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/Clean_Up_Crew/build/buildscripts"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}/Clean_Up_Crew/build/buildfiles"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
             }
         }
     ]

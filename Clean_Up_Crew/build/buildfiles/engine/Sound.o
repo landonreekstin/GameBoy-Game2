@@ -1,0 +1,95 @@
+;!FILE build/buildfiles/engine/Sound.asm
+XL3
+H 9 areas 41 global symbols
+M Sound
+O -mgbz80
+S _NR10_REG Ref000000
+S _NR11_REG Ref000000
+S .__.ABS. Def000000
+S _NR12_REG Ref000000
+S _NR13_REG Ref000000
+S _NR14_REG Ref000000
+S _NR50_REG Ref000000
+S _NR51_REG Ref000000
+S _NR52_REG Ref000000
+A _CODE size 32 flags 0 addr 0
+S A$Sound$97 Def000015
+S A$Sound$88 Def00000D
+S A$Sound$98 Def000016
+S A$Sound$89 Def00000F
+S A$Sound$99 Def000017
+S G$sound_setup$0$0 Def000000
+S G$play_sound$0$0 Def00000D
+S _sound_setup Def000000
+S _play_sound Def00000D
+S C$Sound.c$20$1_0$100 Def000008
+S C$Sound.c$21$1_0$100 Def00000C
+S A$Sound$100 Def000018
+S C$Sound.c$30$1_0$102 Def000031
+S A$Sound$110 Def000020
+S A$Sound$101 Def000019
+S XG$sound_setup$0$0 Def00000C
+S C$Sound.c$16$0_0$100 Def000000
+S A$Sound$120 Def000028
+S C$Sound.c$23$1_0$102 Def00000D
+S C$Sound.c$25$1_0$102 Def00000D
+S C$Sound.c$18$1_0$100 Def000000
+S A$Sound$114 Def000022
+S A$Sound$105 Def00001B
+S C$Sound.c$26$1_0$102 Def000015
+S C$Sound.c$19$1_0$100 Def000004
+S A$Sound$124 Def00002A
+S A$Sound$115 Def000023
+S A$Sound$106 Def00001C
+S XG$play_sound$0$0 Def000031
+S C$Sound.c$27$1_0$102 Def00001B
+S A$Sound$125 Def00002B
+S A$Sound$116 Def000024
+S A$Sound$107 Def00001D
+S C$Sound.c$28$1_0$102 Def000022
+S A$Sound$126 Def00002C
+S A$Sound$117 Def000025
+S A$Sound$108 Def00001E
+S C$Sound.c$29$1_0$102 Def00002A
+S A$Sound$127 Def00002D
+S A$Sound$118 Def000026
+S A$Sound$109 Def00001F
+S A$Sound$137 Def000031
+S A$Sound$128 Def00002E
+S A$Sound$119 Def000027
+S A$Sound$129 Def00002F
+S A$Sound$61 Def000004
+S A$Sound$62 Def000006
+S A$Sound$90 Def000010
+S A$Sound$91 Def000011
+S A$Sound$92 Def000012
+S A$Sound$56 Def000000
+S A$Sound$93 Def000013
+S A$Sound$75 Def00000C
+S A$Sound$66 Def000008
+S A$Sound$57 Def000002
+S A$Sound$67 Def00000A
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 00
+T 00 00 00 3E 80 E0 00 00 00 3E 77 E0 00 00 00 3E
+R 00 00 00 00 0B 06 08 00 0B 0C 06 00
+T 09 00 00 FF E0 00 00 00 C9
+R 00 00 00 00 0B 05 07 00
+T 0D 00 00
+R 00 00 00 00
+T 0D 00 00 F8 02 2A 4F 46 0A E0 00 00 00 59 50 13
+R 00 00 00 00 0B 0A 00 00
+T 18 00 00 1A E0 00 00 00 59 50 13 13 1A E0
+R 00 00 00 00 0B 05 01 00
+T 21 00 00 00 00 00 59 50 13 13 13 1A E0 00 00 00
+R 00 00 00 00 0B 03 03 00 0B 0D 04 00
+T 2A 00 00 03 03 03 03 0A E0 00 00 00 C9
+R 00 00 00 00 0B 09 05 00

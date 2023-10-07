@@ -42,3 +42,5 @@ void sound_setup(void);
  * @return void
 */
 void play_sound(Sound *s);
+
+#endif // SOUND_H

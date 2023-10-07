@@ -1,7 +1,4 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -9,10 +6,38 @@
             "type": "emulicious-debugger",
             "request": "launch",
             "name": "Launch in Emulicious",
-            "program": "${workspaceFolder}/testfiles/test_builds/rom/game.gb",
+            "program": "${workspaceFolder}/Clean_Up_Crew/build/buildfiles/Clean_Up_Crew.gb", // Modify to the appropriate directory
             "port": 58870,
             "stopOnEntry": false,
-            "preLaunchTask": "./testfiles/old_compile.bat"
+            "preLaunchTask": "Build Game Boy"
+        },
+        {
+            "name": "Build Game Boy",
+            "type": "shell",
+            "command": "make", // Use bash to run Makefile
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/Clean_Up_Crew/build/buildscripts"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}/Clean_Up_Crew/build/buildfiles"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
         }
     ]
 }

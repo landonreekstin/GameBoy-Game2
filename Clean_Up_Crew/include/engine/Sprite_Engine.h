@@ -25,8 +25,8 @@ typedef struct {
   uint8_t x;
   uint8_t y;
   uint8_t velocity;
-  bool    is_visible;
-  bool    has_hitbox;
+  uint8_t is_visible;
+  uint8_t has_hitbox;
 } Sprite;
 
 typedef struct {
@@ -37,8 +37,8 @@ typedef struct {
   uint8_t x;
   uint8_t y;
   uint8_t velocity;
-  bool    is_visible;
-  bool    has_hitbox;
+  uint8_t is_visible;
+  uint8_t has_hitbox;
   Sprite* tile0;
   Sprite* tile1;
   Sprite* tile2;
@@ -61,9 +61,9 @@ typedef struct {
  * @param is_visible Whether the sprite is visible or not.
  * @param has_hitbox Whether the sprite has a hitbox or not.
  * 
- * @return void
+ * @return Sprite* Returns a pointer to the initialized sprite.
 */
-void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, bool is_visible, bool has_hitbox);
+void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox);
 
 /**
  * @brief Initializes a 16x16 meta sprite.
@@ -85,7 +85,7 @@ void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile
  * @return void
  */
 void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, 
-                    uint8_t x, uint8_t y, uint8_t velocity, bool is_visible, bool has_hitbox, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
+                    uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
 
 /**
  * @brief Changes the meta sprite's texture index.

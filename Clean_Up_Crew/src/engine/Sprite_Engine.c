@@ -7,8 +7,8 @@
 /***************************************
  * Includes
  * ************************************/
-#include "Sprite_Engine.h"
-#include "System.h"
+#include "../../include/engine/Sprite_Engine.h"
+#include "../../include/engine/Map_Engine.h"
 
 /***************************************
  * Defines
@@ -27,8 +27,7 @@
 /***************************************
  * Functions
  * ************************************/
-
-void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, bool is_visible, bool has_hitbox)
+void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox)
 {
     sprite->id = id;
     sprite->init_tile = init_tile;
@@ -41,7 +40,7 @@ void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile
 }
 
 void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, 
-                    uint8_t x, uint8_t y, uint8_t velocity, bool is_visible, bool has_hitbox,
+                    uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox,
                     Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3)
 {
     meta->meta_id = meta_id;

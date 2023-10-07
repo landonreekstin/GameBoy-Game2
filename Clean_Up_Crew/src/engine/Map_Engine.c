@@ -7,7 +7,8 @@
 /***************************************
  * Includes
  * ************************************/
-#include "Map_Engine.h"
+#include "../../include/engine/Map_Engine.h"
+#include "../../include/engine/System.h"
 
 /***************************************
  * Functions
@@ -21,8 +22,8 @@ void map_setup(uint8_t* mapTile)
     DISPLAY_ON;
 }
 
-void scroll_map(uint8t scrollSpeed_x, uint8t scrollSpeed_y) 
+void scroll_map(uint8_t scrollSpeed_x, uint8_t scrollSpeed_y) 
 {
     scroll_bkg(scrollSpeed_x, scrollSpeed_y);
-    refresh_delay(1000);
+    cpu_wait(1000);
 }

@@ -1,0 +1,77 @@
+;!FILE build/buildfiles/Clean_Up_Crew.asm
+XL3
+H 9 areas 29 global symbols
+M Clean_Up_Crew
+O -mgbz80
+S .__.ABS. Def000000
+S _render Ref000000
+A _CODE size 12 flags 0 addr 0
+S G$init_game$0$0 Def00000A
+S G$input$0$0 Def000011
+S _main Def000000
+S C$Clean_Up_Crew.c$102$1_0$124 Def00000E
+S C$Clean_Up_Crew.c$100$2_0$125 Def00000B
+S G$game_loop$0$0 Def00000B
+S C$Clean_Up_Crew.c$110$1_0$127 Def000010
+S C$Clean_Up_Crew.c$113$1_0$127 Def000010
+S C$Clean_Up_Crew.c$121$1_0$129 Def000011
+S _init_game Def00000A
+S C$Clean_Up_Crew.c$124$1_0$129 Def000011
+S _input Def000011
+S XG$main$0$0 Def000009
+S A$Clean_Up_Crew$110 Def00000B
+S _game_loop Def00000B
+S G$update$0$0 Def000010
+S C$Clean_Up_Crew.c$70$1_0$121 Def000006
+S C$Clean_Up_Crew.c$62$0_0$121 Def000000
+S C$Clean_Up_Crew.c$71$1_0$121 Def000009
+S A$Clean_Up_Crew$152 Def000011
+S XG$init_game$0$0 Def00000A
+S A$Clean_Up_Crew$135 Def000010
+S A$Clean_Up_Crew$118 Def00000E
+S C$Clean_Up_Crew.c$65$1_0$121 Def000000
+S XG$input$0$0 Def000011
+S C$Clean_Up_Crew.c$92$1_0$124 Def00000B
+S C$Clean_Up_Crew.c$84$1_0$123 Def00000A
+S C$Clean_Up_Crew.c$68$1_0$121 Def000003
+S XG$game_loop$0$0 Def00000E
+S C$Clean_Up_Crew.c$94$1_0$124 Def00000B
+S C$Clean_Up_Crew.c$79$1_0$123 Def00000A
+S _update Def000010
+S A$Clean_Up_Crew$60 Def000000
+S A$Clean_Up_Crew$64 Def000003
+S A$Clean_Up_Crew$93 Def00000A
+S A$Clean_Up_Crew$76 Def000009
+S A$Clean_Up_Crew$68 Def000006
+S XG$update$0$0 Def000010
+S G$main$0$0 Def000000
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 00
+T 00 00 00 CD 0A 00 CD 0B 00 11 00 00 C9
+R 00 00 00 00 00 04 00 00 00 07 00 00
+T 0A 00 00
+R 00 00 00 00
+T 0A 00 00 C9
+R 00 00 00 00
+T 0B 00 00
+R 00 00 00 00
+T 0B 00 00
+R 00 00 00 00
+T 0B 00 00 CD 00 00 18 FB
+R 00 00 00 00 02 04 01 00
+T 10 00 00
+R 00 00 00 00
+T 10 00 00 C9
+R 00 00 00 00
+T 11 00 00
+R 00 00 00 00
+T 11 00 00 C9
+R 00 00 00 00

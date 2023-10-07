@@ -37,6 +37,6 @@ void map_setup(uint8_t* mapTile);
  * 
  * @return void
  */
-void scroll_map(uint8t scrollSpeed_x, uint8t scrollSpeed_y);
+void scroll_map(uint8_t scrollSpeed_x, uint8_t scrollSpeed_y);
 
 #endif // MAP_ENGINE_H
