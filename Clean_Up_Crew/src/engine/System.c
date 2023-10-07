@@ -12,7 +12,7 @@
 /***************************************
  * Functions
  * ************************************/
-void cpu_wait(uint8_t ms)
+void cpu_wait(uint16_t ms)
 {
     uint32_t numloops = (ms / 1000) * 60;
     uint8_t i;

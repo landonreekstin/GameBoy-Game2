@@ -1,0 +1,2233 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.6 #12539 (MINGW32)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module Sprite_Engine
+                                      6 	.optsdcc -mgbz80
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _animate_sprite
+                                     12 	.globl _cpu_wait
+                                     13 	.globl _set_sprite_data
+                                     14 	.globl _joypad
+                                     15 	.globl _delay
+                                     16 	.globl _init_sprite
+                                     17 	.globl _init_16x16_meta
+                                     18 	.globl _setup_sprite
+                                     19 	.globl _setup_16x16_meta
+                                     20 	.globl _change_sprite_tile
+                                     21 	.globl _translate_sprite
+                                     22 	.globl _translate_16x16_meta
+                                     23 ;--------------------------------------------------------
+                                     24 ; special function registers
+                                     25 ;--------------------------------------------------------
+                                     26 ;--------------------------------------------------------
+                                     27 ; ram data
+                                     28 ;--------------------------------------------------------
+                                     29 	.area _DATA
+                                     30 ;--------------------------------------------------------
+                                     31 ; ram data
+                                     32 ;--------------------------------------------------------
+                                     33 	.area _INITIALIZED
+                                     34 ;--------------------------------------------------------
+                                     35 ; absolute external ram data
+                                     36 ;--------------------------------------------------------
+                                     37 	.area _DABS (ABS)
+                                     38 ;--------------------------------------------------------
+                                     39 ; global & static initialisations
+                                     40 ;--------------------------------------------------------
+                                     41 	.area _HOME
+                                     42 	.area _GSINIT
+                                     43 	.area _GSFINAL
+                                     44 	.area _GSINIT
+                                     45 ;--------------------------------------------------------
+                                     46 ; Home
+                                     47 ;--------------------------------------------------------
+                                     48 	.area _HOME
+                                     49 	.area _HOME
+                                     50 ;--------------------------------------------------------
+                                     51 ; code
+                                     52 ;--------------------------------------------------------
+                                     53 	.area _CODE
+                           000000    54 	G$init_sprite$0$0	= .
+                                     55 	.globl	G$init_sprite$0$0
+                           000000    56 	C$Sprite_Engine.c$31$0_0$114	= .
+                                     57 	.globl	C$Sprite_Engine.c$31$0_0$114
+                                     58 ;src/engine/Sprite_Engine.c:31: void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox)
+                                     59 ;	---------------------------------
+                                     60 ; Function init_sprite
+                                     61 ; ---------------------------------
+      000000                         62 _init_sprite::
+                           000000    63 	C$Sprite_Engine.c$33$1_0$114	= .
+                                     64 	.globl	C$Sprite_Engine.c$33$1_0$114
+                                     65 ;src/engine/Sprite_Engine.c:33: sprite->id = id;
+      000000 F8 02                   66 	ldhl	sp,	#2
+      000002 2A                      67 	ld	a, (hl+)
+      000003 4F                      68 	ld	c, a
+      000004 2A                      69 	ld	a, (hl+)
+      000005 47                      70 	ld	b, a
+                           000006    71 	C$Sprite_Engine.c$34$1_0$114	= .
+                                     72 	.globl	C$Sprite_Engine.c$34$1_0$114
+                                     73 ;src/engine/Sprite_Engine.c:34: sprite->init_tile = init_tile;
+      000006 2A                      74 	ld	a, (hl+)
+      000007 02                      75 	ld	(bc), a
+      000008 59                      76 	ld	e, c
+      000009 50                      77 	ld	d, b
+      00000A 13                      78 	inc	de
+                           00000B    79 	C$Sprite_Engine.c$35$1_0$114	= .
+                                     80 	.globl	C$Sprite_Engine.c$35$1_0$114
+                                     81 ;src/engine/Sprite_Engine.c:35: sprite->max_tile = max_tile;
+      00000B 2A                      82 	ld	a, (hl+)
+      00000C 12                      83 	ld	(de), a
+      00000D 59                      84 	ld	e, c
+      00000E 50                      85 	ld	d, b
+      00000F 13                      86 	inc	de
+      000010 13                      87 	inc	de
+                           000011    88 	C$Sprite_Engine.c$36$1_0$114	= .
+                                     89 	.globl	C$Sprite_Engine.c$36$1_0$114
+                                     90 ;src/engine/Sprite_Engine.c:36: sprite->x = x;
+      000011 2A                      91 	ld	a, (hl+)
+      000012 12                      92 	ld	(de), a
+      000013 59                      93 	ld	e, c
+      000014 50                      94 	ld	d, b
+      000015 13                      95 	inc	de
+      000016 13                      96 	inc	de
+      000017 13                      97 	inc	de
+      000018 7E                      98 	ld	a, (hl)
+      000019 12                      99 	ld	(de), a
+                           00001A   100 	C$Sprite_Engine.c$37$1_0$114	= .
+                                    101 	.globl	C$Sprite_Engine.c$37$1_0$114
+                                    102 ;src/engine/Sprite_Engine.c:37: sprite->y = y;
+      00001A 21 04 00               103 	ld	hl, #0x0004
+      00001D 09                     104 	add	hl, bc
+      00001E 5D                     105 	ld	e, l
+      00001F 54                     106 	ld	d, h
+      000020 F8 08                  107 	ldhl	sp,	#8
+      000022 7E                     108 	ld	a, (hl)
+      000023 12                     109 	ld	(de), a
+                           000024   110 	C$Sprite_Engine.c$38$1_0$114	= .
+                                    111 	.globl	C$Sprite_Engine.c$38$1_0$114
+                                    112 ;src/engine/Sprite_Engine.c:38: sprite->velocity = velocity;
+      000024 21 05 00               113 	ld	hl, #0x0005
+      000027 09                     114 	add	hl, bc
+      000028 5D                     115 	ld	e, l
+      000029 54                     116 	ld	d, h
+      00002A F8 09                  117 	ldhl	sp,	#9
+      00002C 7E                     118 	ld	a, (hl)
+      00002D 12                     119 	ld	(de), a
+                           00002E   120 	C$Sprite_Engine.c$39$1_0$114	= .
+                                    121 	.globl	C$Sprite_Engine.c$39$1_0$114
+                                    122 ;src/engine/Sprite_Engine.c:39: sprite->is_visible = is_visible;
+      00002E 21 06 00               123 	ld	hl, #0x0006
+      000031 09                     124 	add	hl, bc
+      000032 5D                     125 	ld	e, l
+      000033 54                     126 	ld	d, h
+      000034 F8 0A                  127 	ldhl	sp,	#10
+      000036 7E                     128 	ld	a, (hl)
+      000037 12                     129 	ld	(de), a
+                           000038   130 	C$Sprite_Engine.c$40$1_0$114	= .
+                                    131 	.globl	C$Sprite_Engine.c$40$1_0$114
+                                    132 ;src/engine/Sprite_Engine.c:40: sprite->has_hitbox = has_hitbox;
+      000038 21 07 00               133 	ld	hl, #0x0007
+      00003B 09                     134 	add	hl, bc
+      00003C 4D                     135 	ld	c, l
+      00003D 44                     136 	ld	b, h
+      00003E F8 0B                  137 	ldhl	sp,	#11
+      000040 7E                     138 	ld	a, (hl)
+      000041 02                     139 	ld	(bc), a
+                           000042   140 	C$Sprite_Engine.c$41$1_0$114	= .
+                                    141 	.globl	C$Sprite_Engine.c$41$1_0$114
+                                    142 ;src/engine/Sprite_Engine.c:41: }
+                           000042   143 	C$Sprite_Engine.c$41$1_0$114	= .
+                                    144 	.globl	C$Sprite_Engine.c$41$1_0$114
+                           000042   145 	XG$init_sprite$0$0	= .
+                                    146 	.globl	XG$init_sprite$0$0
+      000042 C9                     147 	ret
+                           000043   148 	G$init_16x16_meta$0$0	= .
+                                    149 	.globl	G$init_16x16_meta$0$0
+                           000043   150 	C$Sprite_Engine.c$43$1_0$116	= .
+                                    151 	.globl	C$Sprite_Engine.c$43$1_0$116
+                                    152 ;src/engine/Sprite_Engine.c:43: void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, 
+                                    153 ;	---------------------------------
+                                    154 ; Function init_16x16_meta
+                                    155 ; ---------------------------------
+      000043                        156 _init_16x16_meta::
+      000043 E8 F8                  157 	add	sp, #-8
+                           000045   158 	C$Sprite_Engine.c$47$1_0$116	= .
+                                    159 	.globl	C$Sprite_Engine.c$47$1_0$116
+                                    160 ;src/engine/Sprite_Engine.c:47: meta->meta_id = meta_id;
+      000045 F8 0A                  161 	ldhl	sp,	#10
+      000047 2A                     162 	ld	a, (hl+)
+      000048 4F                     163 	ld	c, a
+      000049 2A                     164 	ld	a, (hl+)
+      00004A 47                     165 	ld	b, a
+                           00004B   166 	C$Sprite_Engine.c$48$1_0$116	= .
+                                    167 	.globl	C$Sprite_Engine.c$48$1_0$116
+                                    168 ;src/engine/Sprite_Engine.c:48: meta->init_tile = init_tile;
+      00004B 2A                     169 	ld	a, (hl+)
+      00004C 02                     170 	ld	(bc), a
+      00004D 59                     171 	ld	e, c
+      00004E 50                     172 	ld	d, b
+      00004F 13                     173 	inc	de
+                           000050   174 	C$Sprite_Engine.c$49$1_0$116	= .
+                                    175 	.globl	C$Sprite_Engine.c$49$1_0$116
+                                    176 ;src/engine/Sprite_Engine.c:49: meta->max_tile = max_tile;
+      000050 2A                     177 	ld	a, (hl+)
+      000051 12                     178 	ld	(de), a
+      000052 59                     179 	ld	e, c
+      000053 50                     180 	ld	d, b
+      000054 13                     181 	inc	de
+      000055 13                     182 	inc	de
+                           000056   183 	C$Sprite_Engine.c$50$1_0$116	= .
+                                    184 	.globl	C$Sprite_Engine.c$50$1_0$116
+                                    185 ;src/engine/Sprite_Engine.c:50: meta->texture_idx = texture_idx;
+      000056 2A                     186 	ld	a, (hl+)
+      000057 12                     187 	ld	(de), a
+      000058 59                     188 	ld	e, c
+      000059 50                     189 	ld	d, b
+      00005A 13                     190 	inc	de
+      00005B 13                     191 	inc	de
+      00005C 13                     192 	inc	de
+      00005D 7E                     193 	ld	a, (hl)
+      00005E 12                     194 	ld	(de), a
+                           00005F   195 	C$Sprite_Engine.c$51$1_0$116	= .
+                                    196 	.globl	C$Sprite_Engine.c$51$1_0$116
+                                    197 ;src/engine/Sprite_Engine.c:51: meta->x = x;
+      00005F 21 04 00               198 	ld	hl, #0x0004
+      000062 09                     199 	add	hl, bc
+      000063 5D                     200 	ld	e, l
+      000064 54                     201 	ld	d, h
+      000065 F8 10                  202 	ldhl	sp,	#16
+      000067 7E                     203 	ld	a, (hl)
+      000068 12                     204 	ld	(de), a
+                           000069   205 	C$Sprite_Engine.c$52$1_0$116	= .
+                                    206 	.globl	C$Sprite_Engine.c$52$1_0$116
+                                    207 ;src/engine/Sprite_Engine.c:52: meta->y = y;
+      000069 21 05 00               208 	ld	hl, #0x0005
+      00006C 09                     209 	add	hl, bc
+      00006D 5D                     210 	ld	e, l
+      00006E 54                     211 	ld	d, h
+      00006F F8 11                  212 	ldhl	sp,	#17
+      000071 7E                     213 	ld	a, (hl)
+      000072 12                     214 	ld	(de), a
+                           000073   215 	C$Sprite_Engine.c$53$1_0$116	= .
+                                    216 	.globl	C$Sprite_Engine.c$53$1_0$116
+                                    217 ;src/engine/Sprite_Engine.c:53: meta->velocity = velocity;
+      000073 21 06 00               218 	ld	hl, #0x0006
+      000076 09                     219 	add	hl, bc
+      000077 5D                     220 	ld	e, l
+      000078 54                     221 	ld	d, h
+      000079 F8 12                  222 	ldhl	sp,	#18
+      00007B 7E                     223 	ld	a, (hl)
+      00007C 12                     224 	ld	(de), a
+                           00007D   225 	C$Sprite_Engine.c$54$1_0$116	= .
+                                    226 	.globl	C$Sprite_Engine.c$54$1_0$116
+                                    227 ;src/engine/Sprite_Engine.c:54: meta->is_visible = is_visible;
+      00007D 21 07 00               228 	ld	hl, #0x0007
+      000080 09                     229 	add	hl, bc
+      000081 5D                     230 	ld	e, l
+      000082 54                     231 	ld	d, h
+      000083 F8 13                  232 	ldhl	sp,	#19
+      000085 7E                     233 	ld	a, (hl)
+      000086 12                     234 	ld	(de), a
+                           000087   235 	C$Sprite_Engine.c$55$1_0$116	= .
+                                    236 	.globl	C$Sprite_Engine.c$55$1_0$116
+                                    237 ;src/engine/Sprite_Engine.c:55: meta->has_hitbox = has_hitbox;
+      000087 21 08 00               238 	ld	hl, #0x0008
+      00008A 09                     239 	add	hl, bc
+      00008B 5D                     240 	ld	e, l
+      00008C 54                     241 	ld	d, h
+      00008D F8 14                  242 	ldhl	sp,	#20
+      00008F 7E                     243 	ld	a, (hl)
+      000090 12                     244 	ld	(de), a
+                           000091   245 	C$Sprite_Engine.c$58$1_0$116	= .
+                                    246 	.globl	C$Sprite_Engine.c$58$1_0$116
+                                    247 ;src/engine/Sprite_Engine.c:58: meta->tile0 = tile0;
+      000091 21 09 00               248 	ld	hl, #0x0009
+      000094 09                     249 	add	hl, bc
+      000095 5D                     250 	ld	e, l
+      000096 54                     251 	ld	d, h
+      000097 F8 15                  252 	ldhl	sp,	#21
+      000099 2A                     253 	ld	a, (hl+)
+      00009A 12                     254 	ld	(de), a
+      00009B 13                     255 	inc	de
+      00009C 7E                     256 	ld	a, (hl)
+      00009D 12                     257 	ld	(de), a
+                           00009E   258 	C$Sprite_Engine.c$59$1_0$116	= .
+                                    259 	.globl	C$Sprite_Engine.c$59$1_0$116
+                                    260 ;src/engine/Sprite_Engine.c:59: meta->tile1 = tile1;
+      00009E 21 0B 00               261 	ld	hl, #0x000b
+      0000A1 09                     262 	add	hl, bc
+      0000A2 33                     263 	inc	sp
+      0000A3 33                     264 	inc	sp
+      0000A4 5D                     265 	ld	e, l
+      0000A5 54                     266 	ld	d, h
+      0000A6 D5                     267 	push	de
+      0000A7 F8 17                  268 	ldhl	sp,	#23
+      0000A9 2A                     269 	ld	a, (hl+)
+      0000AA 12                     270 	ld	(de), a
+      0000AB 13                     271 	inc	de
+      0000AC 7E                     272 	ld	a, (hl)
+      0000AD 12                     273 	ld	(de), a
+                           0000AE   274 	C$Sprite_Engine.c$60$1_0$116	= .
+                                    275 	.globl	C$Sprite_Engine.c$60$1_0$116
+                                    276 ;src/engine/Sprite_Engine.c:60: meta->tile2 = tile2;
+      0000AE 21 0D 00               277 	ld	hl, #0x000d
+      0000B1 09                     278 	add	hl, bc
+      0000B2 E5                     279 	push	hl
+      0000B3 7D                     280 	ld	a, l
+      0000B4 F8 04                  281 	ldhl	sp,	#4
+      0000B6 77                     282 	ld	(hl), a
+      0000B7 E1                     283 	pop	hl
+      0000B8 7C                     284 	ld	a, h
+      0000B9 F8 03                  285 	ldhl	sp,	#3
+      0000BB 32                     286 	ld	(hl-), a
+      0000BC 2A                     287 	ld	a, (hl+)
+      0000BD 5F                     288 	ld	e, a
+      0000BE 56                     289 	ld	d, (hl)
+      0000BF F8 19                  290 	ldhl	sp,	#25
+      0000C1 2A                     291 	ld	a, (hl+)
+      0000C2 12                     292 	ld	(de), a
+      0000C3 13                     293 	inc	de
+      0000C4 7E                     294 	ld	a, (hl)
+      0000C5 12                     295 	ld	(de), a
+                           0000C6   296 	C$Sprite_Engine.c$61$1_0$116	= .
+                                    297 	.globl	C$Sprite_Engine.c$61$1_0$116
+                                    298 ;src/engine/Sprite_Engine.c:61: meta->tile3 = tile3;
+      0000C6 21 0F 00               299 	ld	hl, #0x000f
+      0000C9 09                     300 	add	hl, bc
+      0000CA E5                     301 	push	hl
+      0000CB 7D                     302 	ld	a, l
+      0000CC F8 06                  303 	ldhl	sp,	#6
+      0000CE 77                     304 	ld	(hl), a
+      0000CF E1                     305 	pop	hl
+      0000D0 7C                     306 	ld	a, h
+      0000D1 F8 05                  307 	ldhl	sp,	#5
+      0000D3 32                     308 	ld	(hl-), a
+      0000D4 2A                     309 	ld	a, (hl+)
+      0000D5 5F                     310 	ld	e, a
+      0000D6 56                     311 	ld	d, (hl)
+      0000D7 F8 1B                  312 	ldhl	sp,	#27
+      0000D9 2A                     313 	ld	a, (hl+)
+      0000DA 12                     314 	ld	(de), a
+      0000DB 13                     315 	inc	de
+      0000DC 7E                     316 	ld	a, (hl)
+      0000DD 12                     317 	ld	(de), a
+                           0000DE   318 	C$Sprite_Engine.c$64$1_0$116	= .
+                                    319 	.globl	C$Sprite_Engine.c$64$1_0$116
+                                    320 ;src/engine/Sprite_Engine.c:64: meta->tile0->id = meta->meta_id;
+      0000DE F8 15                  321 	ldhl	sp,	#21
+      0000E0 2A                     322 	ld	a, (hl+)
+      0000E1 4F                     323 	ld	c, a
+      0000E2 46                     324 	ld	b, (hl)
+      0000E3 F8 0C                  325 	ldhl	sp,	#12
+      0000E5 7E                     326 	ld	a, (hl)
+      0000E6 02                     327 	ld	(bc), a
+                           0000E7   328 	C$Sprite_Engine.c$65$1_0$116	= .
+                                    329 	.globl	C$Sprite_Engine.c$65$1_0$116
+                                    330 ;src/engine/Sprite_Engine.c:65: meta->tile1->id = meta->meta_id + 1;
+      0000E7 F8 17                  331 	ldhl	sp,	#23
+      0000E9 2A                     332 	ld	a, (hl+)
+      0000EA 4F                     333 	ld	c, a
+      0000EB 46                     334 	ld	b, (hl)
+      0000EC F8 0C                  335 	ldhl	sp,	#12
+      0000EE 5E                     336 	ld	e, (hl)
+      0000EF 7B                     337 	ld	a, e
+      0000F0 3C                     338 	inc	a
+      0000F1 02                     339 	ld	(bc), a
+                           0000F2   340 	C$Sprite_Engine.c$66$1_0$116	= .
+                                    341 	.globl	C$Sprite_Engine.c$66$1_0$116
+                                    342 ;src/engine/Sprite_Engine.c:66: meta->tile2->id = meta->meta_id + 2;
+      0000F2 F8 19                  343 	ldhl	sp,	#25
+      0000F4 2A                     344 	ld	a, (hl+)
+      0000F5 4F                     345 	ld	c, a
+                           0000F6   346 	C$Sprite_Engine.c$67$1_0$116	= .
+                                    347 	.globl	C$Sprite_Engine.c$67$1_0$116
+                                    348 ;src/engine/Sprite_Engine.c:67: meta->tile3->id = meta->meta_id + 3;
+      0000F6 2A                     349 	ld	a, (hl+)
+      0000F7 47                     350 	ld	b, a
+      0000F8 7B                     351 	ld	a, e
+      0000F9 3C                     352 	inc	a
+      0000FA 3C                     353 	inc	a
+      0000FB 02                     354 	ld	(bc), a
+      0000FC 2A                     355 	ld	a, (hl+)
+      0000FD 4F                     356 	ld	c, a
+      0000FE 46                     357 	ld	b, (hl)
+      0000FF 7B                     358 	ld	a, e
+      000100 3C                     359 	inc	a
+      000101 3C                     360 	inc	a
+      000102 3C                     361 	inc	a
+      000103 02                     362 	ld	(bc), a
+                           000104   363 	C$Sprite_Engine.c$70$1_0$116	= .
+                                    364 	.globl	C$Sprite_Engine.c$70$1_0$116
+                                    365 ;src/engine/Sprite_Engine.c:70: meta->tile0->init_tile = (meta->init_tile * meta->texture_idx);
+      000104 F8 15                  366 	ldhl	sp,	#21
+      000106 2A                     367 	ld	a, (hl+)
+      000107 4F                     368 	ld	c, a
+      000108 46                     369 	ld	b, (hl)
+      000109 03                     370 	inc	bc
+      00010A C5                     371 	push	bc
+      00010B F8 11                  372 	ldhl	sp,	#17
+      00010D 3A                     373 	ld	a, (hl-)
+      00010E 2B                     374 	dec	hl
+      00010F F5                     375 	push	af
+      000110 33                     376 	inc	sp
+      000111 7E                     377 	ld	a, (hl)
+      000112 F5                     378 	push	af
+      000113 33                     379 	inc	sp
+      000114 CDr00r00               380 	call	__muluchar
+      000117 E1                     381 	pop	hl
+      000118 F8 09                  382 	ldhl	sp,	#9
+      00011A 73                     383 	ld	(hl), e
+      00011B C1                     384 	pop	bc
+      00011C F8 07                  385 	ldhl	sp,	#7
+      00011E 7E                     386 	ld	a, (hl)
+      00011F 02                     387 	ld	(bc), a
+                           000120   388 	C$Sprite_Engine.c$71$1_0$116	= .
+                                    389 	.globl	C$Sprite_Engine.c$71$1_0$116
+                                    390 ;src/engine/Sprite_Engine.c:71: meta->tile1->init_tile = (meta->init_tile * meta->texture_idx) + 1;
+      000120 F8 17                  391 	ldhl	sp,	#23
+      000122 2A                     392 	ld	a, (hl+)
+      000123 4F                     393 	ld	c, a
+      000124 46                     394 	ld	b, (hl)
+      000125 03                     395 	inc	bc
+      000126 F8 07                  396 	ldhl	sp,	#7
+      000128 5E                     397 	ld	e, (hl)
+      000129 7B                     398 	ld	a, e
+      00012A 3C                     399 	inc	a
+      00012B 02                     400 	ld	(bc), a
+                           00012C   401 	C$Sprite_Engine.c$72$1_0$116	= .
+                                    402 	.globl	C$Sprite_Engine.c$72$1_0$116
+                                    403 ;src/engine/Sprite_Engine.c:72: meta->tile2->init_tile = (meta->init_tile * meta->texture_idx) + 2;
+      00012C F8 19                  404 	ldhl	sp,	#25
+      00012E 2A                     405 	ld	a, (hl+)
+      00012F 4F                     406 	ld	c, a
+                           000130   407 	C$Sprite_Engine.c$73$1_0$116	= .
+                                    408 	.globl	C$Sprite_Engine.c$73$1_0$116
+                                    409 ;src/engine/Sprite_Engine.c:73: meta->tile3->init_tile = (meta->init_tile * meta->texture_idx) + 3;
+      000130 2A                     410 	ld	a, (hl+)
+      000131 47                     411 	ld	b, a
+      000132 03                     412 	inc	bc
+      000133 7B                     413 	ld	a, e
+      000134 3C                     414 	inc	a
+      000135 3C                     415 	inc	a
+      000136 02                     416 	ld	(bc), a
+      000137 2A                     417 	ld	a, (hl+)
+      000138 4F                     418 	ld	c, a
+      000139 46                     419 	ld	b, (hl)
+      00013A 03                     420 	inc	bc
+      00013B 7B                     421 	ld	a, e
+      00013C 3C                     422 	inc	a
+      00013D 3C                     423 	inc	a
+      00013E 3C                     424 	inc	a
+      00013F 02                     425 	ld	(bc), a
+                           000140   426 	C$Sprite_Engine.c$76$1_0$116	= .
+                                    427 	.globl	C$Sprite_Engine.c$76$1_0$116
+                                    428 ;src/engine/Sprite_Engine.c:76: meta->tile0->max_tile = (meta->max_tile * meta->texture_idx);
+      000140 F8 15                  429 	ldhl	sp,	#21
+      000142 2A                     430 	ld	a, (hl+)
+      000143 5F                     431 	ld	e, a
+      000144 56                     432 	ld	d, (hl)
+      000145 13                     433 	inc	de
+      000146 13                     434 	inc	de
+      000147 D5                     435 	push	de
+      000148 F8 11                  436 	ldhl	sp,	#17
+      00014A 3A                     437 	ld	a, (hl-)
+      00014B 57                     438 	ld	d, a
+      00014C 5E                     439 	ld	e, (hl)
+      00014D D5                     440 	push	de
+      00014E CDr00r00               441 	call	__muluchar
+      000151 E1                     442 	pop	hl
+      000152 43                     443 	ld	b, e
+      000153 D1                     444 	pop	de
+      000154 78                     445 	ld	a, b
+      000155 12                     446 	ld	(de), a
+                           000156   447 	C$Sprite_Engine.c$77$1_0$116	= .
+                                    448 	.globl	C$Sprite_Engine.c$77$1_0$116
+                                    449 ;src/engine/Sprite_Engine.c:77: meta->tile1->max_tile = (meta->max_tile * meta->texture_idx) + 1;
+      000156 F8 17                  450 	ldhl	sp,	#23
+      000158 2A                     451 	ld	a, (hl+)
+      000159 5F                     452 	ld	e, a
+                           00015A   453 	C$Sprite_Engine.c$78$1_0$116	= .
+                                    454 	.globl	C$Sprite_Engine.c$78$1_0$116
+                                    455 ;src/engine/Sprite_Engine.c:78: meta->tile2->max_tile = (meta->max_tile * meta->texture_idx) + 2;
+      00015A 2A                     456 	ld	a, (hl+)
+      00015B 57                     457 	ld	d, a
+      00015C 13                     458 	inc	de
+      00015D 13                     459 	inc	de
+      00015E 48                     460 	ld	c, b
+      00015F 79                     461 	ld	a, c
+      000160 3C                     462 	inc	a
+      000161 12                     463 	ld	(de), a
+      000162 2A                     464 	ld	a, (hl+)
+      000163 5F                     465 	ld	e, a
+                           000164   466 	C$Sprite_Engine.c$79$1_0$116	= .
+                                    467 	.globl	C$Sprite_Engine.c$79$1_0$116
+                                    468 ;src/engine/Sprite_Engine.c:79: meta->tile3->max_tile = (meta->max_tile * meta->texture_idx) + 3;
+      000164 2A                     469 	ld	a, (hl+)
+      000165 57                     470 	ld	d, a
+      000166 13                     471 	inc	de
+      000167 13                     472 	inc	de
+      000168 79                     473 	ld	a, c
+      000169 3C                     474 	inc	a
+      00016A 3C                     475 	inc	a
+      00016B 12                     476 	ld	(de), a
+      00016C 2A                     477 	ld	a, (hl+)
+      00016D 5F                     478 	ld	e, a
+      00016E 56                     479 	ld	d, (hl)
+      00016F 13                     480 	inc	de
+      000170 13                     481 	inc	de
+      000171 79                     482 	ld	a, c
+      000172 3C                     483 	inc	a
+      000173 3C                     484 	inc	a
+      000174 3C                     485 	inc	a
+      000175 12                     486 	ld	(de), a
+                           000176   487 	C$Sprite_Engine.c$82$1_0$116	= .
+                                    488 	.globl	C$Sprite_Engine.c$82$1_0$116
+                                    489 ;src/engine/Sprite_Engine.c:82: meta->tile0->x = meta->x;
+      000176 F8 15                  490 	ldhl	sp,	#21
+      000178 2A                     491 	ld	a, (hl+)
+      000179 5F                     492 	ld	e, a
+      00017A 56                     493 	ld	d, (hl)
+      00017B 13                     494 	inc	de
+      00017C 13                     495 	inc	de
+      00017D 13                     496 	inc	de
+      00017E F8 10                  497 	ldhl	sp,	#16
+      000180 7E                     498 	ld	a, (hl)
+      000181 12                     499 	ld	(de), a
+                           000182   500 	C$Sprite_Engine.c$83$1_0$116	= .
+                                    501 	.globl	C$Sprite_Engine.c$83$1_0$116
+                                    502 ;src/engine/Sprite_Engine.c:83: meta->tile1->x = meta->x + SPRITE_SIZE;
+      000182 F8 17                  503 	ldhl	sp,	#23
+      000184 2A                     504 	ld	a, (hl+)
+      000185 5F                     505 	ld	e, a
+      000186 56                     506 	ld	d, (hl)
+      000187 13                     507 	inc	de
+      000188 13                     508 	inc	de
+      000189 13                     509 	inc	de
+      00018A F8 10                  510 	ldhl	sp,	#16
+      00018C 7E                     511 	ld	a, (hl)
+      00018D C6 08                  512 	add	a, #0x08
+      00018F 4F                     513 	ld	c, a
+      000190 12                     514 	ld	(de), a
+                           000191   515 	C$Sprite_Engine.c$84$1_0$116	= .
+                                    516 	.globl	C$Sprite_Engine.c$84$1_0$116
+                                    517 ;src/engine/Sprite_Engine.c:84: meta->tile2->x = meta->x;
+      000191 F8 19                  518 	ldhl	sp,	#25
+      000193 2A                     519 	ld	a, (hl+)
+      000194 5F                     520 	ld	e, a
+      000195 56                     521 	ld	d, (hl)
+      000196 13                     522 	inc	de
+      000197 13                     523 	inc	de
+      000198 13                     524 	inc	de
+      000199 F8 10                  525 	ldhl	sp,	#16
+      00019B 7E                     526 	ld	a, (hl)
+      00019C 12                     527 	ld	(de), a
+                           00019D   528 	C$Sprite_Engine.c$85$1_0$116	= .
+                                    529 	.globl	C$Sprite_Engine.c$85$1_0$116
+                                    530 ;src/engine/Sprite_Engine.c:85: meta->tile3->x = meta->x + SPRITE_SIZE;
+      00019D F8 1B                  531 	ldhl	sp,	#27
+      00019F 2A                     532 	ld	a, (hl+)
+      0001A0 5F                     533 	ld	e, a
+      0001A1 56                     534 	ld	d, (hl)
+      0001A2 13                     535 	inc	de
+      0001A3 13                     536 	inc	de
+      0001A4 13                     537 	inc	de
+      0001A5 79                     538 	ld	a, c
+      0001A6 12                     539 	ld	(de), a
+                           0001A7   540 	C$Sprite_Engine.c$88$1_0$116	= .
+                                    541 	.globl	C$Sprite_Engine.c$88$1_0$116
+                                    542 ;src/engine/Sprite_Engine.c:88: meta->tile0->y = meta->y;
+      0001A7 F8 15                  543 	ldhl	sp,#21
+      0001A9 2A                     544 	ld	a, (hl+)
+      0001AA 5F                     545 	ld	e, a
+      0001AB 56                     546 	ld	d, (hl)
+      0001AC 21 04 00               547 	ld	hl, #0x0004
+      0001AF 19                     548 	add	hl, de
+      0001B0 5D                     549 	ld	e, l
+      0001B1 54                     550 	ld	d, h
+      0001B2 F8 11                  551 	ldhl	sp,	#17
+      0001B4 7E                     552 	ld	a, (hl)
+      0001B5 12                     553 	ld	(de), a
+                           0001B6   554 	C$Sprite_Engine.c$89$1_0$116	= .
+                                    555 	.globl	C$Sprite_Engine.c$89$1_0$116
+                                    556 ;src/engine/Sprite_Engine.c:89: meta->tile1->y = meta->y;
+      0001B6 F8 17                  557 	ldhl	sp,#23
+      0001B8 2A                     558 	ld	a, (hl+)
+      0001B9 5F                     559 	ld	e, a
+      0001BA 56                     560 	ld	d, (hl)
+      0001BB 21 04 00               561 	ld	hl, #0x0004
+      0001BE 19                     562 	add	hl, de
+      0001BF 5D                     563 	ld	e, l
+      0001C0 54                     564 	ld	d, h
+      0001C1 F8 11                  565 	ldhl	sp,	#17
+      0001C3 7E                     566 	ld	a, (hl)
+      0001C4 12                     567 	ld	(de), a
+                           0001C5   568 	C$Sprite_Engine.c$90$1_0$116	= .
+                                    569 	.globl	C$Sprite_Engine.c$90$1_0$116
+                                    570 ;src/engine/Sprite_Engine.c:90: meta->tile2->y = meta->y + SPRITE_SIZE;
+      0001C5 F8 19                  571 	ldhl	sp,#25
+      0001C7 2A                     572 	ld	a, (hl+)
+      0001C8 5F                     573 	ld	e, a
+      0001C9 56                     574 	ld	d, (hl)
+      0001CA 21 04 00               575 	ld	hl, #0x0004
+      0001CD 19                     576 	add	hl, de
+      0001CE 5D                     577 	ld	e, l
+      0001CF 54                     578 	ld	d, h
+      0001D0 F8 11                  579 	ldhl	sp,	#17
+      0001D2 7E                     580 	ld	a, (hl)
+      0001D3 C6 08                  581 	add	a, #0x08
+      0001D5 4F                     582 	ld	c, a
+      0001D6 12                     583 	ld	(de), a
+                           0001D7   584 	C$Sprite_Engine.c$91$1_0$116	= .
+                                    585 	.globl	C$Sprite_Engine.c$91$1_0$116
+                                    586 ;src/engine/Sprite_Engine.c:91: meta->tile3->y = meta->y + SPRITE_SIZE;
+      0001D7 F8 1B                  587 	ldhl	sp,#27
+      0001D9 2A                     588 	ld	a, (hl+)
+      0001DA 5F                     589 	ld	e, a
+      0001DB 56                     590 	ld	d, (hl)
+      0001DC 21 04 00               591 	ld	hl, #0x0004
+      0001DF 19                     592 	add	hl, de
+      0001E0 5D                     593 	ld	e, l
+      0001E1 54                     594 	ld	d, h
+      0001E2 79                     595 	ld	a, c
+      0001E3 12                     596 	ld	(de), a
+                           0001E4   597 	C$Sprite_Engine.c$94$1_0$116	= .
+                                    598 	.globl	C$Sprite_Engine.c$94$1_0$116
+                                    599 ;src/engine/Sprite_Engine.c:94: init_sprite(meta->tile0, meta->tile0->id, meta->tile0->init_tile, meta->tile0->max_tile, 
+      0001E4 F8 14                  600 	ldhl	sp,	#20
+      0001E6 3A                     601 	ld	a, (hl-)
+      0001E7 F5                     602 	push	af
+      0001E8 33                     603 	inc	sp
+      0001E9 3A                     604 	ld	a, (hl-)
+      0001EA 2B                     605 	dec	hl
+      0001EB 57                     606 	ld	d, a
+      0001EC 1E 01                  607 	ld	e, #0x01
+      0001EE D5                     608 	push	de
+      0001EF 3A                     609 	ld	a, (hl-)
+      0001F0 57                     610 	ld	d, a
+      0001F1 5E                     611 	ld	e, (hl)
+      0001F2 D5                     612 	push	de
+      0001F3 C5                     613 	push	bc
+      0001F4 33                     614 	inc	sp
+      0001F5 F8 0D                  615 	ldhl	sp,	#13
+      0001F7 7E                     616 	ld	a, (hl)
+      0001F8 F5                     617 	push	af
+      0001F9 33                     618 	inc	sp
+      0001FA F8 13                  619 	ldhl	sp,	#19
+      0001FC 7E                     620 	ld	a, (hl)
+      0001FD F5                     621 	push	af
+      0001FE 33                     622 	inc	sp
+      0001FF F8 1D                  623 	ldhl	sp,	#29
+      000201 2A                     624 	ld	a, (hl+)
+      000202 5F                     625 	ld	e, a
+      000203 56                     626 	ld	d, (hl)
+      000204 D5                     627 	push	de
+      000205 CDr00r00               628 	call	_init_sprite
+      000208 E8 0A                  629 	add	sp, #10
+                           00020A   630 	C$Sprite_Engine.c$97$1_0$116	= .
+                                    631 	.globl	C$Sprite_Engine.c$97$1_0$116
+                                    632 ;src/engine/Sprite_Engine.c:97: meta->tile1->x, meta->tile1->y, DEFAULT_SCROLL_SPEED, is_visible, has_hitbox);
+      00020A D1                     633 	pop	de
+      00020B D5                     634 	push	de
+      00020C 1A                     635 	ld	a, (de)
+      00020D 4F                     636 	ld	c, a
+      00020E 13                     637 	inc	de
+      00020F 1A                     638 	ld	a, (de)
+      000210 47                     639 	ld	b, a
+      000211 21 04 00               640 	ld	hl, #0x0004
+      000214 09                     641 	add	hl, bc
+      000215 7E                     642 	ld	a, (hl)
+      000216 F8 06                  643 	ldhl	sp,	#6
+      000218 77                     644 	ld	(hl), a
+      000219 59                     645 	ld	e, c
+      00021A 50                     646 	ld	d, b
+      00021B 13                     647 	inc	de
+      00021C 13                     648 	inc	de
+      00021D 13                     649 	inc	de
+      00021E 1A                     650 	ld	a, (de)
+      00021F F8 07                  651 	ldhl	sp,	#7
+      000221 77                     652 	ld	(hl), a
+                           000222   653 	C$Sprite_Engine.c$96$1_0$116	= .
+                                    654 	.globl	C$Sprite_Engine.c$96$1_0$116
+                                    655 ;src/engine/Sprite_Engine.c:96: init_sprite(meta->tile1, meta->tile1->id, meta->tile1->init_tile, meta->tile1->max_tile, 
+      000222 69                     656 	ld	l, c
+                                    657 ;	spillPairReg hl
+                                    658 ;	spillPairReg hl
+      000223 60                     659 	ld	h, b
+                                    660 ;	spillPairReg hl
+                                    661 ;	spillPairReg hl
+      000224 23                     662 	inc	hl
+      000225 23                     663 	inc	hl
+      000226 56                     664 	ld	d, (hl)
+      000227 69                     665 	ld	l, c
+                                    666 ;	spillPairReg hl
+                                    667 ;	spillPairReg hl
+      000228 60                     668 	ld	h, b
+                                    669 ;	spillPairReg hl
+                                    670 ;	spillPairReg hl
+      000229 23                     671 	inc	hl
+      00022A 5E                     672 	ld	e, (hl)
+      00022B 0A                     673 	ld	a, (bc)
+      00022C F8 14                  674 	ldhl	sp,	#20
+      00022E 66                     675 	ld	h, (hl)
+                                    676 ;	spillPairReg hl
+                                    677 ;	spillPairReg hl
+      00022F E5                     678 	push	hl
+      000230 33                     679 	inc	sp
+      000231 F8 14                  680 	ldhl	sp,	#20
+      000233 66                     681 	ld	h, (hl)
+                                    682 ;	spillPairReg hl
+                                    683 ;	spillPairReg hl
+      000234 E5                     684 	push	hl
+      000235 33                     685 	inc	sp
+      000236 26 01                  686 	ld	h, #0x01
+                                    687 ;	spillPairReg hl
+                                    688 ;	spillPairReg hl
+      000238 E5                     689 	push	hl
+      000239 33                     690 	inc	sp
+      00023A F8 09                  691 	ldhl	sp,	#9
+      00023C 66                     692 	ld	h, (hl)
+                                    693 ;	spillPairReg hl
+                                    694 ;	spillPairReg hl
+      00023D E5                     695 	push	hl
+      00023E 33                     696 	inc	sp
+      00023F F8 0B                  697 	ldhl	sp,	#11
+      000241 66                     698 	ld	h, (hl)
+                                    699 ;	spillPairReg hl
+                                    700 ;	spillPairReg hl
+      000242 E5                     701 	push	hl
+      000243 33                     702 	inc	sp
+      000244 D5                     703 	push	de
+      000245 33                     704 	inc	sp
+      000246 63                     705 	ld	h, e
+                                    706 ;	spillPairReg hl
+                                    707 ;	spillPairReg hl
+      000247 E5                     708 	push	hl
+      000248 33                     709 	inc	sp
+      000249 F5                     710 	push	af
+      00024A 33                     711 	inc	sp
+      00024B C5                     712 	push	bc
+      00024C CDr00r00               713 	call	_init_sprite
+      00024F E8 0A                  714 	add	sp, #10
+                           000251   715 	C$Sprite_Engine.c$99$1_0$116	= .
+                                    716 	.globl	C$Sprite_Engine.c$99$1_0$116
+                                    717 ;src/engine/Sprite_Engine.c:99: meta->tile2->x, meta->tile2->y, DEFAULT_SCROLL_SPEED, is_visible, has_hitbox);
+      000251 F8 02                  718 	ldhl	sp,#2
+      000253 2A                     719 	ld	a, (hl+)
+      000254 5F                     720 	ld	e, a
+      000255 56                     721 	ld	d, (hl)
+      000256 1A                     722 	ld	a, (de)
+      000257 4F                     723 	ld	c, a
+      000258 13                     724 	inc	de
+      000259 1A                     725 	ld	a, (de)
+      00025A 47                     726 	ld	b, a
+      00025B 21 04 00               727 	ld	hl, #0x0004
+      00025E 09                     728 	add	hl, bc
+      00025F 7E                     729 	ld	a, (hl)
+      000260 F8 06                  730 	ldhl	sp,	#6
+      000262 77                     731 	ld	(hl), a
+      000263 59                     732 	ld	e, c
+      000264 50                     733 	ld	d, b
+      000265 13                     734 	inc	de
+      000266 13                     735 	inc	de
+      000267 13                     736 	inc	de
+      000268 1A                     737 	ld	a, (de)
+      000269 F8 07                  738 	ldhl	sp,	#7
+      00026B 77                     739 	ld	(hl), a
+                           00026C   740 	C$Sprite_Engine.c$98$1_0$116	= .
+                                    741 	.globl	C$Sprite_Engine.c$98$1_0$116
+                                    742 ;src/engine/Sprite_Engine.c:98: init_sprite(meta->tile2, meta->tile2->id, meta->tile2->init_tile, meta->tile2->max_tile, 
+      00026C 69                     743 	ld	l, c
+                                    744 ;	spillPairReg hl
+                                    745 ;	spillPairReg hl
+      00026D 60                     746 	ld	h, b
+                                    747 ;	spillPairReg hl
+                                    748 ;	spillPairReg hl
+      00026E 23                     749 	inc	hl
+      00026F 23                     750 	inc	hl
+      000270 56                     751 	ld	d, (hl)
+      000271 69                     752 	ld	l, c
+                                    753 ;	spillPairReg hl
+                                    754 ;	spillPairReg hl
+      000272 60                     755 	ld	h, b
+                                    756 ;	spillPairReg hl
+                                    757 ;	spillPairReg hl
+      000273 23                     758 	inc	hl
+      000274 5E                     759 	ld	e, (hl)
+      000275 0A                     760 	ld	a, (bc)
+      000276 F8 14                  761 	ldhl	sp,	#20
+      000278 66                     762 	ld	h, (hl)
+                                    763 ;	spillPairReg hl
+                                    764 ;	spillPairReg hl
+      000279 E5                     765 	push	hl
+      00027A 33                     766 	inc	sp
+      00027B F8 14                  767 	ldhl	sp,	#20
+      00027D 66                     768 	ld	h, (hl)
+                                    769 ;	spillPairReg hl
+                                    770 ;	spillPairReg hl
+      00027E E5                     771 	push	hl
+      00027F 33                     772 	inc	sp
+      000280 26 01                  773 	ld	h, #0x01
+                                    774 ;	spillPairReg hl
+                                    775 ;	spillPairReg hl
+      000282 E5                     776 	push	hl
+      000283 33                     777 	inc	sp
+      000284 F8 09                  778 	ldhl	sp,	#9
+      000286 66                     779 	ld	h, (hl)
+                                    780 ;	spillPairReg hl
+                                    781 ;	spillPairReg hl
+      000287 E5                     782 	push	hl
+      000288 33                     783 	inc	sp
+      000289 F8 0B                  784 	ldhl	sp,	#11
+      00028B 66                     785 	ld	h, (hl)
+                                    786 ;	spillPairReg hl
+                                    787 ;	spillPairReg hl
+      00028C E5                     788 	push	hl
+      00028D 33                     789 	inc	sp
+      00028E D5                     790 	push	de
+      00028F 33                     791 	inc	sp
+      000290 63                     792 	ld	h, e
+                                    793 ;	spillPairReg hl
+                                    794 ;	spillPairReg hl
+      000291 E5                     795 	push	hl
+      000292 33                     796 	inc	sp
+      000293 F5                     797 	push	af
+      000294 33                     798 	inc	sp
+      000295 C5                     799 	push	bc
+      000296 CDr00r00               800 	call	_init_sprite
+      000299 E8 0A                  801 	add	sp, #10
+                           00029B   802 	C$Sprite_Engine.c$101$1_0$116	= .
+                                    803 	.globl	C$Sprite_Engine.c$101$1_0$116
+                                    804 ;src/engine/Sprite_Engine.c:101: meta->tile3->x, meta->tile3->y, DEFAULT_SCROLL_SPEED, is_visible, has_hitbox);
+      00029B F8 04                  805 	ldhl	sp,#4
+      00029D 2A                     806 	ld	a, (hl+)
+      00029E 5F                     807 	ld	e, a
+      00029F 56                     808 	ld	d, (hl)
+      0002A0 1A                     809 	ld	a, (de)
+      0002A1 4F                     810 	ld	c, a
+      0002A2 13                     811 	inc	de
+      0002A3 1A                     812 	ld	a, (de)
+      0002A4 47                     813 	ld	b, a
+      0002A5 21 04 00               814 	ld	hl, #0x0004
+      0002A8 09                     815 	add	hl, bc
+      0002A9 7E                     816 	ld	a, (hl)
+      0002AA F8 06                  817 	ldhl	sp,	#6
+      0002AC 77                     818 	ld	(hl), a
+      0002AD 59                     819 	ld	e, c
+      0002AE 50                     820 	ld	d, b
+      0002AF 13                     821 	inc	de
+      0002B0 13                     822 	inc	de
+      0002B1 13                     823 	inc	de
+      0002B2 1A                     824 	ld	a, (de)
+      0002B3 F8 07                  825 	ldhl	sp,	#7
+      0002B5 77                     826 	ld	(hl), a
+                           0002B6   827 	C$Sprite_Engine.c$100$1_0$116	= .
+                                    828 	.globl	C$Sprite_Engine.c$100$1_0$116
+                                    829 ;src/engine/Sprite_Engine.c:100: init_sprite(meta->tile3, meta->tile3->id, meta->tile3->init_tile, meta->tile3->max_tile, 
+      0002B6 69                     830 	ld	l, c
+                                    831 ;	spillPairReg hl
+                                    832 ;	spillPairReg hl
+      0002B7 60                     833 	ld	h, b
+                                    834 ;	spillPairReg hl
+                                    835 ;	spillPairReg hl
+      0002B8 23                     836 	inc	hl
+      0002B9 23                     837 	inc	hl
+      0002BA 56                     838 	ld	d, (hl)
+      0002BB 69                     839 	ld	l, c
+                                    840 ;	spillPairReg hl
+                                    841 ;	spillPairReg hl
+      0002BC 60                     842 	ld	h, b
+                                    843 ;	spillPairReg hl
+                                    844 ;	spillPairReg hl
+      0002BD 23                     845 	inc	hl
+      0002BE 5E                     846 	ld	e, (hl)
+      0002BF 0A                     847 	ld	a, (bc)
+      0002C0 F8 14                  848 	ldhl	sp,	#20
+      0002C2 66                     849 	ld	h, (hl)
+                                    850 ;	spillPairReg hl
+                                    851 ;	spillPairReg hl
+      0002C3 E5                     852 	push	hl
+      0002C4 33                     853 	inc	sp
+      0002C5 F8 14                  854 	ldhl	sp,	#20
+      0002C7 66                     855 	ld	h, (hl)
+                                    856 ;	spillPairReg hl
+                                    857 ;	spillPairReg hl
+      0002C8 E5                     858 	push	hl
+      0002C9 33                     859 	inc	sp
+      0002CA 26 01                  860 	ld	h, #0x01
+                                    861 ;	spillPairReg hl
+                                    862 ;	spillPairReg hl
+      0002CC E5                     863 	push	hl
+      0002CD 33                     864 	inc	sp
+      0002CE F8 09                  865 	ldhl	sp,	#9
+      0002D0 66                     866 	ld	h, (hl)
+                                    867 ;	spillPairReg hl
+                                    868 ;	spillPairReg hl
+      0002D1 E5                     869 	push	hl
+      0002D2 33                     870 	inc	sp
+      0002D3 F8 0B                  871 	ldhl	sp,	#11
+      0002D5 66                     872 	ld	h, (hl)
+                                    873 ;	spillPairReg hl
+                                    874 ;	spillPairReg hl
+      0002D6 E5                     875 	push	hl
+      0002D7 33                     876 	inc	sp
+      0002D8 D5                     877 	push	de
+      0002D9 33                     878 	inc	sp
+      0002DA 63                     879 	ld	h, e
+                                    880 ;	spillPairReg hl
+                                    881 ;	spillPairReg hl
+      0002DB E5                     882 	push	hl
+      0002DC 33                     883 	inc	sp
+      0002DD F5                     884 	push	af
+      0002DE 33                     885 	inc	sp
+      0002DF C5                     886 	push	bc
+      0002E0 CDr00r00               887 	call	_init_sprite
+                           0002E3   888 	C$Sprite_Engine.c$102$1_0$116	= .
+                                    889 	.globl	C$Sprite_Engine.c$102$1_0$116
+                                    890 ;src/engine/Sprite_Engine.c:102: }
+      0002E3 E8 12                  891 	add	sp, #18
+                           0002E5   892 	C$Sprite_Engine.c$102$1_0$116	= .
+                                    893 	.globl	C$Sprite_Engine.c$102$1_0$116
+                           0002E5   894 	XG$init_16x16_meta$0$0	= .
+                                    895 	.globl	XG$init_16x16_meta$0$0
+      0002E5 C9                     896 	ret
+                           0002E6   897 	G$setup_sprite$0$0	= .
+                                    898 	.globl	G$setup_sprite$0$0
+                           0002E6   899 	C$Sprite_Engine.c$104$1_0$118	= .
+                                    900 	.globl	C$Sprite_Engine.c$104$1_0$118
+                                    901 ;src/engine/Sprite_Engine.c:104: void setup_sprite(Sprite *s, unsigned char pixels[]) 
+                                    902 ;	---------------------------------
+                                    903 ; Function setup_sprite
+                                    904 ; ---------------------------------
+      0002E6                        905 _setup_sprite::
+      0002E6 3B                     906 	dec	sp
+                           0002E7   907 	C$Sprite_Engine.c$106$1_0$118	= .
+                                    908 	.globl	C$Sprite_Engine.c$106$1_0$118
+                                    909 ;src/engine/Sprite_Engine.c:106: set_sprite_data(s->init_tile, s->max_tile, pixels);    // (initial tile, final tile, sprite char array)
+      0002E7 F8 03                  910 	ldhl	sp,	#3
+      0002E9 2A                     911 	ld	a, (hl+)
+      0002EA 5F                     912 	ld	e, a
+      0002EB 56                     913 	ld	d, (hl)
+      0002EC 4B                     914 	ld	c, e
+      0002ED 42                     915 	ld	b, d
+      0002EE 03                     916 	inc	bc
+      0002EF 03                     917 	inc	bc
+      0002F0 0A                     918 	ld	a, (bc)
+      0002F1 F8 00                  919 	ldhl	sp,	#0
+      0002F3 77                     920 	ld	(hl), a
+      0002F4 4B                     921 	ld	c, e
+      0002F5 42                     922 	ld	b, d
+      0002F6 03                     923 	inc	bc
+      0002F7 0A                     924 	ld	a, (bc)
+      0002F8 D5                     925 	push	de
+      0002F9 F5                     926 	push	af
+      0002FA F8 09                  927 	ldhl	sp,	#9
+      0002FC 2A                     928 	ld	a, (hl+)
+      0002FD 66                     929 	ld	h, (hl)
+                                    930 ;	spillPairReg hl
+                                    931 ;	spillPairReg hl
+      0002FE 6F                     932 	ld	l, a
+                                    933 ;	spillPairReg hl
+                                    934 ;	spillPairReg hl
+      0002FF F1                     935 	pop	af
+      000300 E5                     936 	push	hl
+      000301 F8 04                  937 	ldhl	sp,	#4
+      000303 66                     938 	ld	h, (hl)
+                                    939 ;	spillPairReg hl
+                                    940 ;	spillPairReg hl
+      000304 E5                     941 	push	hl
+      000305 33                     942 	inc	sp
+      000306 F5                     943 	push	af
+      000307 33                     944 	inc	sp
+      000308 CDr00r00               945 	call	_set_sprite_data
+      00030B E8 04                  946 	add	sp, #4
+      00030D D1                     947 	pop	de
+                                    948 ;src/engine/Sprite_Engine.c:107: set_sprite_tile(s->id, s->init_tile);                  // (sprite index, tile), gives sprite its id
+      00030E 0A                     949 	ld	a, (bc)
+      00030F 4F                     950 	ld	c, a
+      000310 1A                     951 	ld	a, (de)
+                                    952 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      000311 6F                     953 	ld	l, a
+                                    954 ;	spillPairReg hl
+                                    955 ;	spillPairReg hl
+      000312 26 00                  956 	ld	h, #0x00
+                                    957 ;	spillPairReg hl
+                                    958 ;	spillPairReg hl
+      000314 29                     959 	add	hl, hl
+      000315 29                     960 	add	hl, hl
+      000316 D5                     961 	push	de
+      000317 11r00r00               962 	ld	de, #_shadow_OAM
+      00031A 19                     963 	add	hl, de
+      00031B 23                     964 	inc	hl
+      00031C 23                     965 	inc	hl
+      00031D D1                     966 	pop	de
+      00031E 71                     967 	ld	(hl), c
+                                    968 ;src/engine/Sprite_Engine.c:108: move_sprite(0, s->x, s->y);                            // (sprite index, x, y)
+      00031F 21 04 00               969 	ld	hl, #0x0004
+      000322 19                     970 	add	hl, de
+      000323 46                     971 	ld	b, (hl)
+      000324 13                     972 	inc	de
+      000325 13                     973 	inc	de
+      000326 13                     974 	inc	de
+      000327 1A                     975 	ld	a, (de)
+      000328 4F                     976 	ld	c, a
+                                    977 ;C:/gbdk/include/gb/gb.h:1520: OAM_item_t * itm = &shadow_OAM[nb];
+      000329 21r00r00               978 	ld	hl, #_shadow_OAM
+                                    979 ;C:/gbdk/include/gb/gb.h:1521: itm->y=y, itm->x=x;
+      00032C 78                     980 	ld	a, b
+      00032D 22                     981 	ld	(hl+), a
+      00032E 71                     982 	ld	(hl), c
+                           00032F   983 	C$Sprite_Engine.c$108$3_0$118	= .
+                                    984 	.globl	C$Sprite_Engine.c$108$3_0$118
+                                    985 ;src/engine/Sprite_Engine.c:108: move_sprite(0, s->x, s->y);                            // (sprite index, x, y)
+                           00032F   986 	C$Sprite_Engine.c$109$3_0$118	= .
+                                    987 	.globl	C$Sprite_Engine.c$109$3_0$118
+                                    988 ;src/engine/Sprite_Engine.c:109: }
+      00032F 33                     989 	inc	sp
+                           000330   990 	C$Sprite_Engine.c$109$3_0$118	= .
+                                    991 	.globl	C$Sprite_Engine.c$109$3_0$118
+                           000330   992 	XG$setup_sprite$0$0	= .
+                                    993 	.globl	XG$setup_sprite$0$0
+      000330 C9                     994 	ret
+                           000331   995 	G$setup_16x16_meta$0$0	= .
+                                    996 	.globl	G$setup_16x16_meta$0$0
+                           000331   997 	C$Sprite_Engine.c$111$3_0$126	= .
+                                    998 	.globl	C$Sprite_Engine.c$111$3_0$126
+                                    999 ;src/engine/Sprite_Engine.c:111: void setup_16x16_meta(MetaSprite16x16 *meta, unsigned char pixels[]) 
+                                   1000 ;	---------------------------------
+                                   1001 ; Function setup_16x16_meta
+                                   1002 ; ---------------------------------
+      000331                       1003 _setup_16x16_meta::
+      000331 E8 F8                 1004 	add	sp, #-8
+                           000333  1005 	C$Sprite_Engine.c$114$1_0$126	= .
+                                   1006 	.globl	C$Sprite_Engine.c$114$1_0$126
+                                   1007 ;src/engine/Sprite_Engine.c:114: set_sprite_data(meta->init_tile, meta->max_tile, pixels);    // (initial tile, final tile, sprite char array)
+      000333 F8 0A                 1008 	ldhl	sp,	#10
+      000335 2A                    1009 	ld	a, (hl+)
+      000336 4F                    1010 	ld	c, a
+      000337 46                    1011 	ld	b, (hl)
+      000338 69                    1012 	ld	l, c
+                                   1013 ;	spillPairReg hl
+                                   1014 ;	spillPairReg hl
+      000339 60                    1015 	ld	h, b
+                                   1016 ;	spillPairReg hl
+                                   1017 ;	spillPairReg hl
+      00033A 23                    1018 	inc	hl
+      00033B 23                    1019 	inc	hl
+      00033C 56                    1020 	ld	d, (hl)
+      00033D 69                    1021 	ld	l, c
+                                   1022 ;	spillPairReg hl
+                                   1023 ;	spillPairReg hl
+      00033E 60                    1024 	ld	h, b
+                                   1025 ;	spillPairReg hl
+                                   1026 ;	spillPairReg hl
+      00033F 23                    1027 	inc	hl
+      000340 5E                    1028 	ld	e, (hl)
+      000341 F8 0C                 1029 	ldhl	sp,	#12
+      000343 2A                    1030 	ld	a, (hl+)
+      000344 66                    1031 	ld	h, (hl)
+                                   1032 ;	spillPairReg hl
+                                   1033 ;	spillPairReg hl
+      000345 6F                    1034 	ld	l, a
+                                   1035 ;	spillPairReg hl
+                                   1036 ;	spillPairReg hl
+      000346 E5                    1037 	push	hl
+      000347 D5                    1038 	push	de
+      000348 CDr00r00              1039 	call	_set_sprite_data
+      00034B E8 04                 1040 	add	sp, #4
+                                   1041 ;src/engine/Sprite_Engine.c:117: set_sprite_tile(meta->tile0->id, meta->tile0->init_tile);    // (sprite index, tile), gives sprite its id
+      00034D 21 09 00              1042 	ld	hl, #0x0009
+      000350 09                    1043 	add	hl, bc
+      000351 33                    1044 	inc	sp
+      000352 33                    1045 	inc	sp
+      000353 5D                    1046 	ld	e, l
+      000354 54                    1047 	ld	d, h
+      000355 D5                    1048 	push	de
+      000356 1A                    1049 	ld	a, (de)
+      000357 6F                    1050 	ld	l, a
+                                   1051 ;	spillPairReg hl
+                                   1052 ;	spillPairReg hl
+      000358 13                    1053 	inc	de
+      000359 1A                    1054 	ld	a, (de)
+      00035A 67                    1055 	ld	h, a
+                                   1056 ;	spillPairReg hl
+                                   1057 ;	spillPairReg hl
+      00035B 5D                    1058 	ld	e, l
+      00035C 54                    1059 	ld	d, h
+      00035D 13                    1060 	inc	de
+      00035E 1A                    1061 	ld	a, (de)
+      00035F 5F                    1062 	ld	e, a
+      000360 56                    1063 	ld	d, (hl)
+                                   1064 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      000361 6A                    1065 	ld	l, d
+                                   1066 ;	spillPairReg hl
+                                   1067 ;	spillPairReg hl
+      000362 26 00                 1068 	ld	h, #0x00
+                                   1069 ;	spillPairReg hl
+                                   1070 ;	spillPairReg hl
+      000364 29                    1071 	add	hl, hl
+      000365 29                    1072 	add	hl, hl
+      000366 D5                    1073 	push	de
+      000367 11r00r00              1074 	ld	de, #_shadow_OAM
+      00036A 19                    1075 	add	hl, de
+      00036B 23                    1076 	inc	hl
+      00036C 23                    1077 	inc	hl
+      00036D D1                    1078 	pop	de
+      00036E 73                    1079 	ld	(hl), e
+                                   1080 ;src/engine/Sprite_Engine.c:118: set_sprite_tile(meta->tile1->id, meta->tile1->init_tile);    // (sprite index, tile), gives sprite its id
+      00036F 21 0B 00              1081 	ld	hl, #0x000b
+      000372 09                    1082 	add	hl, bc
+      000373 E5                    1083 	push	hl
+      000374 7D                    1084 	ld	a, l
+      000375 F8 04                 1085 	ldhl	sp,	#4
+      000377 77                    1086 	ld	(hl), a
+      000378 E1                    1087 	pop	hl
+      000379 7C                    1088 	ld	a, h
+      00037A F8 03                 1089 	ldhl	sp,	#3
+      00037C 32                    1090 	ld	(hl-), a
+      00037D 2A                    1091 	ld	a, (hl+)
+      00037E 5F                    1092 	ld	e, a
+      00037F 56                    1093 	ld	d, (hl)
+      000380 1A                    1094 	ld	a, (de)
+      000381 6F                    1095 	ld	l, a
+                                   1096 ;	spillPairReg hl
+                                   1097 ;	spillPairReg hl
+      000382 13                    1098 	inc	de
+      000383 1A                    1099 	ld	a, (de)
+      000384 67                    1100 	ld	h, a
+                                   1101 ;	spillPairReg hl
+                                   1102 ;	spillPairReg hl
+      000385 5D                    1103 	ld	e, l
+      000386 54                    1104 	ld	d, h
+      000387 13                    1105 	inc	de
+      000388 1A                    1106 	ld	a, (de)
+      000389 5F                    1107 	ld	e, a
+      00038A 56                    1108 	ld	d, (hl)
+                                   1109 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      00038B 6A                    1110 	ld	l, d
+                                   1111 ;	spillPairReg hl
+                                   1112 ;	spillPairReg hl
+      00038C 26 00                 1113 	ld	h, #0x00
+                                   1114 ;	spillPairReg hl
+                                   1115 ;	spillPairReg hl
+      00038E 29                    1116 	add	hl, hl
+      00038F 29                    1117 	add	hl, hl
+      000390 D5                    1118 	push	de
+      000391 11r00r00              1119 	ld	de, #_shadow_OAM
+      000394 19                    1120 	add	hl, de
+      000395 23                    1121 	inc	hl
+      000396 23                    1122 	inc	hl
+      000397 D1                    1123 	pop	de
+      000398 73                    1124 	ld	(hl), e
+                                   1125 ;src/engine/Sprite_Engine.c:119: set_sprite_tile(meta->tile2->id, meta->tile2->init_tile);    // (sprite index, tile), gives sprite its id
+      000399 21 0D 00              1126 	ld	hl, #0x000d
+      00039C 09                    1127 	add	hl, bc
+      00039D E5                    1128 	push	hl
+      00039E 7D                    1129 	ld	a, l
+      00039F F8 06                 1130 	ldhl	sp,	#6
+      0003A1 77                    1131 	ld	(hl), a
+      0003A2 E1                    1132 	pop	hl
+      0003A3 7C                    1133 	ld	a, h
+      0003A4 F8 05                 1134 	ldhl	sp,	#5
+      0003A6 32                    1135 	ld	(hl-), a
+      0003A7 2A                    1136 	ld	a, (hl+)
+      0003A8 5F                    1137 	ld	e, a
+      0003A9 56                    1138 	ld	d, (hl)
+      0003AA 1A                    1139 	ld	a, (de)
+      0003AB 6F                    1140 	ld	l, a
+                                   1141 ;	spillPairReg hl
+                                   1142 ;	spillPairReg hl
+      0003AC 13                    1143 	inc	de
+      0003AD 1A                    1144 	ld	a, (de)
+      0003AE 67                    1145 	ld	h, a
+                                   1146 ;	spillPairReg hl
+                                   1147 ;	spillPairReg hl
+      0003AF 5D                    1148 	ld	e, l
+      0003B0 54                    1149 	ld	d, h
+      0003B1 13                    1150 	inc	de
+      0003B2 1A                    1151 	ld	a, (de)
+      0003B3 5F                    1152 	ld	e, a
+      0003B4 56                    1153 	ld	d, (hl)
+                                   1154 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      0003B5 6A                    1155 	ld	l, d
+                                   1156 ;	spillPairReg hl
+                                   1157 ;	spillPairReg hl
+      0003B6 26 00                 1158 	ld	h, #0x00
+                                   1159 ;	spillPairReg hl
+                                   1160 ;	spillPairReg hl
+      0003B8 29                    1161 	add	hl, hl
+      0003B9 29                    1162 	add	hl, hl
+      0003BA D5                    1163 	push	de
+      0003BB 11r00r00              1164 	ld	de, #_shadow_OAM
+      0003BE 19                    1165 	add	hl, de
+      0003BF 23                    1166 	inc	hl
+      0003C0 23                    1167 	inc	hl
+      0003C1 D1                    1168 	pop	de
+      0003C2 73                    1169 	ld	(hl), e
+                                   1170 ;src/engine/Sprite_Engine.c:120: set_sprite_tile(meta->tile3->id, meta->tile3->init_tile);    // (sprite index, tile), gives sprite its id
+      0003C3 21 0F 00              1171 	ld	hl, #0x000f
+      0003C6 09                    1172 	add	hl, bc
+      0003C7 E5                    1173 	push	hl
+      0003C8 7D                    1174 	ld	a, l
+      0003C9 F8 08                 1175 	ldhl	sp,	#8
+      0003CB 77                    1176 	ld	(hl), a
+      0003CC E1                    1177 	pop	hl
+      0003CD 7C                    1178 	ld	a, h
+      0003CE F8 07                 1179 	ldhl	sp,	#7
+      0003D0 32                    1180 	ld	(hl-), a
+      0003D1 2A                    1181 	ld	a, (hl+)
+      0003D2 5F                    1182 	ld	e, a
+      0003D3 56                    1183 	ld	d, (hl)
+      0003D4 1A                    1184 	ld	a, (de)
+      0003D5 6F                    1185 	ld	l, a
+                                   1186 ;	spillPairReg hl
+                                   1187 ;	spillPairReg hl
+      0003D6 13                    1188 	inc	de
+      0003D7 1A                    1189 	ld	a, (de)
+      0003D8 67                    1190 	ld	h, a
+                                   1191 ;	spillPairReg hl
+                                   1192 ;	spillPairReg hl
+      0003D9 4D                    1193 	ld	c, l
+      0003DA 44                    1194 	ld	b, h
+      0003DB 03                    1195 	inc	bc
+      0003DC 0A                    1196 	ld	a, (bc)
+      0003DD 4F                    1197 	ld	c, a
+                                   1198 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      0003DE 6E                    1199 	ld	l, (hl)
+      0003DF 11r00r00              1200 	ld	de, #_shadow_OAM+0
+                                   1201 ;	spillPairReg hl
+                                   1202 ;	spillPairReg hl
+      0003E2 26 00                 1203 	ld	h, #0x00
+                                   1204 ;	spillPairReg hl
+                                   1205 ;	spillPairReg hl
+      0003E4 29                    1206 	add	hl, hl
+      0003E5 29                    1207 	add	hl, hl
+      0003E6 19                    1208 	add	hl, de
+      0003E7 23                    1209 	inc	hl
+      0003E8 23                    1210 	inc	hl
+      0003E9 71                    1211 	ld	(hl), c
+                                   1212 ;src/engine/Sprite_Engine.c:123: move_sprite(meta->tile0->id, meta->tile0->x, meta->tile0->y);
+      0003EA D1                    1213 	pop	de
+      0003EB D5                    1214 	push	de
+      0003EC 1A                    1215 	ld	a, (de)
+      0003ED 4F                    1216 	ld	c, a
+      0003EE 13                    1217 	inc	de
+      0003EF 1A                    1218 	ld	a, (de)
+      0003F0 47                    1219 	ld	b, a
+      0003F1 21 04 00              1220 	ld	hl, #0x0004
+      0003F4 09                    1221 	add	hl, bc
+      0003F5 56                    1222 	ld	d, (hl)
+      0003F6 69                    1223 	ld	l, c
+                                   1224 ;	spillPairReg hl
+                                   1225 ;	spillPairReg hl
+      0003F7 60                    1226 	ld	h, b
+                                   1227 ;	spillPairReg hl
+                                   1228 ;	spillPairReg hl
+      0003F8 23                    1229 	inc	hl
+      0003F9 23                    1230 	inc	hl
+      0003FA 23                    1231 	inc	hl
+      0003FB 5E                    1232 	ld	e, (hl)
+      0003FC 0A                    1233 	ld	a, (bc)
+                                   1234 ;C:/gbdk/include/gb/gb.h:1520: OAM_item_t * itm = &shadow_OAM[nb];
+      0003FD 6F                    1235 	ld	l, a
+                                   1236 ;	spillPairReg hl
+                                   1237 ;	spillPairReg hl
+      0003FE 26 00                 1238 	ld	h, #0x00
+                                   1239 ;	spillPairReg hl
+                                   1240 ;	spillPairReg hl
+      000400 29                    1241 	add	hl, hl
+      000401 29                    1242 	add	hl, hl
+      000402 01r00r00              1243 	ld	bc, #_shadow_OAM
+      000405 09                    1244 	add	hl, bc
+                                   1245 ;C:/gbdk/include/gb/gb.h:1521: itm->y=y, itm->x=x;
+      000406 7A                    1246 	ld	a, d
+      000407 22                    1247 	ld	(hl+), a
+      000408 73                    1248 	ld	(hl), e
+                                   1249 ;src/engine/Sprite_Engine.c:124: move_sprite(meta->tile1->id, meta->tile1->x, meta->tile1->y);
+      000409 F8 02                 1250 	ldhl	sp,#2
+      00040B 2A                    1251 	ld	a, (hl+)
+      00040C 5F                    1252 	ld	e, a
+      00040D 56                    1253 	ld	d, (hl)
+      00040E 1A                    1254 	ld	a, (de)
+      00040F 4F                    1255 	ld	c, a
+      000410 13                    1256 	inc	de
+      000411 1A                    1257 	ld	a, (de)
+      000412 47                    1258 	ld	b, a
+      000413 21 04 00              1259 	ld	hl, #0x0004
+      000416 09                    1260 	add	hl, bc
+      000417 56                    1261 	ld	d, (hl)
+      000418 69                    1262 	ld	l, c
+                                   1263 ;	spillPairReg hl
+                                   1264 ;	spillPairReg hl
+      000419 60                    1265 	ld	h, b
+                                   1266 ;	spillPairReg hl
+                                   1267 ;	spillPairReg hl
+      00041A 23                    1268 	inc	hl
+      00041B 23                    1269 	inc	hl
+      00041C 23                    1270 	inc	hl
+      00041D 5E                    1271 	ld	e, (hl)
+      00041E 0A                    1272 	ld	a, (bc)
+                                   1273 ;C:/gbdk/include/gb/gb.h:1520: OAM_item_t * itm = &shadow_OAM[nb];
+      00041F 6F                    1274 	ld	l, a
+                                   1275 ;	spillPairReg hl
+                                   1276 ;	spillPairReg hl
+      000420 26 00                 1277 	ld	h, #0x00
+                                   1278 ;	spillPairReg hl
+                                   1279 ;	spillPairReg hl
+      000422 29                    1280 	add	hl, hl
+      000423 29                    1281 	add	hl, hl
+      000424 01r00r00              1282 	ld	bc, #_shadow_OAM
+      000427 09                    1283 	add	hl, bc
+                                   1284 ;C:/gbdk/include/gb/gb.h:1521: itm->y=y, itm->x=x;
+      000428 7A                    1285 	ld	a, d
+      000429 22                    1286 	ld	(hl+), a
+      00042A 73                    1287 	ld	(hl), e
+                                   1288 ;src/engine/Sprite_Engine.c:125: move_sprite(meta->tile2->id, meta->tile2->x, meta->tile2->y);
+      00042B F8 04                 1289 	ldhl	sp,#4
+      00042D 2A                    1290 	ld	a, (hl+)
+      00042E 5F                    1291 	ld	e, a
+      00042F 56                    1292 	ld	d, (hl)
+      000430 1A                    1293 	ld	a, (de)
+      000431 4F                    1294 	ld	c, a
+      000432 13                    1295 	inc	de
+      000433 1A                    1296 	ld	a, (de)
+      000434 47                    1297 	ld	b, a
+      000435 21 04 00              1298 	ld	hl, #0x0004
+      000438 09                    1299 	add	hl, bc
+      000439 56                    1300 	ld	d, (hl)
+      00043A 69                    1301 	ld	l, c
+                                   1302 ;	spillPairReg hl
+                                   1303 ;	spillPairReg hl
+      00043B 60                    1304 	ld	h, b
+                                   1305 ;	spillPairReg hl
+                                   1306 ;	spillPairReg hl
+      00043C 23                    1307 	inc	hl
+      00043D 23                    1308 	inc	hl
+      00043E 23                    1309 	inc	hl
+      00043F 5E                    1310 	ld	e, (hl)
+      000440 0A                    1311 	ld	a, (bc)
+                                   1312 ;C:/gbdk/include/gb/gb.h:1520: OAM_item_t * itm = &shadow_OAM[nb];
+      000441 6F                    1313 	ld	l, a
+                                   1314 ;	spillPairReg hl
+                                   1315 ;	spillPairReg hl
+      000442 26 00                 1316 	ld	h, #0x00
+                                   1317 ;	spillPairReg hl
+                                   1318 ;	spillPairReg hl
+      000444 29                    1319 	add	hl, hl
+      000445 29                    1320 	add	hl, hl
+      000446 01r00r00              1321 	ld	bc, #_shadow_OAM
+      000449 09                    1322 	add	hl, bc
+                                   1323 ;C:/gbdk/include/gb/gb.h:1521: itm->y=y, itm->x=x;
+      00044A 7A                    1324 	ld	a, d
+      00044B 22                    1325 	ld	(hl+), a
+      00044C 73                    1326 	ld	(hl), e
+                                   1327 ;src/engine/Sprite_Engine.c:126: move_sprite(meta->tile3->id, meta->tile3->x, meta->tile3->y);
+      00044D F8 06                 1328 	ldhl	sp,#6
+      00044F 2A                    1329 	ld	a, (hl+)
+      000450 5F                    1330 	ld	e, a
+      000451 56                    1331 	ld	d, (hl)
+      000452 1A                    1332 	ld	a, (de)
+      000453 4F                    1333 	ld	c, a
+      000454 13                    1334 	inc	de
+      000455 1A                    1335 	ld	a, (de)
+      000456 47                    1336 	ld	b, a
+      000457 21 04 00              1337 	ld	hl, #0x0004
+      00045A 09                    1338 	add	hl, bc
+      00045B 56                    1339 	ld	d, (hl)
+      00045C 69                    1340 	ld	l, c
+                                   1341 ;	spillPairReg hl
+                                   1342 ;	spillPairReg hl
+      00045D 60                    1343 	ld	h, b
+                                   1344 ;	spillPairReg hl
+                                   1345 ;	spillPairReg hl
+      00045E 23                    1346 	inc	hl
+      00045F 23                    1347 	inc	hl
+      000460 23                    1348 	inc	hl
+      000461 5E                    1349 	ld	e, (hl)
+      000462 0A                    1350 	ld	a, (bc)
+                                   1351 ;C:/gbdk/include/gb/gb.h:1520: OAM_item_t * itm = &shadow_OAM[nb];
+      000463 6F                    1352 	ld	l, a
+                                   1353 ;	spillPairReg hl
+                                   1354 ;	spillPairReg hl
+      000464 26 00                 1355 	ld	h, #0x00
+                                   1356 ;	spillPairReg hl
+                                   1357 ;	spillPairReg hl
+      000466 29                    1358 	add	hl, hl
+      000467 29                    1359 	add	hl, hl
+      000468 01r00r00              1360 	ld	bc, #_shadow_OAM
+      00046B 09                    1361 	add	hl, bc
+                                   1362 ;C:/gbdk/include/gb/gb.h:1521: itm->y=y, itm->x=x;
+      00046C 7A                    1363 	ld	a, d
+      00046D 22                    1364 	ld	(hl+), a
+      00046E 73                    1365 	ld	(hl), e
+                           00046F  1366 	C$Sprite_Engine.c$126$3_0$126	= .
+                                   1367 	.globl	C$Sprite_Engine.c$126$3_0$126
+                                   1368 ;src/engine/Sprite_Engine.c:126: move_sprite(meta->tile3->id, meta->tile3->x, meta->tile3->y);
+                           00046F  1369 	C$Sprite_Engine.c$127$3_0$126	= .
+                                   1370 	.globl	C$Sprite_Engine.c$127$3_0$126
+                                   1371 ;src/engine/Sprite_Engine.c:127: }
+      00046F E8 08                 1372 	add	sp, #8
+                           000471  1373 	C$Sprite_Engine.c$127$3_0$126	= .
+                                   1374 	.globl	C$Sprite_Engine.c$127$3_0$126
+                           000471  1375 	XG$setup_16x16_meta$0$0	= .
+                                   1376 	.globl	XG$setup_16x16_meta$0$0
+      000471 C9                    1377 	ret
+                           000472  1378 	G$change_sprite_tile$0$0	= .
+                                   1379 	.globl	G$change_sprite_tile$0$0
+                           000472  1380 	C$Sprite_Engine.c$129$3_0$152	= .
+                                   1381 	.globl	C$Sprite_Engine.c$129$3_0$152
+                                   1382 ;src/engine/Sprite_Engine.c:129: void change_sprite_tile(Sprite *s) 
+                                   1383 ;	---------------------------------
+                                   1384 ; Function change_sprite_tile
+                                   1385 ; ---------------------------------
+      000472                       1386 _change_sprite_tile::
+      000472 E8 FC                 1387 	add	sp, #-4
+                                   1388 ;src/engine/Sprite_Engine.c:132: uint8_t current_tile = get_sprite_tile(s->id);
+      000474 F8 06                 1389 	ldhl	sp,	#6
+      000476 2A                    1390 	ld	a, (hl+)
+      000477 4F                    1391 	ld	c, a
+      000478 46                    1392 	ld	b, (hl)
+      000479 0A                    1393 	ld	a, (bc)
+      00047A F8 00                 1394 	ldhl	sp,	#0
+      00047C 77                    1395 	ld	(hl), a
+      00047D 6E                    1396 	ld	l, (hl)
+                                   1397 ;	spillPairReg hl
+                                   1398 ;	spillPairReg hl
+      00047E 26 00                 1399 	ld	h, #0x00
+                                   1400 ;	spillPairReg hl
+                                   1401 ;	spillPairReg hl
+      000480 29                    1402 	add	hl, hl
+      000481 29                    1403 	add	hl, hl
+      000482 11r00r00              1404 	ld	de, #_shadow_OAM
+      000485 19                    1405 	add	hl, de
+      000486 23                    1406 	inc	hl
+      000487 23                    1407 	inc	hl
+      000488 7E                    1408 	ld	a, (hl)
+      000489 F8 01                 1409 	ldhl	sp,	#1
+      00048B 77                    1410 	ld	(hl), a
+                           00048C  1411 	C$Sprite_Engine.c$133$1_0$152	= .
+                                   1412 	.globl	C$Sprite_Engine.c$133$1_0$152
+                                   1413 ;src/engine/Sprite_Engine.c:133: if (current_tile < s->max_tile - 1) {
+      00048C 03                    1414 	inc	bc
+      00048D 03                    1415 	inc	bc
+      00048E 0A                    1416 	ld	a, (bc)
+      00048F 4F                    1417 	ld	c, a
+      000490 06 00                 1418 	ld	b, #0x00
+      000492 0B                    1419 	dec	bc
+      000493 F8 01                 1420 	ldhl	sp,	#1
+      000495 2A                    1421 	ld	a, (hl+)
+      000496 22                    1422 	ld	(hl+), a
+      000497 AF                    1423 	xor	a, a
+      000498 32                    1424 	ld	(hl-), a
+      000499 2A                    1425 	ld	a, (hl+)
+      00049A 91                    1426 	sub	a, c
+      00049B 7E                    1427 	ld	a, (hl)
+      00049C 98                    1428 	sbc	a, b
+      00049D 56                    1429 	ld	d, (hl)
+      00049E 78                    1430 	ld	a, b
+      00049F CB 7F                 1431 	bit	7,a
+      0004A1 28 07                 1432 	jr	Z, 00114$
+      0004A3 CB 7A                 1433 	bit	7, d
+      0004A5 20 08                 1434 	jr	NZ, 00115$
+      0004A7 BF                    1435 	cp	a, a
+      0004A8 18 05                 1436 	jr	00115$
+      0004AA                       1437 00114$:
+      0004AA CB 7A                 1438 	bit	7, d
+      0004AC 28 01                 1439 	jr	Z, 00115$
+      0004AE 37                    1440 	scf
+      0004AF                       1441 00115$:
+      0004AF 30 13                 1442 	jr	NC, 00102$
+                                   1443 ;src/engine/Sprite_Engine.c:134: set_sprite_tile(s->id, ++current_tile);
+      0004B1 F8 01                 1444 	ldhl	sp,	#1
+                                   1445 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      0004B3 3A                    1446 	ld	a, (hl-)
+      0004B4 4F                    1447 	ld	c, a
+      0004B5 0C                    1448 	inc	c
+      0004B6 11r00r00              1449 	ld	de, #_shadow_OAM+0
+      0004B9 6E                    1450 	ld	l, (hl)
+      0004BA 26 00                 1451 	ld	h, #0x00
+      0004BC 29                    1452 	add	hl, hl
+      0004BD 29                    1453 	add	hl, hl
+      0004BE 19                    1454 	add	hl, de
+      0004BF 23                    1455 	inc	hl
+      0004C0 23                    1456 	inc	hl
+      0004C1 71                    1457 	ld	(hl), c
+                           0004C2  1458 	C$Sprite_Engine.c$134$1_0$152	= .
+                                   1459 	.globl	C$Sprite_Engine.c$134$1_0$152
+                                   1460 ;src/engine/Sprite_Engine.c:134: set_sprite_tile(s->id, ++current_tile);
+      0004C2 18 0F                 1461 	jr	00107$
+      0004C4                       1462 00102$:
+                                   1463 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      0004C4 F8 00                 1464 	ldhl	sp,	#0
+      0004C6 6E                    1465 	ld	l, (hl)
+      0004C7 26 00                 1466 	ld	h, #0x00
+      0004C9 29                    1467 	add	hl, hl
+      0004CA 29                    1468 	add	hl, hl
+      0004CB 11r00r00              1469 	ld	de, #_shadow_OAM
+      0004CE 19                    1470 	add	hl, de
+      0004CF 23                    1471 	inc	hl
+      0004D0 23                    1472 	inc	hl
+      0004D1 36 00                 1473 	ld	(hl), #0x00
+                           0004D3  1474 	C$Sprite_Engine.c$137$1_0$152	= .
+                                   1475 	.globl	C$Sprite_Engine.c$137$1_0$152
+                                   1476 ;src/engine/Sprite_Engine.c:137: set_sprite_tile(s->id, 0);
+      0004D3                       1477 00107$:
+                           0004D3  1478 	C$Sprite_Engine.c$139$1_0$152	= .
+                                   1479 	.globl	C$Sprite_Engine.c$139$1_0$152
+                                   1480 ;src/engine/Sprite_Engine.c:139: }
+      0004D3 E8 04                 1481 	add	sp, #4
+                           0004D5  1482 	C$Sprite_Engine.c$139$1_0$152	= .
+                                   1483 	.globl	C$Sprite_Engine.c$139$1_0$152
+                           0004D5  1484 	XG$change_sprite_tile$0$0	= .
+                                   1485 	.globl	XG$change_sprite_tile$0$0
+      0004D5 C9                    1486 	ret
+                           0004D6  1487 	G$animate_sprite$0$0	= .
+                                   1488 	.globl	G$animate_sprite$0$0
+                           0004D6  1489 	C$Sprite_Engine.c$141$1_0$166	= .
+                                   1490 	.globl	C$Sprite_Engine.c$141$1_0$166
+                                   1491 ;src/engine/Sprite_Engine.c:141: void animate_sprite(Sprite *s) 
+                                   1492 ;	---------------------------------
+                                   1493 ; Function animate_sprite
+                                   1494 ; ---------------------------------
+      0004D6                       1495 _animate_sprite::
+      0004D6 E8 FC                 1496 	add	sp, #-4
+                           0004D8  1497 	C$Sprite_Engine.c$143$2_0$166	= .
+                                   1498 	.globl	C$Sprite_Engine.c$143$2_0$166
+                                   1499 ;src/engine/Sprite_Engine.c:143: for (uint8_t tile_idx = 0; tile_idx < s->max_tile; tile_idx++) {
+      0004D8 F8 06                 1500 	ldhl	sp,	#6
+      0004DA 2A                    1501 	ld	a, (hl+)
+      0004DB 4F                    1502 	ld	c, a
+      0004DC 46                    1503 	ld	b, (hl)
+      0004DD 21 02 00              1504 	ld	hl, #0x0002
+      0004E0 09                    1505 	add	hl, bc
+      0004E1 33                    1506 	inc	sp
+      0004E2 33                    1507 	inc	sp
+      0004E3 E5                    1508 	push	hl
+      0004E4 F8 03                 1509 	ldhl	sp,	#3
+      0004E6 36 00                 1510 	ld	(hl), #0x00
+      0004E8                       1511 00104$:
+      0004E8 D1                    1512 	pop	de
+      0004E9 D5                    1513 	push	de
+      0004EA 1A                    1514 	ld	a, (de)
+      0004EB F8 02                 1515 	ldhl	sp,	#2
+      0004ED 22                    1516 	ld	(hl+), a
+      0004EE 3A                    1517 	ld	a, (hl-)
+      0004EF 96                    1518 	sub	a, (hl)
+      0004F0 30 22                 1519 	jr	NC, 00106$
+                                   1520 ;src/engine/Sprite_Engine.c:144: set_sprite_tile(s->id, tile_idx);
+      0004F2 0A                    1521 	ld	a, (bc)
+      0004F3 5F                    1522 	ld	e, a
+                                   1523 ;C:/gbdk/include/gb/gb.h:1447: shadow_OAM[nb].tile=tile;
+      0004F4 26 00                 1524 	ld	h, #0x00
+                                   1525 ;	spillPairReg hl
+                                   1526 ;	spillPairReg hl
+      0004F6 6B                    1527 	ld	l, e
+      0004F7 29                    1528 	add	hl, hl
+      0004F8 29                    1529 	add	hl, hl
+      0004F9 11r00r00              1530 	ld	de, #_shadow_OAM
+      0004FC 19                    1531 	add	hl, de
+      0004FD 23                    1532 	inc	hl
+      0004FE 23                    1533 	inc	hl
+      0004FF 5D                    1534 	ld	e, l
+      000500 54                    1535 	ld	d, h
+      000501 F8 03                 1536 	ldhl	sp,	#3
+      000503 7E                    1537 	ld	a, (hl)
+      000504 12                    1538 	ld	(de), a
+                           000505  1539 	C$Sprite_Engine.c$145$3_0$167	= .
+                                   1540 	.globl	C$Sprite_Engine.c$145$3_0$167
+                                   1541 ;src/engine/Sprite_Engine.c:145: delay(350);
+      000505 C5                    1542 	push	bc
+      000506 11 5E 01              1543 	ld	de, #0x015e
+      000509 D5                    1544 	push	de
+      00050A CDr00r00              1545 	call	_delay
+      00050D E1                    1546 	pop	hl
+      00050E C1                    1547 	pop	bc
+                           00050F  1548 	C$Sprite_Engine.c$143$2_0$166	= .
+                                   1549 	.globl	C$Sprite_Engine.c$143$2_0$166
+                                   1550 ;src/engine/Sprite_Engine.c:143: for (uint8_t tile_idx = 0; tile_idx < s->max_tile; tile_idx++) {
+      00050F F8 03                 1551 	ldhl	sp,	#3
+      000511 34                    1552 	inc	(hl)
+      000512 18 D4                 1553 	jr	00104$
+      000514                       1554 00106$:
+                           000514  1555 	C$Sprite_Engine.c$147$2_0$166	= .
+                                   1556 	.globl	C$Sprite_Engine.c$147$2_0$166
+                                   1557 ;src/engine/Sprite_Engine.c:147: }
+      000514 E8 04                 1558 	add	sp, #4
+                           000516  1559 	C$Sprite_Engine.c$147$2_0$166	= .
+                                   1560 	.globl	C$Sprite_Engine.c$147$2_0$166
+                           000516  1561 	XG$animate_sprite$0$0	= .
+                                   1562 	.globl	XG$animate_sprite$0$0
+      000516 C9                    1563 	ret
+                           000517  1564 	G$translate_sprite$0$0	= .
+                                   1565 	.globl	G$translate_sprite$0$0
+                           000517  1566 	C$Sprite_Engine.c$149$2_0$172	= .
+                                   1567 	.globl	C$Sprite_Engine.c$149$2_0$172
+                                   1568 ;src/engine/Sprite_Engine.c:149: void translate_sprite(Sprite *s) {
+                                   1569 ;	---------------------------------
+                                   1570 ; Function translate_sprite
+                                   1571 ; ---------------------------------
+      000517                       1572 _translate_sprite::
+                           000517  1573 	C$Sprite_Engine.c$151$1_0$172	= .
+                                   1574 	.globl	C$Sprite_Engine.c$151$1_0$172
+                                   1575 ;src/engine/Sprite_Engine.c:151: switch(joypad()) {
+      000517 CDr00r00              1576 	call	_joypad
+      00051A 4B                    1577 	ld	c, e
+                           00051B  1578 	C$Sprite_Engine.c$153$1_0$172	= .
+                                   1579 	.globl	C$Sprite_Engine.c$153$1_0$172
+                                   1580 ;src/engine/Sprite_Engine.c:153: scroll_sprite(s->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      00051B F8 02                 1581 	ldhl	sp,	#2
+      00051D 2A                    1582 	ld	a, (hl+)
+      00051E 5F                    1583 	ld	e, a
+      00051F 56                    1584 	ld	d, (hl)
+                           000520  1585 	C$Sprite_Engine.c$151$1_0$172	= .
+                                   1586 	.globl	C$Sprite_Engine.c$151$1_0$172
+                                   1587 ;src/engine/Sprite_Engine.c:151: switch(joypad()) {
+      000520 79                    1588 	ld	a, c
+      000521 3D                    1589 	dec	a
+      000522 28 25                 1590 	jr	Z, 00102$
+      000524 79                    1591 	ld	a,c
+      000525 FE 02                 1592 	cp	a,#0x02
+      000527 28 0A                 1593 	jr	Z, 00101$
+      000529 FE 04                 1594 	cp	a,#0x04
+      00052B 28 31                 1595 	jr	Z, 00103$
+      00052D D6 08                 1596 	sub	a, #0x08
+      00052F 28 44                 1597 	jr	Z, 00104$
+      000531 18 57                 1598 	jr	00105$
+                           000533  1599 	C$Sprite_Engine.c$152$2_0$173	= .
+                                   1600 	.globl	C$Sprite_Engine.c$152$2_0$173
+                                   1601 ;src/engine/Sprite_Engine.c:152: case J_LEFT:
+      000533                       1602 00101$:
+                                   1603 ;src/engine/Sprite_Engine.c:153: scroll_sprite(s->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      000533 1A                    1604 	ld	a, (de)
+      000534 4F                    1605 	ld	c, a
+                                   1606 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000535 26 00                 1607 	ld	h, #0x00
+                                   1608 ;	spillPairReg hl
+                                   1609 ;	spillPairReg hl
+      000537 69                    1610 	ld	l, c
+      000538 29                    1611 	add	hl, hl
+      000539 29                    1612 	add	hl, hl
+      00053A 01r00r00              1613 	ld	bc, #_shadow_OAM
+      00053D 09                    1614 	add	hl, bc
+                                   1615 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      00053E 7E                    1616 	ld	a, (hl)
+      00053F 22                    1617 	ld	(hl+), a
+      000540 35                    1618 	dec	(hl)
+      000541 7E                    1619 	ld	a, (hl)
+                           000542  1620 	C$Sprite_Engine.c$154$2_0$173	= .
+                                   1621 	.globl	C$Sprite_Engine.c$154$2_0$173
+                                   1622 ;src/engine/Sprite_Engine.c:154: change_sprite_tile(s);
+      000542 D5                    1623 	push	de
+      000543 CDr72r04              1624 	call	_change_sprite_tile
+      000546 E1                    1625 	pop	hl
+                           000547  1626 	C$Sprite_Engine.c$155$2_0$173	= .
+                                   1627 	.globl	C$Sprite_Engine.c$155$2_0$173
+                                   1628 ;src/engine/Sprite_Engine.c:155: break;
+      000547 18 41                 1629 	jr	00105$
+                           000549  1630 	C$Sprite_Engine.c$156$2_0$173	= .
+                                   1631 	.globl	C$Sprite_Engine.c$156$2_0$173
+                                   1632 ;src/engine/Sprite_Engine.c:156: case J_RIGHT:
+      000549                       1633 00102$:
+                                   1634 ;src/engine/Sprite_Engine.c:157: scroll_sprite(s->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+      000549 1A                    1635 	ld	a, (de)
+                                   1636 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      00054A 6F                    1637 	ld	l, a
+                                   1638 ;	spillPairReg hl
+                                   1639 ;	spillPairReg hl
+      00054B 26 00                 1640 	ld	h, #0x00
+                                   1641 ;	spillPairReg hl
+                                   1642 ;	spillPairReg hl
+      00054D 29                    1643 	add	hl, hl
+      00054E 29                    1644 	add	hl, hl
+      00054F 01r00r00              1645 	ld	bc, #_shadow_OAM
+      000552 09                    1646 	add	hl, bc
+                                   1647 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000553 7E                    1648 	ld	a, (hl)
+      000554 22                    1649 	ld	(hl+), a
+      000555 34                    1650 	inc	(hl)
+      000556 7E                    1651 	ld	a, (hl)
+                           000557  1652 	C$Sprite_Engine.c$158$2_0$173	= .
+                                   1653 	.globl	C$Sprite_Engine.c$158$2_0$173
+                                   1654 ;src/engine/Sprite_Engine.c:158: change_sprite_tile(s);
+      000557 D5                    1655 	push	de
+      000558 CDr72r04              1656 	call	_change_sprite_tile
+      00055B E1                    1657 	pop	hl
+                           00055C  1658 	C$Sprite_Engine.c$159$2_0$173	= .
+                                   1659 	.globl	C$Sprite_Engine.c$159$2_0$173
+                                   1660 ;src/engine/Sprite_Engine.c:159: break;
+      00055C 18 2C                 1661 	jr	00105$
+                           00055E  1662 	C$Sprite_Engine.c$160$2_0$173	= .
+                                   1663 	.globl	C$Sprite_Engine.c$160$2_0$173
+                                   1664 ;src/engine/Sprite_Engine.c:160: case J_UP:
+      00055E                       1665 00103$:
+                                   1666 ;src/engine/Sprite_Engine.c:161: scroll_sprite(s->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+      00055E 1A                    1667 	ld	a, (de)
+      00055F 4F                    1668 	ld	c, a
+                                   1669 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000560 26 00                 1670 	ld	h, #0x00
+                                   1671 ;	spillPairReg hl
+                                   1672 ;	spillPairReg hl
+      000562 69                    1673 	ld	l, c
+      000563 29                    1674 	add	hl, hl
+      000564 29                    1675 	add	hl, hl
+      000565 01r00r00              1676 	ld	bc, #_shadow_OAM
+      000568 09                    1677 	add	hl, bc
+                                   1678 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000569 7E                    1679 	ld	a, (hl)
+      00056A 3D                    1680 	dec	a
+      00056B 22                    1681 	ld	(hl+), a
+      00056C 7E                    1682 	ld	a, (hl)
+      00056D 77                    1683 	ld	(hl), a
+                           00056E  1684 	C$Sprite_Engine.c$162$2_0$173	= .
+                                   1685 	.globl	C$Sprite_Engine.c$162$2_0$173
+                                   1686 ;src/engine/Sprite_Engine.c:162: change_sprite_tile(s);
+      00056E D5                    1687 	push	de
+      00056F CDr72r04              1688 	call	_change_sprite_tile
+      000572 E1                    1689 	pop	hl
+                           000573  1690 	C$Sprite_Engine.c$163$2_0$173	= .
+                                   1691 	.globl	C$Sprite_Engine.c$163$2_0$173
+                                   1692 ;src/engine/Sprite_Engine.c:163: break;
+      000573 18 15                 1693 	jr	00105$
+                           000575  1694 	C$Sprite_Engine.c$164$2_0$173	= .
+                                   1695 	.globl	C$Sprite_Engine.c$164$2_0$173
+                                   1696 ;src/engine/Sprite_Engine.c:164: case J_DOWN:
+      000575                       1697 00104$:
+                                   1698 ;src/engine/Sprite_Engine.c:165: scroll_sprite(s->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+      000575 1A                    1699 	ld	a, (de)
+      000576 4F                    1700 	ld	c, a
+                                   1701 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000577 26 00                 1702 	ld	h, #0x00
+                                   1703 ;	spillPairReg hl
+                                   1704 ;	spillPairReg hl
+      000579 69                    1705 	ld	l, c
+      00057A 29                    1706 	add	hl, hl
+      00057B 29                    1707 	add	hl, hl
+      00057C 01r00r00              1708 	ld	bc, #_shadow_OAM
+      00057F 09                    1709 	add	hl, bc
+                                   1710 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000580 7E                    1711 	ld	a, (hl)
+      000581 3C                    1712 	inc	a
+      000582 22                    1713 	ld	(hl+), a
+      000583 7E                    1714 	ld	a, (hl)
+      000584 77                    1715 	ld	(hl), a
+                           000585  1716 	C$Sprite_Engine.c$166$2_0$173	= .
+                                   1717 	.globl	C$Sprite_Engine.c$166$2_0$173
+                                   1718 ;src/engine/Sprite_Engine.c:166: change_sprite_tile(s);
+      000585 D5                    1719 	push	de
+      000586 CDr72r04              1720 	call	_change_sprite_tile
+      000589 E1                    1721 	pop	hl
+                           00058A  1722 	C$Sprite_Engine.c$168$1_0$172	= .
+                                   1723 	.globl	C$Sprite_Engine.c$168$1_0$172
+                                   1724 ;src/engine/Sprite_Engine.c:168: }
+      00058A                       1725 00105$:
+                           00058A  1726 	C$Sprite_Engine.c$169$1_0$172	= .
+                                   1727 	.globl	C$Sprite_Engine.c$169$1_0$172
+                                   1728 ;src/engine/Sprite_Engine.c:169: cpu_wait(5000); // change to wait function
+      00058A 11 88 13              1729 	ld	de, #0x1388
+      00058D D5                    1730 	push	de
+      00058E CDr00r00              1731 	call	_cpu_wait
+      000591 E1                    1732 	pop	hl
+                           000592  1733 	C$Sprite_Engine.c$170$1_0$172	= .
+                                   1734 	.globl	C$Sprite_Engine.c$170$1_0$172
+                                   1735 ;src/engine/Sprite_Engine.c:170: }
+                           000592  1736 	C$Sprite_Engine.c$170$1_0$172	= .
+                                   1737 	.globl	C$Sprite_Engine.c$170$1_0$172
+                           000592  1738 	XG$translate_sprite$0$0	= .
+                                   1739 	.globl	XG$translate_sprite$0$0
+      000592 C9                    1740 	ret
+                           000593  1741 	G$translate_16x16_meta$0$0	= .
+                                   1742 	.globl	G$translate_16x16_meta$0$0
+                           000593  1743 	C$Sprite_Engine.c$172$1_0$187	= .
+                                   1744 	.globl	C$Sprite_Engine.c$172$1_0$187
+                                   1745 ;src/engine/Sprite_Engine.c:172: void translate_16x16_meta(MetaSprite16x16 *meta) {
+                                   1746 ;	---------------------------------
+                                   1747 ; Function translate_16x16_meta
+                                   1748 ; ---------------------------------
+      000593                       1749 _translate_16x16_meta::
+      000593 3B                    1750 	dec	sp
+      000594 3B                    1751 	dec	sp
+                           000595  1752 	C$Sprite_Engine.c$174$1_0$187	= .
+                                   1753 	.globl	C$Sprite_Engine.c$174$1_0$187
+                                   1754 ;src/engine/Sprite_Engine.c:174: switch(joypad()) {
+      000595 CDr00r00              1755 	call	_joypad
+                           000598  1756 	C$Sprite_Engine.c$176$1_0$187	= .
+                                   1757 	.globl	C$Sprite_Engine.c$176$1_0$187
+                                   1758 ;src/engine/Sprite_Engine.c:176: scroll_sprite(meta->tile0->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      000598 F8 04                 1759 	ldhl	sp,	#4
+      00059A 2A                    1760 	ld	a, (hl+)
+      00059B 4F                    1761 	ld	c, a
+      00059C 46                    1762 	ld	b, (hl)
+      00059D 21 09 00              1763 	ld	hl, #0x0009
+      0005A0 09                    1764 	add	hl, bc
+      0005A1 33                    1765 	inc	sp
+      0005A2 33                    1766 	inc	sp
+      0005A3 E5                    1767 	push	hl
+                           0005A4  1768 	C$Sprite_Engine.c$174$1_0$187	= .
+                                   1769 	.globl	C$Sprite_Engine.c$174$1_0$187
+                                   1770 ;src/engine/Sprite_Engine.c:174: switch(joypad()) {
+      0005A4 7B                    1771 	ld	a, e
+      0005A5 3D                    1772 	dec	a
+      0005A6 28 66                 1773 	jr	Z, 00102$
+      0005A8 7B                    1774 	ld	a,e
+      0005A9 FE 02                 1775 	cp	a,#0x02
+      0005AB 28 0D                 1776 	jr	Z, 00101$
+      0005AD FE 04                 1777 	cp	a,#0x04
+      0005AF CAr65r06              1778 	jp	Z,00103$
+      0005B2 D6 08                 1779 	sub	a, #0x08
+      0005B4 CArBFr06              1780 	jp	Z,00104$
+      0005B7 C3r17r07              1781 	jp	00105$
+                           0005BA  1782 	C$Sprite_Engine.c$175$2_0$188	= .
+                                   1783 	.globl	C$Sprite_Engine.c$175$2_0$188
+                                   1784 ;src/engine/Sprite_Engine.c:175: case J_LEFT:
+      0005BA                       1785 00101$:
+                                   1786 ;src/engine/Sprite_Engine.c:176: scroll_sprite(meta->tile0->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      0005BA D1                    1787 	pop	de
+      0005BB D5                    1788 	push	de
+      0005BC 1A                    1789 	ld	a, (de)
+      0005BD 6F                    1790 	ld	l, a
+                                   1791 ;	spillPairReg hl
+                                   1792 ;	spillPairReg hl
+      0005BE 13                    1793 	inc	de
+      0005BF 1A                    1794 	ld	a, (de)
+      0005C0 67                    1795 	ld	h, a
+                                   1796 ;	spillPairReg hl
+                                   1797 ;	spillPairReg hl
+                                   1798 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0005C1 6E                    1799 	ld	l, (hl)
+                                   1800 ;	spillPairReg hl
+                                   1801 ;	spillPairReg hl
+      0005C2 26 00                 1802 	ld	h, #0x00
+                                   1803 ;	spillPairReg hl
+                                   1804 ;	spillPairReg hl
+      0005C4 29                    1805 	add	hl, hl
+      0005C5 29                    1806 	add	hl, hl
+      0005C6 11r00r00              1807 	ld	de, #_shadow_OAM
+      0005C9 19                    1808 	add	hl, de
+                                   1809 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0005CA 7E                    1810 	ld	a, (hl)
+      0005CB 22                    1811 	ld	(hl+), a
+      0005CC 35                    1812 	dec	(hl)
+      0005CD 7E                    1813 	ld	a, (hl)
+                                   1814 ;src/engine/Sprite_Engine.c:177: scroll_sprite(meta->tile1->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      0005CE 21 0B 00              1815 	ld	hl, #0x000b
+      0005D1 09                    1816 	add	hl, bc
+      0005D2 2A                    1817 	ld	a,	(hl+)
+      0005D3 66                    1818 	ld	h, (hl)
+                                   1819 ;	spillPairReg hl
+      0005D4 6F                    1820 	ld	l, a
+                                   1821 ;	spillPairReg hl
+                                   1822 ;	spillPairReg hl
+                                   1823 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0005D5 6E                    1824 	ld	l, (hl)
+                                   1825 ;	spillPairReg hl
+                                   1826 ;	spillPairReg hl
+      0005D6 26 00                 1827 	ld	h, #0x00
+                                   1828 ;	spillPairReg hl
+                                   1829 ;	spillPairReg hl
+      0005D8 29                    1830 	add	hl, hl
+      0005D9 29                    1831 	add	hl, hl
+      0005DA 11r00r00              1832 	ld	de, #_shadow_OAM
+      0005DD 19                    1833 	add	hl, de
+                                   1834 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0005DE 7E                    1835 	ld	a, (hl)
+      0005DF 22                    1836 	ld	(hl+), a
+      0005E0 35                    1837 	dec	(hl)
+      0005E1 7E                    1838 	ld	a, (hl)
+                                   1839 ;src/engine/Sprite_Engine.c:178: scroll_sprite(meta->tile2->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      0005E2 21 0D 00              1840 	ld	hl, #0x000d
+      0005E5 09                    1841 	add	hl, bc
+      0005E6 2A                    1842 	ld	a,	(hl+)
+      0005E7 66                    1843 	ld	h, (hl)
+                                   1844 ;	spillPairReg hl
+      0005E8 6F                    1845 	ld	l, a
+                                   1846 ;	spillPairReg hl
+                                   1847 ;	spillPairReg hl
+                                   1848 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0005E9 6E                    1849 	ld	l, (hl)
+                                   1850 ;	spillPairReg hl
+                                   1851 ;	spillPairReg hl
+      0005EA 26 00                 1852 	ld	h, #0x00
+                                   1853 ;	spillPairReg hl
+                                   1854 ;	spillPairReg hl
+      0005EC 29                    1855 	add	hl, hl
+      0005ED 29                    1856 	add	hl, hl
+      0005EE 11r00r00              1857 	ld	de, #_shadow_OAM
+      0005F1 19                    1858 	add	hl, de
+                                   1859 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0005F2 7E                    1860 	ld	a, (hl)
+      0005F3 22                    1861 	ld	(hl+), a
+      0005F4 35                    1862 	dec	(hl)
+      0005F5 7E                    1863 	ld	a, (hl)
+                                   1864 ;src/engine/Sprite_Engine.c:179: scroll_sprite(meta->tile3->id, -1 * DEFAULT_SCROLL_SPEED, 0);
+      0005F6 21 0F 00              1865 	ld	hl, #0x000f
+      0005F9 09                    1866 	add	hl, bc
+      0005FA 2A                    1867 	ld	a, (hl+)
+      0005FB 4F                    1868 	ld	c, a
+      0005FC 46                    1869 	ld	b, (hl)
+      0005FD 0A                    1870 	ld	a, (bc)
+                                   1871 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0005FE 6F                    1872 	ld	l, a
+                                   1873 ;	spillPairReg hl
+                                   1874 ;	spillPairReg hl
+      0005FF 26 00                 1875 	ld	h, #0x00
+                                   1876 ;	spillPairReg hl
+                                   1877 ;	spillPairReg hl
+      000601 29                    1878 	add	hl, hl
+      000602 29                    1879 	add	hl, hl
+      000603 11r00r00              1880 	ld	de, #_shadow_OAM
+      000606 19                    1881 	add	hl, de
+                                   1882 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000607 7E                    1883 	ld	a, (hl)
+      000608 22                    1884 	ld	(hl+), a
+      000609 35                    1885 	dec	(hl)
+      00060A 7E                    1886 	ld	a, (hl)
+                           00060B  1887 	C$Sprite_Engine.c$180$2_0$188	= .
+                                   1888 	.globl	C$Sprite_Engine.c$180$2_0$188
+                                   1889 ;src/engine/Sprite_Engine.c:180: break;
+      00060B C3r17r07              1890 	jp	00105$
+                           00060E  1891 	C$Sprite_Engine.c$181$2_0$188	= .
+                                   1892 	.globl	C$Sprite_Engine.c$181$2_0$188
+                                   1893 ;src/engine/Sprite_Engine.c:181: case J_RIGHT:
+      00060E                       1894 00102$:
+                                   1895 ;src/engine/Sprite_Engine.c:182: scroll_sprite(meta->tile0->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+      00060E D1                    1896 	pop	de
+      00060F D5                    1897 	push	de
+      000610 1A                    1898 	ld	a, (de)
+      000611 6F                    1899 	ld	l, a
+                                   1900 ;	spillPairReg hl
+                                   1901 ;	spillPairReg hl
+      000612 13                    1902 	inc	de
+      000613 1A                    1903 	ld	a, (de)
+      000614 67                    1904 	ld	h, a
+                                   1905 ;	spillPairReg hl
+                                   1906 ;	spillPairReg hl
+      000615 5E                    1907 	ld	e, (hl)
+                                   1908 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000616 26 00                 1909 	ld	h, #0x00
+                                   1910 ;	spillPairReg hl
+                                   1911 ;	spillPairReg hl
+      000618 6B                    1912 	ld	l, e
+      000619 29                    1913 	add	hl, hl
+      00061A 29                    1914 	add	hl, hl
+      00061B 11r00r00              1915 	ld	de, #_shadow_OAM
+      00061E 19                    1916 	add	hl, de
+                                   1917 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      00061F 7E                    1918 	ld	a, (hl)
+      000620 22                    1919 	ld	(hl+), a
+      000621 34                    1920 	inc	(hl)
+      000622 7E                    1921 	ld	a, (hl)
+                                   1922 ;src/engine/Sprite_Engine.c:183: scroll_sprite(meta->tile1->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+      000623 21 0B 00              1923 	ld	hl, #0x000b
+      000626 09                    1924 	add	hl, bc
+      000627 2A                    1925 	ld	a,	(hl+)
+      000628 66                    1926 	ld	h, (hl)
+                                   1927 ;	spillPairReg hl
+      000629 6F                    1928 	ld	l, a
+                                   1929 ;	spillPairReg hl
+                                   1930 ;	spillPairReg hl
+      00062A 5E                    1931 	ld	e, (hl)
+                                   1932 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      00062B 26 00                 1933 	ld	h, #0x00
+                                   1934 ;	spillPairReg hl
+                                   1935 ;	spillPairReg hl
+      00062D 6B                    1936 	ld	l, e
+      00062E 29                    1937 	add	hl, hl
+      00062F 29                    1938 	add	hl, hl
+      000630 11r00r00              1939 	ld	de, #_shadow_OAM
+      000633 19                    1940 	add	hl, de
+                                   1941 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000634 7E                    1942 	ld	a, (hl)
+      000635 22                    1943 	ld	(hl+), a
+      000636 34                    1944 	inc	(hl)
+      000637 7E                    1945 	ld	a, (hl)
+                                   1946 ;src/engine/Sprite_Engine.c:184: scroll_sprite(meta->tile2->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+      000638 21 0D 00              1947 	ld	hl, #0x000d
+      00063B 09                    1948 	add	hl, bc
+      00063C 2A                    1949 	ld	a,	(hl+)
+      00063D 66                    1950 	ld	h, (hl)
+                                   1951 ;	spillPairReg hl
+      00063E 6F                    1952 	ld	l, a
+                                   1953 ;	spillPairReg hl
+                                   1954 ;	spillPairReg hl
+      00063F 5E                    1955 	ld	e, (hl)
+                                   1956 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000640 26 00                 1957 	ld	h, #0x00
+                                   1958 ;	spillPairReg hl
+                                   1959 ;	spillPairReg hl
+      000642 6B                    1960 	ld	l, e
+      000643 29                    1961 	add	hl, hl
+      000644 29                    1962 	add	hl, hl
+      000645 11r00r00              1963 	ld	de, #_shadow_OAM
+      000648 19                    1964 	add	hl, de
+                                   1965 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000649 7E                    1966 	ld	a, (hl)
+      00064A 22                    1967 	ld	(hl+), a
+      00064B 34                    1968 	inc	(hl)
+      00064C 7E                    1969 	ld	a, (hl)
+                                   1970 ;src/engine/Sprite_Engine.c:185: scroll_sprite(meta->tile3->id, 1 * DEFAULT_SCROLL_SPEED, 0);
+      00064D 21 0F 00              1971 	ld	hl, #0x000f
+      000650 09                    1972 	add	hl, bc
+      000651 2A                    1973 	ld	a, (hl+)
+      000652 66                    1974 	ld	h, (hl)
+                                   1975 ;	spillPairReg hl
+      000653 6F                    1976 	ld	l, a
+      000654 4E                    1977 	ld	c, (hl)
+                                   1978 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000655 26 00                 1979 	ld	h, #0x00
+                                   1980 ;	spillPairReg hl
+                                   1981 ;	spillPairReg hl
+      000657 69                    1982 	ld	l, c
+      000658 29                    1983 	add	hl, hl
+      000659 29                    1984 	add	hl, hl
+      00065A 11r00r00              1985 	ld	de, #_shadow_OAM
+      00065D 19                    1986 	add	hl, de
+                                   1987 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      00065E 7E                    1988 	ld	a, (hl)
+      00065F 22                    1989 	ld	(hl+), a
+      000660 34                    1990 	inc	(hl)
+      000661 7E                    1991 	ld	a, (hl)
+                           000662  1992 	C$Sprite_Engine.c$186$2_0$188	= .
+                                   1993 	.globl	C$Sprite_Engine.c$186$2_0$188
+                                   1994 ;src/engine/Sprite_Engine.c:186: break;
+      000662 C3r17r07              1995 	jp	00105$
+                           000665  1996 	C$Sprite_Engine.c$187$2_0$188	= .
+                                   1997 	.globl	C$Sprite_Engine.c$187$2_0$188
+                                   1998 ;src/engine/Sprite_Engine.c:187: case J_UP:
+      000665                       1999 00103$:
+                                   2000 ;src/engine/Sprite_Engine.c:188: scroll_sprite(meta->tile0->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+      000665 D1                    2001 	pop	de
+      000666 D5                    2002 	push	de
+      000667 1A                    2003 	ld	a, (de)
+      000668 6F                    2004 	ld	l, a
+                                   2005 ;	spillPairReg hl
+                                   2006 ;	spillPairReg hl
+      000669 13                    2007 	inc	de
+      00066A 1A                    2008 	ld	a, (de)
+      00066B 67                    2009 	ld	h, a
+                                   2010 ;	spillPairReg hl
+                                   2011 ;	spillPairReg hl
+      00066C 5E                    2012 	ld	e, (hl)
+                                   2013 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      00066D 26 00                 2014 	ld	h, #0x00
+                                   2015 ;	spillPairReg hl
+                                   2016 ;	spillPairReg hl
+      00066F 6B                    2017 	ld	l, e
+      000670 29                    2018 	add	hl, hl
+      000671 29                    2019 	add	hl, hl
+      000672 11r00r00              2020 	ld	de, #_shadow_OAM
+      000675 19                    2021 	add	hl, de
+                                   2022 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000676 7E                    2023 	ld	a, (hl)
+      000677 3D                    2024 	dec	a
+      000678 22                    2025 	ld	(hl+), a
+      000679 7E                    2026 	ld	a, (hl)
+      00067A 77                    2027 	ld	(hl), a
+                                   2028 ;src/engine/Sprite_Engine.c:189: scroll_sprite(meta->tile1->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+      00067B 21 0B 00              2029 	ld	hl, #0x000b
+      00067E 09                    2030 	add	hl, bc
+      00067F 2A                    2031 	ld	a,	(hl+)
+      000680 66                    2032 	ld	h, (hl)
+                                   2033 ;	spillPairReg hl
+      000681 6F                    2034 	ld	l, a
+                                   2035 ;	spillPairReg hl
+                                   2036 ;	spillPairReg hl
+      000682 5E                    2037 	ld	e, (hl)
+                                   2038 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000683 26 00                 2039 	ld	h, #0x00
+                                   2040 ;	spillPairReg hl
+                                   2041 ;	spillPairReg hl
+      000685 6B                    2042 	ld	l, e
+      000686 29                    2043 	add	hl, hl
+      000687 29                    2044 	add	hl, hl
+      000688 11r00r00              2045 	ld	de, #_shadow_OAM
+      00068B 19                    2046 	add	hl, de
+                                   2047 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      00068C 7E                    2048 	ld	a, (hl)
+      00068D 3D                    2049 	dec	a
+      00068E 22                    2050 	ld	(hl+), a
+      00068F 7E                    2051 	ld	a, (hl)
+      000690 77                    2052 	ld	(hl), a
+                                   2053 ;src/engine/Sprite_Engine.c:190: scroll_sprite(meta->tile2->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+      000691 21 0D 00              2054 	ld	hl, #0x000d
+      000694 09                    2055 	add	hl, bc
+      000695 2A                    2056 	ld	a,	(hl+)
+      000696 66                    2057 	ld	h, (hl)
+                                   2058 ;	spillPairReg hl
+      000697 6F                    2059 	ld	l, a
+                                   2060 ;	spillPairReg hl
+                                   2061 ;	spillPairReg hl
+      000698 5E                    2062 	ld	e, (hl)
+                                   2063 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000699 26 00                 2064 	ld	h, #0x00
+                                   2065 ;	spillPairReg hl
+                                   2066 ;	spillPairReg hl
+      00069B 6B                    2067 	ld	l, e
+      00069C 29                    2068 	add	hl, hl
+      00069D 29                    2069 	add	hl, hl
+      00069E 11r00r00              2070 	ld	de, #_shadow_OAM
+      0006A1 19                    2071 	add	hl, de
+                                   2072 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0006A2 7E                    2073 	ld	a, (hl)
+      0006A3 3D                    2074 	dec	a
+      0006A4 22                    2075 	ld	(hl+), a
+      0006A5 7E                    2076 	ld	a, (hl)
+      0006A6 77                    2077 	ld	(hl), a
+                                   2078 ;src/engine/Sprite_Engine.c:191: scroll_sprite(meta->tile3->id, 0, -1 * DEFAULT_SCROLL_SPEED);
+      0006A7 21 0F 00              2079 	ld	hl, #0x000f
+      0006AA 09                    2080 	add	hl, bc
+      0006AB 2A                    2081 	ld	a, (hl+)
+      0006AC 66                    2082 	ld	h, (hl)
+                                   2083 ;	spillPairReg hl
+      0006AD 6F                    2084 	ld	l, a
+      0006AE 4E                    2085 	ld	c, (hl)
+                                   2086 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0006AF 26 00                 2087 	ld	h, #0x00
+                                   2088 ;	spillPairReg hl
+                                   2089 ;	spillPairReg hl
+      0006B1 69                    2090 	ld	l, c
+      0006B2 29                    2091 	add	hl, hl
+      0006B3 29                    2092 	add	hl, hl
+      0006B4 11r00r00              2093 	ld	de, #_shadow_OAM
+      0006B7 19                    2094 	add	hl, de
+                                   2095 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0006B8 7E                    2096 	ld	a, (hl)
+      0006B9 3D                    2097 	dec	a
+      0006BA 22                    2098 	ld	(hl+), a
+      0006BB 7E                    2099 	ld	a, (hl)
+      0006BC 77                    2100 	ld	(hl), a
+                           0006BD  2101 	C$Sprite_Engine.c$192$2_0$188	= .
+                                   2102 	.globl	C$Sprite_Engine.c$192$2_0$188
+                                   2103 ;src/engine/Sprite_Engine.c:192: break;
+      0006BD 18 58                 2104 	jr	00105$
+                           0006BF  2105 	C$Sprite_Engine.c$193$2_0$188	= .
+                                   2106 	.globl	C$Sprite_Engine.c$193$2_0$188
+                                   2107 ;src/engine/Sprite_Engine.c:193: case J_DOWN:
+      0006BF                       2108 00104$:
+                                   2109 ;src/engine/Sprite_Engine.c:194: scroll_sprite(meta->tile0->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+      0006BF D1                    2110 	pop	de
+      0006C0 D5                    2111 	push	de
+      0006C1 1A                    2112 	ld	a, (de)
+      0006C2 6F                    2113 	ld	l, a
+                                   2114 ;	spillPairReg hl
+                                   2115 ;	spillPairReg hl
+      0006C3 13                    2116 	inc	de
+      0006C4 1A                    2117 	ld	a, (de)
+      0006C5 67                    2118 	ld	h, a
+                                   2119 ;	spillPairReg hl
+                                   2120 ;	spillPairReg hl
+      0006C6 5E                    2121 	ld	e, (hl)
+                                   2122 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0006C7 26 00                 2123 	ld	h, #0x00
+                                   2124 ;	spillPairReg hl
+                                   2125 ;	spillPairReg hl
+      0006C9 6B                    2126 	ld	l, e
+      0006CA 29                    2127 	add	hl, hl
+      0006CB 29                    2128 	add	hl, hl
+      0006CC 11r00r00              2129 	ld	de, #_shadow_OAM
+      0006CF 19                    2130 	add	hl, de
+                                   2131 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0006D0 7E                    2132 	ld	a, (hl)
+      0006D1 3C                    2133 	inc	a
+      0006D2 22                    2134 	ld	(hl+), a
+      0006D3 7E                    2135 	ld	a, (hl)
+      0006D4 77                    2136 	ld	(hl), a
+                                   2137 ;src/engine/Sprite_Engine.c:195: scroll_sprite(meta->tile1->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+      0006D5 21 0B 00              2138 	ld	hl, #0x000b
+      0006D8 09                    2139 	add	hl, bc
+      0006D9 2A                    2140 	ld	a,	(hl+)
+      0006DA 66                    2141 	ld	h, (hl)
+                                   2142 ;	spillPairReg hl
+      0006DB 6F                    2143 	ld	l, a
+                                   2144 ;	spillPairReg hl
+                                   2145 ;	spillPairReg hl
+      0006DC 5E                    2146 	ld	e, (hl)
+                                   2147 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0006DD 26 00                 2148 	ld	h, #0x00
+                                   2149 ;	spillPairReg hl
+                                   2150 ;	spillPairReg hl
+      0006DF 6B                    2151 	ld	l, e
+      0006E0 29                    2152 	add	hl, hl
+      0006E1 29                    2153 	add	hl, hl
+      0006E2 11r00r00              2154 	ld	de, #_shadow_OAM
+      0006E5 19                    2155 	add	hl, de
+                                   2156 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0006E6 7E                    2157 	ld	a, (hl)
+      0006E7 3C                    2158 	inc	a
+      0006E8 22                    2159 	ld	(hl+), a
+      0006E9 7E                    2160 	ld	a, (hl)
+      0006EA 77                    2161 	ld	(hl), a
+                                   2162 ;src/engine/Sprite_Engine.c:196: scroll_sprite(meta->tile2->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+      0006EB 21 0D 00              2163 	ld	hl, #0x000d
+      0006EE 09                    2164 	add	hl, bc
+      0006EF 2A                    2165 	ld	a,	(hl+)
+      0006F0 66                    2166 	ld	h, (hl)
+                                   2167 ;	spillPairReg hl
+      0006F1 6F                    2168 	ld	l, a
+                                   2169 ;	spillPairReg hl
+                                   2170 ;	spillPairReg hl
+      0006F2 5E                    2171 	ld	e, (hl)
+                                   2172 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      0006F3 26 00                 2173 	ld	h, #0x00
+                                   2174 ;	spillPairReg hl
+                                   2175 ;	spillPairReg hl
+      0006F5 6B                    2176 	ld	l, e
+      0006F6 29                    2177 	add	hl, hl
+      0006F7 29                    2178 	add	hl, hl
+      0006F8 11r00r00              2179 	ld	de, #_shadow_OAM
+      0006FB 19                    2180 	add	hl, de
+                                   2181 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      0006FC 7E                    2182 	ld	a, (hl)
+      0006FD 3C                    2183 	inc	a
+      0006FE 22                    2184 	ld	(hl+), a
+      0006FF 7E                    2185 	ld	a, (hl)
+      000700 77                    2186 	ld	(hl), a
+                                   2187 ;src/engine/Sprite_Engine.c:197: scroll_sprite(meta->tile3->id, 0, 1 * DEFAULT_SCROLL_SPEED);
+      000701 21 0F 00              2188 	ld	hl, #0x000f
+      000704 09                    2189 	add	hl, bc
+      000705 2A                    2190 	ld	a, (hl+)
+      000706 66                    2191 	ld	h, (hl)
+                                   2192 ;	spillPairReg hl
+      000707 6F                    2193 	ld	l, a
+      000708 4E                    2194 	ld	c, (hl)
+                                   2195 ;C:/gbdk/include/gb/gb.h:1536: OAM_item_t * itm = &shadow_OAM[nb];
+      000709 26 00                 2196 	ld	h, #0x00
+                                   2197 ;	spillPairReg hl
+                                   2198 ;	spillPairReg hl
+      00070B 69                    2199 	ld	l, c
+      00070C 29                    2200 	add	hl, hl
+      00070D 29                    2201 	add	hl, hl
+      00070E 11r00r00              2202 	ld	de, #_shadow_OAM
+      000711 19                    2203 	add	hl, de
+                                   2204 ;C:/gbdk/include/gb/gb.h:1537: itm->y+=y, itm->x+=x;
+      000712 7E                    2205 	ld	a, (hl)
+      000713 3C                    2206 	inc	a
+      000714 22                    2207 	ld	(hl+), a
+      000715 7E                    2208 	ld	a, (hl)
+      000716 77                    2209 	ld	(hl), a
+                           000717  2210 	C$Sprite_Engine.c$199$1_0$187	= .
+                                   2211 	.globl	C$Sprite_Engine.c$199$1_0$187
+                                   2212 ;src/engine/Sprite_Engine.c:199: }
+      000717                       2213 00105$:
+                           000717  2214 	C$Sprite_Engine.c$200$1_0$187	= .
+                                   2215 	.globl	C$Sprite_Engine.c$200$1_0$187
+                                   2216 ;src/engine/Sprite_Engine.c:200: cpu_wait(5000); // change to wait function
+      000717 11 88 13              2217 	ld	de, #0x1388
+      00071A D5                    2218 	push	de
+      00071B CDr00r00              2219 	call	_cpu_wait
+      00071E E1                    2220 	pop	hl
+                           00071F  2221 	C$Sprite_Engine.c$201$1_0$187	= .
+                                   2222 	.globl	C$Sprite_Engine.c$201$1_0$187
+                                   2223 ;src/engine/Sprite_Engine.c:201: }
+      00071F 33                    2224 	inc	sp
+      000720 33                    2225 	inc	sp
+                           000721  2226 	C$Sprite_Engine.c$201$1_0$187	= .
+                                   2227 	.globl	C$Sprite_Engine.c$201$1_0$187
+                           000721  2228 	XG$translate_16x16_meta$0$0	= .
+                                   2229 	.globl	XG$translate_16x16_meta$0$0
+      000721 C9                    2230 	ret
+                                   2231 	.area _CODE
+                                   2232 	.area _INITIALIZER
+                                   2233 	.area _CABS (ABS)

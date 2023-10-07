@@ -21,7 +21,7 @@
  * 
  * @return void
 */
-void cpu_wait(uint8_t ms);
+void cpu_wait(uint16_t ms);
 
 /**
  * @brief Function for rendering the game.

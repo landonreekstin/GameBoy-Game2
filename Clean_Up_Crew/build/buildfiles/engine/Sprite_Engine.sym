@@ -1,0 +1,1733 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  0 A$Sprite_Engine$1004                                           000331 GR
+  0 A$Sprite_Engine$1008                                           000333 GR
+  0 A$Sprite_Engine$1009                                           000335 GR
+  0 A$Sprite_Engine$1010                                           000336 GR
+  0 A$Sprite_Engine$1011                                           000337 GR
+  0 A$Sprite_Engine$1012                                           000338 GR
+  0 A$Sprite_Engine$1015                                           000339 GR
+  0 A$Sprite_Engine$1018                                           00033A GR
+  0 A$Sprite_Engine$1019                                           00033B GR
+  0 A$Sprite_Engine$1020                                           00033C GR
+  0 A$Sprite_Engine$1021                                           00033D GR
+  0 A$Sprite_Engine$1024                                           00033E GR
+  0 A$Sprite_Engine$1027                                           00033F GR
+  0 A$Sprite_Engine$1028                                           000340 GR
+  0 A$Sprite_Engine$1029                                           000341 GR
+  0 A$Sprite_Engine$103                                            00001A GR
+  0 A$Sprite_Engine$1030                                           000343 GR
+  0 A$Sprite_Engine$1031                                           000344 GR
+  0 A$Sprite_Engine$1034                                           000345 GR
+  0 A$Sprite_Engine$1037                                           000346 GR
+  0 A$Sprite_Engine$1038                                           000347 GR
+  0 A$Sprite_Engine$1039                                           000348 GR
+  0 A$Sprite_Engine$104                                            00001D GR
+  0 A$Sprite_Engine$1040                                           00034B GR
+  0 A$Sprite_Engine$1042                                           00034D GR
+  0 A$Sprite_Engine$1043                                           000350 GR
+  0 A$Sprite_Engine$1044                                           000351 GR
+  0 A$Sprite_Engine$1045                                           000352 GR
+  0 A$Sprite_Engine$1046                                           000353 GR
+  0 A$Sprite_Engine$1047                                           000354 GR
+  0 A$Sprite_Engine$1048                                           000355 GR
+  0 A$Sprite_Engine$1049                                           000356 GR
+  0 A$Sprite_Engine$105                                            00001E GR
+  0 A$Sprite_Engine$1050                                           000357 GR
+  0 A$Sprite_Engine$1053                                           000358 GR
+  0 A$Sprite_Engine$1054                                           000359 GR
+  0 A$Sprite_Engine$1055                                           00035A GR
+  0 A$Sprite_Engine$1058                                           00035B GR
+  0 A$Sprite_Engine$1059                                           00035C GR
+  0 A$Sprite_Engine$106                                            00001F GR
+  0 A$Sprite_Engine$1060                                           00035D GR
+  0 A$Sprite_Engine$1061                                           00035E GR
+  0 A$Sprite_Engine$1062                                           00035F GR
+  0 A$Sprite_Engine$1063                                           000360 GR
+  0 A$Sprite_Engine$1065                                           000361 GR
+  0 A$Sprite_Engine$1068                                           000362 GR
+  0 A$Sprite_Engine$107                                            000020 GR
+  0 A$Sprite_Engine$1071                                           000364 GR
+  0 A$Sprite_Engine$1072                                           000365 GR
+  0 A$Sprite_Engine$1073                                           000366 GR
+  0 A$Sprite_Engine$1074                                           000367 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1075                                           00036A GR
+  0 A$Sprite_Engine$1076                                           00036B GR
+  0 A$Sprite_Engine$1077                                           00036C GR
+  0 A$Sprite_Engine$1078                                           00036D GR
+  0 A$Sprite_Engine$1079                                           00036E GR
+  0 A$Sprite_Engine$108                                            000022 GR
+  0 A$Sprite_Engine$1081                                           00036F GR
+  0 A$Sprite_Engine$1082                                           000372 GR
+  0 A$Sprite_Engine$1083                                           000373 GR
+  0 A$Sprite_Engine$1084                                           000374 GR
+  0 A$Sprite_Engine$1085                                           000375 GR
+  0 A$Sprite_Engine$1086                                           000377 GR
+  0 A$Sprite_Engine$1087                                           000378 GR
+  0 A$Sprite_Engine$1088                                           000379 GR
+  0 A$Sprite_Engine$1089                                           00037A GR
+  0 A$Sprite_Engine$109                                            000023 GR
+  0 A$Sprite_Engine$1090                                           00037C GR
+  0 A$Sprite_Engine$1091                                           00037D GR
+  0 A$Sprite_Engine$1092                                           00037E GR
+  0 A$Sprite_Engine$1093                                           00037F GR
+  0 A$Sprite_Engine$1094                                           000380 GR
+  0 A$Sprite_Engine$1095                                           000381 GR
+  0 A$Sprite_Engine$1098                                           000382 GR
+  0 A$Sprite_Engine$1099                                           000383 GR
+  0 A$Sprite_Engine$1100                                           000384 GR
+  0 A$Sprite_Engine$1103                                           000385 GR
+  0 A$Sprite_Engine$1104                                           000386 GR
+  0 A$Sprite_Engine$1105                                           000387 GR
+  0 A$Sprite_Engine$1106                                           000388 GR
+  0 A$Sprite_Engine$1107                                           000389 GR
+  0 A$Sprite_Engine$1108                                           00038A GR
+  0 A$Sprite_Engine$1110                                           00038B GR
+  0 A$Sprite_Engine$1113                                           00038C GR
+  0 A$Sprite_Engine$1116                                           00038E GR
+  0 A$Sprite_Engine$1117                                           00038F GR
+  0 A$Sprite_Engine$1118                                           000390 GR
+  0 A$Sprite_Engine$1119                                           000391 GR
+  0 A$Sprite_Engine$1120                                           000394 GR
+  0 A$Sprite_Engine$1121                                           000395 GR
+  0 A$Sprite_Engine$1122                                           000396 GR
+  0 A$Sprite_Engine$1123                                           000397 GR
+  0 A$Sprite_Engine$1124                                           000398 GR
+  0 A$Sprite_Engine$1126                                           000399 GR
+  0 A$Sprite_Engine$1127                                           00039C GR
+  0 A$Sprite_Engine$1128                                           00039D GR
+  0 A$Sprite_Engine$1129                                           00039E GR
+  0 A$Sprite_Engine$113                                            000024 GR
+  0 A$Sprite_Engine$1130                                           00039F GR
+  0 A$Sprite_Engine$1131                                           0003A1 GR
+  0 A$Sprite_Engine$1132                                           0003A2 GR
+  0 A$Sprite_Engine$1133                                           0003A3 GR
+  0 A$Sprite_Engine$1134                                           0003A4 GR
+  0 A$Sprite_Engine$1135                                           0003A6 GR
+  0 A$Sprite_Engine$1136                                           0003A7 GR
+  0 A$Sprite_Engine$1137                                           0003A8 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1138                                           0003A9 GR
+  0 A$Sprite_Engine$1139                                           0003AA GR
+  0 A$Sprite_Engine$114                                            000027 GR
+  0 A$Sprite_Engine$1140                                           0003AB GR
+  0 A$Sprite_Engine$1143                                           0003AC GR
+  0 A$Sprite_Engine$1144                                           0003AD GR
+  0 A$Sprite_Engine$1145                                           0003AE GR
+  0 A$Sprite_Engine$1148                                           0003AF GR
+  0 A$Sprite_Engine$1149                                           0003B0 GR
+  0 A$Sprite_Engine$115                                            000028 GR
+  0 A$Sprite_Engine$1150                                           0003B1 GR
+  0 A$Sprite_Engine$1151                                           0003B2 GR
+  0 A$Sprite_Engine$1152                                           0003B3 GR
+  0 A$Sprite_Engine$1153                                           0003B4 GR
+  0 A$Sprite_Engine$1155                                           0003B5 GR
+  0 A$Sprite_Engine$1158                                           0003B6 GR
+  0 A$Sprite_Engine$116                                            000029 GR
+  0 A$Sprite_Engine$1161                                           0003B8 GR
+  0 A$Sprite_Engine$1162                                           0003B9 GR
+  0 A$Sprite_Engine$1163                                           0003BA GR
+  0 A$Sprite_Engine$1164                                           0003BB GR
+  0 A$Sprite_Engine$1165                                           0003BE GR
+  0 A$Sprite_Engine$1166                                           0003BF GR
+  0 A$Sprite_Engine$1167                                           0003C0 GR
+  0 A$Sprite_Engine$1168                                           0003C1 GR
+  0 A$Sprite_Engine$1169                                           0003C2 GR
+  0 A$Sprite_Engine$117                                            00002A GR
+  0 A$Sprite_Engine$1171                                           0003C3 GR
+  0 A$Sprite_Engine$1172                                           0003C6 GR
+  0 A$Sprite_Engine$1173                                           0003C7 GR
+  0 A$Sprite_Engine$1174                                           0003C8 GR
+  0 A$Sprite_Engine$1175                                           0003C9 GR
+  0 A$Sprite_Engine$1176                                           0003CB GR
+  0 A$Sprite_Engine$1177                                           0003CC GR
+  0 A$Sprite_Engine$1178                                           0003CD GR
+  0 A$Sprite_Engine$1179                                           0003CE GR
+  0 A$Sprite_Engine$118                                            00002C GR
+  0 A$Sprite_Engine$1180                                           0003D0 GR
+  0 A$Sprite_Engine$1181                                           0003D1 GR
+  0 A$Sprite_Engine$1182                                           0003D2 GR
+  0 A$Sprite_Engine$1183                                           0003D3 GR
+  0 A$Sprite_Engine$1184                                           0003D4 GR
+  0 A$Sprite_Engine$1185                                           0003D5 GR
+  0 A$Sprite_Engine$1188                                           0003D6 GR
+  0 A$Sprite_Engine$1189                                           0003D7 GR
+  0 A$Sprite_Engine$119                                            00002D GR
+  0 A$Sprite_Engine$1190                                           0003D8 GR
+  0 A$Sprite_Engine$1193                                           0003D9 GR
+  0 A$Sprite_Engine$1194                                           0003DA GR
+  0 A$Sprite_Engine$1195                                           0003DB GR
+  0 A$Sprite_Engine$1196                                           0003DC GR
+  0 A$Sprite_Engine$1197                                           0003DD GR
+  0 A$Sprite_Engine$1199                                           0003DE GR
+  0 A$Sprite_Engine$1200                                           0003DF GR
+  0 A$Sprite_Engine$1203                                           0003E2 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1206                                           0003E4 GR
+  0 A$Sprite_Engine$1207                                           0003E5 GR
+  0 A$Sprite_Engine$1208                                           0003E6 GR
+  0 A$Sprite_Engine$1209                                           0003E7 GR
+  0 A$Sprite_Engine$1210                                           0003E8 GR
+  0 A$Sprite_Engine$1211                                           0003E9 GR
+  0 A$Sprite_Engine$1213                                           0003EA GR
+  0 A$Sprite_Engine$1214                                           0003EB GR
+  0 A$Sprite_Engine$1215                                           0003EC GR
+  0 A$Sprite_Engine$1216                                           0003ED GR
+  0 A$Sprite_Engine$1217                                           0003EE GR
+  0 A$Sprite_Engine$1218                                           0003EF GR
+  0 A$Sprite_Engine$1219                                           0003F0 GR
+  0 A$Sprite_Engine$1220                                           0003F1 GR
+  0 A$Sprite_Engine$1221                                           0003F4 GR
+  0 A$Sprite_Engine$1222                                           0003F5 GR
+  0 A$Sprite_Engine$1223                                           0003F6 GR
+  0 A$Sprite_Engine$1226                                           0003F7 GR
+  0 A$Sprite_Engine$1229                                           0003F8 GR
+  0 A$Sprite_Engine$123                                            00002E GR
+  0 A$Sprite_Engine$1230                                           0003F9 GR
+  0 A$Sprite_Engine$1231                                           0003FA GR
+  0 A$Sprite_Engine$1232                                           0003FB GR
+  0 A$Sprite_Engine$1233                                           0003FC GR
+  0 A$Sprite_Engine$1235                                           0003FD GR
+  0 A$Sprite_Engine$1238                                           0003FE GR
+  0 A$Sprite_Engine$124                                            000031 GR
+  0 A$Sprite_Engine$1241                                           000400 GR
+  0 A$Sprite_Engine$1242                                           000401 GR
+  0 A$Sprite_Engine$1243                                           000402 GR
+  0 A$Sprite_Engine$1244                                           000405 GR
+  0 A$Sprite_Engine$1246                                           000406 GR
+  0 A$Sprite_Engine$1247                                           000407 GR
+  0 A$Sprite_Engine$1248                                           000408 GR
+  0 A$Sprite_Engine$125                                            000032 GR
+  0 A$Sprite_Engine$1250                                           000409 GR
+  0 A$Sprite_Engine$1251                                           00040B GR
+  0 A$Sprite_Engine$1252                                           00040C GR
+  0 A$Sprite_Engine$1253                                           00040D GR
+  0 A$Sprite_Engine$1254                                           00040E GR
+  0 A$Sprite_Engine$1255                                           00040F GR
+  0 A$Sprite_Engine$1256                                           000410 GR
+  0 A$Sprite_Engine$1257                                           000411 GR
+  0 A$Sprite_Engine$1258                                           000412 GR
+  0 A$Sprite_Engine$1259                                           000413 GR
+  0 A$Sprite_Engine$126                                            000033 GR
+  0 A$Sprite_Engine$1260                                           000416 GR
+  0 A$Sprite_Engine$1261                                           000417 GR
+  0 A$Sprite_Engine$1262                                           000418 GR
+  0 A$Sprite_Engine$1265                                           000419 GR
+  0 A$Sprite_Engine$1268                                           00041A GR
+  0 A$Sprite_Engine$1269                                           00041B GR
+  0 A$Sprite_Engine$127                                            000034 GR
+  0 A$Sprite_Engine$1270                                           00041C GR
+  0 A$Sprite_Engine$1271                                           00041D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1272                                           00041E GR
+  0 A$Sprite_Engine$1274                                           00041F GR
+  0 A$Sprite_Engine$1277                                           000420 GR
+  0 A$Sprite_Engine$128                                            000036 GR
+  0 A$Sprite_Engine$1280                                           000422 GR
+  0 A$Sprite_Engine$1281                                           000423 GR
+  0 A$Sprite_Engine$1282                                           000424 GR
+  0 A$Sprite_Engine$1283                                           000427 GR
+  0 A$Sprite_Engine$1285                                           000428 GR
+  0 A$Sprite_Engine$1286                                           000429 GR
+  0 A$Sprite_Engine$1287                                           00042A GR
+  0 A$Sprite_Engine$1289                                           00042B GR
+  0 A$Sprite_Engine$129                                            000037 GR
+  0 A$Sprite_Engine$1290                                           00042D GR
+  0 A$Sprite_Engine$1291                                           00042E GR
+  0 A$Sprite_Engine$1292                                           00042F GR
+  0 A$Sprite_Engine$1293                                           000430 GR
+  0 A$Sprite_Engine$1294                                           000431 GR
+  0 A$Sprite_Engine$1295                                           000432 GR
+  0 A$Sprite_Engine$1296                                           000433 GR
+  0 A$Sprite_Engine$1297                                           000434 GR
+  0 A$Sprite_Engine$1298                                           000435 GR
+  0 A$Sprite_Engine$1299                                           000438 GR
+  0 A$Sprite_Engine$1300                                           000439 GR
+  0 A$Sprite_Engine$1301                                           00043A GR
+  0 A$Sprite_Engine$1304                                           00043B GR
+  0 A$Sprite_Engine$1307                                           00043C GR
+  0 A$Sprite_Engine$1308                                           00043D GR
+  0 A$Sprite_Engine$1309                                           00043E GR
+  0 A$Sprite_Engine$1310                                           00043F GR
+  0 A$Sprite_Engine$1311                                           000440 GR
+  0 A$Sprite_Engine$1313                                           000441 GR
+  0 A$Sprite_Engine$1316                                           000442 GR
+  0 A$Sprite_Engine$1319                                           000444 GR
+  0 A$Sprite_Engine$1320                                           000445 GR
+  0 A$Sprite_Engine$1321                                           000446 GR
+  0 A$Sprite_Engine$1322                                           000449 GR
+  0 A$Sprite_Engine$1324                                           00044A GR
+  0 A$Sprite_Engine$1325                                           00044B GR
+  0 A$Sprite_Engine$1326                                           00044C GR
+  0 A$Sprite_Engine$1328                                           00044D GR
+  0 A$Sprite_Engine$1329                                           00044F GR
+  0 A$Sprite_Engine$133                                            000038 GR
+  0 A$Sprite_Engine$1330                                           000450 GR
+  0 A$Sprite_Engine$1331                                           000451 GR
+  0 A$Sprite_Engine$1332                                           000452 GR
+  0 A$Sprite_Engine$1333                                           000453 GR
+  0 A$Sprite_Engine$1334                                           000454 GR
+  0 A$Sprite_Engine$1335                                           000455 GR
+  0 A$Sprite_Engine$1336                                           000456 GR
+  0 A$Sprite_Engine$1337                                           000457 GR
+  0 A$Sprite_Engine$1338                                           00045A GR
+  0 A$Sprite_Engine$1339                                           00045B GR
+  0 A$Sprite_Engine$134                                            00003B GR
+  0 A$Sprite_Engine$1340                                           00045C GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1343                                           00045D GR
+  0 A$Sprite_Engine$1346                                           00045E GR
+  0 A$Sprite_Engine$1347                                           00045F GR
+  0 A$Sprite_Engine$1348                                           000460 GR
+  0 A$Sprite_Engine$1349                                           000461 GR
+  0 A$Sprite_Engine$135                                            00003C GR
+  0 A$Sprite_Engine$1350                                           000462 GR
+  0 A$Sprite_Engine$1352                                           000463 GR
+  0 A$Sprite_Engine$1355                                           000464 GR
+  0 A$Sprite_Engine$1358                                           000466 GR
+  0 A$Sprite_Engine$1359                                           000467 GR
+  0 A$Sprite_Engine$136                                            00003D GR
+  0 A$Sprite_Engine$1360                                           000468 GR
+  0 A$Sprite_Engine$1361                                           00046B GR
+  0 A$Sprite_Engine$1363                                           00046C GR
+  0 A$Sprite_Engine$1364                                           00046D GR
+  0 A$Sprite_Engine$1365                                           00046E GR
+  0 A$Sprite_Engine$137                                            00003E GR
+  0 A$Sprite_Engine$1372                                           00046F GR
+  0 A$Sprite_Engine$1377                                           000471 GR
+  0 A$Sprite_Engine$138                                            000040 GR
+  0 A$Sprite_Engine$1387                                           000472 GR
+  0 A$Sprite_Engine$1389                                           000474 GR
+  0 A$Sprite_Engine$139                                            000041 GR
+  0 A$Sprite_Engine$1390                                           000476 GR
+  0 A$Sprite_Engine$1391                                           000477 GR
+  0 A$Sprite_Engine$1392                                           000478 GR
+  0 A$Sprite_Engine$1393                                           000479 GR
+  0 A$Sprite_Engine$1394                                           00047A GR
+  0 A$Sprite_Engine$1395                                           00047C GR
+  0 A$Sprite_Engine$1396                                           00047D GR
+  0 A$Sprite_Engine$1399                                           00047E GR
+  0 A$Sprite_Engine$1402                                           000480 GR
+  0 A$Sprite_Engine$1403                                           000481 GR
+  0 A$Sprite_Engine$1404                                           000482 GR
+  0 A$Sprite_Engine$1405                                           000485 GR
+  0 A$Sprite_Engine$1406                                           000486 GR
+  0 A$Sprite_Engine$1407                                           000487 GR
+  0 A$Sprite_Engine$1408                                           000488 GR
+  0 A$Sprite_Engine$1409                                           000489 GR
+  0 A$Sprite_Engine$1410                                           00048B GR
+  0 A$Sprite_Engine$1414                                           00048C GR
+  0 A$Sprite_Engine$1415                                           00048D GR
+  0 A$Sprite_Engine$1416                                           00048E GR
+  0 A$Sprite_Engine$1417                                           00048F GR
+  0 A$Sprite_Engine$1418                                           000490 GR
+  0 A$Sprite_Engine$1419                                           000492 GR
+  0 A$Sprite_Engine$1420                                           000493 GR
+  0 A$Sprite_Engine$1421                                           000495 GR
+  0 A$Sprite_Engine$1422                                           000496 GR
+  0 A$Sprite_Engine$1423                                           000497 GR
+  0 A$Sprite_Engine$1424                                           000498 GR
+  0 A$Sprite_Engine$1425                                           000499 GR
+  0 A$Sprite_Engine$1426                                           00049A GR
+  0 A$Sprite_Engine$1427                                           00049B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1428                                           00049C GR
+  0 A$Sprite_Engine$1429                                           00049D GR
+  0 A$Sprite_Engine$1430                                           00049E GR
+  0 A$Sprite_Engine$1431                                           00049F GR
+  0 A$Sprite_Engine$1432                                           0004A1 GR
+  0 A$Sprite_Engine$1433                                           0004A3 GR
+  0 A$Sprite_Engine$1434                                           0004A5 GR
+  0 A$Sprite_Engine$1435                                           0004A7 GR
+  0 A$Sprite_Engine$1436                                           0004A8 GR
+  0 A$Sprite_Engine$1438                                           0004AA GR
+  0 A$Sprite_Engine$1439                                           0004AC GR
+  0 A$Sprite_Engine$1440                                           0004AE GR
+  0 A$Sprite_Engine$1442                                           0004AF GR
+  0 A$Sprite_Engine$1444                                           0004B1 GR
+  0 A$Sprite_Engine$1446                                           0004B3 GR
+  0 A$Sprite_Engine$1447                                           0004B4 GR
+  0 A$Sprite_Engine$1448                                           0004B5 GR
+  0 A$Sprite_Engine$1449                                           0004B6 GR
+  0 A$Sprite_Engine$1450                                           0004B9 GR
+  0 A$Sprite_Engine$1451                                           0004BA GR
+  0 A$Sprite_Engine$1452                                           0004BC GR
+  0 A$Sprite_Engine$1453                                           0004BD GR
+  0 A$Sprite_Engine$1454                                           0004BE GR
+  0 A$Sprite_Engine$1455                                           0004BF GR
+  0 A$Sprite_Engine$1456                                           0004C0 GR
+  0 A$Sprite_Engine$1457                                           0004C1 GR
+  0 A$Sprite_Engine$1461                                           0004C2 GR
+  0 A$Sprite_Engine$1464                                           0004C4 GR
+  0 A$Sprite_Engine$1465                                           0004C6 GR
+  0 A$Sprite_Engine$1466                                           0004C7 GR
+  0 A$Sprite_Engine$1467                                           0004C9 GR
+  0 A$Sprite_Engine$1468                                           0004CA GR
+  0 A$Sprite_Engine$1469                                           0004CB GR
+  0 A$Sprite_Engine$147                                            000042 GR
+  0 A$Sprite_Engine$1470                                           0004CE GR
+  0 A$Sprite_Engine$1471                                           0004CF GR
+  0 A$Sprite_Engine$1472                                           0004D0 GR
+  0 A$Sprite_Engine$1473                                           0004D1 GR
+  0 A$Sprite_Engine$1481                                           0004D3 GR
+  0 A$Sprite_Engine$1486                                           0004D5 GR
+  0 A$Sprite_Engine$1496                                           0004D6 GR
+  0 A$Sprite_Engine$1500                                           0004D8 GR
+  0 A$Sprite_Engine$1501                                           0004DA GR
+  0 A$Sprite_Engine$1502                                           0004DB GR
+  0 A$Sprite_Engine$1503                                           0004DC GR
+  0 A$Sprite_Engine$1504                                           0004DD GR
+  0 A$Sprite_Engine$1505                                           0004E0 GR
+  0 A$Sprite_Engine$1506                                           0004E1 GR
+  0 A$Sprite_Engine$1507                                           0004E2 GR
+  0 A$Sprite_Engine$1508                                           0004E3 GR
+  0 A$Sprite_Engine$1509                                           0004E4 GR
+  0 A$Sprite_Engine$1510                                           0004E6 GR
+  0 A$Sprite_Engine$1512                                           0004E8 GR
+  0 A$Sprite_Engine$1513                                           0004E9 GR
+  0 A$Sprite_Engine$1514                                           0004EA GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1515                                           0004EB GR
+  0 A$Sprite_Engine$1516                                           0004ED GR
+  0 A$Sprite_Engine$1517                                           0004EE GR
+  0 A$Sprite_Engine$1518                                           0004EF GR
+  0 A$Sprite_Engine$1519                                           0004F0 GR
+  0 A$Sprite_Engine$1521                                           0004F2 GR
+  0 A$Sprite_Engine$1522                                           0004F3 GR
+  0 A$Sprite_Engine$1524                                           0004F4 GR
+  0 A$Sprite_Engine$1527                                           0004F6 GR
+  0 A$Sprite_Engine$1528                                           0004F7 GR
+  0 A$Sprite_Engine$1529                                           0004F8 GR
+  0 A$Sprite_Engine$1530                                           0004F9 GR
+  0 A$Sprite_Engine$1531                                           0004FC GR
+  0 A$Sprite_Engine$1532                                           0004FD GR
+  0 A$Sprite_Engine$1533                                           0004FE GR
+  0 A$Sprite_Engine$1534                                           0004FF GR
+  0 A$Sprite_Engine$1535                                           000500 GR
+  0 A$Sprite_Engine$1536                                           000501 GR
+  0 A$Sprite_Engine$1537                                           000503 GR
+  0 A$Sprite_Engine$1538                                           000504 GR
+  0 A$Sprite_Engine$1542                                           000505 GR
+  0 A$Sprite_Engine$1543                                           000506 GR
+  0 A$Sprite_Engine$1544                                           000509 GR
+  0 A$Sprite_Engine$1545                                           00050A GR
+  0 A$Sprite_Engine$1546                                           00050D GR
+  0 A$Sprite_Engine$1547                                           00050E GR
+  0 A$Sprite_Engine$1551                                           00050F GR
+  0 A$Sprite_Engine$1552                                           000511 GR
+  0 A$Sprite_Engine$1553                                           000512 GR
+  0 A$Sprite_Engine$1558                                           000514 GR
+  0 A$Sprite_Engine$1563                                           000516 GR
+  0 A$Sprite_Engine$157                                            000043 GR
+  0 A$Sprite_Engine$1576                                           000517 GR
+  0 A$Sprite_Engine$1577                                           00051A GR
+  0 A$Sprite_Engine$1581                                           00051B GR
+  0 A$Sprite_Engine$1582                                           00051D GR
+  0 A$Sprite_Engine$1583                                           00051E GR
+  0 A$Sprite_Engine$1584                                           00051F GR
+  0 A$Sprite_Engine$1588                                           000520 GR
+  0 A$Sprite_Engine$1589                                           000521 GR
+  0 A$Sprite_Engine$1590                                           000522 GR
+  0 A$Sprite_Engine$1591                                           000524 GR
+  0 A$Sprite_Engine$1592                                           000525 GR
+  0 A$Sprite_Engine$1593                                           000527 GR
+  0 A$Sprite_Engine$1594                                           000529 GR
+  0 A$Sprite_Engine$1595                                           00052B GR
+  0 A$Sprite_Engine$1596                                           00052D GR
+  0 A$Sprite_Engine$1597                                           00052F GR
+  0 A$Sprite_Engine$1598                                           000531 GR
+  0 A$Sprite_Engine$1604                                           000533 GR
+  0 A$Sprite_Engine$1605                                           000534 GR
+  0 A$Sprite_Engine$1607                                           000535 GR
+  0 A$Sprite_Engine$161                                            000045 GR
+  0 A$Sprite_Engine$1610                                           000537 GR
+  0 A$Sprite_Engine$1611                                           000538 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1612                                           000539 GR
+  0 A$Sprite_Engine$1613                                           00053A GR
+  0 A$Sprite_Engine$1614                                           00053D GR
+  0 A$Sprite_Engine$1616                                           00053E GR
+  0 A$Sprite_Engine$1617                                           00053F GR
+  0 A$Sprite_Engine$1618                                           000540 GR
+  0 A$Sprite_Engine$1619                                           000541 GR
+  0 A$Sprite_Engine$162                                            000047 GR
+  0 A$Sprite_Engine$1623                                           000542 GR
+  0 A$Sprite_Engine$1624                                           000543 GR
+  0 A$Sprite_Engine$1625                                           000546 GR
+  0 A$Sprite_Engine$1629                                           000547 GR
+  0 A$Sprite_Engine$163                                            000048 GR
+  0 A$Sprite_Engine$1635                                           000549 GR
+  0 A$Sprite_Engine$1637                                           00054A GR
+  0 A$Sprite_Engine$164                                            000049 GR
+  0 A$Sprite_Engine$1640                                           00054B GR
+  0 A$Sprite_Engine$1643                                           00054D GR
+  0 A$Sprite_Engine$1644                                           00054E GR
+  0 A$Sprite_Engine$1645                                           00054F GR
+  0 A$Sprite_Engine$1646                                           000552 GR
+  0 A$Sprite_Engine$1648                                           000553 GR
+  0 A$Sprite_Engine$1649                                           000554 GR
+  0 A$Sprite_Engine$165                                            00004A GR
+  0 A$Sprite_Engine$1650                                           000555 GR
+  0 A$Sprite_Engine$1651                                           000556 GR
+  0 A$Sprite_Engine$1655                                           000557 GR
+  0 A$Sprite_Engine$1656                                           000558 GR
+  0 A$Sprite_Engine$1657                                           00055B GR
+  0 A$Sprite_Engine$1661                                           00055C GR
+  0 A$Sprite_Engine$1667                                           00055E GR
+  0 A$Sprite_Engine$1668                                           00055F GR
+  0 A$Sprite_Engine$1670                                           000560 GR
+  0 A$Sprite_Engine$1673                                           000562 GR
+  0 A$Sprite_Engine$1674                                           000563 GR
+  0 A$Sprite_Engine$1675                                           000564 GR
+  0 A$Sprite_Engine$1676                                           000565 GR
+  0 A$Sprite_Engine$1677                                           000568 GR
+  0 A$Sprite_Engine$1679                                           000569 GR
+  0 A$Sprite_Engine$1680                                           00056A GR
+  0 A$Sprite_Engine$1681                                           00056B GR
+  0 A$Sprite_Engine$1682                                           00056C GR
+  0 A$Sprite_Engine$1683                                           00056D GR
+  0 A$Sprite_Engine$1687                                           00056E GR
+  0 A$Sprite_Engine$1688                                           00056F GR
+  0 A$Sprite_Engine$1689                                           000572 GR
+  0 A$Sprite_Engine$169                                            00004B GR
+  0 A$Sprite_Engine$1693                                           000573 GR
+  0 A$Sprite_Engine$1699                                           000575 GR
+  0 A$Sprite_Engine$170                                            00004C GR
+  0 A$Sprite_Engine$1700                                           000576 GR
+  0 A$Sprite_Engine$1702                                           000577 GR
+  0 A$Sprite_Engine$1705                                           000579 GR
+  0 A$Sprite_Engine$1706                                           00057A GR
+  0 A$Sprite_Engine$1707                                           00057B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1708                                           00057C GR
+  0 A$Sprite_Engine$1709                                           00057F GR
+  0 A$Sprite_Engine$171                                            00004D GR
+  0 A$Sprite_Engine$1711                                           000580 GR
+  0 A$Sprite_Engine$1712                                           000581 GR
+  0 A$Sprite_Engine$1713                                           000582 GR
+  0 A$Sprite_Engine$1714                                           000583 GR
+  0 A$Sprite_Engine$1715                                           000584 GR
+  0 A$Sprite_Engine$1719                                           000585 GR
+  0 A$Sprite_Engine$172                                            00004E GR
+  0 A$Sprite_Engine$1720                                           000586 GR
+  0 A$Sprite_Engine$1721                                           000589 GR
+  0 A$Sprite_Engine$1729                                           00058A GR
+  0 A$Sprite_Engine$173                                            00004F GR
+  0 A$Sprite_Engine$1730                                           00058D GR
+  0 A$Sprite_Engine$1731                                           00058E GR
+  0 A$Sprite_Engine$1732                                           000591 GR
+  0 A$Sprite_Engine$1740                                           000592 GR
+  0 A$Sprite_Engine$1750                                           000593 GR
+  0 A$Sprite_Engine$1751                                           000594 GR
+  0 A$Sprite_Engine$1755                                           000595 GR
+  0 A$Sprite_Engine$1759                                           000598 GR
+  0 A$Sprite_Engine$1760                                           00059A GR
+  0 A$Sprite_Engine$1761                                           00059B GR
+  0 A$Sprite_Engine$1762                                           00059C GR
+  0 A$Sprite_Engine$1763                                           00059D GR
+  0 A$Sprite_Engine$1764                                           0005A0 GR
+  0 A$Sprite_Engine$1765                                           0005A1 GR
+  0 A$Sprite_Engine$1766                                           0005A2 GR
+  0 A$Sprite_Engine$1767                                           0005A3 GR
+  0 A$Sprite_Engine$177                                            000050 GR
+  0 A$Sprite_Engine$1771                                           0005A4 GR
+  0 A$Sprite_Engine$1772                                           0005A5 GR
+  0 A$Sprite_Engine$1773                                           0005A6 GR
+  0 A$Sprite_Engine$1774                                           0005A8 GR
+  0 A$Sprite_Engine$1775                                           0005A9 GR
+  0 A$Sprite_Engine$1776                                           0005AB GR
+  0 A$Sprite_Engine$1777                                           0005AD GR
+  0 A$Sprite_Engine$1778                                           0005AF GR
+  0 A$Sprite_Engine$1779                                           0005B2 GR
+  0 A$Sprite_Engine$178                                            000051 GR
+  0 A$Sprite_Engine$1780                                           0005B4 GR
+  0 A$Sprite_Engine$1781                                           0005B7 GR
+  0 A$Sprite_Engine$1787                                           0005BA GR
+  0 A$Sprite_Engine$1788                                           0005BB GR
+  0 A$Sprite_Engine$1789                                           0005BC GR
+  0 A$Sprite_Engine$179                                            000052 GR
+  0 A$Sprite_Engine$1790                                           0005BD GR
+  0 A$Sprite_Engine$1793                                           0005BE GR
+  0 A$Sprite_Engine$1794                                           0005BF GR
+  0 A$Sprite_Engine$1795                                           0005C0 GR
+  0 A$Sprite_Engine$1799                                           0005C1 GR
+  0 A$Sprite_Engine$180                                            000053 GR
+  0 A$Sprite_Engine$1802                                           0005C2 GR
+  0 A$Sprite_Engine$1805                                           0005C4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1806                                           0005C5 GR
+  0 A$Sprite_Engine$1807                                           0005C6 GR
+  0 A$Sprite_Engine$1808                                           0005C9 GR
+  0 A$Sprite_Engine$181                                            000054 GR
+  0 A$Sprite_Engine$1810                                           0005CA GR
+  0 A$Sprite_Engine$1811                                           0005CB GR
+  0 A$Sprite_Engine$1812                                           0005CC GR
+  0 A$Sprite_Engine$1813                                           0005CD GR
+  0 A$Sprite_Engine$1815                                           0005CE GR
+  0 A$Sprite_Engine$1816                                           0005D1 GR
+  0 A$Sprite_Engine$1817                                           0005D2 GR
+  0 A$Sprite_Engine$1818                                           0005D3 GR
+  0 A$Sprite_Engine$182                                            000055 GR
+  0 A$Sprite_Engine$1820                                           0005D4 GR
+  0 A$Sprite_Engine$1824                                           0005D5 GR
+  0 A$Sprite_Engine$1827                                           0005D6 GR
+  0 A$Sprite_Engine$1830                                           0005D8 GR
+  0 A$Sprite_Engine$1831                                           0005D9 GR
+  0 A$Sprite_Engine$1832                                           0005DA GR
+  0 A$Sprite_Engine$1833                                           0005DD GR
+  0 A$Sprite_Engine$1835                                           0005DE GR
+  0 A$Sprite_Engine$1836                                           0005DF GR
+  0 A$Sprite_Engine$1837                                           0005E0 GR
+  0 A$Sprite_Engine$1838                                           0005E1 GR
+  0 A$Sprite_Engine$1840                                           0005E2 GR
+  0 A$Sprite_Engine$1841                                           0005E5 GR
+  0 A$Sprite_Engine$1842                                           0005E6 GR
+  0 A$Sprite_Engine$1843                                           0005E7 GR
+  0 A$Sprite_Engine$1845                                           0005E8 GR
+  0 A$Sprite_Engine$1849                                           0005E9 GR
+  0 A$Sprite_Engine$1852                                           0005EA GR
+  0 A$Sprite_Engine$1855                                           0005EC GR
+  0 A$Sprite_Engine$1856                                           0005ED GR
+  0 A$Sprite_Engine$1857                                           0005EE GR
+  0 A$Sprite_Engine$1858                                           0005F1 GR
+  0 A$Sprite_Engine$186                                            000056 GR
+  0 A$Sprite_Engine$1860                                           0005F2 GR
+  0 A$Sprite_Engine$1861                                           0005F3 GR
+  0 A$Sprite_Engine$1862                                           0005F4 GR
+  0 A$Sprite_Engine$1863                                           0005F5 GR
+  0 A$Sprite_Engine$1865                                           0005F6 GR
+  0 A$Sprite_Engine$1866                                           0005F9 GR
+  0 A$Sprite_Engine$1867                                           0005FA GR
+  0 A$Sprite_Engine$1868                                           0005FB GR
+  0 A$Sprite_Engine$1869                                           0005FC GR
+  0 A$Sprite_Engine$187                                            000057 GR
+  0 A$Sprite_Engine$1870                                           0005FD GR
+  0 A$Sprite_Engine$1872                                           0005FE GR
+  0 A$Sprite_Engine$1875                                           0005FF GR
+  0 A$Sprite_Engine$1878                                           000601 GR
+  0 A$Sprite_Engine$1879                                           000602 GR
+  0 A$Sprite_Engine$188                                            000058 GR
+  0 A$Sprite_Engine$1880                                           000603 GR
+  0 A$Sprite_Engine$1881                                           000606 GR
+  0 A$Sprite_Engine$1883                                           000607 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1884                                           000608 GR
+  0 A$Sprite_Engine$1885                                           000609 GR
+  0 A$Sprite_Engine$1886                                           00060A GR
+  0 A$Sprite_Engine$189                                            000059 GR
+  0 A$Sprite_Engine$1890                                           00060B GR
+  0 A$Sprite_Engine$1896                                           00060E GR
+  0 A$Sprite_Engine$1897                                           00060F GR
+  0 A$Sprite_Engine$1898                                           000610 GR
+  0 A$Sprite_Engine$1899                                           000611 GR
+  0 A$Sprite_Engine$190                                            00005A GR
+  0 A$Sprite_Engine$1902                                           000612 GR
+  0 A$Sprite_Engine$1903                                           000613 GR
+  0 A$Sprite_Engine$1904                                           000614 GR
+  0 A$Sprite_Engine$1907                                           000615 GR
+  0 A$Sprite_Engine$1909                                           000616 GR
+  0 A$Sprite_Engine$191                                            00005B GR
+  0 A$Sprite_Engine$1912                                           000618 GR
+  0 A$Sprite_Engine$1913                                           000619 GR
+  0 A$Sprite_Engine$1914                                           00061A GR
+  0 A$Sprite_Engine$1915                                           00061B GR
+  0 A$Sprite_Engine$1916                                           00061E GR
+  0 A$Sprite_Engine$1918                                           00061F GR
+  0 A$Sprite_Engine$1919                                           000620 GR
+  0 A$Sprite_Engine$192                                            00005C GR
+  0 A$Sprite_Engine$1920                                           000621 GR
+  0 A$Sprite_Engine$1921                                           000622 GR
+  0 A$Sprite_Engine$1923                                           000623 GR
+  0 A$Sprite_Engine$1924                                           000626 GR
+  0 A$Sprite_Engine$1925                                           000627 GR
+  0 A$Sprite_Engine$1926                                           000628 GR
+  0 A$Sprite_Engine$1928                                           000629 GR
+  0 A$Sprite_Engine$193                                            00005D GR
+  0 A$Sprite_Engine$1931                                           00062A GR
+  0 A$Sprite_Engine$1933                                           00062B GR
+  0 A$Sprite_Engine$1936                                           00062D GR
+  0 A$Sprite_Engine$1937                                           00062E GR
+  0 A$Sprite_Engine$1938                                           00062F GR
+  0 A$Sprite_Engine$1939                                           000630 GR
+  0 A$Sprite_Engine$194                                            00005E GR
+  0 A$Sprite_Engine$1940                                           000633 GR
+  0 A$Sprite_Engine$1942                                           000634 GR
+  0 A$Sprite_Engine$1943                                           000635 GR
+  0 A$Sprite_Engine$1944                                           000636 GR
+  0 A$Sprite_Engine$1945                                           000637 GR
+  0 A$Sprite_Engine$1947                                           000638 GR
+  0 A$Sprite_Engine$1948                                           00063B GR
+  0 A$Sprite_Engine$1949                                           00063C GR
+  0 A$Sprite_Engine$1950                                           00063D GR
+  0 A$Sprite_Engine$1952                                           00063E GR
+  0 A$Sprite_Engine$1955                                           00063F GR
+  0 A$Sprite_Engine$1957                                           000640 GR
+  0 A$Sprite_Engine$1960                                           000642 GR
+  0 A$Sprite_Engine$1961                                           000643 GR
+  0 A$Sprite_Engine$1962                                           000644 GR
+  0 A$Sprite_Engine$1963                                           000645 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 13.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$1964                                           000648 GR
+  0 A$Sprite_Engine$1966                                           000649 GR
+  0 A$Sprite_Engine$1967                                           00064A GR
+  0 A$Sprite_Engine$1968                                           00064B GR
+  0 A$Sprite_Engine$1969                                           00064C GR
+  0 A$Sprite_Engine$1971                                           00064D GR
+  0 A$Sprite_Engine$1972                                           000650 GR
+  0 A$Sprite_Engine$1973                                           000651 GR
+  0 A$Sprite_Engine$1974                                           000652 GR
+  0 A$Sprite_Engine$1976                                           000653 GR
+  0 A$Sprite_Engine$1977                                           000654 GR
+  0 A$Sprite_Engine$1979                                           000655 GR
+  0 A$Sprite_Engine$198                                            00005F GR
+  0 A$Sprite_Engine$1982                                           000657 GR
+  0 A$Sprite_Engine$1983                                           000658 GR
+  0 A$Sprite_Engine$1984                                           000659 GR
+  0 A$Sprite_Engine$1985                                           00065A GR
+  0 A$Sprite_Engine$1986                                           00065D GR
+  0 A$Sprite_Engine$1988                                           00065E GR
+  0 A$Sprite_Engine$1989                                           00065F GR
+  0 A$Sprite_Engine$199                                            000062 GR
+  0 A$Sprite_Engine$1990                                           000660 GR
+  0 A$Sprite_Engine$1991                                           000661 GR
+  0 A$Sprite_Engine$1995                                           000662 GR
+  0 A$Sprite_Engine$200                                            000063 GR
+  0 A$Sprite_Engine$2001                                           000665 GR
+  0 A$Sprite_Engine$2002                                           000666 GR
+  0 A$Sprite_Engine$2003                                           000667 GR
+  0 A$Sprite_Engine$2004                                           000668 GR
+  0 A$Sprite_Engine$2007                                           000669 GR
+  0 A$Sprite_Engine$2008                                           00066A GR
+  0 A$Sprite_Engine$2009                                           00066B GR
+  0 A$Sprite_Engine$201                                            000064 GR
+  0 A$Sprite_Engine$2012                                           00066C GR
+  0 A$Sprite_Engine$2014                                           00066D GR
+  0 A$Sprite_Engine$2017                                           00066F GR
+  0 A$Sprite_Engine$2018                                           000670 GR
+  0 A$Sprite_Engine$2019                                           000671 GR
+  0 A$Sprite_Engine$202                                            000065 GR
+  0 A$Sprite_Engine$2020                                           000672 GR
+  0 A$Sprite_Engine$2021                                           000675 GR
+  0 A$Sprite_Engine$2023                                           000676 GR
+  0 A$Sprite_Engine$2024                                           000677 GR
+  0 A$Sprite_Engine$2025                                           000678 GR
+  0 A$Sprite_Engine$2026                                           000679 GR
+  0 A$Sprite_Engine$2027                                           00067A GR
+  0 A$Sprite_Engine$2029                                           00067B GR
+  0 A$Sprite_Engine$203                                            000067 GR
+  0 A$Sprite_Engine$2030                                           00067E GR
+  0 A$Sprite_Engine$2031                                           00067F GR
+  0 A$Sprite_Engine$2032                                           000680 GR
+  0 A$Sprite_Engine$2034                                           000681 GR
+  0 A$Sprite_Engine$2037                                           000682 GR
+  0 A$Sprite_Engine$2039                                           000683 GR
+  0 A$Sprite_Engine$204                                            000068 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 14.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$2042                                           000685 GR
+  0 A$Sprite_Engine$2043                                           000686 GR
+  0 A$Sprite_Engine$2044                                           000687 GR
+  0 A$Sprite_Engine$2045                                           000688 GR
+  0 A$Sprite_Engine$2046                                           00068B GR
+  0 A$Sprite_Engine$2048                                           00068C GR
+  0 A$Sprite_Engine$2049                                           00068D GR
+  0 A$Sprite_Engine$2050                                           00068E GR
+  0 A$Sprite_Engine$2051                                           00068F GR
+  0 A$Sprite_Engine$2052                                           000690 GR
+  0 A$Sprite_Engine$2054                                           000691 GR
+  0 A$Sprite_Engine$2055                                           000694 GR
+  0 A$Sprite_Engine$2056                                           000695 GR
+  0 A$Sprite_Engine$2057                                           000696 GR
+  0 A$Sprite_Engine$2059                                           000697 GR
+  0 A$Sprite_Engine$2062                                           000698 GR
+  0 A$Sprite_Engine$2064                                           000699 GR
+  0 A$Sprite_Engine$2067                                           00069B GR
+  0 A$Sprite_Engine$2068                                           00069C GR
+  0 A$Sprite_Engine$2069                                           00069D GR
+  0 A$Sprite_Engine$2070                                           00069E GR
+  0 A$Sprite_Engine$2071                                           0006A1 GR
+  0 A$Sprite_Engine$2073                                           0006A2 GR
+  0 A$Sprite_Engine$2074                                           0006A3 GR
+  0 A$Sprite_Engine$2075                                           0006A4 GR
+  0 A$Sprite_Engine$2076                                           0006A5 GR
+  0 A$Sprite_Engine$2077                                           0006A6 GR
+  0 A$Sprite_Engine$2079                                           0006A7 GR
+  0 A$Sprite_Engine$208                                            000069 GR
+  0 A$Sprite_Engine$2080                                           0006AA GR
+  0 A$Sprite_Engine$2081                                           0006AB GR
+  0 A$Sprite_Engine$2082                                           0006AC GR
+  0 A$Sprite_Engine$2084                                           0006AD GR
+  0 A$Sprite_Engine$2085                                           0006AE GR
+  0 A$Sprite_Engine$2087                                           0006AF GR
+  0 A$Sprite_Engine$209                                            00006C GR
+  0 A$Sprite_Engine$2090                                           0006B1 GR
+  0 A$Sprite_Engine$2091                                           0006B2 GR
+  0 A$Sprite_Engine$2092                                           0006B3 GR
+  0 A$Sprite_Engine$2093                                           0006B4 GR
+  0 A$Sprite_Engine$2094                                           0006B7 GR
+  0 A$Sprite_Engine$2096                                           0006B8 GR
+  0 A$Sprite_Engine$2097                                           0006B9 GR
+  0 A$Sprite_Engine$2098                                           0006BA GR
+  0 A$Sprite_Engine$2099                                           0006BB GR
+  0 A$Sprite_Engine$210                                            00006D GR
+  0 A$Sprite_Engine$2100                                           0006BC GR
+  0 A$Sprite_Engine$2104                                           0006BD GR
+  0 A$Sprite_Engine$211                                            00006E GR
+  0 A$Sprite_Engine$2110                                           0006BF GR
+  0 A$Sprite_Engine$2111                                           0006C0 GR
+  0 A$Sprite_Engine$2112                                           0006C1 GR
+  0 A$Sprite_Engine$2113                                           0006C2 GR
+  0 A$Sprite_Engine$2116                                           0006C3 GR
+  0 A$Sprite_Engine$2117                                           0006C4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 15.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$2118                                           0006C5 GR
+  0 A$Sprite_Engine$212                                            00006F GR
+  0 A$Sprite_Engine$2121                                           0006C6 GR
+  0 A$Sprite_Engine$2123                                           0006C7 GR
+  0 A$Sprite_Engine$2126                                           0006C9 GR
+  0 A$Sprite_Engine$2127                                           0006CA GR
+  0 A$Sprite_Engine$2128                                           0006CB GR
+  0 A$Sprite_Engine$2129                                           0006CC GR
+  0 A$Sprite_Engine$213                                            000071 GR
+  0 A$Sprite_Engine$2130                                           0006CF GR
+  0 A$Sprite_Engine$2132                                           0006D0 GR
+  0 A$Sprite_Engine$2133                                           0006D1 GR
+  0 A$Sprite_Engine$2134                                           0006D2 GR
+  0 A$Sprite_Engine$2135                                           0006D3 GR
+  0 A$Sprite_Engine$2136                                           0006D4 GR
+  0 A$Sprite_Engine$2138                                           0006D5 GR
+  0 A$Sprite_Engine$2139                                           0006D8 GR
+  0 A$Sprite_Engine$214                                            000072 GR
+  0 A$Sprite_Engine$2140                                           0006D9 GR
+  0 A$Sprite_Engine$2141                                           0006DA GR
+  0 A$Sprite_Engine$2143                                           0006DB GR
+  0 A$Sprite_Engine$2146                                           0006DC GR
+  0 A$Sprite_Engine$2148                                           0006DD GR
+  0 A$Sprite_Engine$2151                                           0006DF GR
+  0 A$Sprite_Engine$2152                                           0006E0 GR
+  0 A$Sprite_Engine$2153                                           0006E1 GR
+  0 A$Sprite_Engine$2154                                           0006E2 GR
+  0 A$Sprite_Engine$2155                                           0006E5 GR
+  0 A$Sprite_Engine$2157                                           0006E6 GR
+  0 A$Sprite_Engine$2158                                           0006E7 GR
+  0 A$Sprite_Engine$2159                                           0006E8 GR
+  0 A$Sprite_Engine$2160                                           0006E9 GR
+  0 A$Sprite_Engine$2161                                           0006EA GR
+  0 A$Sprite_Engine$2163                                           0006EB GR
+  0 A$Sprite_Engine$2164                                           0006EE GR
+  0 A$Sprite_Engine$2165                                           0006EF GR
+  0 A$Sprite_Engine$2166                                           0006F0 GR
+  0 A$Sprite_Engine$2168                                           0006F1 GR
+  0 A$Sprite_Engine$2171                                           0006F2 GR
+  0 A$Sprite_Engine$2173                                           0006F3 GR
+  0 A$Sprite_Engine$2176                                           0006F5 GR
+  0 A$Sprite_Engine$2177                                           0006F6 GR
+  0 A$Sprite_Engine$2178                                           0006F7 GR
+  0 A$Sprite_Engine$2179                                           0006F8 GR
+  0 A$Sprite_Engine$218                                            000073 GR
+  0 A$Sprite_Engine$2180                                           0006FB GR
+  0 A$Sprite_Engine$2182                                           0006FC GR
+  0 A$Sprite_Engine$2183                                           0006FD GR
+  0 A$Sprite_Engine$2184                                           0006FE GR
+  0 A$Sprite_Engine$2185                                           0006FF GR
+  0 A$Sprite_Engine$2186                                           000700 GR
+  0 A$Sprite_Engine$2188                                           000701 GR
+  0 A$Sprite_Engine$2189                                           000704 GR
+  0 A$Sprite_Engine$219                                            000076 GR
+  0 A$Sprite_Engine$2190                                           000705 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 16.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$2191                                           000706 GR
+  0 A$Sprite_Engine$2193                                           000707 GR
+  0 A$Sprite_Engine$2194                                           000708 GR
+  0 A$Sprite_Engine$2196                                           000709 GR
+  0 A$Sprite_Engine$2199                                           00070B GR
+  0 A$Sprite_Engine$220                                            000077 GR
+  0 A$Sprite_Engine$2200                                           00070C GR
+  0 A$Sprite_Engine$2201                                           00070D GR
+  0 A$Sprite_Engine$2202                                           00070E GR
+  0 A$Sprite_Engine$2203                                           000711 GR
+  0 A$Sprite_Engine$2205                                           000712 GR
+  0 A$Sprite_Engine$2206                                           000713 GR
+  0 A$Sprite_Engine$2207                                           000714 GR
+  0 A$Sprite_Engine$2208                                           000715 GR
+  0 A$Sprite_Engine$2209                                           000716 GR
+  0 A$Sprite_Engine$221                                            000078 GR
+  0 A$Sprite_Engine$2217                                           000717 GR
+  0 A$Sprite_Engine$2218                                           00071A GR
+  0 A$Sprite_Engine$2219                                           00071B GR
+  0 A$Sprite_Engine$222                                            000079 GR
+  0 A$Sprite_Engine$2220                                           00071E GR
+  0 A$Sprite_Engine$2224                                           00071F GR
+  0 A$Sprite_Engine$2225                                           000720 GR
+  0 A$Sprite_Engine$223                                            00007B GR
+  0 A$Sprite_Engine$2230                                           000721 GR
+  0 A$Sprite_Engine$224                                            00007C GR
+  0 A$Sprite_Engine$228                                            00007D GR
+  0 A$Sprite_Engine$229                                            000080 GR
+  0 A$Sprite_Engine$230                                            000081 GR
+  0 A$Sprite_Engine$231                                            000082 GR
+  0 A$Sprite_Engine$232                                            000083 GR
+  0 A$Sprite_Engine$233                                            000085 GR
+  0 A$Sprite_Engine$234                                            000086 GR
+  0 A$Sprite_Engine$238                                            000087 GR
+  0 A$Sprite_Engine$239                                            00008A GR
+  0 A$Sprite_Engine$240                                            00008B GR
+  0 A$Sprite_Engine$241                                            00008C GR
+  0 A$Sprite_Engine$242                                            00008D GR
+  0 A$Sprite_Engine$243                                            00008F GR
+  0 A$Sprite_Engine$244                                            000090 GR
+  0 A$Sprite_Engine$248                                            000091 GR
+  0 A$Sprite_Engine$249                                            000094 GR
+  0 A$Sprite_Engine$250                                            000095 GR
+  0 A$Sprite_Engine$251                                            000096 GR
+  0 A$Sprite_Engine$252                                            000097 GR
+  0 A$Sprite_Engine$253                                            000099 GR
+  0 A$Sprite_Engine$254                                            00009A GR
+  0 A$Sprite_Engine$255                                            00009B GR
+  0 A$Sprite_Engine$256                                            00009C GR
+  0 A$Sprite_Engine$257                                            00009D GR
+  0 A$Sprite_Engine$261                                            00009E GR
+  0 A$Sprite_Engine$262                                            0000A1 GR
+  0 A$Sprite_Engine$263                                            0000A2 GR
+  0 A$Sprite_Engine$264                                            0000A3 GR
+  0 A$Sprite_Engine$265                                            0000A4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 17.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$266                                            0000A5 GR
+  0 A$Sprite_Engine$267                                            0000A6 GR
+  0 A$Sprite_Engine$268                                            0000A7 GR
+  0 A$Sprite_Engine$269                                            0000A9 GR
+  0 A$Sprite_Engine$270                                            0000AA GR
+  0 A$Sprite_Engine$271                                            0000AB GR
+  0 A$Sprite_Engine$272                                            0000AC GR
+  0 A$Sprite_Engine$273                                            0000AD GR
+  0 A$Sprite_Engine$277                                            0000AE GR
+  0 A$Sprite_Engine$278                                            0000B1 GR
+  0 A$Sprite_Engine$279                                            0000B2 GR
+  0 A$Sprite_Engine$280                                            0000B3 GR
+  0 A$Sprite_Engine$281                                            0000B4 GR
+  0 A$Sprite_Engine$282                                            0000B6 GR
+  0 A$Sprite_Engine$283                                            0000B7 GR
+  0 A$Sprite_Engine$284                                            0000B8 GR
+  0 A$Sprite_Engine$285                                            0000B9 GR
+  0 A$Sprite_Engine$286                                            0000BB GR
+  0 A$Sprite_Engine$287                                            0000BC GR
+  0 A$Sprite_Engine$288                                            0000BD GR
+  0 A$Sprite_Engine$289                                            0000BE GR
+  0 A$Sprite_Engine$290                                            0000BF GR
+  0 A$Sprite_Engine$291                                            0000C1 GR
+  0 A$Sprite_Engine$292                                            0000C2 GR
+  0 A$Sprite_Engine$293                                            0000C3 GR
+  0 A$Sprite_Engine$294                                            0000C4 GR
+  0 A$Sprite_Engine$295                                            0000C5 GR
+  0 A$Sprite_Engine$299                                            0000C6 GR
+  0 A$Sprite_Engine$300                                            0000C9 GR
+  0 A$Sprite_Engine$301                                            0000CA GR
+  0 A$Sprite_Engine$302                                            0000CB GR
+  0 A$Sprite_Engine$303                                            0000CC GR
+  0 A$Sprite_Engine$304                                            0000CE GR
+  0 A$Sprite_Engine$305                                            0000CF GR
+  0 A$Sprite_Engine$306                                            0000D0 GR
+  0 A$Sprite_Engine$307                                            0000D1 GR
+  0 A$Sprite_Engine$308                                            0000D3 GR
+  0 A$Sprite_Engine$309                                            0000D4 GR
+  0 A$Sprite_Engine$310                                            0000D5 GR
+  0 A$Sprite_Engine$311                                            0000D6 GR
+  0 A$Sprite_Engine$312                                            0000D7 GR
+  0 A$Sprite_Engine$313                                            0000D9 GR
+  0 A$Sprite_Engine$314                                            0000DA GR
+  0 A$Sprite_Engine$315                                            0000DB GR
+  0 A$Sprite_Engine$316                                            0000DC GR
+  0 A$Sprite_Engine$317                                            0000DD GR
+  0 A$Sprite_Engine$321                                            0000DE GR
+  0 A$Sprite_Engine$322                                            0000E0 GR
+  0 A$Sprite_Engine$323                                            0000E1 GR
+  0 A$Sprite_Engine$324                                            0000E2 GR
+  0 A$Sprite_Engine$325                                            0000E3 GR
+  0 A$Sprite_Engine$326                                            0000E5 GR
+  0 A$Sprite_Engine$327                                            0000E6 GR
+  0 A$Sprite_Engine$331                                            0000E7 GR
+  0 A$Sprite_Engine$332                                            0000E9 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 18.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$333                                            0000EA GR
+  0 A$Sprite_Engine$334                                            0000EB GR
+  0 A$Sprite_Engine$335                                            0000EC GR
+  0 A$Sprite_Engine$336                                            0000EE GR
+  0 A$Sprite_Engine$337                                            0000EF GR
+  0 A$Sprite_Engine$338                                            0000F0 GR
+  0 A$Sprite_Engine$339                                            0000F1 GR
+  0 A$Sprite_Engine$343                                            0000F2 GR
+  0 A$Sprite_Engine$344                                            0000F4 GR
+  0 A$Sprite_Engine$345                                            0000F5 GR
+  0 A$Sprite_Engine$349                                            0000F6 GR
+  0 A$Sprite_Engine$350                                            0000F7 GR
+  0 A$Sprite_Engine$351                                            0000F8 GR
+  0 A$Sprite_Engine$352                                            0000F9 GR
+  0 A$Sprite_Engine$353                                            0000FA GR
+  0 A$Sprite_Engine$354                                            0000FB GR
+  0 A$Sprite_Engine$355                                            0000FC GR
+  0 A$Sprite_Engine$356                                            0000FD GR
+  0 A$Sprite_Engine$357                                            0000FE GR
+  0 A$Sprite_Engine$358                                            0000FF GR
+  0 A$Sprite_Engine$359                                            000100 GR
+  0 A$Sprite_Engine$360                                            000101 GR
+  0 A$Sprite_Engine$361                                            000102 GR
+  0 A$Sprite_Engine$362                                            000103 GR
+  0 A$Sprite_Engine$366                                            000104 GR
+  0 A$Sprite_Engine$367                                            000106 GR
+  0 A$Sprite_Engine$368                                            000107 GR
+  0 A$Sprite_Engine$369                                            000108 GR
+  0 A$Sprite_Engine$370                                            000109 GR
+  0 A$Sprite_Engine$371                                            00010A GR
+  0 A$Sprite_Engine$372                                            00010B GR
+  0 A$Sprite_Engine$373                                            00010D GR
+  0 A$Sprite_Engine$374                                            00010E GR
+  0 A$Sprite_Engine$375                                            00010F GR
+  0 A$Sprite_Engine$376                                            000110 GR
+  0 A$Sprite_Engine$377                                            000111 GR
+  0 A$Sprite_Engine$378                                            000112 GR
+  0 A$Sprite_Engine$379                                            000113 GR
+  0 A$Sprite_Engine$380                                            000114 GR
+  0 A$Sprite_Engine$381                                            000117 GR
+  0 A$Sprite_Engine$382                                            000118 GR
+  0 A$Sprite_Engine$383                                            00011A GR
+  0 A$Sprite_Engine$384                                            00011B GR
+  0 A$Sprite_Engine$385                                            00011C GR
+  0 A$Sprite_Engine$386                                            00011E GR
+  0 A$Sprite_Engine$387                                            00011F GR
+  0 A$Sprite_Engine$391                                            000120 GR
+  0 A$Sprite_Engine$392                                            000122 GR
+  0 A$Sprite_Engine$393                                            000123 GR
+  0 A$Sprite_Engine$394                                            000124 GR
+  0 A$Sprite_Engine$395                                            000125 GR
+  0 A$Sprite_Engine$396                                            000126 GR
+  0 A$Sprite_Engine$397                                            000128 GR
+  0 A$Sprite_Engine$398                                            000129 GR
+  0 A$Sprite_Engine$399                                            00012A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 19.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$400                                            00012B GR
+  0 A$Sprite_Engine$404                                            00012C GR
+  0 A$Sprite_Engine$405                                            00012E GR
+  0 A$Sprite_Engine$406                                            00012F GR
+  0 A$Sprite_Engine$410                                            000130 GR
+  0 A$Sprite_Engine$411                                            000131 GR
+  0 A$Sprite_Engine$412                                            000132 GR
+  0 A$Sprite_Engine$413                                            000133 GR
+  0 A$Sprite_Engine$414                                            000134 GR
+  0 A$Sprite_Engine$415                                            000135 GR
+  0 A$Sprite_Engine$416                                            000136 GR
+  0 A$Sprite_Engine$417                                            000137 GR
+  0 A$Sprite_Engine$418                                            000138 GR
+  0 A$Sprite_Engine$419                                            000139 GR
+  0 A$Sprite_Engine$420                                            00013A GR
+  0 A$Sprite_Engine$421                                            00013B GR
+  0 A$Sprite_Engine$422                                            00013C GR
+  0 A$Sprite_Engine$423                                            00013D GR
+  0 A$Sprite_Engine$424                                            00013E GR
+  0 A$Sprite_Engine$425                                            00013F GR
+  0 A$Sprite_Engine$429                                            000140 GR
+  0 A$Sprite_Engine$430                                            000142 GR
+  0 A$Sprite_Engine$431                                            000143 GR
+  0 A$Sprite_Engine$432                                            000144 GR
+  0 A$Sprite_Engine$433                                            000145 GR
+  0 A$Sprite_Engine$434                                            000146 GR
+  0 A$Sprite_Engine$435                                            000147 GR
+  0 A$Sprite_Engine$436                                            000148 GR
+  0 A$Sprite_Engine$437                                            00014A GR
+  0 A$Sprite_Engine$438                                            00014B GR
+  0 A$Sprite_Engine$439                                            00014C GR
+  0 A$Sprite_Engine$440                                            00014D GR
+  0 A$Sprite_Engine$441                                            00014E GR
+  0 A$Sprite_Engine$442                                            000151 GR
+  0 A$Sprite_Engine$443                                            000152 GR
+  0 A$Sprite_Engine$444                                            000153 GR
+  0 A$Sprite_Engine$445                                            000154 GR
+  0 A$Sprite_Engine$446                                            000155 GR
+  0 A$Sprite_Engine$450                                            000156 GR
+  0 A$Sprite_Engine$451                                            000158 GR
+  0 A$Sprite_Engine$452                                            000159 GR
+  0 A$Sprite_Engine$456                                            00015A GR
+  0 A$Sprite_Engine$457                                            00015B GR
+  0 A$Sprite_Engine$458                                            00015C GR
+  0 A$Sprite_Engine$459                                            00015D GR
+  0 A$Sprite_Engine$460                                            00015E GR
+  0 A$Sprite_Engine$461                                            00015F GR
+  0 A$Sprite_Engine$462                                            000160 GR
+  0 A$Sprite_Engine$463                                            000161 GR
+  0 A$Sprite_Engine$464                                            000162 GR
+  0 A$Sprite_Engine$465                                            000163 GR
+  0 A$Sprite_Engine$469                                            000164 GR
+  0 A$Sprite_Engine$470                                            000165 GR
+  0 A$Sprite_Engine$471                                            000166 GR
+  0 A$Sprite_Engine$472                                            000167 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 20.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$473                                            000168 GR
+  0 A$Sprite_Engine$474                                            000169 GR
+  0 A$Sprite_Engine$475                                            00016A GR
+  0 A$Sprite_Engine$476                                            00016B GR
+  0 A$Sprite_Engine$477                                            00016C GR
+  0 A$Sprite_Engine$478                                            00016D GR
+  0 A$Sprite_Engine$479                                            00016E GR
+  0 A$Sprite_Engine$480                                            00016F GR
+  0 A$Sprite_Engine$481                                            000170 GR
+  0 A$Sprite_Engine$482                                            000171 GR
+  0 A$Sprite_Engine$483                                            000172 GR
+  0 A$Sprite_Engine$484                                            000173 GR
+  0 A$Sprite_Engine$485                                            000174 GR
+  0 A$Sprite_Engine$486                                            000175 GR
+  0 A$Sprite_Engine$490                                            000176 GR
+  0 A$Sprite_Engine$491                                            000178 GR
+  0 A$Sprite_Engine$492                                            000179 GR
+  0 A$Sprite_Engine$493                                            00017A GR
+  0 A$Sprite_Engine$494                                            00017B GR
+  0 A$Sprite_Engine$495                                            00017C GR
+  0 A$Sprite_Engine$496                                            00017D GR
+  0 A$Sprite_Engine$497                                            00017E GR
+  0 A$Sprite_Engine$498                                            000180 GR
+  0 A$Sprite_Engine$499                                            000181 GR
+  0 A$Sprite_Engine$503                                            000182 GR
+  0 A$Sprite_Engine$504                                            000184 GR
+  0 A$Sprite_Engine$505                                            000185 GR
+  0 A$Sprite_Engine$506                                            000186 GR
+  0 A$Sprite_Engine$507                                            000187 GR
+  0 A$Sprite_Engine$508                                            000188 GR
+  0 A$Sprite_Engine$509                                            000189 GR
+  0 A$Sprite_Engine$510                                            00018A GR
+  0 A$Sprite_Engine$511                                            00018C GR
+  0 A$Sprite_Engine$512                                            00018D GR
+  0 A$Sprite_Engine$513                                            00018F GR
+  0 A$Sprite_Engine$514                                            000190 GR
+  0 A$Sprite_Engine$518                                            000191 GR
+  0 A$Sprite_Engine$519                                            000193 GR
+  0 A$Sprite_Engine$520                                            000194 GR
+  0 A$Sprite_Engine$521                                            000195 GR
+  0 A$Sprite_Engine$522                                            000196 GR
+  0 A$Sprite_Engine$523                                            000197 GR
+  0 A$Sprite_Engine$524                                            000198 GR
+  0 A$Sprite_Engine$525                                            000199 GR
+  0 A$Sprite_Engine$526                                            00019B GR
+  0 A$Sprite_Engine$527                                            00019C GR
+  0 A$Sprite_Engine$531                                            00019D GR
+  0 A$Sprite_Engine$532                                            00019F GR
+  0 A$Sprite_Engine$533                                            0001A0 GR
+  0 A$Sprite_Engine$534                                            0001A1 GR
+  0 A$Sprite_Engine$535                                            0001A2 GR
+  0 A$Sprite_Engine$536                                            0001A3 GR
+  0 A$Sprite_Engine$537                                            0001A4 GR
+  0 A$Sprite_Engine$538                                            0001A5 GR
+  0 A$Sprite_Engine$539                                            0001A6 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 21.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$543                                            0001A7 GR
+  0 A$Sprite_Engine$544                                            0001A9 GR
+  0 A$Sprite_Engine$545                                            0001AA GR
+  0 A$Sprite_Engine$546                                            0001AB GR
+  0 A$Sprite_Engine$547                                            0001AC GR
+  0 A$Sprite_Engine$548                                            0001AF GR
+  0 A$Sprite_Engine$549                                            0001B0 GR
+  0 A$Sprite_Engine$550                                            0001B1 GR
+  0 A$Sprite_Engine$551                                            0001B2 GR
+  0 A$Sprite_Engine$552                                            0001B4 GR
+  0 A$Sprite_Engine$553                                            0001B5 GR
+  0 A$Sprite_Engine$557                                            0001B6 GR
+  0 A$Sprite_Engine$558                                            0001B8 GR
+  0 A$Sprite_Engine$559                                            0001B9 GR
+  0 A$Sprite_Engine$560                                            0001BA GR
+  0 A$Sprite_Engine$561                                            0001BB GR
+  0 A$Sprite_Engine$562                                            0001BE GR
+  0 A$Sprite_Engine$563                                            0001BF GR
+  0 A$Sprite_Engine$564                                            0001C0 GR
+  0 A$Sprite_Engine$565                                            0001C1 GR
+  0 A$Sprite_Engine$566                                            0001C3 GR
+  0 A$Sprite_Engine$567                                            0001C4 GR
+  0 A$Sprite_Engine$571                                            0001C5 GR
+  0 A$Sprite_Engine$572                                            0001C7 GR
+  0 A$Sprite_Engine$573                                            0001C8 GR
+  0 A$Sprite_Engine$574                                            0001C9 GR
+  0 A$Sprite_Engine$575                                            0001CA GR
+  0 A$Sprite_Engine$576                                            0001CD GR
+  0 A$Sprite_Engine$577                                            0001CE GR
+  0 A$Sprite_Engine$578                                            0001CF GR
+  0 A$Sprite_Engine$579                                            0001D0 GR
+  0 A$Sprite_Engine$580                                            0001D2 GR
+  0 A$Sprite_Engine$581                                            0001D3 GR
+  0 A$Sprite_Engine$582                                            0001D5 GR
+  0 A$Sprite_Engine$583                                            0001D6 GR
+  0 A$Sprite_Engine$587                                            0001D7 GR
+  0 A$Sprite_Engine$588                                            0001D9 GR
+  0 A$Sprite_Engine$589                                            0001DA GR
+  0 A$Sprite_Engine$590                                            0001DB GR
+  0 A$Sprite_Engine$591                                            0001DC GR
+  0 A$Sprite_Engine$592                                            0001DF GR
+  0 A$Sprite_Engine$593                                            0001E0 GR
+  0 A$Sprite_Engine$594                                            0001E1 GR
+  0 A$Sprite_Engine$595                                            0001E2 GR
+  0 A$Sprite_Engine$596                                            0001E3 GR
+  0 A$Sprite_Engine$600                                            0001E4 GR
+  0 A$Sprite_Engine$601                                            0001E6 GR
+  0 A$Sprite_Engine$602                                            0001E7 GR
+  0 A$Sprite_Engine$603                                            0001E8 GR
+  0 A$Sprite_Engine$604                                            0001E9 GR
+  0 A$Sprite_Engine$605                                            0001EA GR
+  0 A$Sprite_Engine$606                                            0001EB GR
+  0 A$Sprite_Engine$607                                            0001EC GR
+  0 A$Sprite_Engine$608                                            0001EE GR
+  0 A$Sprite_Engine$609                                            0001EF GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 22.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$610                                            0001F0 GR
+  0 A$Sprite_Engine$611                                            0001F1 GR
+  0 A$Sprite_Engine$612                                            0001F2 GR
+  0 A$Sprite_Engine$613                                            0001F3 GR
+  0 A$Sprite_Engine$614                                            0001F4 GR
+  0 A$Sprite_Engine$615                                            0001F5 GR
+  0 A$Sprite_Engine$616                                            0001F7 GR
+  0 A$Sprite_Engine$617                                            0001F8 GR
+  0 A$Sprite_Engine$618                                            0001F9 GR
+  0 A$Sprite_Engine$619                                            0001FA GR
+  0 A$Sprite_Engine$620                                            0001FC GR
+  0 A$Sprite_Engine$621                                            0001FD GR
+  0 A$Sprite_Engine$622                                            0001FE GR
+  0 A$Sprite_Engine$623                                            0001FF GR
+  0 A$Sprite_Engine$624                                            000201 GR
+  0 A$Sprite_Engine$625                                            000202 GR
+  0 A$Sprite_Engine$626                                            000203 GR
+  0 A$Sprite_Engine$627                                            000204 GR
+  0 A$Sprite_Engine$628                                            000205 GR
+  0 A$Sprite_Engine$629                                            000208 GR
+  0 A$Sprite_Engine$633                                            00020A GR
+  0 A$Sprite_Engine$634                                            00020B GR
+  0 A$Sprite_Engine$635                                            00020C GR
+  0 A$Sprite_Engine$636                                            00020D GR
+  0 A$Sprite_Engine$637                                            00020E GR
+  0 A$Sprite_Engine$638                                            00020F GR
+  0 A$Sprite_Engine$639                                            000210 GR
+  0 A$Sprite_Engine$640                                            000211 GR
+  0 A$Sprite_Engine$641                                            000214 GR
+  0 A$Sprite_Engine$642                                            000215 GR
+  0 A$Sprite_Engine$643                                            000216 GR
+  0 A$Sprite_Engine$644                                            000218 GR
+  0 A$Sprite_Engine$645                                            000219 GR
+  0 A$Sprite_Engine$646                                            00021A GR
+  0 A$Sprite_Engine$647                                            00021B GR
+  0 A$Sprite_Engine$648                                            00021C GR
+  0 A$Sprite_Engine$649                                            00021D GR
+  0 A$Sprite_Engine$650                                            00021E GR
+  0 A$Sprite_Engine$651                                            00021F GR
+  0 A$Sprite_Engine$652                                            000221 GR
+  0 A$Sprite_Engine$656                                            000222 GR
+  0 A$Sprite_Engine$659                                            000223 GR
+  0 A$Sprite_Engine$66                                             000000 GR
+  0 A$Sprite_Engine$662                                            000224 GR
+  0 A$Sprite_Engine$663                                            000225 GR
+  0 A$Sprite_Engine$664                                            000226 GR
+  0 A$Sprite_Engine$665                                            000227 GR
+  0 A$Sprite_Engine$668                                            000228 GR
+  0 A$Sprite_Engine$67                                             000002 GR
+  0 A$Sprite_Engine$671                                            000229 GR
+  0 A$Sprite_Engine$672                                            00022A GR
+  0 A$Sprite_Engine$673                                            00022B GR
+  0 A$Sprite_Engine$674                                            00022C GR
+  0 A$Sprite_Engine$675                                            00022E GR
+  0 A$Sprite_Engine$678                                            00022F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 23.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$679                                            000230 GR
+  0 A$Sprite_Engine$68                                             000003 GR
+  0 A$Sprite_Engine$680                                            000231 GR
+  0 A$Sprite_Engine$681                                            000233 GR
+  0 A$Sprite_Engine$684                                            000234 GR
+  0 A$Sprite_Engine$685                                            000235 GR
+  0 A$Sprite_Engine$686                                            000236 GR
+  0 A$Sprite_Engine$689                                            000238 GR
+  0 A$Sprite_Engine$69                                             000004 GR
+  0 A$Sprite_Engine$690                                            000239 GR
+  0 A$Sprite_Engine$691                                            00023A GR
+  0 A$Sprite_Engine$692                                            00023C GR
+  0 A$Sprite_Engine$695                                            00023D GR
+  0 A$Sprite_Engine$696                                            00023E GR
+  0 A$Sprite_Engine$697                                            00023F GR
+  0 A$Sprite_Engine$698                                            000241 GR
+  0 A$Sprite_Engine$70                                             000005 GR
+  0 A$Sprite_Engine$701                                            000242 GR
+  0 A$Sprite_Engine$702                                            000243 GR
+  0 A$Sprite_Engine$703                                            000244 GR
+  0 A$Sprite_Engine$704                                            000245 GR
+  0 A$Sprite_Engine$705                                            000246 GR
+  0 A$Sprite_Engine$708                                            000247 GR
+  0 A$Sprite_Engine$709                                            000248 GR
+  0 A$Sprite_Engine$710                                            000249 GR
+  0 A$Sprite_Engine$711                                            00024A GR
+  0 A$Sprite_Engine$712                                            00024B GR
+  0 A$Sprite_Engine$713                                            00024C GR
+  0 A$Sprite_Engine$714                                            00024F GR
+  0 A$Sprite_Engine$718                                            000251 GR
+  0 A$Sprite_Engine$719                                            000253 GR
+  0 A$Sprite_Engine$720                                            000254 GR
+  0 A$Sprite_Engine$721                                            000255 GR
+  0 A$Sprite_Engine$722                                            000256 GR
+  0 A$Sprite_Engine$723                                            000257 GR
+  0 A$Sprite_Engine$724                                            000258 GR
+  0 A$Sprite_Engine$725                                            000259 GR
+  0 A$Sprite_Engine$726                                            00025A GR
+  0 A$Sprite_Engine$727                                            00025B GR
+  0 A$Sprite_Engine$728                                            00025E GR
+  0 A$Sprite_Engine$729                                            00025F GR
+  0 A$Sprite_Engine$730                                            000260 GR
+  0 A$Sprite_Engine$731                                            000262 GR
+  0 A$Sprite_Engine$732                                            000263 GR
+  0 A$Sprite_Engine$733                                            000264 GR
+  0 A$Sprite_Engine$734                                            000265 GR
+  0 A$Sprite_Engine$735                                            000266 GR
+  0 A$Sprite_Engine$736                                            000267 GR
+  0 A$Sprite_Engine$737                                            000268 GR
+  0 A$Sprite_Engine$738                                            000269 GR
+  0 A$Sprite_Engine$739                                            00026B GR
+  0 A$Sprite_Engine$74                                             000006 GR
+  0 A$Sprite_Engine$743                                            00026C GR
+  0 A$Sprite_Engine$746                                            00026D GR
+  0 A$Sprite_Engine$749                                            00026E GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 24.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$75                                             000007 GR
+  0 A$Sprite_Engine$750                                            00026F GR
+  0 A$Sprite_Engine$751                                            000270 GR
+  0 A$Sprite_Engine$752                                            000271 GR
+  0 A$Sprite_Engine$755                                            000272 GR
+  0 A$Sprite_Engine$758                                            000273 GR
+  0 A$Sprite_Engine$759                                            000274 GR
+  0 A$Sprite_Engine$76                                             000008 GR
+  0 A$Sprite_Engine$760                                            000275 GR
+  0 A$Sprite_Engine$761                                            000276 GR
+  0 A$Sprite_Engine$762                                            000278 GR
+  0 A$Sprite_Engine$765                                            000279 GR
+  0 A$Sprite_Engine$766                                            00027A GR
+  0 A$Sprite_Engine$767                                            00027B GR
+  0 A$Sprite_Engine$768                                            00027D GR
+  0 A$Sprite_Engine$77                                             000009 GR
+  0 A$Sprite_Engine$771                                            00027E GR
+  0 A$Sprite_Engine$772                                            00027F GR
+  0 A$Sprite_Engine$773                                            000280 GR
+  0 A$Sprite_Engine$776                                            000282 GR
+  0 A$Sprite_Engine$777                                            000283 GR
+  0 A$Sprite_Engine$778                                            000284 GR
+  0 A$Sprite_Engine$779                                            000286 GR
+  0 A$Sprite_Engine$78                                             00000A GR
+  0 A$Sprite_Engine$782                                            000287 GR
+  0 A$Sprite_Engine$783                                            000288 GR
+  0 A$Sprite_Engine$784                                            000289 GR
+  0 A$Sprite_Engine$785                                            00028B GR
+  0 A$Sprite_Engine$788                                            00028C GR
+  0 A$Sprite_Engine$789                                            00028D GR
+  0 A$Sprite_Engine$790                                            00028E GR
+  0 A$Sprite_Engine$791                                            00028F GR
+  0 A$Sprite_Engine$792                                            000290 GR
+  0 A$Sprite_Engine$795                                            000291 GR
+  0 A$Sprite_Engine$796                                            000292 GR
+  0 A$Sprite_Engine$797                                            000293 GR
+  0 A$Sprite_Engine$798                                            000294 GR
+  0 A$Sprite_Engine$799                                            000295 GR
+  0 A$Sprite_Engine$800                                            000296 GR
+  0 A$Sprite_Engine$801                                            000299 GR
+  0 A$Sprite_Engine$805                                            00029B GR
+  0 A$Sprite_Engine$806                                            00029D GR
+  0 A$Sprite_Engine$807                                            00029E GR
+  0 A$Sprite_Engine$808                                            00029F GR
+  0 A$Sprite_Engine$809                                            0002A0 GR
+  0 A$Sprite_Engine$810                                            0002A1 GR
+  0 A$Sprite_Engine$811                                            0002A2 GR
+  0 A$Sprite_Engine$812                                            0002A3 GR
+  0 A$Sprite_Engine$813                                            0002A4 GR
+  0 A$Sprite_Engine$814                                            0002A5 GR
+  0 A$Sprite_Engine$815                                            0002A8 GR
+  0 A$Sprite_Engine$816                                            0002A9 GR
+  0 A$Sprite_Engine$817                                            0002AA GR
+  0 A$Sprite_Engine$818                                            0002AC GR
+  0 A$Sprite_Engine$819                                            0002AD GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 25.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$82                                             00000B GR
+  0 A$Sprite_Engine$820                                            0002AE GR
+  0 A$Sprite_Engine$821                                            0002AF GR
+  0 A$Sprite_Engine$822                                            0002B0 GR
+  0 A$Sprite_Engine$823                                            0002B1 GR
+  0 A$Sprite_Engine$824                                            0002B2 GR
+  0 A$Sprite_Engine$825                                            0002B3 GR
+  0 A$Sprite_Engine$826                                            0002B5 GR
+  0 A$Sprite_Engine$83                                             00000C GR
+  0 A$Sprite_Engine$830                                            0002B6 GR
+  0 A$Sprite_Engine$833                                            0002B7 GR
+  0 A$Sprite_Engine$836                                            0002B8 GR
+  0 A$Sprite_Engine$837                                            0002B9 GR
+  0 A$Sprite_Engine$838                                            0002BA GR
+  0 A$Sprite_Engine$839                                            0002BB GR
+  0 A$Sprite_Engine$84                                             00000D GR
+  0 A$Sprite_Engine$842                                            0002BC GR
+  0 A$Sprite_Engine$845                                            0002BD GR
+  0 A$Sprite_Engine$846                                            0002BE GR
+  0 A$Sprite_Engine$847                                            0002BF GR
+  0 A$Sprite_Engine$848                                            0002C0 GR
+  0 A$Sprite_Engine$849                                            0002C2 GR
+  0 A$Sprite_Engine$85                                             00000E GR
+  0 A$Sprite_Engine$852                                            0002C3 GR
+  0 A$Sprite_Engine$853                                            0002C4 GR
+  0 A$Sprite_Engine$854                                            0002C5 GR
+  0 A$Sprite_Engine$855                                            0002C7 GR
+  0 A$Sprite_Engine$858                                            0002C8 GR
+  0 A$Sprite_Engine$859                                            0002C9 GR
+  0 A$Sprite_Engine$86                                             00000F GR
+  0 A$Sprite_Engine$860                                            0002CA GR
+  0 A$Sprite_Engine$863                                            0002CC GR
+  0 A$Sprite_Engine$864                                            0002CD GR
+  0 A$Sprite_Engine$865                                            0002CE GR
+  0 A$Sprite_Engine$866                                            0002D0 GR
+  0 A$Sprite_Engine$869                                            0002D1 GR
+  0 A$Sprite_Engine$87                                             000010 GR
+  0 A$Sprite_Engine$870                                            0002D2 GR
+  0 A$Sprite_Engine$871                                            0002D3 GR
+  0 A$Sprite_Engine$872                                            0002D5 GR
+  0 A$Sprite_Engine$875                                            0002D6 GR
+  0 A$Sprite_Engine$876                                            0002D7 GR
+  0 A$Sprite_Engine$877                                            0002D8 GR
+  0 A$Sprite_Engine$878                                            0002D9 GR
+  0 A$Sprite_Engine$879                                            0002DA GR
+  0 A$Sprite_Engine$882                                            0002DB GR
+  0 A$Sprite_Engine$883                                            0002DC GR
+  0 A$Sprite_Engine$884                                            0002DD GR
+  0 A$Sprite_Engine$885                                            0002DE GR
+  0 A$Sprite_Engine$886                                            0002DF GR
+  0 A$Sprite_Engine$887                                            0002E0 GR
+  0 A$Sprite_Engine$891                                            0002E3 GR
+  0 A$Sprite_Engine$896                                            0002E5 GR
+  0 A$Sprite_Engine$906                                            0002E6 GR
+  0 A$Sprite_Engine$91                                             000011 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 26.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$910                                            0002E7 GR
+  0 A$Sprite_Engine$911                                            0002E9 GR
+  0 A$Sprite_Engine$912                                            0002EA GR
+  0 A$Sprite_Engine$913                                            0002EB GR
+  0 A$Sprite_Engine$914                                            0002EC GR
+  0 A$Sprite_Engine$915                                            0002ED GR
+  0 A$Sprite_Engine$916                                            0002EE GR
+  0 A$Sprite_Engine$917                                            0002EF GR
+  0 A$Sprite_Engine$918                                            0002F0 GR
+  0 A$Sprite_Engine$919                                            0002F1 GR
+  0 A$Sprite_Engine$92                                             000012 GR
+  0 A$Sprite_Engine$920                                            0002F3 GR
+  0 A$Sprite_Engine$921                                            0002F4 GR
+  0 A$Sprite_Engine$922                                            0002F5 GR
+  0 A$Sprite_Engine$923                                            0002F6 GR
+  0 A$Sprite_Engine$924                                            0002F7 GR
+  0 A$Sprite_Engine$925                                            0002F8 GR
+  0 A$Sprite_Engine$926                                            0002F9 GR
+  0 A$Sprite_Engine$927                                            0002FA GR
+  0 A$Sprite_Engine$928                                            0002FC GR
+  0 A$Sprite_Engine$929                                            0002FD GR
+  0 A$Sprite_Engine$93                                             000013 GR
+  0 A$Sprite_Engine$932                                            0002FE GR
+  0 A$Sprite_Engine$935                                            0002FF GR
+  0 A$Sprite_Engine$936                                            000300 GR
+  0 A$Sprite_Engine$937                                            000301 GR
+  0 A$Sprite_Engine$938                                            000303 GR
+  0 A$Sprite_Engine$94                                             000014 GR
+  0 A$Sprite_Engine$941                                            000304 GR
+  0 A$Sprite_Engine$942                                            000305 GR
+  0 A$Sprite_Engine$943                                            000306 GR
+  0 A$Sprite_Engine$944                                            000307 GR
+  0 A$Sprite_Engine$945                                            000308 GR
+  0 A$Sprite_Engine$946                                            00030B GR
+  0 A$Sprite_Engine$947                                            00030D GR
+  0 A$Sprite_Engine$949                                            00030E GR
+  0 A$Sprite_Engine$95                                             000015 GR
+  0 A$Sprite_Engine$950                                            00030F GR
+  0 A$Sprite_Engine$951                                            000310 GR
+  0 A$Sprite_Engine$953                                            000311 GR
+  0 A$Sprite_Engine$956                                            000312 GR
+  0 A$Sprite_Engine$959                                            000314 GR
+  0 A$Sprite_Engine$96                                             000016 GR
+  0 A$Sprite_Engine$960                                            000315 GR
+  0 A$Sprite_Engine$961                                            000316 GR
+  0 A$Sprite_Engine$962                                            000317 GR
+  0 A$Sprite_Engine$963                                            00031A GR
+  0 A$Sprite_Engine$964                                            00031B GR
+  0 A$Sprite_Engine$965                                            00031C GR
+  0 A$Sprite_Engine$966                                            00031D GR
+  0 A$Sprite_Engine$967                                            00031E GR
+  0 A$Sprite_Engine$969                                            00031F GR
+  0 A$Sprite_Engine$97                                             000017 GR
+  0 A$Sprite_Engine$970                                            000322 GR
+  0 A$Sprite_Engine$971                                            000323 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 27.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Sprite_Engine$972                                            000324 GR
+  0 A$Sprite_Engine$973                                            000325 GR
+  0 A$Sprite_Engine$974                                            000326 GR
+  0 A$Sprite_Engine$975                                            000327 GR
+  0 A$Sprite_Engine$976                                            000328 GR
+  0 A$Sprite_Engine$978                                            000329 GR
+  0 A$Sprite_Engine$98                                             000018 GR
+  0 A$Sprite_Engine$980                                            00032C GR
+  0 A$Sprite_Engine$981                                            00032D GR
+  0 A$Sprite_Engine$982                                            00032E GR
+  0 A$Sprite_Engine$989                                            00032F GR
+  0 A$Sprite_Engine$99                                             000019 GR
+  0 A$Sprite_Engine$994                                            000330 GR
+  0 C$Sprite_Engine.c$100$1_0$116                               =  0002B6 GR
+  0 C$Sprite_Engine.c$101$1_0$116                               =  00029B GR
+  0 C$Sprite_Engine.c$102$1_0$116                               =  0002E5 GR
+  0 C$Sprite_Engine.c$104$1_0$118                               =  0002E6 GR
+  0 C$Sprite_Engine.c$106$1_0$118                               =  0002E7 GR
+  0 C$Sprite_Engine.c$108$3_0$118                               =  00032F GR
+  0 C$Sprite_Engine.c$109$3_0$118                               =  000330 GR
+  0 C$Sprite_Engine.c$111$3_0$126                               =  000331 GR
+  0 C$Sprite_Engine.c$114$1_0$126                               =  000333 GR
+  0 C$Sprite_Engine.c$126$3_0$126                               =  00046F GR
+  0 C$Sprite_Engine.c$127$3_0$126                               =  000471 GR
+  0 C$Sprite_Engine.c$129$3_0$152                               =  000472 GR
+  0 C$Sprite_Engine.c$133$1_0$152                               =  00048C GR
+  0 C$Sprite_Engine.c$134$1_0$152                               =  0004C2 GR
+  0 C$Sprite_Engine.c$137$1_0$152                               =  0004D3 GR
+  0 C$Sprite_Engine.c$139$1_0$152                               =  0004D5 GR
+  0 C$Sprite_Engine.c$141$1_0$166                               =  0004D6 GR
+  0 C$Sprite_Engine.c$143$2_0$166                               =  00050F GR
+  0 C$Sprite_Engine.c$145$3_0$167                               =  000505 GR
+  0 C$Sprite_Engine.c$147$2_0$166                               =  000516 GR
+  0 C$Sprite_Engine.c$149$2_0$172                               =  000517 GR
+  0 C$Sprite_Engine.c$151$1_0$172                               =  000520 GR
+  0 C$Sprite_Engine.c$152$2_0$173                               =  000533 GR
+  0 C$Sprite_Engine.c$153$1_0$172                               =  00051B GR
+  0 C$Sprite_Engine.c$154$2_0$173                               =  000542 GR
+  0 C$Sprite_Engine.c$155$2_0$173                               =  000547 GR
+  0 C$Sprite_Engine.c$156$2_0$173                               =  000549 GR
+  0 C$Sprite_Engine.c$158$2_0$173                               =  000557 GR
+  0 C$Sprite_Engine.c$159$2_0$173                               =  00055C GR
+  0 C$Sprite_Engine.c$160$2_0$173                               =  00055E GR
+  0 C$Sprite_Engine.c$162$2_0$173                               =  00056E GR
+  0 C$Sprite_Engine.c$163$2_0$173                               =  000573 GR
+  0 C$Sprite_Engine.c$164$2_0$173                               =  000575 GR
+  0 C$Sprite_Engine.c$166$2_0$173                               =  000585 GR
+  0 C$Sprite_Engine.c$168$1_0$172                               =  00058A GR
+  0 C$Sprite_Engine.c$169$1_0$172                               =  00058A GR
+  0 C$Sprite_Engine.c$170$1_0$172                               =  000592 GR
+  0 C$Sprite_Engine.c$172$1_0$187                               =  000593 GR
+  0 C$Sprite_Engine.c$174$1_0$187                               =  0005A4 GR
+  0 C$Sprite_Engine.c$175$2_0$188                               =  0005BA GR
+  0 C$Sprite_Engine.c$176$1_0$187                               =  000598 GR
+  0 C$Sprite_Engine.c$180$2_0$188                               =  00060B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 28.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$Sprite_Engine.c$181$2_0$188                               =  00060E GR
+  0 C$Sprite_Engine.c$186$2_0$188                               =  000662 GR
+  0 C$Sprite_Engine.c$187$2_0$188                               =  000665 GR
+  0 C$Sprite_Engine.c$192$2_0$188                               =  0006BD GR
+  0 C$Sprite_Engine.c$193$2_0$188                               =  0006BF GR
+  0 C$Sprite_Engine.c$199$1_0$187                               =  000717 GR
+  0 C$Sprite_Engine.c$200$1_0$187                               =  000717 GR
+  0 C$Sprite_Engine.c$201$1_0$187                               =  000721 GR
+  0 C$Sprite_Engine.c$31$0_0$114                                =  000000 GR
+  0 C$Sprite_Engine.c$33$1_0$114                                =  000000 GR
+  0 C$Sprite_Engine.c$34$1_0$114                                =  000006 GR
+  0 C$Sprite_Engine.c$35$1_0$114                                =  00000B GR
+  0 C$Sprite_Engine.c$36$1_0$114                                =  000011 GR
+  0 C$Sprite_Engine.c$37$1_0$114                                =  00001A GR
+  0 C$Sprite_Engine.c$38$1_0$114                                =  000024 GR
+  0 C$Sprite_Engine.c$39$1_0$114                                =  00002E GR
+  0 C$Sprite_Engine.c$40$1_0$114                                =  000038 GR
+  0 C$Sprite_Engine.c$41$1_0$114                                =  000042 GR
+  0 C$Sprite_Engine.c$43$1_0$116                                =  000043 GR
+  0 C$Sprite_Engine.c$47$1_0$116                                =  000045 GR
+  0 C$Sprite_Engine.c$48$1_0$116                                =  00004B GR
+  0 C$Sprite_Engine.c$49$1_0$116                                =  000050 GR
+  0 C$Sprite_Engine.c$50$1_0$116                                =  000056 GR
+  0 C$Sprite_Engine.c$51$1_0$116                                =  00005F GR
+  0 C$Sprite_Engine.c$52$1_0$116                                =  000069 GR
+  0 C$Sprite_Engine.c$53$1_0$116                                =  000073 GR
+  0 C$Sprite_Engine.c$54$1_0$116                                =  00007D GR
+  0 C$Sprite_Engine.c$55$1_0$116                                =  000087 GR
+  0 C$Sprite_Engine.c$58$1_0$116                                =  000091 GR
+  0 C$Sprite_Engine.c$59$1_0$116                                =  00009E GR
+  0 C$Sprite_Engine.c$60$1_0$116                                =  0000AE GR
+  0 C$Sprite_Engine.c$61$1_0$116                                =  0000C6 GR
+  0 C$Sprite_Engine.c$64$1_0$116                                =  0000DE GR
+  0 C$Sprite_Engine.c$65$1_0$116                                =  0000E7 GR
+  0 C$Sprite_Engine.c$66$1_0$116                                =  0000F2 GR
+  0 C$Sprite_Engine.c$67$1_0$116                                =  0000F6 GR
+  0 C$Sprite_Engine.c$70$1_0$116                                =  000104 GR
+  0 C$Sprite_Engine.c$71$1_0$116                                =  000120 GR
+  0 C$Sprite_Engine.c$72$1_0$116                                =  00012C GR
+  0 C$Sprite_Engine.c$73$1_0$116                                =  000130 GR
+  0 C$Sprite_Engine.c$76$1_0$116                                =  000140 GR
+  0 C$Sprite_Engine.c$77$1_0$116                                =  000156 GR
+  0 C$Sprite_Engine.c$78$1_0$116                                =  00015A GR
+  0 C$Sprite_Engine.c$79$1_0$116                                =  000164 GR
+  0 C$Sprite_Engine.c$82$1_0$116                                =  000176 GR
+  0 C$Sprite_Engine.c$83$1_0$116                                =  000182 GR
+  0 C$Sprite_Engine.c$84$1_0$116                                =  000191 GR
+  0 C$Sprite_Engine.c$85$1_0$116                                =  00019D GR
+  0 C$Sprite_Engine.c$88$1_0$116                                =  0001A7 GR
+  0 C$Sprite_Engine.c$89$1_0$116                                =  0001B6 GR
+  0 C$Sprite_Engine.c$90$1_0$116                                =  0001C5 GR
+  0 C$Sprite_Engine.c$91$1_0$116                                =  0001D7 GR
+  0 C$Sprite_Engine.c$94$1_0$116                                =  0001E4 GR
+  0 C$Sprite_Engine.c$96$1_0$116                                =  000222 GR
+  0 C$Sprite_Engine.c$97$1_0$116                                =  00020A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 29.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$Sprite_Engine.c$98$1_0$116                                =  00026C GR
+  0 C$Sprite_Engine.c$99$1_0$116                                =  000251 GR
+  0 G$animate_sprite$0$0                                        =  0004D6 GR
+  0 G$change_sprite_tile$0$0                                    =  000472 GR
+  0 G$init_16x16_meta$0$0                                       =  000043 GR
+  0 G$init_sprite$0$0                                           =  000000 GR
+  0 G$setup_16x16_meta$0$0                                      =  000331 GR
+  0 G$setup_sprite$0$0                                          =  0002E6 GR
+  0 G$translate_16x16_meta$0$0                                  =  000593 GR
+  0 G$translate_sprite$0$0                                      =  000517 GR
+  0 XG$animate_sprite$0$0                                       =  000516 GR
+  0 XG$change_sprite_tile$0$0                                   =  0004D5 GR
+  0 XG$init_16x16_meta$0$0                                      =  0002E5 GR
+  0 XG$init_sprite$0$0                                          =  000042 GR
+  0 XG$setup_16x16_meta$0$0                                     =  000471 GR
+  0 XG$setup_sprite$0$0                                         =  000330 GR
+  0 XG$translate_16x16_meta$0$0                                 =  000721 GR
+  0 XG$translate_sprite$0$0                                     =  000592 GR
+    __muluchar                                                     ****** GX
+  0 _animate_sprite                                                0004D6 GR
+  0 _change_sprite_tile                                            000472 GR
+    _cpu_wait                                                      ****** GX
+    _delay                                                         ****** GX
+  0 _init_16x16_meta                                               000043 GR
+  0 _init_sprite                                                   000000 GR
+    _joypad                                                        ****** GX
+    _set_sprite_data                                               ****** GX
+  0 _setup_16x16_meta                                              000331 GR
+  0 _setup_sprite                                                  0002E6 GR
+    _shadow_OAM                                                    ****** GX
+  0 _translate_16x16_meta                                          000593 GR
+  0 _translate_sprite                                              000517 GR
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 30.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size    722   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      0   flags    0
+   8 _CABS                                      size      0   flags    8
+

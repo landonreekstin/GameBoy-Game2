@@ -97,7 +97,7 @@ void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, 
  * 
  * @return void
 */
-void change_sprite_tile(Sprite *s, uint8_t texture_idx);
+void change_sprite_tile(Sprite *s);
 
 /**
  * @brief Awaits joypad input to move the sprite.

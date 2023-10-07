@@ -9,6 +9,7 @@
  * ************************************/
 #include "../../include/engine/Sprite_Engine.h"
 #include "../../include/engine/Map_Engine.h"
+#include "../../include/engine/System.h"
 
 /***************************************
  * Defines

@@ -1,0 +1,1933 @@
+;!FILE build/buildfiles/engine/Sprite_Engine.asm
+XL3
+H 9 areas 621 global symbols
+M Sprite_Engine
+O -mgbz80
+S _set_sprite_data Ref000000
+S .__.ABS. Def000000
+S __muluchar Ref000000
+S _shadow_OAM Ref000000
+S _joypad Ref000000
+S _delay Ref000000
+S _cpu_wait Ref000000
+A _CODE size 722 flags 0 addr 0
+S A$Sprite_Engine$2225 Def000720
+S A$Sprite_Engine$2207 Def000714
+S A$Sprite_Engine$2180 Def0006FB
+S A$Sprite_Engine$2171 Def0006F2
+S A$Sprite_Engine$2153 Def0006E1
+S A$Sprite_Engine$2135 Def0006D3
+S A$Sprite_Engine$2126 Def0006C9
+S A$Sprite_Engine$2117 Def0006C4
+S A$Sprite_Engine$2090 Def0006B1
+S A$Sprite_Engine$2081 Def0006AB
+S A$Sprite_Engine$2054 Def000691
+S A$Sprite_Engine$2045 Def000688
+S A$Sprite_Engine$2027 Def00067A
+S A$Sprite_Engine$2018 Def000670
+S A$Sprite_Engine$2009 Def00066B
+S A$Sprite_Engine$1820 Def0005D4
+S A$Sprite_Engine$1811 Def0005CB
+S A$Sprite_Engine$1802 Def0005C2
+S A$Sprite_Engine$1730 Def00058D
+S A$Sprite_Engine$1721 Def000589
+S A$Sprite_Engine$1712 Def000581
+S A$Sprite_Engine$1640 Def00054B
+S A$Sprite_Engine$1613 Def00053A
+S A$Sprite_Engine$1604 Def000533
+S A$Sprite_Engine$1532 Def0004FD
+S A$Sprite_Engine$1514 Def0004EA
+S A$Sprite_Engine$1505 Def0004E0
+S A$Sprite_Engine$1451 Def0004BA
+S A$Sprite_Engine$1442 Def0004AF
+S A$Sprite_Engine$1433 Def0004A3
+S A$Sprite_Engine$1424 Def000498
+S A$Sprite_Engine$1415 Def00048D
+S A$Sprite_Engine$1406 Def000486
+S A$Sprite_Engine$1361 Def00046B
+S A$Sprite_Engine$1352 Def000463
+S A$Sprite_Engine$1343 Def00045D
+S A$Sprite_Engine$1334 Def000454
+S A$Sprite_Engine$1325 Def00044B
+S A$Sprite_Engine$1316 Def000442
+S A$Sprite_Engine$1307 Def00043C
+S A$Sprite_Engine$1280 Def000422
+S A$Sprite_Engine$1271 Def00041D
+S A$Sprite_Engine$1262 Def000418
+S A$Sprite_Engine$1253 Def00040D
+S A$Sprite_Engine$1244 Def000405
+S A$Sprite_Engine$1235 Def0003FD
+S A$Sprite_Engine$1226 Def0003F7
+S A$Sprite_Engine$1217 Def0003EE
+S A$Sprite_Engine$1208 Def0003E6
+S A$Sprite_Engine$1190 Def0003D8
+S A$Sprite_Engine$1181 Def0003D1
+S A$Sprite_Engine$1172 Def0003C6
+S A$Sprite_Engine$1163 Def0003BA
+S A$Sprite_Engine$1145 Def0003AE
+S A$Sprite_Engine$1136 Def0003A7
+S A$Sprite_Engine$1127 Def00039C
+S A$Sprite_Engine$1118 Def000390
+S A$Sprite_Engine$1091 Def00037D
+S A$Sprite_Engine$1082 Def000372
+S A$Sprite_Engine$1073 Def000366
+S A$Sprite_Engine$1055 Def00035A
+S A$Sprite_Engine$1046 Def000353
+S A$Sprite_Engine$1037 Def000346
+S A$Sprite_Engine$1028 Def000340
+S A$Sprite_Engine$1019 Def00033B
+S XG$animate_sprite$0$0 Def000516
+S C$Sprite_Engine.c$134$1_0$152 Def0004C2
+S A$Sprite_Engine$2217 Def000717
+S A$Sprite_Engine$2208 Def000715
+S A$Sprite_Engine$2190 Def000705
+S A$Sprite_Engine$2163 Def0006EB
+S A$Sprite_Engine$2154 Def0006E2
+S A$Sprite_Engine$2136 Def0006D4
+S A$Sprite_Engine$2127 Def0006CA
+S A$Sprite_Engine$2118 Def0006C5
+S A$Sprite_Engine$2091 Def0006B2
+S A$Sprite_Engine$2082 Def0006AC
+S A$Sprite_Engine$2073 Def0006A2
+S A$Sprite_Engine$2064 Def000699
+S A$Sprite_Engine$2055 Def000694
+S A$Sprite_Engine$2046 Def00068B
+S A$Sprite_Engine$2037 Def000682
+S A$Sprite_Engine$2019 Def000671
+S A$Sprite_Engine$1920 Def000621
+S A$Sprite_Engine$1902 Def000612
+S A$Sprite_Engine$1830 Def0005D8
+S A$Sprite_Engine$1812 Def0005CC
+S A$Sprite_Engine$1740 Def000592
+S A$Sprite_Engine$1731 Def00058E
+S A$Sprite_Engine$1713 Def000582
+S A$Sprite_Engine$1650 Def000555
+S A$Sprite_Engine$1623 Def000542
+S A$Sprite_Engine$1614 Def00053D
+S A$Sprite_Engine$1605 Def000534
+S A$Sprite_Engine$1551 Def00050F
+S A$Sprite_Engine$1542 Def000505
+S A$Sprite_Engine$1533 Def0004FE
+S A$Sprite_Engine$1524 Def0004F4
+S A$Sprite_Engine$1515 Def0004EB
+S A$Sprite_Engine$1506 Def0004E1
+S A$Sprite_Engine$1470 Def0004CE
+S A$Sprite_Engine$1461 Def0004C2
+S A$Sprite_Engine$1452 Def0004BC
+S A$Sprite_Engine$1434 Def0004A5
+S A$Sprite_Engine$1425 Def000499
+S A$Sprite_Engine$1416 Def00048E
+S A$Sprite_Engine$1407 Def000487
+S A$Sprite_Engine$1335 Def000455
+S A$Sprite_Engine$1326 Def00044C
+S A$Sprite_Engine$1308 Def00043D
+S A$Sprite_Engine$1290 Def00042D
+S A$Sprite_Engine$1281 Def000423
+S A$Sprite_Engine$1272 Def00041E
+S A$Sprite_Engine$1254 Def00040E
+S A$Sprite_Engine$1218 Def0003EF
+S A$Sprite_Engine$1209 Def0003E7
+S A$Sprite_Engine$1182 Def0003D2
+S A$Sprite_Engine$1173 Def0003C7
+S A$Sprite_Engine$1164 Def0003BB
+S A$Sprite_Engine$1155 Def0003B5
+S A$Sprite_Engine$1137 Def0003A8
+S A$Sprite_Engine$1128 Def00039D
+S A$Sprite_Engine$1119 Def000391
+S A$Sprite_Engine$1092 Def00037E
+S A$Sprite_Engine$1083 Def000373
+S A$Sprite_Engine$1074 Def000367
+S A$Sprite_Engine$1065 Def000361
+S A$Sprite_Engine$1047 Def000354
+S A$Sprite_Engine$1038 Def000347
+S A$Sprite_Engine$1029 Def000341
+S C$Sprite_Engine.c$151$1_0$172 Def000520
+S C$Sprite_Engine.c$106$1_0$118 Def0002E7
+S A$Sprite_Engine$2218 Def00071A
+S A$Sprite_Engine$2209 Def000716
+S A$Sprite_Engine$2191 Def000706
+S A$Sprite_Engine$2182 Def0006FC
+S A$Sprite_Engine$2173 Def0006F3
+S A$Sprite_Engine$2164 Def0006EE
+S A$Sprite_Engine$2155 Def0006E5
+S A$Sprite_Engine$2146 Def0006DC
+S A$Sprite_Engine$2128 Def0006CB
+S A$Sprite_Engine$2092 Def0006B3
+S A$Sprite_Engine$2074 Def0006A3
+S A$Sprite_Engine$2056 Def000695
+S A$Sprite_Engine$2029 Def00067B
+S A$Sprite_Engine$1921 Def000622
+S A$Sprite_Engine$1912 Def000618
+S A$Sprite_Engine$1903 Def000613
+S A$Sprite_Engine$1840 Def0005E2
+S A$Sprite_Engine$1831 Def0005D9
+S A$Sprite_Engine$1813 Def0005CD
+S A$Sprite_Engine$1750 Def000593
+S A$Sprite_Engine$1732 Def000591
+S A$Sprite_Engine$1714 Def000583
+S A$Sprite_Engine$1705 Def000579
+S A$Sprite_Engine$1651 Def000556
+S A$Sprite_Engine$1624 Def000543
+S A$Sprite_Engine$1552 Def000511
+S A$Sprite_Engine$1543 Def000506
+S A$Sprite_Engine$1534 Def0004FF
+S A$Sprite_Engine$1516 Def0004ED
+S A$Sprite_Engine$1507 Def0004E2
+S A$Sprite_Engine$1471 Def0004CF
+S A$Sprite_Engine$1453 Def0004BD
+S A$Sprite_Engine$1444 Def0004B1
+S A$Sprite_Engine$1435 Def0004A7
+S A$Sprite_Engine$1426 Def00049A
+S A$Sprite_Engine$1417 Def00048F
+S A$Sprite_Engine$1408 Def000488
+S A$Sprite_Engine$1390 Def000476
+S A$Sprite_Engine$1372 Def00046F
+S A$Sprite_Engine$1363 Def00046C
+S A$Sprite_Engine$1336 Def000456
+S A$Sprite_Engine$1309 Def00043E
+S A$Sprite_Engine$1291 Def00042E
+S A$Sprite_Engine$1282 Def000424
+S A$Sprite_Engine$1255 Def00040F
+S A$Sprite_Engine$1246 Def000406
+S A$Sprite_Engine$1219 Def0003F0
+S A$Sprite_Engine$1183 Def0003D3
+S A$Sprite_Engine$1174 Def0003C8
+S A$Sprite_Engine$1165 Def0003BE
+S A$Sprite_Engine$1138 Def0003A9
+S A$Sprite_Engine$1129 Def00039E
+S A$Sprite_Engine$1093 Def00037F
+S A$Sprite_Engine$1084 Def000374
+S A$Sprite_Engine$1075 Def00036A
+S A$Sprite_Engine$1048 Def000355
+S A$Sprite_Engine$1039 Def000348
+S C$Sprite_Engine.c$200$1_0$187 Def000717
+S C$Sprite_Engine.c$170$1_0$172 Def000592
+S A$Sprite_Engine$2219 Def00071B
+S A$Sprite_Engine$2183 Def0006FD
+S A$Sprite_Engine$2165 Def0006EF
+S A$Sprite_Engine$2138 Def0006D5
+S A$Sprite_Engine$2129 Def0006CC
+S A$Sprite_Engine$2093 Def0006B4
+S A$Sprite_Engine$2084 Def0006AD
+S A$Sprite_Engine$2075 Def0006A4
+S A$Sprite_Engine$2057 Def000696
+S A$Sprite_Engine$2048 Def00068C
+S A$Sprite_Engine$2039 Def000683
+S A$Sprite_Engine$1940 Def000633
+S A$Sprite_Engine$1931 Def00062A
+S A$Sprite_Engine$1913 Def000619
+S A$Sprite_Engine$1904 Def000614
+S A$Sprite_Engine$1841 Def0005E5
+S A$Sprite_Engine$1832 Def0005DA
+S A$Sprite_Engine$1805 Def0005C4
+S A$Sprite_Engine$1760 Def00059A
+S A$Sprite_Engine$1751 Def000594
+S A$Sprite_Engine$1715 Def000584
+S A$Sprite_Engine$1706 Def00057A
+S A$Sprite_Engine$1670 Def000560
+S A$Sprite_Engine$1661 Def00055C
+S A$Sprite_Engine$1643 Def00054D
+S A$Sprite_Engine$1625 Def000546
+S A$Sprite_Engine$1616 Def00053E
+S A$Sprite_Engine$1607 Def000535
+S A$Sprite_Engine$1553 Def000512
+S A$Sprite_Engine$1544 Def000509
+S A$Sprite_Engine$1535 Def000500
+S A$Sprite_Engine$1517 Def0004EE
+S A$Sprite_Engine$1508 Def0004E3
+S A$Sprite_Engine$1481 Def0004D3
+S A$Sprite_Engine$1472 Def0004D0
+S A$Sprite_Engine$1454 Def0004BE
+S A$Sprite_Engine$1436 Def0004A8
+S A$Sprite_Engine$1427 Def00049B
+S A$Sprite_Engine$1418 Def000490
+S A$Sprite_Engine$1409 Def000489
+S A$Sprite_Engine$1391 Def000477
+S A$Sprite_Engine$1364 Def00046D
+S A$Sprite_Engine$1355 Def000464
+S A$Sprite_Engine$1346 Def00045E
+S A$Sprite_Engine$1337 Def000457
+S A$Sprite_Engine$1328 Def00044D
+S A$Sprite_Engine$1319 Def000444
+S A$Sprite_Engine$1292 Def00042F
+S A$Sprite_Engine$1283 Def000427
+S A$Sprite_Engine$1274 Def00041F
+S A$Sprite_Engine$1265 Def000419
+S A$Sprite_Engine$1256 Def000410
+S A$Sprite_Engine$1247 Def000407
+S A$Sprite_Engine$1238 Def0003FE
+S A$Sprite_Engine$1229 Def0003F8
+S A$Sprite_Engine$1193 Def0003D9
+S A$Sprite_Engine$1184 Def0003D4
+S A$Sprite_Engine$1175 Def0003C9
+S A$Sprite_Engine$1166 Def0003BF
+S A$Sprite_Engine$1148 Def0003AF
+S A$Sprite_Engine$1139 Def0003AA
+S A$Sprite_Engine$1094 Def000380
+S A$Sprite_Engine$1085 Def000375
+S A$Sprite_Engine$1076 Def00036B
+S A$Sprite_Engine$1058 Def00035B
+S A$Sprite_Engine$1049 Def000356
+S C$Sprite_Engine.c$201$1_0$187 Def000721
+S C$Sprite_Engine.c$160$2_0$173 Def00055E
+S C$Sprite_Engine.c$153$1_0$172 Def00051B
+S C$Sprite_Engine.c$141$1_0$166 Def0004D6
+S C$Sprite_Engine.c$137$1_0$152 Def0004D3
+S A$Sprite_Engine$2193 Def000707
+S A$Sprite_Engine$2184 Def0006FE
+S A$Sprite_Engine$2166 Def0006F0
+S A$Sprite_Engine$2157 Def0006E6
+S A$Sprite_Engine$2148 Def0006DD
+S A$Sprite_Engine$2139 Def0006D8
+S A$Sprite_Engine$2094 Def0006B7
+S A$Sprite_Engine$2085 Def0006AE
+S A$Sprite_Engine$2076 Def0006A5
+S A$Sprite_Engine$2067 Def00069B
+S A$Sprite_Engine$2049 Def00068D
+S A$Sprite_Engine$1950 Def00063D
+S A$Sprite_Engine$1923 Def000623
+S A$Sprite_Engine$1914 Def00061A
+S A$Sprite_Engine$1860 Def0005F2
+S A$Sprite_Engine$1842 Def0005E6
+S A$Sprite_Engine$1833 Def0005DD
+S A$Sprite_Engine$1824 Def0005D5
+S A$Sprite_Engine$1815 Def0005CE
+S A$Sprite_Engine$1806 Def0005C5
+S A$Sprite_Engine$1761 Def00059B
+S A$Sprite_Engine$1707 Def00057B
+S A$Sprite_Engine$1680 Def00056A
+S A$Sprite_Engine$1644 Def00054E
+S A$Sprite_Engine$1635 Def000549
+S A$Sprite_Engine$1617 Def00053F
+S A$Sprite_Engine$1590 Def000522
+S A$Sprite_Engine$1581 Def00051B
+S A$Sprite_Engine$1563 Def000516
+S A$Sprite_Engine$1545 Def00050A
+S A$Sprite_Engine$1536 Def000501
+S A$Sprite_Engine$1527 Def0004F6
+S A$Sprite_Engine$1518 Def0004EF
+S A$Sprite_Engine$1509 Def0004E4
+S A$Sprite_Engine$1473 Def0004D1
+S A$Sprite_Engine$1464 Def0004C4
+S A$Sprite_Engine$1455 Def0004BF
+S A$Sprite_Engine$1446 Def0004B3
+S A$Sprite_Engine$1428 Def00049C
+S A$Sprite_Engine$1419 Def000492
+S A$Sprite_Engine$1392 Def000478
+S A$Sprite_Engine$1365 Def00046E
+S A$Sprite_Engine$1347 Def00045F
+S A$Sprite_Engine$1338 Def00045A
+S A$Sprite_Engine$1329 Def00044F
+S A$Sprite_Engine$1293 Def000430
+S A$Sprite_Engine$1257 Def000411
+S A$Sprite_Engine$1248 Def000408
+S A$Sprite_Engine$1194 Def0003DA
+S A$Sprite_Engine$1185 Def0003D5
+S A$Sprite_Engine$1176 Def0003CB
+S A$Sprite_Engine$1167 Def0003C0
+S A$Sprite_Engine$1158 Def0003B6
+S A$Sprite_Engine$1149 Def0003B0
+S A$Sprite_Engine$1095 Def000381
+S A$Sprite_Engine$1086 Def000377
+S A$Sprite_Engine$1077 Def00036C
+S A$Sprite_Engine$1068 Def000362
+S A$Sprite_Engine$1059 Def00035C
+S C$Sprite_Engine.c$152$2_0$173 Def000533
+S C$Sprite_Engine.c$126$3_0$126 Def00046F
+S A$Sprite_Engine$2194 Def000708
+S A$Sprite_Engine$2185 Def0006FF
+S A$Sprite_Engine$2176 Def0006F5
+S A$Sprite_Engine$2158 Def0006E7
+S A$Sprite_Engine$2077 Def0006A6
+S A$Sprite_Engine$2068 Def00069C
+S A$Sprite_Engine$2059 Def000697
+S A$Sprite_Engine$1960 Def000642
+S A$Sprite_Engine$1942 Def000634
+S A$Sprite_Engine$1933 Def00062B
+S A$Sprite_Engine$1924 Def000626
+S A$Sprite_Engine$1915 Def00061B
+S A$Sprite_Engine$1870 Def0005FD
+S A$Sprite_Engine$1861 Def0005F3
+S A$Sprite_Engine$1852 Def0005EA
+S A$Sprite_Engine$1843 Def0005E7
+S A$Sprite_Engine$1816 Def0005D1
+S A$Sprite_Engine$1807 Def0005C6
+S A$Sprite_Engine$1780 Def0005B4
+S A$Sprite_Engine$1771 Def0005A4
+S A$Sprite_Engine$1762 Def00059C
+S A$Sprite_Engine$1708 Def00057C
+S A$Sprite_Engine$1681 Def00056B
+S A$Sprite_Engine$1645 Def00054F
+S A$Sprite_Engine$1618 Def000540
+S A$Sprite_Engine$1591 Def000524
+S A$Sprite_Engine$1582 Def00051D
+S A$Sprite_Engine$1546 Def00050D
+S A$Sprite_Engine$1537 Def000503
+S A$Sprite_Engine$1528 Def0004F7
+S A$Sprite_Engine$1519 Def0004F0
+S A$Sprite_Engine$1465 Def0004C6
+S A$Sprite_Engine$1456 Def0004C0
+S A$Sprite_Engine$1447 Def0004B4
+S A$Sprite_Engine$1438 Def0004AA
+S A$Sprite_Engine$1429 Def00049D
+S A$Sprite_Engine$1393 Def000479
+S A$Sprite_Engine$1348 Def000460
+S A$Sprite_Engine$1339 Def00045B
+S A$Sprite_Engine$1294 Def000431
+S A$Sprite_Engine$1285 Def000428
+S A$Sprite_Engine$1258 Def000412
+S A$Sprite_Engine$1195 Def0003DB
+S A$Sprite_Engine$1177 Def0003CC
+S A$Sprite_Engine$1168 Def0003C1
+S A$Sprite_Engine$1087 Def000378
+S A$Sprite_Engine$1078 Def00036D
+S C$Sprite_Engine.c$162$2_0$173 Def00056E
+S C$Sprite_Engine.c$139$1_0$152 Def0004D5
+S C$Sprite_Engine.c$127$3_0$126 Def000471
+S C$Sprite_Engine.c$108$3_0$118 Def00032F
+S A$Sprite_Engine$2186 Def000700
+S A$Sprite_Engine$2177 Def0006F6
+S A$Sprite_Engine$2168 Def0006F1
+S A$Sprite_Engine$2159 Def0006E8
+S A$Sprite_Engine$2096 Def0006B8
+S A$Sprite_Engine$2087 Def0006AF
+S A$Sprite_Engine$2069 Def00069D
+S A$Sprite_Engine$1961 Def000643
+S A$Sprite_Engine$1952 Def00063E
+S A$Sprite_Engine$1943 Def000635
+S A$Sprite_Engine$1925 Def000627
+S A$Sprite_Engine$1916 Def00061E
+S A$Sprite_Engine$1907 Def000615
+S A$Sprite_Engine$1880 Def000603
+S A$Sprite_Engine$1862 Def0005F4
+S A$Sprite_Engine$1835 Def0005DE
+S A$Sprite_Engine$1817 Def0005D2
+S A$Sprite_Engine$1808 Def0005C9
+S A$Sprite_Engine$1790 Def0005BD
+S A$Sprite_Engine$1781 Def0005B7
+S A$Sprite_Engine$1772 Def0005A5
+S A$Sprite_Engine$1763 Def00059D
+S A$Sprite_Engine$1709 Def00057F
+S A$Sprite_Engine$1682 Def00056C
+S A$Sprite_Engine$1673 Def000562
+S A$Sprite_Engine$1655 Def000557
+S A$Sprite_Engine$1646 Def000552
+S A$Sprite_Engine$1637 Def00054A
+S A$Sprite_Engine$1619 Def000541
+S A$Sprite_Engine$1592 Def000525
+S A$Sprite_Engine$1583 Def00051E
+S A$Sprite_Engine$1547 Def00050E
+S A$Sprite_Engine$1538 Def000504
+S A$Sprite_Engine$1529 Def0004F8
+S A$Sprite_Engine$1466 Def0004C7
+S A$Sprite_Engine$1457 Def0004C1
+S A$Sprite_Engine$1448 Def0004B5
+S A$Sprite_Engine$1439 Def0004AC
+S A$Sprite_Engine$1394 Def00047A
+S A$Sprite_Engine$1358 Def000466
+S A$Sprite_Engine$1349 Def000461
+S A$Sprite_Engine$1295 Def000432
+S A$Sprite_Engine$1286 Def000429
+S A$Sprite_Engine$1277 Def000420
+S A$Sprite_Engine$1268 Def00041A
+S A$Sprite_Engine$1259 Def000413
+S A$Sprite_Engine$1196 Def0003DC
+S A$Sprite_Engine$1178 Def0003CD
+S A$Sprite_Engine$1169 Def0003C2
+S A$Sprite_Engine$1088 Def000379
+S A$Sprite_Engine$1079 Def00036E
+S C$Sprite_Engine.c$163$2_0$173 Def000573
+S C$Sprite_Engine.c$154$2_0$173 Def000542
+S C$Sprite_Engine.c$143$2_0$166 Def00050F
+S C$Sprite_Engine.c$129$3_0$152 Def000472
+S C$Sprite_Engine.c$109$3_0$118 Def000330
+S _setup_sprite Def0002E6
+S A$Sprite_Engine$2196 Def000709
+S A$Sprite_Engine$2178 Def0006F7
+S A$Sprite_Engine$2097 Def0006B9
+S A$Sprite_Engine$2079 Def0006A7
+S A$Sprite_Engine$1971 Def00064D
+S A$Sprite_Engine$1962 Def000644
+S A$Sprite_Engine$1944 Def000636
+S A$Sprite_Engine$1926 Def000628
+S A$Sprite_Engine$1890 Def00060B
+S A$Sprite_Engine$1881 Def000606
+S A$Sprite_Engine$1872 Def0005FE
+S A$Sprite_Engine$1863 Def0005F5
+S A$Sprite_Engine$1845 Def0005E8
+S A$Sprite_Engine$1836 Def0005DF
+S A$Sprite_Engine$1827 Def0005D6
+S A$Sprite_Engine$1818 Def0005D3
+S A$Sprite_Engine$1773 Def0005A6
+S A$Sprite_Engine$1764 Def0005A0
+S A$Sprite_Engine$1755 Def000595
+S A$Sprite_Engine$1719 Def000585
+S A$Sprite_Engine$1683 Def00056D
+S A$Sprite_Engine$1674 Def000563
+S A$Sprite_Engine$1656 Def000558
+S A$Sprite_Engine$1629 Def000547
+S A$Sprite_Engine$1593 Def000527
+S A$Sprite_Engine$1584 Def00051F
+S A$Sprite_Engine$1467 Def0004C9
+S A$Sprite_Engine$1449 Def0004B6
+S A$Sprite_Engine$1395 Def00047C
+S A$Sprite_Engine$1377 Def000471
+S A$Sprite_Engine$1359 Def000467
+S A$Sprite_Engine$1296 Def000433
+S A$Sprite_Engine$1287 Def00042A
+S A$Sprite_Engine$1269 Def00041B
+S A$Sprite_Engine$1197 Def0003DD
+S A$Sprite_Engine$1188 Def0003D6
+S A$Sprite_Engine$1179 Def0003CE
+S A$Sprite_Engine$1098 Def000382
+S A$Sprite_Engine$1089 Def00037A
+S A$Sprite_Engine$200 Def000063
+S C$Sprite_Engine.c$164$2_0$173 Def000575
+S C$Sprite_Engine.c$155$2_0$173 Def000547
+S XG$setup_16x16_meta$0$0 Def000471
+S A$Sprite_Engine$2188 Def000701
+S A$Sprite_Engine$2179 Def0006F8
+S A$Sprite_Engine$2098 Def0006BA
+S A$Sprite_Engine$1990 Def000660
+S A$Sprite_Engine$1972 Def000650
+S A$Sprite_Engine$1963 Def000645
+S A$Sprite_Engine$1945 Def000637
+S A$Sprite_Engine$1936 Def00062D
+S A$Sprite_Engine$1918 Def00061F
+S A$Sprite_Engine$1909 Def000616
+S A$Sprite_Engine$1855 Def0005EC
+S A$Sprite_Engine$1837 Def0005E0
+S A$Sprite_Engine$1774 Def0005A8
+S A$Sprite_Engine$1765 Def0005A1
+S A$Sprite_Engine$1729 Def00058A
+S A$Sprite_Engine$1693 Def000573
+S A$Sprite_Engine$1675 Def000564
+S A$Sprite_Engine$1657 Def00055B
+S A$Sprite_Engine$1648 Def000553
+S A$Sprite_Engine$1594 Def000529
+S A$Sprite_Engine$1576 Def000517
+S A$Sprite_Engine$1558 Def000514
+S A$Sprite_Engine$1486 Def0004D5
+S A$Sprite_Engine$1468 Def0004CA
+S A$Sprite_Engine$1396 Def00047D
+S A$Sprite_Engine$1387 Def000472
+S A$Sprite_Engine$1297 Def000434
+S A$Sprite_Engine$1189 Def0003D7
+S A$Sprite_Engine$1099 Def000383
+S A$Sprite_Engine$300 Def0000C9
+S A$Sprite_Engine$210 Def00006D
+S A$Sprite_Engine$201 Def000064
+S C$Sprite_Engine.c$156$2_0$173 Def000549
+S _change_sprite_tile Def000472
+S A$Sprite_Engine$2189 Def000704
+S A$Sprite_Engine$2099 Def0006BB
+S A$Sprite_Engine$1991 Def000661
+S A$Sprite_Engine$1982 Def000657
+S A$Sprite_Engine$1973 Def000651
+S A$Sprite_Engine$1964 Def000648
+S A$Sprite_Engine$1955 Def00063F
+S A$Sprite_Engine$1937 Def00062E
+S A$Sprite_Engine$1928 Def000629
+S A$Sprite_Engine$1919 Def000620
+S A$Sprite_Engine$1883 Def000607
+S A$Sprite_Engine$1865 Def0005F6
+S A$Sprite_Engine$1856 Def0005ED
+S A$Sprite_Engine$1838 Def0005E1
+S A$Sprite_Engine$1793 Def0005BE
+S A$Sprite_Engine$1775 Def0005A9
+S A$Sprite_Engine$1766 Def0005A2
+S A$Sprite_Engine$1676 Def000565
+S A$Sprite_Engine$1667 Def00055E
+S A$Sprite_Engine$1649 Def000554
+S A$Sprite_Engine$1595 Def00052B
+S A$Sprite_Engine$1577 Def00051A
+S A$Sprite_Engine$1496 Def0004D6
+S A$Sprite_Engine$1469 Def0004CB
+S A$Sprite_Engine$1298 Def000435
+S A$Sprite_Engine$1289 Def00042B
+S A$Sprite_Engine$1199 Def0003DE
+S A$Sprite_Engine$400 Def00012B
+S A$Sprite_Engine$310 Def0000D5
+S A$Sprite_Engine$301 Def0000CA
+S A$Sprite_Engine$220 Def000077
+S A$Sprite_Engine$211 Def00006E
+S A$Sprite_Engine$202 Def000065
+S A$Sprite_Engine$103 Def00001A
+S C$Sprite_Engine.c$168$1_0$172 Def00058A
+S C$Sprite_Engine.c$166$2_0$173 Def000585
+S C$Sprite_Engine.c$149$2_0$172 Def000517
+S C$Sprite_Engine.c$31$0_0$114 Def000000
+S _init_sprite Def000000
+S A$Sprite_Engine$2199 Def00070B
+S A$Sprite_Engine$1983 Def000658
+S A$Sprite_Engine$1974 Def000652
+S A$Sprite_Engine$1947 Def000638
+S A$Sprite_Engine$1938 Def00062F
+S A$Sprite_Engine$1884 Def000608
+S A$Sprite_Engine$1875 Def0005FF
+S A$Sprite_Engine$1866 Def0005F9
+S A$Sprite_Engine$1857 Def0005EE
+S A$Sprite_Engine$1794 Def0005BF
+S A$Sprite_Engine$1776 Def0005AB
+S A$Sprite_Engine$1767 Def0005A3
+S A$Sprite_Engine$1677 Def000568
+S A$Sprite_Engine$1668 Def00055F
+S A$Sprite_Engine$1596 Def00052D
+S A$Sprite_Engine$1389 Def000474
+S A$Sprite_Engine$1299 Def000438
+S A$Sprite_Engine$410 Def000130
+S A$Sprite_Engine$311 Def0000D6
+S A$Sprite_Engine$302 Def0000CB
+S A$Sprite_Engine$230 Def000081
+S A$Sprite_Engine$221 Def000078
+S A$Sprite_Engine$212 Def00006F
+S A$Sprite_Engine$203 Def000067
+S A$Sprite_Engine$113 Def000024
+S A$Sprite_Engine$104 Def00001D
+S C$Sprite_Engine.c$172$1_0$187 Def000593
+S C$Sprite_Engine.c$169$1_0$172 Def00058A
+S C$Sprite_Engine.c$158$2_0$173 Def000557
+S C$Sprite_Engine.c$147$2_0$166 Def000516
+S C$Sprite_Engine.c$145$3_0$167 Def000505
+S XG$init_16x16_meta$0$0 Def0002E5
+S C$Sprite_Engine.c$40$1_0$114 Def000038
+S A$Sprite_Engine$1984 Def000659
+S A$Sprite_Engine$1966 Def000649
+S A$Sprite_Engine$1957 Def000640
+S A$Sprite_Engine$1948 Def00063B
+S A$Sprite_Engine$1939 Def000630
+S A$Sprite_Engine$1885 Def000609
+S A$Sprite_Engine$1867 Def0005FA
+S A$Sprite_Engine$1858 Def0005F1
+S A$Sprite_Engine$1849 Def0005E9
+S A$Sprite_Engine$1795 Def0005C0
+S A$Sprite_Engine$1777 Def0005AD
+S A$Sprite_Engine$1759 Def000598
+S A$Sprite_Engine$1687 Def00056E
+S A$Sprite_Engine$1597 Def00052F
+S A$Sprite_Engine$1588 Def000520
+S A$Sprite_Engine$1399 Def00047E
+S A$Sprite_Engine$600 Def0001E4
+S A$Sprite_Engine$510 Def00018A
+S A$Sprite_Engine$420 Def00013A
+S A$Sprite_Engine$411 Def000131
+S A$Sprite_Engine$321 Def0000DE
+S A$Sprite_Engine$312 Def0000D7
+S A$Sprite_Engine$303 Def0000CC
+S A$Sprite_Engine$240 Def00008B
+S A$Sprite_Engine$231 Def000082
+S A$Sprite_Engine$222 Def000079
+S A$Sprite_Engine$213 Def000071
+S A$Sprite_Engine$204 Def000068
+S A$Sprite_Engine$123 Def00002E
+S A$Sprite_Engine$114 Def000027
+S A$Sprite_Engine$105 Def00001E
+S C$Sprite_Engine.c$180$2_0$188 Def00060B
+S C$Sprite_Engine.c$159$2_0$173 Def00055C
+S C$Sprite_Engine.c$41$1_0$114 Def000042
+S A$Sprite_Engine$1985 Def00065A
+S A$Sprite_Engine$1976 Def000653
+S A$Sprite_Engine$1967 Def00064A
+S A$Sprite_Engine$1949 Def00063C
+S A$Sprite_Engine$1886 Def00060A
+S A$Sprite_Engine$1868 Def0005FB
+S A$Sprite_Engine$1787 Def0005BA
+S A$Sprite_Engine$1778 Def0005AF
+S A$Sprite_Engine$1688 Def00056F
+S A$Sprite_Engine$1679 Def000569
+S A$Sprite_Engine$1598 Def000531
+S A$Sprite_Engine$1589 Def000521
+S A$Sprite_Engine$610 Def0001F0
+S A$Sprite_Engine$601 Def0001E6
+S A$Sprite_Engine$520 Def000194
+S A$Sprite_Engine$511 Def00018C
+S A$Sprite_Engine$430 Def000142
+S A$Sprite_Engine$421 Def00013B
+S A$Sprite_Engine$412 Def000132
+S A$Sprite_Engine$331 Def0000E7
+S A$Sprite_Engine$322 Def0000E0
+S A$Sprite_Engine$313 Def0000D9
+S A$Sprite_Engine$304 Def0000CE
+S A$Sprite_Engine$250 Def000095
+S A$Sprite_Engine$241 Def00008C
+S A$Sprite_Engine$232 Def000083
+S A$Sprite_Engine$223 Def00007B
+S A$Sprite_Engine$214 Def000072
+S A$Sprite_Engine$133 Def000038
+S A$Sprite_Engine$124 Def000031
+S A$Sprite_Engine$115 Def000028
+S A$Sprite_Engine$106 Def00001F
+S C$Sprite_Engine.c$181$2_0$188 Def00060E
+S C$Sprite_Engine.c$174$1_0$187 Def0005A4
+S G$translate_16x16_meta$0$0 Def000593
+S C$Sprite_Engine.c$33$1_0$114 Def000000
+S A$Sprite_Engine$1995 Def000662
+S A$Sprite_Engine$1986 Def00065D
+S A$Sprite_Engine$1977 Def000654
+S A$Sprite_Engine$1968 Def00064B
+S A$Sprite_Engine$1896 Def00060E
+S A$Sprite_Engine$1878 Def000601
+S A$Sprite_Engine$1869 Def0005FC
+S A$Sprite_Engine$1788 Def0005BB
+S A$Sprite_Engine$1779 Def0005B2
+S A$Sprite_Engine$1689 Def000572
+S A$Sprite_Engine$800 Def000296
+S A$Sprite_Engine$710 Def000249
+S A$Sprite_Engine$701 Def000242
+S A$Sprite_Engine$620 Def0001FC
+S A$Sprite_Engine$611 Def0001F1
+S A$Sprite_Engine$602 Def0001E7
+S A$Sprite_Engine$521 Def000195
+S A$Sprite_Engine$512 Def00018D
+S A$Sprite_Engine$503 Def000182
+S A$Sprite_Engine$440 Def00014D
+S A$Sprite_Engine$431 Def000143
+S A$Sprite_Engine$422 Def00013C
+S A$Sprite_Engine$413 Def000133
+S A$Sprite_Engine$404 Def00012C
+S A$Sprite_Engine$350 Def0000F7
+S A$Sprite_Engine$332 Def0000E9
+S A$Sprite_Engine$323 Def0000E1
+S A$Sprite_Engine$314 Def0000DA
+S A$Sprite_Engine$305 Def0000CF
+S A$Sprite_Engine$251 Def000096
+S A$Sprite_Engine$242 Def00008D
+S A$Sprite_Engine$233 Def000085
+S A$Sprite_Engine$224 Def00007C
+S A$Sprite_Engine$170 Def00004C
+S A$Sprite_Engine$161 Def000045
+S A$Sprite_Engine$134 Def00003B
+S A$Sprite_Engine$125 Def000032
+S A$Sprite_Engine$116 Def000029
+S A$Sprite_Engine$107 Def000020
+S C$Sprite_Engine.c$50$1_0$116 Def000056
+S C$Sprite_Engine.c$34$1_0$114 Def000006
+S A$Sprite_Engine$1969 Def00064C
+S A$Sprite_Engine$1897 Def00060F
+S A$Sprite_Engine$1879 Def000602
+S A$Sprite_Engine$1789 Def0005BC
+S A$Sprite_Engine$1699 Def000575
+S A$Sprite_Engine$810 Def0002A1
+S A$Sprite_Engine$801 Def000299
+S A$Sprite_Engine$720 Def000254
+S A$Sprite_Engine$711 Def00024A
+S A$Sprite_Engine$702 Def000243
+S A$Sprite_Engine$621 Def0001FD
+S A$Sprite_Engine$612 Def0001F2
+S A$Sprite_Engine$603 Def0001E8
+S A$Sprite_Engine$531 Def00019D
+S A$Sprite_Engine$522 Def000196
+S A$Sprite_Engine$513 Def00018F
+S A$Sprite_Engine$504 Def000184
+S A$Sprite_Engine$450 Def000156
+S A$Sprite_Engine$441 Def00014E
+S A$Sprite_Engine$432 Def000144
+S A$Sprite_Engine$423 Def00013D
+S A$Sprite_Engine$414 Def000134
+S A$Sprite_Engine$405 Def00012E
+S A$Sprite_Engine$360 Def000101
+S A$Sprite_Engine$351 Def0000F8
+S A$Sprite_Engine$333 Def0000EA
+S A$Sprite_Engine$324 Def0000E2
+S A$Sprite_Engine$315 Def0000DB
+S A$Sprite_Engine$306 Def0000D0
+S A$Sprite_Engine$270 Def0000AA
+S A$Sprite_Engine$261 Def00009E
+S A$Sprite_Engine$252 Def000097
+S A$Sprite_Engine$243 Def00008F
+S A$Sprite_Engine$234 Def000086
+S A$Sprite_Engine$180 Def000053
+S A$Sprite_Engine$171 Def00004D
+S A$Sprite_Engine$162 Def000047
+S A$Sprite_Engine$135 Def00003C
+S A$Sprite_Engine$126 Def000033
+S A$Sprite_Engine$117 Def00002A
+S A$Sprite_Engine$108 Def000022
+S C$Sprite_Engine.c$192$2_0$188 Def0006BD
+S C$Sprite_Engine.c$176$1_0$187 Def000598
+S C$Sprite_Engine.c$60$1_0$116 Def0000AE
+S C$Sprite_Engine.c$51$1_0$116 Def00005F
+S C$Sprite_Engine.c$35$1_0$114 Def00000B
+S A$Sprite_Engine$1988 Def00065E
+S A$Sprite_Engine$1979 Def000655
+S A$Sprite_Engine$1898 Def000610
+S A$Sprite_Engine$1799 Def0005C1
+S A$Sprite_Engine$910 Def0002E7
+S A$Sprite_Engine$820 Def0002AE
+S A$Sprite_Engine$811 Def0002A2
+S A$Sprite_Engine$730 Def000260
+S A$Sprite_Engine$721 Def000255
+S A$Sprite_Engine$712 Def00024B
+S A$Sprite_Engine$703 Def000244
+S A$Sprite_Engine$640 Def000211
+S A$Sprite_Engine$622 Def0001FE
+S A$Sprite_Engine$613 Def0001F3
+S A$Sprite_Engine$604 Def0001E9
+S A$Sprite_Engine$550 Def0001B1
+S A$Sprite_Engine$532 Def00019F
+S A$Sprite_Engine$523 Def000197
+S A$Sprite_Engine$514 Def000190
+S A$Sprite_Engine$505 Def000185
+S A$Sprite_Engine$460 Def00015E
+S A$Sprite_Engine$451 Def000158
+S A$Sprite_Engine$442 Def000151
+S A$Sprite_Engine$433 Def000145
+S A$Sprite_Engine$424 Def00013E
+S A$Sprite_Engine$415 Def000135
+S A$Sprite_Engine$406 Def00012F
+S A$Sprite_Engine$370 Def000109
+S A$Sprite_Engine$361 Def000102
+S A$Sprite_Engine$352 Def0000F9
+S A$Sprite_Engine$343 Def0000F2
+S A$Sprite_Engine$334 Def0000EB
+S A$Sprite_Engine$325 Def0000E3
+S A$Sprite_Engine$316 Def0000DC
+S A$Sprite_Engine$307 Def0000D1
+S A$Sprite_Engine$280 Def0000B3
+S A$Sprite_Engine$271 Def0000AB
+S A$Sprite_Engine$262 Def0000A1
+S A$Sprite_Engine$253 Def000099
+S A$Sprite_Engine$244 Def000090
+S A$Sprite_Engine$208 Def000069
+S A$Sprite_Engine$190 Def00005A
+S A$Sprite_Engine$181 Def000054
+S A$Sprite_Engine$172 Def00004E
+S A$Sprite_Engine$163 Def000048
+S A$Sprite_Engine$136 Def00003D
+S A$Sprite_Engine$127 Def000034
+S A$Sprite_Engine$118 Def00002C
+S A$Sprite_Engine$109 Def000023
+S C$Sprite_Engine.c$193$2_0$188 Def0006BF
+S C$Sprite_Engine.c$175$2_0$188 Def0005BA
+S C$Sprite_Engine.c$70$1_0$116 Def000104
+S C$Sprite_Engine.c$61$1_0$116 Def0000C6
+S C$Sprite_Engine.c$52$1_0$116 Def000069
+S C$Sprite_Engine.c$43$1_0$116 Def000043
+S C$Sprite_Engine.c$36$1_0$114 Def000011
+S A$Sprite_Engine$1989 Def00065F
+S A$Sprite_Engine$1899 Def000611
+S A$Sprite_Engine$920 Def0002F3
+S A$Sprite_Engine$911 Def0002E9
+S A$Sprite_Engine$830 Def0002B6
+S A$Sprite_Engine$821 Def0002AF
+S A$Sprite_Engine$812 Def0002A3
+S A$Sprite_Engine$731 Def000262
+S A$Sprite_Engine$722 Def000256
+S A$Sprite_Engine$713 Def00024C
+S A$Sprite_Engine$704 Def000245
+S A$Sprite_Engine$650 Def00021E
+S A$Sprite_Engine$641 Def000214
+S A$Sprite_Engine$623 Def0001FF
+S A$Sprite_Engine$614 Def0001F4
+S A$Sprite_Engine$605 Def0001EA
+S A$Sprite_Engine$560 Def0001BA
+S A$Sprite_Engine$551 Def0001B2
+S A$Sprite_Engine$533 Def0001A0
+S A$Sprite_Engine$524 Def000198
+S A$Sprite_Engine$506 Def000186
+S A$Sprite_Engine$470 Def000165
+S A$Sprite_Engine$461 Def00015F
+S A$Sprite_Engine$452 Def000159
+S A$Sprite_Engine$443 Def000152
+S A$Sprite_Engine$434 Def000146
+S A$Sprite_Engine$425 Def00013F
+S A$Sprite_Engine$416 Def000136
+S A$Sprite_Engine$380 Def000114
+S A$Sprite_Engine$371 Def00010A
+S A$Sprite_Engine$362 Def000103
+S A$Sprite_Engine$353 Def0000FA
+S A$Sprite_Engine$344 Def0000F4
+S A$Sprite_Engine$335 Def0000EC
+S A$Sprite_Engine$326 Def0000E5
+S A$Sprite_Engine$317 Def0000DD
+S A$Sprite_Engine$308 Def0000D3
+S A$Sprite_Engine$290 Def0000BF
+S A$Sprite_Engine$281 Def0000B4
+S A$Sprite_Engine$272 Def0000AC
+S A$Sprite_Engine$263 Def0000A2
+S A$Sprite_Engine$254 Def00009A
+S A$Sprite_Engine$218 Def000073
+S A$Sprite_Engine$209 Def00006C
+S A$Sprite_Engine$191 Def00005B
+S A$Sprite_Engine$182 Def000055
+S A$Sprite_Engine$173 Def00004F
+S A$Sprite_Engine$164 Def000049
+S A$Sprite_Engine$137 Def00003E
+S A$Sprite_Engine$128 Def000036
+S A$Sprite_Engine$119 Def00002D
+S C$Sprite_Engine.c$71$1_0$116 Def000120
+S C$Sprite_Engine.c$53$1_0$116 Def000073
+S C$Sprite_Engine.c$37$1_0$114 Def00001A
+S A$Sprite_Engine$921 Def0002F4
+S A$Sprite_Engine$912 Def0002EA
+S A$Sprite_Engine$822 Def0002B0
+S A$Sprite_Engine$813 Def0002A4
+S A$Sprite_Engine$750 Def00026F
+S A$Sprite_Engine$732 Def000263
+S A$Sprite_Engine$723 Def000257
+S A$Sprite_Engine$714 Def00024F
+S A$Sprite_Engine$705 Def000246
+S A$Sprite_Engine$651 Def00021F
+S A$Sprite_Engine$642 Def000215
+S A$Sprite_Engine$633 Def00020A
+S A$Sprite_Engine$624 Def000201
+S A$Sprite_Engine$615 Def0001F5
+S A$Sprite_Engine$606 Def0001EB
+S A$Sprite_Engine$561 Def0001BB
+S A$Sprite_Engine$552 Def0001B4
+S A$Sprite_Engine$543 Def0001A7
+S A$Sprite_Engine$534 Def0001A1
+S A$Sprite_Engine$525 Def000199
+S A$Sprite_Engine$507 Def000187
+S A$Sprite_Engine$480 Def00016F
+S A$Sprite_Engine$471 Def000166
+S A$Sprite_Engine$462 Def000160
+S A$Sprite_Engine$444 Def000153
+S A$Sprite_Engine$435 Def000147
+S A$Sprite_Engine$417 Def000137
+S A$Sprite_Engine$381 Def000117
+S A$Sprite_Engine$372 Def00010B
+S A$Sprite_Engine$354 Def0000FB
+S A$Sprite_Engine$345 Def0000F5
+S A$Sprite_Engine$336 Def0000EE
+S A$Sprite_Engine$327 Def0000E6
+S A$Sprite_Engine$309 Def0000D4
+S A$Sprite_Engine$291 Def0000C1
+S A$Sprite_Engine$282 Def0000B6
+S A$Sprite_Engine$273 Def0000AD
+S A$Sprite_Engine$264 Def0000A3
+S A$Sprite_Engine$255 Def00009B
+S A$Sprite_Engine$228 Def00007D
+S A$Sprite_Engine$219 Def000076
+S A$Sprite_Engine$192 Def00005C
+S A$Sprite_Engine$165 Def00004A
+S A$Sprite_Engine$147 Def000042
+S A$Sprite_Engine$138 Def000040
+S A$Sprite_Engine$129 Def000037
+S C$Sprite_Engine.c$186$2_0$188 Def000662
+S C$Sprite_Engine.c$90$1_0$116 Def0001C5
+S C$Sprite_Engine.c$72$1_0$116 Def00012C
+S C$Sprite_Engine.c$54$1_0$116 Def00007D
+S C$Sprite_Engine.c$38$1_0$114 Def000024
+S A$Sprite_Engine$922 Def0002F5
+S A$Sprite_Engine$913 Def0002EB
+S A$Sprite_Engine$823 Def0002B1
+S A$Sprite_Engine$814 Def0002A5
+S A$Sprite_Engine$805 Def00029B
+S A$Sprite_Engine$760 Def000275
+S A$Sprite_Engine$751 Def000270
+S A$Sprite_Engine$733 Def000264
+S A$Sprite_Engine$724 Def000258
+S A$Sprite_Engine$652 Def000221
+S A$Sprite_Engine$643 Def000216
+S A$Sprite_Engine$634 Def00020B
+S A$Sprite_Engine$625 Def000202
+S A$Sprite_Engine$616 Def0001F7
+S A$Sprite_Engine$607 Def0001EC
+S A$Sprite_Engine$580 Def0001D2
+S A$Sprite_Engine$571 Def0001C5
+S A$Sprite_Engine$562 Def0001BE
+S A$Sprite_Engine$553 Def0001B5
+S A$Sprite_Engine$544 Def0001A9
+S A$Sprite_Engine$535 Def0001A2
+S A$Sprite_Engine$526 Def00019B
+S A$Sprite_Engine$508 Def000188
+S A$Sprite_Engine$490 Def000176
+S A$Sprite_Engine$481 Def000170
+S A$Sprite_Engine$472 Def000167
+S A$Sprite_Engine$463 Def000161
+S A$Sprite_Engine$445 Def000154
+S A$Sprite_Engine$436 Def000148
+S A$Sprite_Engine$418 Def000138
+S A$Sprite_Engine$391 Def000120
+S A$Sprite_Engine$382 Def000118
+S A$Sprite_Engine$373 Def00010D
+S A$Sprite_Engine$355 Def0000FC
+S A$Sprite_Engine$337 Def0000EF
+S A$Sprite_Engine$292 Def0000C2
+S A$Sprite_Engine$283 Def0000B7
+S A$Sprite_Engine$265 Def0000A4
+S A$Sprite_Engine$256 Def00009C
+S A$Sprite_Engine$238 Def000087
+S A$Sprite_Engine$229 Def000080
+S A$Sprite_Engine$193 Def00005D
+S A$Sprite_Engine$157 Def000043
+S A$Sprite_Engine$139 Def000041
+S C$Sprite_Engine.c$187$2_0$188 Def000665
+S XG$setup_sprite$0$0 Def000330
+S C$Sprite_Engine.c$91$1_0$116 Def0001D7
+S C$Sprite_Engine.c$82$1_0$116 Def000176
+S C$Sprite_Engine.c$73$1_0$116 Def000130
+S C$Sprite_Engine.c$64$1_0$116 Def0000DE
+S C$Sprite_Engine.c$55$1_0$116 Def000087
+S C$Sprite_Engine.c$39$1_0$114 Def00002E
+S A$Sprite_Engine$950 Def00030F
+S A$Sprite_Engine$941 Def000304
+S A$Sprite_Engine$932 Def0002FE
+S A$Sprite_Engine$923 Def0002F6
+S A$Sprite_Engine$914 Def0002EC
+S A$Sprite_Engine$860 Def0002CA
+S A$Sprite_Engine$842 Def0002BC
+S A$Sprite_Engine$833 Def0002B7
+S A$Sprite_Engine$824 Def0002B2
+S A$Sprite_Engine$815 Def0002A8
+S A$Sprite_Engine$806 Def00029D
+S A$Sprite_Engine$761 Def000276
+S A$Sprite_Engine$752 Def000271
+S A$Sprite_Engine$743 Def00026C
+S A$Sprite_Engine$734 Def000265
+S A$Sprite_Engine$725 Def000259
+S A$Sprite_Engine$680 Def000231
+S A$Sprite_Engine$671 Def000229
+S A$Sprite_Engine$662 Def000224
+S A$Sprite_Engine$644 Def000218
+S A$Sprite_Engine$635 Def00020C
+S A$Sprite_Engine$626 Def000203
+S A$Sprite_Engine$617 Def0001F8
+S A$Sprite_Engine$608 Def0001EE
+S A$Sprite_Engine$590 Def0001DB
+S A$Sprite_Engine$581 Def0001D3
+S A$Sprite_Engine$572 Def0001C7
+S A$Sprite_Engine$563 Def0001BF
+S A$Sprite_Engine$545 Def0001AA
+S A$Sprite_Engine$536 Def0001A3
+S A$Sprite_Engine$527 Def00019C
+S A$Sprite_Engine$518 Def000191
+S A$Sprite_Engine$509 Def000189
+S A$Sprite_Engine$491 Def000178
+S A$Sprite_Engine$482 Def000171
+S A$Sprite_Engine$473 Def000168
+S A$Sprite_Engine$464 Def000162
+S A$Sprite_Engine$446 Def000155
+S A$Sprite_Engine$437 Def00014A
+S A$Sprite_Engine$419 Def000139
+S A$Sprite_Engine$392 Def000122
+S A$Sprite_Engine$383 Def00011A
+S A$Sprite_Engine$374 Def00010E
+S A$Sprite_Engine$356 Def0000FD
+S A$Sprite_Engine$338 Def0000F0
+S A$Sprite_Engine$293 Def0000C3
+S A$Sprite_Engine$284 Def0000B8
+S A$Sprite_Engine$266 Def0000A5
+S A$Sprite_Engine$257 Def00009D
+S A$Sprite_Engine$248 Def000091
+S A$Sprite_Engine$239 Def00008A
+S A$Sprite_Engine$194 Def00005E
+S C$Sprite_Engine.c$199$1_0$187 Def000717
+S C$Sprite_Engine.c$83$1_0$116 Def000182
+S C$Sprite_Engine.c$65$1_0$116 Def0000E7
+S C$Sprite_Engine.c$47$1_0$116 Def000045
+S A$Sprite_Engine$960 Def000315
+S A$Sprite_Engine$951 Def000310
+S A$Sprite_Engine$942 Def000305
+S A$Sprite_Engine$924 Def0002F7
+S A$Sprite_Engine$915 Def0002ED
+S A$Sprite_Engine$906 Def0002E6
+S A$Sprite_Engine$870 Def0002D2
+S A$Sprite_Engine$852 Def0002C3
+S A$Sprite_Engine$825 Def0002B3
+S A$Sprite_Engine$816 Def0002A9
+S A$Sprite_Engine$807 Def00029E
+S A$Sprite_Engine$771 Def00027E
+S A$Sprite_Engine$762 Def000278
+S A$Sprite_Engine$735 Def000266
+S A$Sprite_Engine$726 Def00025A
+S A$Sprite_Engine$708 Def000247
+S A$Sprite_Engine$690 Def000239
+S A$Sprite_Engine$681 Def000233
+S A$Sprite_Engine$672 Def00022A
+S A$Sprite_Engine$663 Def000225
+S A$Sprite_Engine$645 Def000219
+S A$Sprite_Engine$636 Def00020D
+S A$Sprite_Engine$627 Def000204
+S A$Sprite_Engine$618 Def0001F9
+S A$Sprite_Engine$609 Def0001EF
+S A$Sprite_Engine$591 Def0001DC
+S A$Sprite_Engine$582 Def0001D5
+S A$Sprite_Engine$573 Def0001C8
+S A$Sprite_Engine$564 Def0001C0
+S A$Sprite_Engine$546 Def0001AB
+S A$Sprite_Engine$537 Def0001A4
+S A$Sprite_Engine$519 Def000193
+S A$Sprite_Engine$492 Def000179
+S A$Sprite_Engine$483 Def000172
+S A$Sprite_Engine$474 Def000169
+S A$Sprite_Engine$465 Def000163
+S A$Sprite_Engine$456 Def00015A
+S A$Sprite_Engine$438 Def00014B
+S A$Sprite_Engine$429 Def000140
+S A$Sprite_Engine$393 Def000123
+S A$Sprite_Engine$384 Def00011B
+S A$Sprite_Engine$375 Def00010F
+S A$Sprite_Engine$366 Def000104
+S A$Sprite_Engine$357 Def0000FE
+S A$Sprite_Engine$339 Def0000F1
+S A$Sprite_Engine$294 Def0000C4
+S A$Sprite_Engine$285 Def0000B9
+S A$Sprite_Engine$267 Def0000A6
+S A$Sprite_Engine$249 Def000094
+S A$Sprite_Engine$186 Def000056
+S A$Sprite_Engine$177 Def000050
+S XG$change_sprite_tile$0$0 Def0004D5
+S C$Sprite_Engine.c$84$1_0$116 Def000191
+S C$Sprite_Engine.c$66$1_0$116 Def0000F2
+S C$Sprite_Engine.c$48$1_0$116 Def00004B
+S A$Sprite_Engine$970 Def000322
+S A$Sprite_Engine$961 Def000316
+S A$Sprite_Engine$943 Def000306
+S A$Sprite_Engine$925 Def0002F8
+S A$Sprite_Engine$916 Def0002EE
+S A$Sprite_Engine$871 Def0002D3
+S A$Sprite_Engine$853 Def0002C4
+S A$Sprite_Engine$826 Def0002B5
+S A$Sprite_Engine$817 Def0002AA
+S A$Sprite_Engine$808 Def00029F
+S A$Sprite_Engine$790 Def00028E
+S A$Sprite_Engine$772 Def00027F
+S A$Sprite_Engine$736 Def000267
+S A$Sprite_Engine$727 Def00025B
+S A$Sprite_Engine$718 Def000251
+S A$Sprite_Engine$709 Def000248
+S A$Sprite_Engine$691 Def00023A
+S A$Sprite_Engine$673 Def00022B
+S A$Sprite_Engine$664 Def000226
+S A$Sprite_Engine$646 Def00021A
+S A$Sprite_Engine$637 Def00020E
+S A$Sprite_Engine$628 Def000205
+S A$Sprite_Engine$619 Def0001FA
+S A$Sprite_Engine$592 Def0001DF
+S A$Sprite_Engine$583 Def0001D6
+S A$Sprite_Engine$574 Def0001C9
+S A$Sprite_Engine$565 Def0001C1
+S A$Sprite_Engine$547 Def0001AC
+S A$Sprite_Engine$538 Def0001A5
+S A$Sprite_Engine$493 Def00017A
+S A$Sprite_Engine$484 Def000173
+S A$Sprite_Engine$475 Def00016A
+S A$Sprite_Engine$457 Def00015B
+S A$Sprite_Engine$439 Def00014C
+S A$Sprite_Engine$394 Def000124
+S A$Sprite_Engine$385 Def00011C
+S A$Sprite_Engine$376 Def000110
+S A$Sprite_Engine$367 Def000106
+S A$Sprite_Engine$358 Def0000FF
+S A$Sprite_Engine$349 Def0000F6
+S A$Sprite_Engine$295 Def0000C5
+S A$Sprite_Engine$286 Def0000BB
+S A$Sprite_Engine$277 Def0000AE
+S A$Sprite_Engine$268 Def0000A7
+S A$Sprite_Engine$187 Def000057
+S A$Sprite_Engine$178 Def000051
+S A$Sprite_Engine$169 Def00004B
+S C$Sprite_Engine.c$94$1_0$116 Def0001E4
+S C$Sprite_Engine.c$85$1_0$116 Def00019D
+S C$Sprite_Engine.c$76$1_0$116 Def000140
+S C$Sprite_Engine.c$67$1_0$116 Def0000F6
+S C$Sprite_Engine.c$58$1_0$116 Def000091
+S C$Sprite_Engine.c$49$1_0$116 Def000050
+S XG$init_sprite$0$0 Def000042
+S A$Sprite_Engine$980 Def00032C
+S A$Sprite_Engine$971 Def000323
+S A$Sprite_Engine$962 Def000317
+S A$Sprite_Engine$953 Def000311
+S A$Sprite_Engine$944 Def000307
+S A$Sprite_Engine$935 Def0002FF
+S A$Sprite_Engine$926 Def0002F9
+S A$Sprite_Engine$917 Def0002EF
+S A$Sprite_Engine$872 Def0002D5
+S A$Sprite_Engine$863 Def0002CC
+S A$Sprite_Engine$854 Def0002C5
+S A$Sprite_Engine$845 Def0002BD
+S A$Sprite_Engine$836 Def0002B8
+S A$Sprite_Engine$818 Def0002AC
+S A$Sprite_Engine$809 Def0002A0
+S A$Sprite_Engine$791 Def00028F
+S A$Sprite_Engine$782 Def000287
+S A$Sprite_Engine$773 Def000280
+S A$Sprite_Engine$755 Def000272
+S A$Sprite_Engine$746 Def00026D
+S A$Sprite_Engine$737 Def000268
+S A$Sprite_Engine$728 Def00025E
+S A$Sprite_Engine$719 Def000253
+S A$Sprite_Engine$692 Def00023C
+S A$Sprite_Engine$674 Def00022C
+S A$Sprite_Engine$665 Def000227
+S A$Sprite_Engine$656 Def000222
+S A$Sprite_Engine$647 Def00021B
+S A$Sprite_Engine$638 Def00020F
+S A$Sprite_Engine$629 Def000208
+S A$Sprite_Engine$593 Def0001E0
+S A$Sprite_Engine$575 Def0001CA
+S A$Sprite_Engine$566 Def0001C3
+S A$Sprite_Engine$557 Def0001B6
+S A$Sprite_Engine$548 Def0001AF
+S A$Sprite_Engine$539 Def0001A6
+S A$Sprite_Engine$494 Def00017B
+S A$Sprite_Engine$485 Def000174
+S A$Sprite_Engine$476 Def00016B
+S A$Sprite_Engine$458 Def00015C
+S A$Sprite_Engine$395 Def000125
+S A$Sprite_Engine$386 Def00011E
+S A$Sprite_Engine$377 Def000111
+S A$Sprite_Engine$368 Def000107
+S A$Sprite_Engine$359 Def000100
+S A$Sprite_Engine$287 Def0000BC
+S A$Sprite_Engine$278 Def0000B1
+S A$Sprite_Engine$269 Def0000A9
+S A$Sprite_Engine$188 Def000058
+S A$Sprite_Engine$179 Def000052
+S C$Sprite_Engine.c$77$1_0$116 Def000156
+S C$Sprite_Engine.c$59$1_0$116 Def00009E
+S A$Sprite_Engine$981 Def00032D
+S A$Sprite_Engine$972 Def000324
+S A$Sprite_Engine$963 Def00031A
+S A$Sprite_Engine$945 Def000308
+S A$Sprite_Engine$936 Def000300
+S A$Sprite_Engine$927 Def0002FA
+S A$Sprite_Engine$918 Def0002F0
+S A$Sprite_Engine$891 Def0002E3
+S A$Sprite_Engine$882 Def0002DB
+S A$Sprite_Engine$864 Def0002CD
+S A$Sprite_Engine$855 Def0002C7
+S A$Sprite_Engine$846 Def0002BE
+S A$Sprite_Engine$837 Def0002B9
+S A$Sprite_Engine$819 Def0002AD
+S A$Sprite_Engine$792 Def000290
+S A$Sprite_Engine$783 Def000288
+S A$Sprite_Engine$765 Def000279
+S A$Sprite_Engine$738 Def000269
+S A$Sprite_Engine$729 Def00025F
+S A$Sprite_Engine$684 Def000234
+S A$Sprite_Engine$675 Def00022E
+S A$Sprite_Engine$648 Def00021C
+S A$Sprite_Engine$639 Def000210
+S A$Sprite_Engine$594 Def0001E1
+S A$Sprite_Engine$576 Def0001CD
+S A$Sprite_Engine$567 Def0001C4
+S A$Sprite_Engine$558 Def0001B8
+S A$Sprite_Engine$549 Def0001B0
+S A$Sprite_Engine$495 Def00017C
+S A$Sprite_Engine$486 Def000175
+S A$Sprite_Engine$477 Def00016C
+S A$Sprite_Engine$459 Def00015D
+S A$Sprite_Engine$396 Def000126
+S A$Sprite_Engine$387 Def00011F
+S A$Sprite_Engine$378 Def000112
+S A$Sprite_Engine$369 Def000108
+S A$Sprite_Engine$288 Def0000BD
+S A$Sprite_Engine$279 Def0000B2
+S A$Sprite_Engine$198 Def00005F
+S A$Sprite_Engine$189 Def000059
+S G$translate_sprite$0$0 Def000517
+S C$Sprite_Engine.c$96$1_0$116 Def000222
+S C$Sprite_Engine.c$78$1_0$116 Def00015A
+S A$Sprite_Engine$982 Def00032E
+S A$Sprite_Engine$973 Def000325
+S A$Sprite_Engine$964 Def00031B
+S A$Sprite_Engine$946 Def00030B
+S A$Sprite_Engine$937 Def000301
+S A$Sprite_Engine$928 Def0002FC
+S A$Sprite_Engine$919 Def0002F1
+S A$Sprite_Engine$883 Def0002DC
+S A$Sprite_Engine$865 Def0002CE
+S A$Sprite_Engine$847 Def0002BF
+S A$Sprite_Engine$838 Def0002BA
+S A$Sprite_Engine$784 Def000289
+S A$Sprite_Engine$766 Def00027A
+S A$Sprite_Engine$739 Def00026B
+S A$Sprite_Engine$685 Def000235
+S A$Sprite_Engine$649 Def00021D
+S A$Sprite_Engine$595 Def0001E2
+S A$Sprite_Engine$577 Def0001CE
+S A$Sprite_Engine$559 Def0001B9
+S A$Sprite_Engine$496 Def00017D
+S A$Sprite_Engine$478 Def00016D
+S A$Sprite_Engine$469 Def000164
+S A$Sprite_Engine$397 Def000128
+S A$Sprite_Engine$379 Def000113
+S A$Sprite_Engine$289 Def0000BE
+S A$Sprite_Engine$199 Def000062
+S C$Sprite_Engine.c$97$1_0$116 Def00020A
+S C$Sprite_Engine.c$88$1_0$116 Def0001A7
+S C$Sprite_Engine.c$79$1_0$116 Def000164
+S _translate_16x16_meta Def000593
+S A$Sprite_Engine$974 Def000326
+S A$Sprite_Engine$965 Def00031C
+S A$Sprite_Engine$956 Def000312
+S A$Sprite_Engine$947 Def00030D
+S A$Sprite_Engine$938 Def000303
+S A$Sprite_Engine$929 Def0002FD
+S A$Sprite_Engine$884 Def0002DD
+S A$Sprite_Engine$875 Def0002D6
+S A$Sprite_Engine$866 Def0002D0
+S A$Sprite_Engine$848 Def0002C0
+S A$Sprite_Engine$839 Def0002BB
+S A$Sprite_Engine$785 Def00028B
+S A$Sprite_Engine$776 Def000282
+S A$Sprite_Engine$767 Def00027B
+S A$Sprite_Engine$758 Def000273
+S A$Sprite_Engine$749 Def00026E
+S A$Sprite_Engine$695 Def00023D
+S A$Sprite_Engine$686 Def000236
+S A$Sprite_Engine$668 Def000228
+S A$Sprite_Engine$659 Def000223
+S A$Sprite_Engine$596 Def0001E3
+S A$Sprite_Engine$587 Def0001D7
+S A$Sprite_Engine$578 Def0001CF
+S A$Sprite_Engine$497 Def00017E
+S A$Sprite_Engine$479 Def00016E
+S A$Sprite_Engine$398 Def000129
+S A$Sprite_Engine$299 Def0000C6
+S C$Sprite_Engine.c$98$1_0$116 Def00026C
+S C$Sprite_Engine.c$89$1_0$116 Def0001B6
+S A$Sprite_Engine$975 Def000327
+S A$Sprite_Engine$966 Def00031D
+S A$Sprite_Engine$885 Def0002DE
+S A$Sprite_Engine$876 Def0002D7
+S A$Sprite_Engine$858 Def0002C8
+S A$Sprite_Engine$849 Def0002C2
+S A$Sprite_Engine$795 Def000291
+S A$Sprite_Engine$777 Def000283
+S A$Sprite_Engine$768 Def00027D
+S A$Sprite_Engine$759 Def000274
+S A$Sprite_Engine$696 Def00023E
+S A$Sprite_Engine$678 Def00022F
+S A$Sprite_Engine$588 Def0001D9
+S A$Sprite_Engine$579 Def0001D0
+S A$Sprite_Engine$498 Def000180
+S A$Sprite_Engine$399 Def00012A
+S C$Sprite_Engine.c$99$1_0$116 Def000251
+S A$Sprite_Engine$994 Def000330
+S A$Sprite_Engine$976 Def000328
+S A$Sprite_Engine$967 Def00031E
+S A$Sprite_Engine$949 Def00030E
+S A$Sprite_Engine$886 Def0002DF
+S A$Sprite_Engine$877 Def0002D8
+S A$Sprite_Engine$859 Def0002C9
+S A$Sprite_Engine$796 Def000292
+S A$Sprite_Engine$778 Def000284
+S A$Sprite_Engine$697 Def00023F
+S A$Sprite_Engine$679 Def000230
+S A$Sprite_Engine$589 Def0001DA
+S A$Sprite_Engine$499 Def000181
+S A$Sprite_Engine$959 Def000314
+S A$Sprite_Engine$896 Def0002E5
+S A$Sprite_Engine$887 Def0002E0
+S A$Sprite_Engine$878 Def0002D9
+S A$Sprite_Engine$869 Def0002D1
+S A$Sprite_Engine$797 Def000293
+S A$Sprite_Engine$788 Def00028C
+S A$Sprite_Engine$779 Def000286
+S A$Sprite_Engine$698 Def000241
+S A$Sprite_Engine$689 Def000238
+S A$Sprite_Engine$70 Def000005
+S A$Sprite_Engine$978 Def000329
+S A$Sprite_Engine$969 Def00031F
+S A$Sprite_Engine$879 Def0002DA
+S A$Sprite_Engine$798 Def000294
+S A$Sprite_Engine$789 Def00028D
+S A$Sprite_Engine$799 Def000295
+S A$Sprite_Engine$989 Def00032F
+S A$Sprite_Engine$91 Def000011
+S A$Sprite_Engine$82 Def00000B
+S A$Sprite_Engine$92 Def000012
+S A$Sprite_Engine$83 Def00000C
+S A$Sprite_Engine$74 Def000006
+S A$Sprite_Engine$93 Def000013
+S A$Sprite_Engine$84 Def00000D
+S A$Sprite_Engine$75 Def000007
+S A$Sprite_Engine$66 Def000000
+S A$Sprite_Engine$94 Def000014
+S A$Sprite_Engine$85 Def00000E
+S A$Sprite_Engine$76 Def000008
+S A$Sprite_Engine$67 Def000002
+S A$Sprite_Engine$95 Def000015
+S A$Sprite_Engine$86 Def00000F
+S A$Sprite_Engine$77 Def000009
+S A$Sprite_Engine$68 Def000003
+S _translate_sprite Def000517
+S A$Sprite_Engine$96 Def000016
+S A$Sprite_Engine$87 Def000010
+S A$Sprite_Engine$78 Def00000A
+S A$Sprite_Engine$69 Def000004
+S XG$translate_16x16_meta$0$0 Def000721
+S A$Sprite_Engine$97 Def000017
+S A$Sprite_Engine$98 Def000018
+S A$Sprite_Engine$99 Def000019
+S G$animate_sprite$0$0 Def0004D6
+S XG$translate_sprite$0$0 Def000592
+S G$setup_16x16_meta$0$0 Def000331
+S G$init_16x16_meta$0$0 Def000043
+S _animate_sprite Def0004D6
+S A$Sprite_Engine$1100 Def000384
+S A$Sprite_Engine$1010 Def000336
+S A$Sprite_Engine$2100 Def0006BC
+S A$Sprite_Engine$2001 Def000665
+S A$Sprite_Engine$1200 Def0003DF
+S A$Sprite_Engine$1110 Def00038B
+S A$Sprite_Engine$1020 Def00033C
+S A$Sprite_Engine$1011 Def000337
+S A$Sprite_Engine$2200 Def00070C
+S A$Sprite_Engine$2110 Def0006BF
+S A$Sprite_Engine$2020 Def000672
+S A$Sprite_Engine$2002 Def000666
+S A$Sprite_Engine$1300 Def000439
+S A$Sprite_Engine$1210 Def0003E8
+S A$Sprite_Engine$1120 Def000394
+S A$Sprite_Engine$1030 Def000343
+S A$Sprite_Engine$1021 Def00033D
+S A$Sprite_Engine$1012 Def000338
+S C$Sprite_Engine.c$100$1_0$116 Def0002B6
+S A$Sprite_Engine$2201 Def00070D
+S A$Sprite_Engine$2111 Def0006C0
+S A$Sprite_Engine$2030 Def00067E
+S A$Sprite_Engine$2021 Def000675
+S A$Sprite_Engine$2012 Def00066C
+S A$Sprite_Engine$2003 Def000667
+S A$Sprite_Engine$1310 Def00043F
+S A$Sprite_Engine$1301 Def00043A
+S A$Sprite_Engine$1220 Def0003F1
+S A$Sprite_Engine$1211 Def0003E9
+S A$Sprite_Engine$1130 Def00039F
+S A$Sprite_Engine$1121 Def000395
+S A$Sprite_Engine$1103 Def000385
+S A$Sprite_Engine$1040 Def00034B
+S A$Sprite_Engine$1031 Def000344
+S A$Sprite_Engine$1004 Def000331
+S G$setup_sprite$0$0 Def0002E6
+S C$Sprite_Engine.c$101$1_0$116 Def00029B
+S A$Sprite_Engine$2220 Def00071E
+S A$Sprite_Engine$2202 Def00070E
+S A$Sprite_Engine$2130 Def0006CF
+S A$Sprite_Engine$2121 Def0006C6
+S A$Sprite_Engine$2112 Def0006C1
+S A$Sprite_Engine$2031 Def00067F
+S A$Sprite_Engine$2004 Def000668
+S A$Sprite_Engine$1500 Def0004D8
+S A$Sprite_Engine$1410 Def00048B
+S A$Sprite_Engine$1320 Def000445
+S A$Sprite_Engine$1311 Def000440
+S A$Sprite_Engine$1230 Def0003F9
+S A$Sprite_Engine$1221 Def0003F4
+S A$Sprite_Engine$1203 Def0003E2
+S A$Sprite_Engine$1140 Def0003AB
+S A$Sprite_Engine$1131 Def0003A1
+S A$Sprite_Engine$1122 Def000396
+S A$Sprite_Engine$1113 Def00038C
+S A$Sprite_Engine$1104 Def000386
+S A$Sprite_Engine$1050 Def000357
+S C$Sprite_Engine.c$102$1_0$116 Def0002E5
+S _setup_16x16_meta Def000331
+S A$Sprite_Engine$2230 Def000721
+S A$Sprite_Engine$2203 Def000711
+S A$Sprite_Engine$2140 Def0006D9
+S A$Sprite_Engine$2113 Def0006C2
+S A$Sprite_Engine$2104 Def0006BD
+S A$Sprite_Engine$2050 Def00068E
+S A$Sprite_Engine$2032 Def000680
+S A$Sprite_Engine$2023 Def000676
+S A$Sprite_Engine$2014 Def00066D
+S A$Sprite_Engine$1510 Def0004E6
+S A$Sprite_Engine$1501 Def0004DA
+S A$Sprite_Engine$1420 Def000493
+S A$Sprite_Engine$1402 Def000480
+S A$Sprite_Engine$1330 Def000450
+S A$Sprite_Engine$1321 Def000446
+S A$Sprite_Engine$1231 Def0003FA
+S A$Sprite_Engine$1222 Def0003F5
+S A$Sprite_Engine$1213 Def0003EA
+S A$Sprite_Engine$1150 Def0003B1
+S A$Sprite_Engine$1132 Def0003A2
+S A$Sprite_Engine$1123 Def000397
+S A$Sprite_Engine$1105 Def000387
+S A$Sprite_Engine$1060 Def00035D
+S A$Sprite_Engine$1042 Def00034D
+S A$Sprite_Engine$1024 Def00033E
+S A$Sprite_Engine$1015 Def000339
+S G$change_sprite_tile$0$0 Def000472
+S A$Sprite_Engine$2141 Def0006DA
+S A$Sprite_Engine$2132 Def0006D0
+S A$Sprite_Engine$2123 Def0006C7
+S A$Sprite_Engine$2051 Def00068F
+S A$Sprite_Engine$2042 Def000685
+S A$Sprite_Engine$2024 Def000677
+S A$Sprite_Engine$1700 Def000576
+S A$Sprite_Engine$1610 Def000537
+S A$Sprite_Engine$1502 Def0004DB
+S A$Sprite_Engine$1430 Def00049E
+S A$Sprite_Engine$1421 Def000495
+S A$Sprite_Engine$1403 Def000481
+S A$Sprite_Engine$1340 Def00045C
+S A$Sprite_Engine$1331 Def000451
+S A$Sprite_Engine$1322 Def000449
+S A$Sprite_Engine$1313 Def000441
+S A$Sprite_Engine$1304 Def00043B
+S A$Sprite_Engine$1250 Def000409
+S A$Sprite_Engine$1241 Def000400
+S A$Sprite_Engine$1232 Def0003FB
+S A$Sprite_Engine$1223 Def0003F6
+S A$Sprite_Engine$1214 Def0003EB
+S A$Sprite_Engine$1151 Def0003B2
+S A$Sprite_Engine$1133 Def0003A3
+S A$Sprite_Engine$1124 Def000398
+S A$Sprite_Engine$1106 Def000388
+S A$Sprite_Engine$1061 Def00035E
+S A$Sprite_Engine$1043 Def000350
+S A$Sprite_Engine$1034 Def000345
+S G$init_sprite$0$0 Def000000
+S A$Sprite_Engine$2205 Def000712
+S A$Sprite_Engine$2160 Def0006E9
+S A$Sprite_Engine$2151 Def0006DF
+S A$Sprite_Engine$2133 Def0006D1
+S A$Sprite_Engine$2070 Def00069E
+S A$Sprite_Engine$2052 Def000690
+S A$Sprite_Engine$2043 Def000686
+S A$Sprite_Engine$2034 Def000681
+S A$Sprite_Engine$2025 Def000678
+S A$Sprite_Engine$2007 Def000669
+S A$Sprite_Engine$1611 Def000538
+S A$Sprite_Engine$1530 Def0004F9
+S A$Sprite_Engine$1521 Def0004F2
+S A$Sprite_Engine$1512 Def0004E8
+S A$Sprite_Engine$1503 Def0004DC
+S A$Sprite_Engine$1440 Def0004AE
+S A$Sprite_Engine$1431 Def00049F
+S A$Sprite_Engine$1422 Def000496
+S A$Sprite_Engine$1404 Def000482
+S A$Sprite_Engine$1350 Def000462
+S A$Sprite_Engine$1332 Def000452
+S A$Sprite_Engine$1260 Def000416
+S A$Sprite_Engine$1251 Def00040B
+S A$Sprite_Engine$1242 Def000401
+S A$Sprite_Engine$1233 Def0003FC
+S A$Sprite_Engine$1215 Def0003EC
+S A$Sprite_Engine$1206 Def0003E4
+S A$Sprite_Engine$1161 Def0003B8
+S A$Sprite_Engine$1152 Def0003B3
+S A$Sprite_Engine$1143 Def0003AC
+S A$Sprite_Engine$1134 Def0003A4
+S A$Sprite_Engine$1116 Def00038E
+S A$Sprite_Engine$1107 Def000389
+S A$Sprite_Engine$1071 Def000364
+S A$Sprite_Engine$1062 Def00035F
+S A$Sprite_Engine$1053 Def000358
+S A$Sprite_Engine$1044 Def000351
+S A$Sprite_Engine$1008 Def000333
+S C$Sprite_Engine.c$111$3_0$126 Def000331
+S _init_16x16_meta Def000043
+S A$Sprite_Engine$2224 Def00071F
+S A$Sprite_Engine$2206 Def000713
+S A$Sprite_Engine$2161 Def0006EA
+S A$Sprite_Engine$2152 Def0006E0
+S A$Sprite_Engine$2143 Def0006DB
+S A$Sprite_Engine$2134 Def0006D2
+S A$Sprite_Engine$2116 Def0006C3
+S A$Sprite_Engine$2080 Def0006AA
+S A$Sprite_Engine$2071 Def0006A1
+S A$Sprite_Engine$2062 Def000698
+S A$Sprite_Engine$2044 Def000687
+S A$Sprite_Engine$2026 Def000679
+S A$Sprite_Engine$2017 Def00066F
+S A$Sprite_Engine$2008 Def00066A
+S A$Sprite_Engine$1810 Def0005CA
+S A$Sprite_Engine$1720 Def000586
+S A$Sprite_Engine$1711 Def000580
+S A$Sprite_Engine$1702 Def000577
+S A$Sprite_Engine$1612 Def000539
+S A$Sprite_Engine$1531 Def0004FC
+S A$Sprite_Engine$1522 Def0004F3
+S A$Sprite_Engine$1513 Def0004E9
+S A$Sprite_Engine$1504 Def0004DD
+S A$Sprite_Engine$1450 Def0004B9
+S A$Sprite_Engine$1432 Def0004A1
+S A$Sprite_Engine$1423 Def000497
+S A$Sprite_Engine$1414 Def00048C
+S A$Sprite_Engine$1405 Def000485
+S A$Sprite_Engine$1360 Def000468
+S A$Sprite_Engine$1333 Def000453
+S A$Sprite_Engine$1324 Def00044A
+S A$Sprite_Engine$1270 Def00041C
+S A$Sprite_Engine$1261 Def000417
+S A$Sprite_Engine$1252 Def00040C
+S A$Sprite_Engine$1243 Def000402
+S A$Sprite_Engine$1216 Def0003ED
+S A$Sprite_Engine$1207 Def0003E5
+S A$Sprite_Engine$1180 Def0003D0
+S A$Sprite_Engine$1171 Def0003C3
+S A$Sprite_Engine$1162 Def0003B9
+S A$Sprite_Engine$1153 Def0003B4
+S A$Sprite_Engine$1144 Def0003AD
+S A$Sprite_Engine$1135 Def0003A6
+S A$Sprite_Engine$1126 Def000399
+S A$Sprite_Engine$1117 Def00038F
+S A$Sprite_Engine$1108 Def00038A
+S A$Sprite_Engine$1090 Def00037C
+S A$Sprite_Engine$1081 Def00036F
+S A$Sprite_Engine$1072 Def000365
+S A$Sprite_Engine$1063 Def000360
+S A$Sprite_Engine$1054 Def000359
+S A$Sprite_Engine$1045 Def000352
+S A$Sprite_Engine$1027 Def00033F
+S A$Sprite_Engine$1018 Def00033A
+S A$Sprite_Engine$1009 Def000335
+S C$Sprite_Engine.c$133$1_0$152 Def00048C
+S C$Sprite_Engine.c$114$1_0$126 Def000333
+S C$Sprite_Engine.c$104$1_0$118 Def0002E6
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 00
+T 00 00 00 F8 02 2A 4F 2A 47 2A 02 59 50 13 2A 12
+R 00 00 00 00
+T 0D 00 00 59 50 13 13 2A 12 59 50 13 13 13 7E 12
+R 00 00 00 00
+T 1A 00 00 21 04 00 09 5D 54 F8 08 7E 12 21 05 00
+R 00 00 00 00
+T 27 00 00 09 5D 54 F8 09 7E 12 21 06 00 09 5D 54
+R 00 00 00 00
+T 34 00 00 F8 0A 7E 12 21 07 00 09 4D 44 F8 0B 7E
+R 00 00 00 00
+T 41 00 00 02 C9
+R 00 00 00 00
+T 43 00 00
+R 00 00 00 00
+T 43 00 00 E8 F8 F8 0A 2A 4F 2A 47 2A 02 59 50 13
+R 00 00 00 00
+T 50 00 00 2A 12 59 50 13 13 2A 12 59 50 13 13 13
+R 00 00 00 00
+T 5D 00 00 7E 12 21 04 00 09 5D 54 F8 10 7E 12 21
+R 00 00 00 00
+T 6A 00 00 05 00 09 5D 54 F8 11 7E 12 21 06 00 09
+R 00 00 00 00
+T 77 00 00 5D 54 F8 12 7E 12 21 07 00 09 5D 54 F8
+R 00 00 00 00
+T 84 00 00 13 7E 12 21 08 00 09 5D 54 F8 14 7E 12
+R 00 00 00 00
+T 91 00 00 21 09 00 09 5D 54 F8 15 2A 12 13 7E 12
+R 00 00 00 00
+T 9E 00 00 21 0B 00 09 33 33 5D 54 D5 F8 17 2A 12
+R 00 00 00 00
+T AB 00 00 13 7E 12 21 0D 00 09 E5 7D F8 04 77 E1
+R 00 00 00 00
+T B8 00 00 7C F8 03 32 2A 5F 56 F8 19 2A 12 13 7E
+R 00 00 00 00
+T C5 00 00 12 21 0F 00 09 E5 7D F8 06 77 E1 7C F8
+R 00 00 00 00
+T D2 00 00 05 32 2A 5F 56 F8 1B 2A 12 13 7E 12 F8
+R 00 00 00 00
+T DF 00 00 15 2A 4F 46 F8 0C 7E 02 F8 17 2A 4F 46
+R 00 00 00 00
+T EC 00 00 F8 0C 5E 7B 3C 02 F8 19 2A 4F 2A 47 7B
+R 00 00 00 00
+T F9 00 00 3C 3C 02 2A 4F 46 7B 3C 3C 3C 02 F8 15
+R 00 00 00 00
+T 06 01 00 2A 4F 46 03 C5 F8 11 3A 2B F5 33 7E F5
+R 00 00 00 00
+T 13 01 00 33 CD 00 00 E1 F8 09 73 C1 F8 07 7E 02
+R 00 00 00 00 02 05 02 00
+T 20 01 00 F8 17 2A 4F 46 03 F8 07 5E 7B 3C 02 F8
+R 00 00 00 00
+T 2D 01 00 19 2A 4F 2A 47 03 7B 3C 3C 02 2A 4F 46
+R 00 00 00 00
+T 3A 01 00 03 7B 3C 3C 3C 02 F8 15 2A 5F 56 13 13
+R 00 00 00 00
+T 47 01 00 D5 F8 11 3A 57 5E D5 CD 00 00 E1 43 D1
+R 00 00 00 00 02 0B 02 00
+T 54 01 00 78 12 F8 17 2A 5F 2A 57 13 13 48 79 3C
+R 00 00 00 00
+T 61 01 00 12 2A 5F 2A 57 13 13 79 3C 3C 12 2A 5F
+R 00 00 00 00
+T 6E 01 00 56 13 13 79 3C 3C 3C 12 F8 15 2A 5F 56
+R 00 00 00 00
+T 7B 01 00 13 13 13 F8 10 7E 12 F8 17 2A 5F 56 13
+R 00 00 00 00
+T 88 01 00 13 13 F8 10 7E C6 08 4F 12 F8 19 2A 5F
+R 00 00 00 00
+T 95 01 00 56 13 13 13 F8 10 7E 12 F8 1B 2A 5F 56
+R 00 00 00 00
+T A2 01 00 13 13 13 79 12 F8 15 2A 5F 56 21 04 00
+R 00 00 00 00
+T AF 01 00 19 5D 54 F8 11 7E 12 F8 17 2A 5F 56 21
+R 00 00 00 00
+T BC 01 00 04 00 19 5D 54 F8 11 7E 12 F8 19 2A 5F
+R 00 00 00 00
+T C9 01 00 56 21 04 00 19 5D 54 F8 11 7E C6 08 4F
+R 00 00 00 00
+T D6 01 00 12 F8 1B 2A 5F 56 21 04 00 19 5D 54 79
+R 00 00 00 00
+T E3 01 00 12 F8 14 3A F5 33 3A 2B 57 1E 01 D5 3A
+R 00 00 00 00
+T F0 01 00 57 5E D5 C5 33 F8 0D 7E F5 33 F8 13 7E
+R 00 00 00 00
+T FD 01 00 F5 33 F8 1D 2A 5F 56 D5 CD 00 00 E8 0A
+R 00 00 00 00 00 0C 00 00
+T 0A 02 00 D1 D5 1A 4F 13 1A 47 21 04 00 09 7E F8
+R 00 00 00 00
+T 17 02 00 06 77 59 50 13 13 13 1A F8 07 77 69 60
+R 00 00 00 00
+T 24 02 00 23 23 56 69 60 23 5E 0A F8 14 66 E5 33
+R 00 00 00 00
+T 31 02 00 F8 14 66 E5 33 26 01 E5 33 F8 09 66 E5
+R 00 00 00 00
+T 3E 02 00 33 F8 0B 66 E5 33 D5 33 63 E5 33 F5 33
+R 00 00 00 00
+T 4B 02 00 C5 CD 00 00 E8 0A F8 02 2A 5F 56 1A 4F
+R 00 00 00 00 00 05 00 00
+T 58 02 00 13 1A 47 21 04 00 09 7E F8 06 77 59 50
+R 00 00 00 00
+T 65 02 00 13 13 13 1A F8 07 77 69 60 23 23 56 69
+R 00 00 00 00
+T 72 02 00 60 23 5E 0A F8 14 66 E5 33 F8 14 66 E5
+R 00 00 00 00
+T 7F 02 00 33 26 01 E5 33 F8 09 66 E5 33 F8 0B 66
+R 00 00 00 00
+T 8C 02 00 E5 33 D5 33 63 E5 33 F5 33 C5 CD 00 00
+R 00 00 00 00 00 0E 00 00
+T 99 02 00 E8 0A F8 04 2A 5F 56 1A 4F 13 1A 47 21
+R 00 00 00 00
+T A6 02 00 04 00 09 7E F8 06 77 59 50 13 13 13 1A
+R 00 00 00 00
+T B3 02 00 F8 07 77 69 60 23 23 56 69 60 23 5E 0A
+R 00 00 00 00
+T C0 02 00 F8 14 66 E5 33 F8 14 66 E5 33 26 01 E5
+R 00 00 00 00
+T CD 02 00 33 F8 09 66 E5 33 F8 0B 66 E5 33 D5 33
+R 00 00 00 00
+T DA 02 00 63 E5 33 F5 33 C5 CD 00 00 E8 12 C9
+R 00 00 00 00 00 0A 00 00
+T E6 02 00
+R 00 00 00 00
+T E6 02 00 3B F8 03 2A 5F 56 4B 42 03 03 0A F8 00
+R 00 00 00 00
+T F3 02 00 77 4B 42 03 0A D5 F5 F8 09 2A 66 6F F1
+R 00 00 00 00
+T 00 03 00 E5 F8 04 66 E5 33 F5 33 CD 00 00 E8 04
+R 00 00 00 00 02 0C 00 00
+T 0D 03 00 D1 0A 4F 1A 6F 26 00 29 29 D5 11 00 00
+R 00 00 00 00 02 0E 03 00
+T 1A 03 00 19 23 23 D1 71 21 04 00 19 46 13 13 13
+R 00 00 00 00
+T 27 03 00 1A 4F 21 00 00 78 22 71 33 C9
+R 00 00 00 00 02 06 03 00
+T 31 03 00
+R 00 00 00 00
+T 31 03 00 E8 F8 F8 0A 2A 4F 46 69 60 23 23 56 69
+R 00 00 00 00
+T 3E 03 00 60 23 5E F8 0C 2A 66 6F E5 D5 CD 00 00
+R 00 00 00 00 02 0E 00 00
+T 4B 03 00 E8 04 21 09 00 09 33 33 5D 54 D5 1A 6F
+R 00 00 00 00
+T 58 03 00 13 1A 67 5D 54 13 1A 5F 56 6A 26 00 29
+R 00 00 00 00
+T 65 03 00 29 D5 11 00 00 19 23 23 D1 73 21 0B 00
+R 00 00 00 00 02 06 03 00
+T 72 03 00 09 E5 7D F8 04 77 E1 7C F8 03 32 2A 5F
+R 00 00 00 00
+T 7F 03 00 56 1A 6F 13 1A 67 5D 54 13 1A 5F 56 6A
+R 00 00 00 00
+T 8C 03 00 26 00 29 29 D5 11 00 00 19 23 23 D1 73
+R 00 00 00 00 02 09 03 00
+T 99 03 00 21 0D 00 09 E5 7D F8 06 77 E1 7C F8 05
+R 00 00 00 00
+T A6 03 00 32 2A 5F 56 1A 6F 13 1A 67 5D 54 13 1A
+R 00 00 00 00
+T B3 03 00 5F 56 6A 26 00 29 29 D5 11 00 00 19 23
+R 00 00 00 00 02 0C 03 00
+T C0 03 00 23 D1 73 21 0F 00 09 E5 7D F8 08 77 E1
+R 00 00 00 00
+T CD 03 00 7C F8 07 32 2A 5F 56 1A 6F 13 1A 67 4D
+R 00 00 00 00
+T DA 03 00 44 03 0A 4F 6E 11 00 00 26 00 29 29 19
+R 00 00 00 00 02 09 03 00
+T E7 03 00 23 23 71 D1 D5 1A 4F 13 1A 47 21 04 00
+R 00 00 00 00
+T F4 03 00 09 56 69 60 23 23 23 5E 0A 6F 26 00 29
+R 00 00 00 00
+T 01 04 00 29 01 00 00 09 7A 22 73 F8 02 2A 5F 56
+R 00 00 00 00 02 05 03 00
+T 0E 04 00 1A 4F 13 1A 47 21 04 00 09 56 69 60 23
+R 00 00 00 00
+T 1B 04 00 23 23 5E 0A 6F 26 00 29 29 01 00 00 09
+R 00 00 00 00 02 0D 03 00
+T 28 04 00 7A 22 73 F8 04 2A 5F 56 1A 4F 13 1A 47
+R 00 00 00 00
+T 35 04 00 21 04 00 09 56 69 60 23 23 23 5E 0A 6F
+R 00 00 00 00
+T 42 04 00 26 00 29 29 01 00 00 09 7A 22 73 F8 06
+R 00 00 00 00 02 08 03 00
+T 4F 04 00 2A 5F 56 1A 4F 13 1A 47 21 04 00 09 56
+R 00 00 00 00
+T 5C 04 00 69 60 23 23 23 5E 0A 6F 26 00 29 29 01
+R 00 00 00 00
+T 69 04 00 00 00 09 7A 22 73 E8 08 C9
+R 00 00 00 00 02 03 03 00
+T 72 04 00
+R 00 00 00 00
+T 72 04 00 E8 FC F8 06 2A 4F 46 0A F8 00 77 6E 26
+R 00 00 00 00
+T 7F 04 00 00 29 29 11 00 00 19 23 23 7E F8 01 77
+R 00 00 00 00 02 07 03 00
+T 8C 04 00 03 03 0A 4F 06 00 0B F8 01 2A 22 AF 32
+R 00 00 00 00
+T 99 04 00 2A 91 7E 98 56 78 CB 7F 28 07 CB 7A 20
+R 00 00 00 00
+T A6 04 00 08 BF 18 05
+R 00 00 00 00
+T AA 04 00
+R 00 00 00 00
+T AA 04 00 CB 7A 28 01 37
+R 00 00 00 00
+T AF 04 00
+R 00 00 00 00
+T AF 04 00 30 13 F8 01 3A 4F 0C 11 00 00 6E 26 00
+R 00 00 00 00 02 0B 03 00
+T BC 04 00 29 29 19 23 23 71 18 0F
+R 00 00 00 00
+T C4 04 00
+R 00 00 00 00
+T C4 04 00 F8 00 6E 26 00 29 29 11 00 00 19 23 23
+R 00 00 00 00 02 0B 03 00
+T D1 04 00 36 00
+R 00 00 00 00
+T D3 04 00
+R 00 00 00 00
+T D3 04 00 E8 04 C9
+R 00 00 00 00
+T D6 04 00
+R 00 00 00 00
+T D6 04 00 E8 FC F8 06 2A 4F 46 21 02 00 09 33 33
+R 00 00 00 00
+T E3 04 00 E5 F8 03 36 00
+R 00 00 00 00
+T E8 04 00
+R 00 00 00 00
+T E8 04 00 D1 D5 1A F8 02 22 3A 96 30 22 0A 5F 26
+R 00 00 00 00
+T F5 04 00 00 6B 29 29 11 00 00 19 23 23 5D 54 F8
+R 00 00 00 00 02 08 03 00
+T 02 05 00 03 7E 12 C5 11 5E 01 D5 CD 00 00 E1 C1
+R 00 00 00 00 02 0C 05 00
+T 0F 05 00 F8 03 34 18 D4
+R 00 00 00 00
+T 14 05 00
+R 00 00 00 00
+T 14 05 00 E8 04 C9
+R 00 00 00 00
+T 17 05 00
+R 00 00 00 00
+T 17 05 00 CD 00 00 4B F8 02 2A 5F 56 79 3D 28 25
+R 00 00 00 00 02 04 04 00
+T 24 05 00 79 FE 02 28 0A FE 04 28 31 D6 08 28 44
+R 00 00 00 00
+T 31 05 00 18 57
+R 00 00 00 00
+T 33 05 00
+R 00 00 00 00
+T 33 05 00 1A 4F 26 00 69 29 29 01 00 00 09 7E 22
+R 00 00 00 00 02 0B 03 00
+T 40 05 00 35 7E D5 CD 72 04 E1 18 41
+R 00 00 00 00 00 07 00 00
+T 49 05 00
+R 00 00 00 00
+T 49 05 00 1A 6F 26 00 29 29 01 00 00 09 7E 22 34
+R 00 00 00 00 02 0A 03 00
+T 56 05 00 7E D5 CD 72 04 E1 18 2C
+R 00 00 00 00 00 06 00 00
+T 5E 05 00
+R 00 00 00 00
+T 5E 05 00 1A 4F 26 00 69 29 29 01 00 00 09 7E 3D
+R 00 00 00 00 02 0B 03 00
+T 6B 05 00 22 7E 77 D5 CD 72 04 E1 18 15
+R 00 00 00 00 00 08 00 00
+T 75 05 00
+R 00 00 00 00
+T 75 05 00 1A 4F 26 00 69 29 29 01 00 00 09 7E 3C
+R 00 00 00 00 02 0B 03 00
+T 82 05 00 22 7E 77 D5 CD 72 04 E1
+R 00 00 00 00 00 08 00 00
+T 8A 05 00
+R 00 00 00 00
+T 8A 05 00 11 88 13 D5 CD 00 00 E1 C9
+R 00 00 00 00 02 08 06 00
+T 93 05 00
+R 00 00 00 00
+T 93 05 00 3B 3B CD 00 00 F8 04 2A 4F 46 21 09 00
+R 00 00 00 00 02 06 04 00
+T A0 05 00 09 33 33 E5 7B 3D 28 66 7B FE 02 28 0D
+R 00 00 00 00
+T AD 05 00 FE 04 CA 65 06 D6 08 CA BF 06 C3 17 07
+R 00 00 00 00 00 06 00 00 00 0B 00 00 00 0E 00 00
+T BA 05 00
+R 00 00 00 00
+T BA 05 00 D1 D5 1A 6F 13 1A 67 6E 26 00 29 29 11
+R 00 00 00 00
+T C7 05 00 00 00 19 7E 22 35 7E 21 0B 00 09 2A 66
+R 00 00 00 00 02 03 03 00
+T D4 05 00 6F 6E 26 00 29 29 11 00 00 19 7E 22 35
+R 00 00 00 00 02 0A 03 00
+T E1 05 00 7E 21 0D 00 09 2A 66 6F 6E 26 00 29 29
+R 00 00 00 00
+T EE 05 00 11 00 00 19 7E 22 35 7E 21 0F 00 09 2A
+R 00 00 00 00 02 04 03 00
+T FB 05 00 4F 46 0A 6F 26 00 29 29 11 00 00 19 7E
+R 00 00 00 00 02 0C 03 00
+T 08 06 00 22 35 7E C3 17 07
+R 00 00 00 00 00 07 00 00
+T 0E 06 00
+R 00 00 00 00
+T 0E 06 00 D1 D5 1A 6F 13 1A 67 5E 26 00 6B 29 29
+R 00 00 00 00
+T 1B 06 00 11 00 00 19 7E 22 34 7E 21 0B 00 09 2A
+R 00 00 00 00 02 04 03 00
+T 28 06 00 66 6F 5E 26 00 6B 29 29 11 00 00 19 7E
+R 00 00 00 00 02 0C 03 00
+T 35 06 00 22 34 7E 21 0D 00 09 2A 66 6F 5E 26 00
+R 00 00 00 00
+T 42 06 00 6B 29 29 11 00 00 19 7E 22 34 7E 21
+R 00 00 00 00 02 07 03 00
+T 4E 06 00 0F 00 09 2A 66 6F 4E 26 00 69 29 29 11
+R 00 00 00 00
+T 5B 06 00 00 00 19 7E 22 34 7E C3 17 07
+R 00 00 00 00 02 03 03 00 00 0B 00 00
+T 65 06 00
+R 00 00 00 00
+T 65 06 00 D1 D5 1A 6F 13 1A 67 5E 26 00 6B 29 29
+R 00 00 00 00
+T 72 06 00 11 00 00 19 7E 3D 22 7E 77 21 0B 00 09
+R 00 00 00 00 02 04 03 00
+T 7F 06 00 2A 66 6F 5E 26 00 6B 29 29 11 00 00 19
+R 00 00 00 00 02 0D 03 00
+T 8C 06 00 7E 3D 22 7E 77 21 0D 00 09 2A 66 6F 5E
+R 00 00 00 00
+T 99 06 00 26 00 6B 29 29 11 00 00 19 7E 3D 22 7E
+R 00 00 00 00 02 09 03 00
+T A6 06 00 77 21 0F 00 09 2A 66 6F 4E 26 00 69 29
+R 00 00 00 00
+T B3 06 00 29 11 00 00 19 7E 3D 22 7E 77 18 58
+R 00 00 00 00 02 05 03 00
+T BF 06 00
+R 00 00 00 00
+T BF 06 00 D1 D5 1A 6F 13 1A 67 5E 26 00 6B 29 29
+R 00 00 00 00
+T CC 06 00 11 00 00 19 7E 3C 22 7E 77 21 0B 00 09
+R 00 00 00 00 02 04 03 00
+T D9 06 00 2A 66 6F 5E 26 00 6B 29 29 11 00 00 19
+R 00 00 00 00 02 0D 03 00
+T E6 06 00 7E 3C 22 7E 77 21 0D 00 09 2A 66 6F 5E
+R 00 00 00 00
+T F3 06 00 26 00 6B 29 29 11 00 00 19 7E 3C 22 7E
+R 00 00 00 00 02 09 03 00
+T 00 07 00 77 21 0F 00 09 2A 66 6F 4E 26 00 69 29
+R 00 00 00 00
+T 0D 07 00 29 11 00 00 19 7E 3C 22 7E 77
+R 00 00 00 00 02 05 03 00
+T 17 07 00
+R 00 00 00 00
+T 17 07 00 11 88 13 D5 CD 00 00 E1 33 33 C9
+R 00 00 00 00 02 08 06 00

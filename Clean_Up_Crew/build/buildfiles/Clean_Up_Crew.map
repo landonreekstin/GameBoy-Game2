@@ -1,0 +1,1033 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+.  .ABS.               00000000    00000000 =           0. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000000  .__.ABS.  |    00000000  _rRAMG    |    00000000  l__BASE  
+     00000000  l__BSS    |    00000000  l__CABS   |    00000000  l__CODE_0
+     00000000  l__DABS   |    00000000  l__HEADER |    00000000  l__HEAP  
+     00000000  l__HRAM   |    00000000  l__INITIA |    00000000  l__INITIA
+     00000000  l__LIT    |    00000000  s__CABS   |    00000000  s__DABS  
+     00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
+     00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
+     00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
+     00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
+     00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
+     00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
+     00000000  s__HEADER |    00000000  s__HRAM   |    00000000  s__HRAM12
+     00000001  l__GSFINA |    00000001  l__HEADER |    00000001  l__HEADER
+     00000001  l__HEADER |    00000001  l__HEADER |    00000001  l__HEADER
+     00000001  l__HEADER |    00000001  l__HEADER |    00000002  l__HEADER
+     00000002  l__HEADER |    00000002  l__HEADER |    00000003  l__HEADER
+     00000003  l__HRAM12 |    00000005  l__HEADER |    00000006  l__HEADER
+     00000007  l__HEADER |    00000008  l__HEADER |    0000000C  l__GSINIT
+     00000019  l__DATA   |    00000030  l__HEADER |    0000004E  l__HEADER
+     00000082  l__HEADER |    00000200  s__CODE   |    000002C1  l__HOME  
+     000007F1  l__CODE   |    000009F1  s__HOME   |    00000CB2  s__BASE  
+     00000CB2  s__CODE_0 |    00000CB2  s__GSINIT |    00000CB2  s__INITIA
+     00000CB2  s__LIT    |    00000CBE  s__GSFINA |    00002000  _rROMB0  
+     00003000  _rROMB1   |    00004000  _rRAMB    |    00008000  __VRAM   
+     00008000  __VRAM800 |    00008800  __VRAM880 |    00009000  __VRAM900
+     00009800  __SCRN0   |    00009C00  __SCRN1   |    0000A000  __SRAM   
+     0000C000  __RAM     |    0000C000  _shadow_O |    0000C0A0  s__DATA  
+     0000C0B9  s__BSS    |    0000C0B9  s__HEAP   |    0000C0B9  s__INITIA
+     0000D000  __RAMBANK |    0000E000  .STACK    |    0000FE00  __OAMRAM 
+     0000FF00  _P1_REG   |    0000FF00  __IO      |    0000FF01  _SB_REG  
+     0000FF02  _SC_REG   |    0000FF04  _DIV_REG  |    0000FF05  _TIMA_REG
+     0000FF06  _TMA_REG  |    0000FF07  _TAC_REG  |    0000FF0F  _IF_REG  
+     0000FF10  _NR10_REG |    0000FF11  _NR11_REG |    0000FF12  _NR12_REG
+     0000FF13  _NR13_REG |    0000FF14  _NR14_REG |    0000FF16  _NR21_REG
+     0000FF17  _NR22_REG |    0000FF18  _NR23_REG |    0000FF19  _NR24_REG
+     0000FF1A  _NR30_REG |    0000FF1B  _NR31_REG |    0000FF1C  _NR32_REG
+     0000FF1D  _NR33_REG |    0000FF1E  _NR34_REG |    0000FF20  _NR41_REG
+     0000FF21  _NR42_REG |    0000FF22  _NR43_REG |    0000FF23  _NR44_REG
+     0000FF24  _NR50_REG |    0000FF25  _NR51_REG |    0000FF26  _NR52_REG
+     0000FF30  _AUD3WAVE |    0000FF30  _PCM_SAMP |    0000FF30  __AUD3WAV
+     0000FF40  _LCDC_REG |    0000FF41  _STAT_REG |    0000FF42  _SCY_REG 
+     0000FF43  _SCX_REG  |    0000FF44  _LY_REG   |    0000FF45  _LYC_REG 
+     0000FF46  _DMA_REG  |    0000FF47  _BGP_REG  |    0000FF48  _OBP0_REG
+     0000FF49  _OBP1_REG |    0000FF4A  _WY_REG   |    0000FF4B  _WX_REG  
+     0000FF4D  _KEY1_REG |    0000FF4F  _VBK_REG  |    0000FF51  _HDMA1_RE
+     0000FF52  _HDMA2_RE |    0000FF53  _HDMA3_RE |    0000FF54  _HDMA4_RE
+     0000FF55  _HDMA5_RE |    0000FF56  _RP_REG   |    0000FF68  _BCPS_REG
+     0000FF69  _BCPD_REG |    0000FF6A  _OCPS_REG |    0000FF6B  _OCPD_REG
+     0000FF70  _SVBK_REG |    0000FF76  _PCM12_RE |    0000FF77  _PCM34_RE
+     0000FF80  .refresh_ |    0000FF80  __HRAM    |    0000FFFF  _IE_REG  
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000200  A$Clean_U |    00000200  C$Clean_U |    00000200  C$Clean_U
+     00000200  G$main$0$ |    00000200  _main     |    00000203  A$Clean_U
+     00000203  C$Clean_U |    00000206  A$Clean_U |    00000206  C$Clean_U
+     00000209  A$Clean_U |    00000209  C$Clean_U |    00000209  XG$main$0
+     0000020A  A$Clean_U |    0000020A  C$Clean_U |    0000020A  C$Clean_U
+     0000020A  G$init_ga |    0000020A  XG$init_g |    0000020A  _init_gam
+     0000020B  A$Clean_U |    0000020B  C$Clean_U |    0000020B  C$Clean_U
+     0000020B  C$Clean_U |    0000020B  G$game_lo |    0000020B  _game_loo
+     0000020E  A$Clean_U |    0000020E  C$Clean_U |    0000020E  XG$game_l
+     00000210  A$Clean_U |    00000210  C$Clean_U |    00000210  C$Clean_U
+     00000210  G$update$ |    00000210  XG$update |    00000210  _update  
+     00000211  A$Clean_U |    00000211  C$Clean_U |    00000211  C$Clean_U
+     00000211  G$input$0 |    00000211  XG$input$ |    00000211  _input   
+     00000212  A$Map_Eng |    00000212  C$Map_Eng |    00000212  C$Map_Eng
+     00000212  G$map_set |    00000212  _map_setu |    00000214  A$Map_Eng
+     00000215  A$Map_Eng |    00000216  A$Map_Eng |    00000217  A$Map_Eng
+     00000218  A$Map_Eng |    0000021B  A$Map_Eng |    0000021C  A$Map_Eng
+     0000021F  A$Map_Eng |    00000221  A$Map_Eng |    00000221  C$Map_Eng
+     00000223  A$Map_Eng |    00000225  A$Map_Eng |    00000227  A$Map_Eng
+     00000227  C$Map_Eng |    00000229  A$Map_Eng |    0000022B  A$Map_Eng
+     0000022D  A$Map_Eng |    0000022D  C$Map_Eng |    0000022D  XG$map_se
+     0000022E  A$Map_Eng |    0000022E  C$Map_Eng |    0000022E  G$scroll_
+     0000022E  _scroll_m |    00000230  A$Map_Eng |    00000231  A$Map_Eng
+     00000232  A$Map_Eng |    00000233  A$Map_Eng |    00000235  A$Map_Eng
+     00000236  A$Map_Eng |    00000238  A$Map_Eng |    0000023A  A$Map_Eng
+     0000023B  A$Map_Eng |    0000023D  A$Map_Eng |    0000023D  C$Map_Eng
+     0000023F  A$Map_Eng |    00000240  A$Map_Eng |    00000241  A$Map_Eng
+     00000244  A$Map_Eng |    00000245  A$Map_Eng |    00000245  C$Map_Eng
+     00000245  XG$scroll |    00000246  A$Sound$5 |    00000246  C$Sound.c
+     00000246  C$Sound.c |    00000246  G$sound_s |    00000246  _sound_se
+     00000248  A$Sound$5 |    0000024A  A$Sound$6 |    0000024A  C$Sound.c
+     0000024C  A$Sound$6 |    0000024E  A$Sound$6 |    0000024E  C$Sound.c
+     00000250  A$Sound$6 |    00000252  A$Sound$7 |    00000252  C$Sound.c
+     00000252  XG$sound_ |    00000253  A$Sound$8 |    00000253  C$Sound.c
+     00000253  C$Sound.c |    00000253  G$play_so |    00000253  _play_sou
+     00000255  A$Sound$8 |    00000256  A$Sound$9 |    00000257  A$Sound$9
+     00000258  A$Sound$9 |    00000259  A$Sound$9 |    0000025B  A$Sound$9
+     0000025B  C$Sound.c |    0000025C  A$Sound$9 |    0000025D  A$Sound$9
+     0000025E  A$Sound$1 |    0000025F  A$Sound$1 |    00000261  A$Sound$1
+     00000261  C$Sound.c |    00000262  A$Sound$1 |    00000263  A$Sound$1
+     00000264  A$Sound$1 |    00000265  A$Sound$1 |    00000266  A$Sound$1
+     00000268  A$Sound$1 |    00000268  C$Sound.c |    00000269  A$Sound$1
+     0000026A  A$Sound$1 |    0000026B  A$Sound$1 |    0000026C  A$Sound$1
+     0000026D  A$Sound$1 |    0000026E  A$Sound$1 |    00000270  A$Sound$1
+     00000270  C$Sound.c |    00000271  A$Sound$1 |    00000272  A$Sound$1
+     00000273  A$Sound$1 |    00000274  A$Sound$1 |    00000275  A$Sound$1
+     00000277  A$Sound$1 |    00000277  C$Sound.c |    00000277  XG$play_s
+     00000278  A$Sprite_ |    00000278  C$Sprite_ |    00000278  C$Sprite_
+     00000278  G$init_sp |    00000278  _init_spr |    0000027A  A$Sprite_
+     0000027B  A$Sprite_ |    0000027C  A$Sprite_ |    0000027D  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     0000027E  A$Sprite_ |    0000027E  C$Sprite_ |    0000027F  A$Sprite_
+     00000280  A$Sprite_ |    00000281  A$Sprite_ |    00000282  A$Sprite_
+     00000283  A$Sprite_ |    00000283  C$Sprite_ |    00000284  A$Sprite_
+     00000285  A$Sprite_ |    00000286  A$Sprite_ |    00000287  A$Sprite_
+     00000288  A$Sprite_ |    00000289  A$Sprite_ |    00000289  C$Sprite_
+     0000028A  A$Sprite_ |    0000028B  A$Sprite_ |    0000028C  A$Sprite_
+     0000028D  A$Sprite_ |    0000028E  A$Sprite_ |    0000028F  A$Sprite_
+     00000290  A$Sprite_ |    00000291  A$Sprite_ |    00000292  A$Sprite_
+     00000292  C$Sprite_ |    00000295  A$Sprite_ |    00000296  A$Sprite_
+     00000297  A$Sprite_ |    00000298  A$Sprite_ |    0000029A  A$Sprite_
+     0000029B  A$Sprite_ |    0000029C  A$Sprite_ |    0000029C  C$Sprite_
+     0000029F  A$Sprite_ |    000002A0  A$Sprite_ |    000002A1  A$Sprite_
+     000002A2  A$Sprite_ |    000002A4  A$Sprite_ |    000002A5  A$Sprite_
+     000002A6  A$Sprite_ |    000002A6  C$Sprite_ |    000002A9  A$Sprite_
+     000002AA  A$Sprite_ |    000002AB  A$Sprite_ |    000002AC  A$Sprite_
+     000002AE  A$Sprite_ |    000002AF  A$Sprite_ |    000002B0  A$Sprite_
+     000002B0  C$Sprite_ |    000002B3  A$Sprite_ |    000002B4  A$Sprite_
+     000002B5  A$Sprite_ |    000002B6  A$Sprite_ |    000002B8  A$Sprite_
+     000002B9  A$Sprite_ |    000002BA  A$Sprite_ |    000002BA  C$Sprite_
+     000002BA  XG$init_s |    000002BB  A$Sprite_ |    000002BB  C$Sprite_
+     000002BB  G$init_16 |    000002BB  _init_16x |    000002BD  A$Sprite_
+     000002BD  C$Sprite_ |    000002BF  A$Sprite_ |    000002C0  A$Sprite_
+     000002C1  A$Sprite_ |    000002C2  A$Sprite_ |    000002C3  A$Sprite_
+     000002C3  C$Sprite_ |    000002C4  A$Sprite_ |    000002C5  A$Sprite_
+     000002C6  A$Sprite_ |    000002C7  A$Sprite_ |    000002C8  A$Sprite_
+     000002C8  C$Sprite_ |    000002C9  A$Sprite_ |    000002CA  A$Sprite_
+     000002CB  A$Sprite_ |    000002CC  A$Sprite_ |    000002CD  A$Sprite_
+     000002CE  A$Sprite_ |    000002CE  C$Sprite_ |    000002CF  A$Sprite_
+     000002D0  A$Sprite_ |    000002D1  A$Sprite_ |    000002D2  A$Sprite_
+     000002D3  A$Sprite_ |    000002D4  A$Sprite_ |    000002D5  A$Sprite_
+     000002D6  A$Sprite_ |    000002D7  A$Sprite_ |    000002D7  C$Sprite_
+     000002DA  A$Sprite_ |    000002DB  A$Sprite_ |    000002DC  A$Sprite_
+     000002DD  A$Sprite_ |    000002DF  A$Sprite_ |    000002E0  A$Sprite_
+     000002E1  A$Sprite_ |    000002E1  C$Sprite_ |    000002E4  A$Sprite_
+     000002E5  A$Sprite_ |    000002E6  A$Sprite_ |    000002E7  A$Sprite_
+     000002E9  A$Sprite_ |    000002EA  A$Sprite_ |    000002EB  A$Sprite_
+     000002EB  C$Sprite_ |    000002EE  A$Sprite_ |    000002EF  A$Sprite_
+     000002F0  A$Sprite_ |    000002F1  A$Sprite_ |    000002F3  A$Sprite_
+     000002F4  A$Sprite_ |    000002F5  A$Sprite_ |    000002F5  C$Sprite_
+     000002F8  A$Sprite_ |    000002F9  A$Sprite_ |    000002FA  A$Sprite_
+     000002FB  A$Sprite_ |    000002FD  A$Sprite_ |    000002FE  A$Sprite_
+     000002FF  A$Sprite_ |    000002FF  C$Sprite_ |    00000302  A$Sprite_
+     00000303  A$Sprite_ |    00000304  A$Sprite_ |    00000305  A$Sprite_
+     00000307  A$Sprite_ |    00000308  A$Sprite_ |    00000309  A$Sprite_
+     00000309  C$Sprite_ |    0000030C  A$Sprite_ |    0000030D  A$Sprite_
+     0000030E  A$Sprite_ |    0000030F  A$Sprite_ |    00000311  A$Sprite_
+     00000312  A$Sprite_ |    00000313  A$Sprite_ |    00000314  A$Sprite_
+     00000315  A$Sprite_ |    00000316  A$Sprite_ |    00000316  C$Sprite_
+     00000319  A$Sprite_ |    0000031A  A$Sprite_ |    0000031B  A$Sprite_
+     0000031C  A$Sprite_ |    0000031D  A$Sprite_ |    0000031E  A$Sprite_
+     0000031F  A$Sprite_ |    00000321  A$Sprite_ |    00000322  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000323  A$Sprite_ |    00000324  A$Sprite_ |    00000325  A$Sprite_
+     00000326  A$Sprite_ |    00000326  C$Sprite_ |    00000329  A$Sprite_
+     0000032A  A$Sprite_ |    0000032B  A$Sprite_ |    0000032C  A$Sprite_
+     0000032E  A$Sprite_ |    0000032F  A$Sprite_ |    00000330  A$Sprite_
+     00000331  A$Sprite_ |    00000333  A$Sprite_ |    00000334  A$Sprite_
+     00000335  A$Sprite_ |    00000336  A$Sprite_ |    00000337  A$Sprite_
+     00000339  A$Sprite_ |    0000033A  A$Sprite_ |    0000033B  A$Sprite_
+     0000033C  A$Sprite_ |    0000033D  A$Sprite_ |    0000033E  A$Sprite_
+     0000033E  C$Sprite_ |    00000341  A$Sprite_ |    00000342  A$Sprite_
+     00000343  A$Sprite_ |    00000344  A$Sprite_ |    00000346  A$Sprite_
+     00000347  A$Sprite_ |    00000348  A$Sprite_ |    00000349  A$Sprite_
+     0000034B  A$Sprite_ |    0000034C  A$Sprite_ |    0000034D  A$Sprite_
+     0000034E  A$Sprite_ |    0000034F  A$Sprite_ |    00000351  A$Sprite_
+     00000352  A$Sprite_ |    00000353  A$Sprite_ |    00000354  A$Sprite_
+     00000355  A$Sprite_ |    00000356  A$Sprite_ |    00000356  C$Sprite_
+     00000358  A$Sprite_ |    00000359  A$Sprite_ |    0000035A  A$Sprite_
+     0000035B  A$Sprite_ |    0000035D  A$Sprite_ |    0000035E  A$Sprite_
+     0000035F  A$Sprite_ |    0000035F  C$Sprite_ |    00000361  A$Sprite_
+     00000362  A$Sprite_ |    00000363  A$Sprite_ |    00000364  A$Sprite_
+     00000366  A$Sprite_ |    00000367  A$Sprite_ |    00000368  A$Sprite_
+     00000369  A$Sprite_ |    0000036A  A$Sprite_ |    0000036A  C$Sprite_
+     0000036C  A$Sprite_ |    0000036D  A$Sprite_ |    0000036E  A$Sprite_
+     0000036E  C$Sprite_ |    0000036F  A$Sprite_ |    00000370  A$Sprite_
+     00000371  A$Sprite_ |    00000372  A$Sprite_ |    00000373  A$Sprite_
+     00000374  A$Sprite_ |    00000375  A$Sprite_ |    00000376  A$Sprite_
+     00000377  A$Sprite_ |    00000378  A$Sprite_ |    00000379  A$Sprite_
+     0000037A  A$Sprite_ |    0000037B  A$Sprite_ |    0000037C  A$Sprite_
+     0000037C  C$Sprite_ |    0000037E  A$Sprite_ |    0000037F  A$Sprite_
+     00000380  A$Sprite_ |    00000381  A$Sprite_ |    00000382  A$Sprite_
+     00000383  A$Sprite_ |    00000385  A$Sprite_ |    00000386  A$Sprite_
+     00000387  A$Sprite_ |    00000388  A$Sprite_ |    00000389  A$Sprite_
+     0000038A  A$Sprite_ |    0000038B  A$Sprite_ |    0000038C  A$Sprite_
+     0000038F  A$Sprite_ |    00000390  A$Sprite_ |    00000392  A$Sprite_
+     00000393  A$Sprite_ |    00000394  A$Sprite_ |    00000396  A$Sprite_
+     00000397  A$Sprite_ |    00000398  A$Sprite_ |    00000398  C$Sprite_
+     0000039A  A$Sprite_ |    0000039B  A$Sprite_ |    0000039C  A$Sprite_
+     0000039D  A$Sprite_ |    0000039E  A$Sprite_ |    000003A0  A$Sprite_
+     000003A1  A$Sprite_ |    000003A2  A$Sprite_ |    000003A3  A$Sprite_
+     000003A4  A$Sprite_ |    000003A4  C$Sprite_ |    000003A6  A$Sprite_
+     000003A7  A$Sprite_ |    000003A8  A$Sprite_ |    000003A8  C$Sprite_
+     000003A9  A$Sprite_ |    000003AA  A$Sprite_ |    000003AB  A$Sprite_
+     000003AC  A$Sprite_ |    000003AD  A$Sprite_ |    000003AE  A$Sprite_
+     000003AF  A$Sprite_ |    000003B0  A$Sprite_ |    000003B1  A$Sprite_
+     000003B2  A$Sprite_ |    000003B3  A$Sprite_ |    000003B4  A$Sprite_
+     000003B5  A$Sprite_ |    000003B6  A$Sprite_ |    000003B7  A$Sprite_
+     000003B8  A$Sprite_ |    000003B8  C$Sprite_ |    000003BA  A$Sprite_
+     000003BB  A$Sprite_ |    000003BC  A$Sprite_ |    000003BD  A$Sprite_
+     000003BE  A$Sprite_ |    000003BF  A$Sprite_ |    000003C0  A$Sprite_
+     000003C2  A$Sprite_ |    000003C3  A$Sprite_ |    000003C4  A$Sprite_
+     000003C5  A$Sprite_ |    000003C6  A$Sprite_ |    000003C9  A$Sprite_
+     000003CA  A$Sprite_ |    000003CB  A$Sprite_ |    000003CC  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000003CD  A$Sprite_ |    000003CE  A$Sprite_ |    000003CE  C$Sprite_
+     000003D0  A$Sprite_ |    000003D1  A$Sprite_ |    000003D2  A$Sprite_
+     000003D2  C$Sprite_ |    000003D3  A$Sprite_ |    000003D4  A$Sprite_
+     000003D5  A$Sprite_ |    000003D6  A$Sprite_ |    000003D7  A$Sprite_
+     000003D8  A$Sprite_ |    000003D9  A$Sprite_ |    000003DA  A$Sprite_
+     000003DB  A$Sprite_ |    000003DC  A$Sprite_ |    000003DC  C$Sprite_
+     000003DD  A$Sprite_ |    000003DE  A$Sprite_ |    000003DF  A$Sprite_
+     000003E0  A$Sprite_ |    000003E1  A$Sprite_ |    000003E2  A$Sprite_
+     000003E3  A$Sprite_ |    000003E4  A$Sprite_ |    000003E5  A$Sprite_
+     000003E6  A$Sprite_ |    000003E7  A$Sprite_ |    000003E8  A$Sprite_
+     000003E9  A$Sprite_ |    000003EA  A$Sprite_ |    000003EB  A$Sprite_
+     000003EC  A$Sprite_ |    000003ED  A$Sprite_ |    000003EE  A$Sprite_
+     000003EE  C$Sprite_ |    000003F0  A$Sprite_ |    000003F1  A$Sprite_
+     000003F2  A$Sprite_ |    000003F3  A$Sprite_ |    000003F4  A$Sprite_
+     000003F5  A$Sprite_ |    000003F6  A$Sprite_ |    000003F8  A$Sprite_
+     000003F9  A$Sprite_ |    000003FA  A$Sprite_ |    000003FA  C$Sprite_
+     000003FC  A$Sprite_ |    000003FD  A$Sprite_ |    000003FE  A$Sprite_
+     000003FF  A$Sprite_ |    00000400  A$Sprite_ |    00000401  A$Sprite_
+     00000402  A$Sprite_ |    00000404  A$Sprite_ |    00000405  A$Sprite_
+     00000407  A$Sprite_ |    00000408  A$Sprite_ |    00000409  A$Sprite_
+     00000409  C$Sprite_ |    0000040B  A$Sprite_ |    0000040C  A$Sprite_
+     0000040D  A$Sprite_ |    0000040E  A$Sprite_ |    0000040F  A$Sprite_
+     00000410  A$Sprite_ |    00000411  A$Sprite_ |    00000413  A$Sprite_
+     00000414  A$Sprite_ |    00000415  A$Sprite_ |    00000415  C$Sprite_
+     00000417  A$Sprite_ |    00000418  A$Sprite_ |    00000419  A$Sprite_
+     0000041A  A$Sprite_ |    0000041B  A$Sprite_ |    0000041C  A$Sprite_
+     0000041D  A$Sprite_ |    0000041E  A$Sprite_ |    0000041F  A$Sprite_
+     0000041F  C$Sprite_ |    00000421  A$Sprite_ |    00000422  A$Sprite_
+     00000423  A$Sprite_ |    00000424  A$Sprite_ |    00000427  A$Sprite_
+     00000428  A$Sprite_ |    00000429  A$Sprite_ |    0000042A  A$Sprite_
+     0000042C  A$Sprite_ |    0000042D  A$Sprite_ |    0000042E  A$Sprite_
+     0000042E  C$Sprite_ |    00000430  A$Sprite_ |    00000431  A$Sprite_
+     00000432  A$Sprite_ |    00000433  A$Sprite_ |    00000436  A$Sprite_
+     00000437  A$Sprite_ |    00000438  A$Sprite_ |    00000439  A$Sprite_
+     0000043B  A$Sprite_ |    0000043C  A$Sprite_ |    0000043D  A$Sprite_
+     0000043D  C$Sprite_ |    0000043F  A$Sprite_ |    00000440  A$Sprite_
+     00000441  A$Sprite_ |    00000442  A$Sprite_ |    00000445  A$Sprite_
+     00000446  A$Sprite_ |    00000447  A$Sprite_ |    00000448  A$Sprite_
+     0000044A  A$Sprite_ |    0000044B  A$Sprite_ |    0000044D  A$Sprite_
+     0000044E  A$Sprite_ |    0000044F  A$Sprite_ |    0000044F  C$Sprite_
+     00000451  A$Sprite_ |    00000452  A$Sprite_ |    00000453  A$Sprite_
+     00000454  A$Sprite_ |    00000457  A$Sprite_ |    00000458  A$Sprite_
+     00000459  A$Sprite_ |    0000045A  A$Sprite_ |    0000045B  A$Sprite_
+     0000045C  A$Sprite_ |    0000045C  C$Sprite_ |    0000045E  A$Sprite_
+     0000045F  A$Sprite_ |    00000460  A$Sprite_ |    00000461  A$Sprite_
+     00000462  A$Sprite_ |    00000463  A$Sprite_ |    00000464  A$Sprite_
+     00000466  A$Sprite_ |    00000467  A$Sprite_ |    00000468  A$Sprite_
+     00000469  A$Sprite_ |    0000046A  A$Sprite_ |    0000046B  A$Sprite_
+     0000046C  A$Sprite_ |    0000046D  A$Sprite_ |    0000046F  A$Sprite_
+     00000470  A$Sprite_ |    00000471  A$Sprite_ |    00000472  A$Sprite_
+     00000474  A$Sprite_ |    00000475  A$Sprite_ |    00000476  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000477  A$Sprite_ |    00000479  A$Sprite_ |    0000047A  A$Sprite_
+     0000047B  A$Sprite_ |    0000047C  A$Sprite_ |    0000047D  A$Sprite_
+     00000480  A$Sprite_ |    00000482  A$Sprite_ |    00000482  C$Sprite_
+     00000483  A$Sprite_ |    00000484  A$Sprite_ |    00000485  A$Sprite_
+     00000486  A$Sprite_ |    00000487  A$Sprite_ |    00000488  A$Sprite_
+     00000489  A$Sprite_ |    0000048C  A$Sprite_ |    0000048D  A$Sprite_
+     0000048E  A$Sprite_ |    00000490  A$Sprite_ |    00000491  A$Sprite_
+     00000492  A$Sprite_ |    00000493  A$Sprite_ |    00000494  A$Sprite_
+     00000495  A$Sprite_ |    00000496  A$Sprite_ |    00000497  A$Sprite_
+     00000499  A$Sprite_ |    0000049A  A$Sprite_ |    0000049A  C$Sprite_
+     0000049B  A$Sprite_ |    0000049C  A$Sprite_ |    0000049D  A$Sprite_
+     0000049E  A$Sprite_ |    0000049F  A$Sprite_ |    000004A0  A$Sprite_
+     000004A1  A$Sprite_ |    000004A2  A$Sprite_ |    000004A3  A$Sprite_
+     000004A4  A$Sprite_ |    000004A6  A$Sprite_ |    000004A7  A$Sprite_
+     000004A8  A$Sprite_ |    000004A9  A$Sprite_ |    000004AB  A$Sprite_
+     000004AC  A$Sprite_ |    000004AD  A$Sprite_ |    000004AE  A$Sprite_
+     000004B0  A$Sprite_ |    000004B1  A$Sprite_ |    000004B2  A$Sprite_
+     000004B4  A$Sprite_ |    000004B5  A$Sprite_ |    000004B6  A$Sprite_
+     000004B7  A$Sprite_ |    000004B9  A$Sprite_ |    000004BA  A$Sprite_
+     000004BB  A$Sprite_ |    000004BC  A$Sprite_ |    000004BD  A$Sprite_
+     000004BE  A$Sprite_ |    000004BF  A$Sprite_ |    000004C0  A$Sprite_
+     000004C1  A$Sprite_ |    000004C2  A$Sprite_ |    000004C3  A$Sprite_
+     000004C4  A$Sprite_ |    000004C7  A$Sprite_ |    000004C9  A$Sprite_
+     000004C9  C$Sprite_ |    000004CB  A$Sprite_ |    000004CC  A$Sprite_
+     000004CD  A$Sprite_ |    000004CE  A$Sprite_ |    000004CF  A$Sprite_
+     000004D0  A$Sprite_ |    000004D1  A$Sprite_ |    000004D2  A$Sprite_
+     000004D3  A$Sprite_ |    000004D6  A$Sprite_ |    000004D7  A$Sprite_
+     000004D8  A$Sprite_ |    000004DA  A$Sprite_ |    000004DB  A$Sprite_
+     000004DC  A$Sprite_ |    000004DD  A$Sprite_ |    000004DE  A$Sprite_
+     000004DF  A$Sprite_ |    000004E0  A$Sprite_ |    000004E1  A$Sprite_
+     000004E3  A$Sprite_ |    000004E4  A$Sprite_ |    000004E4  C$Sprite_
+     000004E5  A$Sprite_ |    000004E6  A$Sprite_ |    000004E7  A$Sprite_
+     000004E8  A$Sprite_ |    000004E9  A$Sprite_ |    000004EA  A$Sprite_
+     000004EB  A$Sprite_ |    000004EC  A$Sprite_ |    000004ED  A$Sprite_
+     000004EE  A$Sprite_ |    000004F0  A$Sprite_ |    000004F1  A$Sprite_
+     000004F2  A$Sprite_ |    000004F3  A$Sprite_ |    000004F5  A$Sprite_
+     000004F6  A$Sprite_ |    000004F7  A$Sprite_ |    000004F8  A$Sprite_
+     000004FA  A$Sprite_ |    000004FB  A$Sprite_ |    000004FC  A$Sprite_
+     000004FE  A$Sprite_ |    000004FF  A$Sprite_ |    00000500  A$Sprite_
+     00000501  A$Sprite_ |    00000503  A$Sprite_ |    00000504  A$Sprite_
+     00000505  A$Sprite_ |    00000506  A$Sprite_ |    00000507  A$Sprite_
+     00000508  A$Sprite_ |    00000509  A$Sprite_ |    0000050A  A$Sprite_
+     0000050B  A$Sprite_ |    0000050C  A$Sprite_ |    0000050D  A$Sprite_
+     0000050E  A$Sprite_ |    00000511  A$Sprite_ |    00000513  A$Sprite_
+     00000513  C$Sprite_ |    00000515  A$Sprite_ |    00000516  A$Sprite_
+     00000517  A$Sprite_ |    00000518  A$Sprite_ |    00000519  A$Sprite_
+     0000051A  A$Sprite_ |    0000051B  A$Sprite_ |    0000051C  A$Sprite_
+     0000051D  A$Sprite_ |    00000520  A$Sprite_ |    00000521  A$Sprite_
+     00000522  A$Sprite_ |    00000524  A$Sprite_ |    00000525  A$Sprite_
+     00000526  A$Sprite_ |    00000527  A$Sprite_ |    00000528  A$Sprite_
+     00000529  A$Sprite_ |    0000052A  A$Sprite_ |    0000052B  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     0000052D  A$Sprite_ |    0000052E  A$Sprite_ |    0000052E  C$Sprite_
+     0000052F  A$Sprite_ |    00000530  A$Sprite_ |    00000531  A$Sprite_
+     00000532  A$Sprite_ |    00000533  A$Sprite_ |    00000534  A$Sprite_
+     00000535  A$Sprite_ |    00000536  A$Sprite_ |    00000537  A$Sprite_
+     00000538  A$Sprite_ |    0000053A  A$Sprite_ |    0000053B  A$Sprite_
+     0000053C  A$Sprite_ |    0000053D  A$Sprite_ |    0000053F  A$Sprite_
+     00000540  A$Sprite_ |    00000541  A$Sprite_ |    00000542  A$Sprite_
+     00000544  A$Sprite_ |    00000545  A$Sprite_ |    00000546  A$Sprite_
+     00000548  A$Sprite_ |    00000549  A$Sprite_ |    0000054A  A$Sprite_
+     0000054B  A$Sprite_ |    0000054D  A$Sprite_ |    0000054E  A$Sprite_
+     0000054F  A$Sprite_ |    00000550  A$Sprite_ |    00000551  A$Sprite_
+     00000552  A$Sprite_ |    00000553  A$Sprite_ |    00000554  A$Sprite_
+     00000555  A$Sprite_ |    00000556  A$Sprite_ |    00000557  A$Sprite_
+     00000558  A$Sprite_ |    0000055B  A$Sprite_ |    0000055D  A$Sprite_
+     0000055D  C$Sprite_ |    0000055D  XG$init_1 |    0000055E  A$Sprite_
+     0000055E  C$Sprite_ |    0000055E  G$setup_s |    0000055E  _setup_sp
+     0000055F  A$Sprite_ |    0000055F  C$Sprite_ |    00000561  A$Sprite_
+     00000562  A$Sprite_ |    00000563  A$Sprite_ |    00000564  A$Sprite_
+     00000565  A$Sprite_ |    00000566  A$Sprite_ |    00000567  A$Sprite_
+     00000568  A$Sprite_ |    00000569  A$Sprite_ |    0000056B  A$Sprite_
+     0000056C  A$Sprite_ |    0000056D  A$Sprite_ |    0000056E  A$Sprite_
+     0000056F  A$Sprite_ |    00000570  A$Sprite_ |    00000571  A$Sprite_
+     00000572  A$Sprite_ |    00000574  A$Sprite_ |    00000575  A$Sprite_
+     00000576  A$Sprite_ |    00000577  A$Sprite_ |    00000578  A$Sprite_
+     00000579  A$Sprite_ |    0000057B  A$Sprite_ |    0000057C  A$Sprite_
+     0000057D  A$Sprite_ |    0000057E  A$Sprite_ |    0000057F  A$Sprite_
+     00000580  A$Sprite_ |    00000583  A$Sprite_ |    00000585  A$Sprite_
+     00000586  A$Sprite_ |    00000587  A$Sprite_ |    00000588  A$Sprite_
+     00000589  A$Sprite_ |    0000058A  A$Sprite_ |    0000058C  A$Sprite_
+     0000058D  A$Sprite_ |    0000058E  A$Sprite_ |    0000058F  A$Sprite_
+     00000592  A$Sprite_ |    00000593  A$Sprite_ |    00000594  A$Sprite_
+     00000595  A$Sprite_ |    00000596  A$Sprite_ |    00000597  A$Sprite_
+     0000059A  A$Sprite_ |    0000059B  A$Sprite_ |    0000059C  A$Sprite_
+     0000059D  A$Sprite_ |    0000059E  A$Sprite_ |    0000059F  A$Sprite_
+     000005A0  A$Sprite_ |    000005A1  A$Sprite_ |    000005A4  A$Sprite_
+     000005A5  A$Sprite_ |    000005A6  A$Sprite_ |    000005A7  A$Sprite_
+     000005A7  C$Sprite_ |    000005A8  A$Sprite_ |    000005A8  C$Sprite_
+     000005A8  XG$setup_ |    000005A9  A$Sprite_ |    000005A9  C$Sprite_
+     000005A9  G$setup_1 |    000005A9  _setup_16 |    000005AB  A$Sprite_
+     000005AB  C$Sprite_ |    000005AD  A$Sprite_ |    000005AE  A$Sprite_
+     000005AF  A$Sprite_ |    000005B0  A$Sprite_ |    000005B1  A$Sprite_
+     000005B2  A$Sprite_ |    000005B3  A$Sprite_ |    000005B4  A$Sprite_
+     000005B5  A$Sprite_ |    000005B6  A$Sprite_ |    000005B7  A$Sprite_
+     000005B8  A$Sprite_ |    000005B9  A$Sprite_ |    000005BB  A$Sprite_
+     000005BC  A$Sprite_ |    000005BD  A$Sprite_ |    000005BE  A$Sprite_
+     000005BF  A$Sprite_ |    000005C0  A$Sprite_ |    000005C3  A$Sprite_
+     000005C5  A$Sprite_ |    000005C8  A$Sprite_ |    000005C9  A$Sprite_
+     000005CA  A$Sprite_ |    000005CB  A$Sprite_ |    000005CC  A$Sprite_
+     000005CD  A$Sprite_ |    000005CE  A$Sprite_ |    000005CF  A$Sprite_
+     000005D0  A$Sprite_ |    000005D1  A$Sprite_ |    000005D2  A$Sprite_
+     000005D3  A$Sprite_ |    000005D4  A$Sprite_ |    000005D5  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000005D6  A$Sprite_ |    000005D7  A$Sprite_ |    000005D8  A$Sprite_
+     000005D9  A$Sprite_ |    000005DA  A$Sprite_ |    000005DC  A$Sprite_
+     000005DD  A$Sprite_ |    000005DE  A$Sprite_ |    000005DF  A$Sprite_
+     000005E2  A$Sprite_ |    000005E3  A$Sprite_ |    000005E4  A$Sprite_
+     000005E5  A$Sprite_ |    000005E6  A$Sprite_ |    000005E7  A$Sprite_
+     000005EA  A$Sprite_ |    000005EB  A$Sprite_ |    000005EC  A$Sprite_
+     000005ED  A$Sprite_ |    000005EF  A$Sprite_ |    000005F0  A$Sprite_
+     000005F1  A$Sprite_ |    000005F2  A$Sprite_ |    000005F4  A$Sprite_
+     000005F5  A$Sprite_ |    000005F6  A$Sprite_ |    000005F7  A$Sprite_
+     000005F8  A$Sprite_ |    000005F9  A$Sprite_ |    000005FA  A$Sprite_
+     000005FB  A$Sprite_ |    000005FC  A$Sprite_ |    000005FD  A$Sprite_
+     000005FE  A$Sprite_ |    000005FF  A$Sprite_ |    00000600  A$Sprite_
+     00000601  A$Sprite_ |    00000602  A$Sprite_ |    00000603  A$Sprite_
+     00000604  A$Sprite_ |    00000606  A$Sprite_ |    00000607  A$Sprite_
+     00000608  A$Sprite_ |    00000609  A$Sprite_ |    0000060C  A$Sprite_
+     0000060D  A$Sprite_ |    0000060E  A$Sprite_ |    0000060F  A$Sprite_
+     00000610  A$Sprite_ |    00000611  A$Sprite_ |    00000614  A$Sprite_
+     00000615  A$Sprite_ |    00000616  A$Sprite_ |    00000617  A$Sprite_
+     00000619  A$Sprite_ |    0000061A  A$Sprite_ |    0000061B  A$Sprite_
+     0000061C  A$Sprite_ |    0000061E  A$Sprite_ |    0000061F  A$Sprite_
+     00000620  A$Sprite_ |    00000621  A$Sprite_ |    00000622  A$Sprite_
+     00000623  A$Sprite_ |    00000624  A$Sprite_ |    00000625  A$Sprite_
+     00000626  A$Sprite_ |    00000627  A$Sprite_ |    00000628  A$Sprite_
+     00000629  A$Sprite_ |    0000062A  A$Sprite_ |    0000062B  A$Sprite_
+     0000062C  A$Sprite_ |    0000062D  A$Sprite_ |    0000062E  A$Sprite_
+     00000630  A$Sprite_ |    00000631  A$Sprite_ |    00000632  A$Sprite_
+     00000633  A$Sprite_ |    00000636  A$Sprite_ |    00000637  A$Sprite_
+     00000638  A$Sprite_ |    00000639  A$Sprite_ |    0000063A  A$Sprite_
+     0000063B  A$Sprite_ |    0000063E  A$Sprite_ |    0000063F  A$Sprite_
+     00000640  A$Sprite_ |    00000641  A$Sprite_ |    00000643  A$Sprite_
+     00000644  A$Sprite_ |    00000645  A$Sprite_ |    00000646  A$Sprite_
+     00000648  A$Sprite_ |    00000649  A$Sprite_ |    0000064A  A$Sprite_
+     0000064B  A$Sprite_ |    0000064C  A$Sprite_ |    0000064D  A$Sprite_
+     0000064E  A$Sprite_ |    0000064F  A$Sprite_ |    00000650  A$Sprite_
+     00000651  A$Sprite_ |    00000652  A$Sprite_ |    00000653  A$Sprite_
+     00000654  A$Sprite_ |    00000655  A$Sprite_ |    00000656  A$Sprite_
+     00000657  A$Sprite_ |    0000065A  A$Sprite_ |    0000065C  A$Sprite_
+     0000065D  A$Sprite_ |    0000065E  A$Sprite_ |    0000065F  A$Sprite_
+     00000660  A$Sprite_ |    00000661  A$Sprite_ |    00000662  A$Sprite_
+     00000663  A$Sprite_ |    00000664  A$Sprite_ |    00000665  A$Sprite_
+     00000666  A$Sprite_ |    00000667  A$Sprite_ |    00000668  A$Sprite_
+     00000669  A$Sprite_ |    0000066C  A$Sprite_ |    0000066D  A$Sprite_
+     0000066E  A$Sprite_ |    0000066F  A$Sprite_ |    00000670  A$Sprite_
+     00000671  A$Sprite_ |    00000672  A$Sprite_ |    00000673  A$Sprite_
+     00000674  A$Sprite_ |    00000675  A$Sprite_ |    00000676  A$Sprite_
+     00000678  A$Sprite_ |    00000679  A$Sprite_ |    0000067A  A$Sprite_
+     0000067D  A$Sprite_ |    0000067E  A$Sprite_ |    0000067F  A$Sprite_
+     00000680  A$Sprite_ |    00000681  A$Sprite_ |    00000683  A$Sprite_
+     00000684  A$Sprite_ |    00000685  A$Sprite_ |    00000686  A$Sprite_
+     00000687  A$Sprite_ |    00000688  A$Sprite_ |    00000689  A$Sprite_
+     0000068A  A$Sprite_ |    0000068B  A$Sprite_ |    0000068E  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     0000068F  A$Sprite_ |    00000690  A$Sprite_ |    00000691  A$Sprite_
+     00000692  A$Sprite_ |    00000693  A$Sprite_ |    00000694  A$Sprite_
+     00000695  A$Sprite_ |    00000696  A$Sprite_ |    00000697  A$Sprite_
+     00000698  A$Sprite_ |    0000069A  A$Sprite_ |    0000069B  A$Sprite_
+     0000069C  A$Sprite_ |    0000069F  A$Sprite_ |    000006A0  A$Sprite_
+     000006A1  A$Sprite_ |    000006A2  A$Sprite_ |    000006A3  A$Sprite_
+     000006A5  A$Sprite_ |    000006A6  A$Sprite_ |    000006A7  A$Sprite_
+     000006A8  A$Sprite_ |    000006A9  A$Sprite_ |    000006AA  A$Sprite_
+     000006AB  A$Sprite_ |    000006AC  A$Sprite_ |    000006AD  A$Sprite_
+     000006B0  A$Sprite_ |    000006B1  A$Sprite_ |    000006B2  A$Sprite_
+     000006B3  A$Sprite_ |    000006B4  A$Sprite_ |    000006B5  A$Sprite_
+     000006B6  A$Sprite_ |    000006B7  A$Sprite_ |    000006B8  A$Sprite_
+     000006B9  A$Sprite_ |    000006BA  A$Sprite_ |    000006BC  A$Sprite_
+     000006BD  A$Sprite_ |    000006BE  A$Sprite_ |    000006C1  A$Sprite_
+     000006C2  A$Sprite_ |    000006C3  A$Sprite_ |    000006C4  A$Sprite_
+     000006C5  A$Sprite_ |    000006C7  A$Sprite_ |    000006C8  A$Sprite_
+     000006C9  A$Sprite_ |    000006CA  A$Sprite_ |    000006CB  A$Sprite_
+     000006CC  A$Sprite_ |    000006CD  A$Sprite_ |    000006CE  A$Sprite_
+     000006CF  A$Sprite_ |    000006D2  A$Sprite_ |    000006D3  A$Sprite_
+     000006D4  A$Sprite_ |    000006D5  A$Sprite_ |    000006D6  A$Sprite_
+     000006D7  A$Sprite_ |    000006D8  A$Sprite_ |    000006D9  A$Sprite_
+     000006DA  A$Sprite_ |    000006DB  A$Sprite_ |    000006DC  A$Sprite_
+     000006DE  A$Sprite_ |    000006DF  A$Sprite_ |    000006E0  A$Sprite_
+     000006E3  A$Sprite_ |    000006E4  A$Sprite_ |    000006E5  A$Sprite_
+     000006E6  A$Sprite_ |    000006E7  A$Sprite_ |    000006E7  C$Sprite_
+     000006E9  A$Sprite_ |    000006E9  C$Sprite_ |    000006E9  XG$setup_
+     000006EA  A$Sprite_ |    000006EA  C$Sprite_ |    000006EA  G$change_
+     000006EA  _change_s |    000006EC  A$Sprite_ |    000006EE  A$Sprite_
+     000006EF  A$Sprite_ |    000006F0  A$Sprite_ |    000006F1  A$Sprite_
+     000006F2  A$Sprite_ |    000006F4  A$Sprite_ |    000006F5  A$Sprite_
+     000006F6  A$Sprite_ |    000006F8  A$Sprite_ |    000006F9  A$Sprite_
+     000006FA  A$Sprite_ |    000006FD  A$Sprite_ |    000006FE  A$Sprite_
+     000006FF  A$Sprite_ |    00000700  A$Sprite_ |    00000701  A$Sprite_
+     00000703  A$Sprite_ |    00000704  A$Sprite_ |    00000704  C$Sprite_
+     00000705  A$Sprite_ |    00000706  A$Sprite_ |    00000707  A$Sprite_
+     00000708  A$Sprite_ |    0000070A  A$Sprite_ |    0000070B  A$Sprite_
+     0000070D  A$Sprite_ |    0000070E  A$Sprite_ |    0000070F  A$Sprite_
+     00000710  A$Sprite_ |    00000711  A$Sprite_ |    00000712  A$Sprite_
+     00000713  A$Sprite_ |    00000714  A$Sprite_ |    00000715  A$Sprite_
+     00000716  A$Sprite_ |    00000717  A$Sprite_ |    00000719  A$Sprite_
+     0000071B  A$Sprite_ |    0000071D  A$Sprite_ |    0000071F  A$Sprite_
+     00000720  A$Sprite_ |    00000722  A$Sprite_ |    00000724  A$Sprite_
+     00000726  A$Sprite_ |    00000727  A$Sprite_ |    00000729  A$Sprite_
+     0000072B  A$Sprite_ |    0000072C  A$Sprite_ |    0000072D  A$Sprite_
+     0000072E  A$Sprite_ |    00000731  A$Sprite_ |    00000732  A$Sprite_
+     00000734  A$Sprite_ |    00000735  A$Sprite_ |    00000736  A$Sprite_
+     00000737  A$Sprite_ |    00000738  A$Sprite_ |    00000739  A$Sprite_
+     0000073A  A$Sprite_ |    0000073A  C$Sprite_ |    0000073C  A$Sprite_
+     0000073E  A$Sprite_ |    0000073F  A$Sprite_ |    00000741  A$Sprite_
+     00000742  A$Sprite_ |    00000743  A$Sprite_ |    00000746  A$Sprite_
+     00000747  A$Sprite_ |    00000748  A$Sprite_ |    00000749  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     0000074B  A$Sprite_ |    0000074B  C$Sprite_ |    0000074D  A$Sprite_
+     0000074D  C$Sprite_ |    0000074D  XG$change |    0000074E  A$Sprite_
+     0000074E  C$Sprite_ |    0000074E  G$animate |    0000074E  _animate_
+     00000750  A$Sprite_ |    00000752  A$Sprite_ |    00000753  A$Sprite_
+     00000754  A$Sprite_ |    00000755  A$Sprite_ |    00000758  A$Sprite_
+     00000759  A$Sprite_ |    0000075A  A$Sprite_ |    0000075B  A$Sprite_
+     0000075C  A$Sprite_ |    0000075E  A$Sprite_ |    00000760  A$Sprite_
+     00000761  A$Sprite_ |    00000762  A$Sprite_ |    00000763  A$Sprite_
+     00000765  A$Sprite_ |    00000766  A$Sprite_ |    00000767  A$Sprite_
+     00000768  A$Sprite_ |    0000076A  A$Sprite_ |    0000076B  A$Sprite_
+     0000076C  A$Sprite_ |    0000076E  A$Sprite_ |    0000076F  A$Sprite_
+     00000770  A$Sprite_ |    00000771  A$Sprite_ |    00000774  A$Sprite_
+     00000775  A$Sprite_ |    00000776  A$Sprite_ |    00000777  A$Sprite_
+     00000778  A$Sprite_ |    00000779  A$Sprite_ |    0000077B  A$Sprite_
+     0000077C  A$Sprite_ |    0000077D  A$Sprite_ |    0000077D  C$Sprite_
+     0000077E  A$Sprite_ |    00000781  A$Sprite_ |    00000782  A$Sprite_
+     00000785  A$Sprite_ |    00000786  A$Sprite_ |    00000787  A$Sprite_
+     00000787  C$Sprite_ |    00000789  A$Sprite_ |    0000078A  A$Sprite_
+     0000078C  A$Sprite_ |    0000078E  A$Sprite_ |    0000078E  C$Sprite_
+     0000078E  XG$animat |    0000078F  A$Sprite_ |    0000078F  C$Sprite_
+     0000078F  G$transla |    0000078F  _translat |    00000792  A$Sprite_
+     00000793  A$Sprite_ |    00000793  C$Sprite_ |    00000795  A$Sprite_
+     00000796  A$Sprite_ |    00000797  A$Sprite_ |    00000798  A$Sprite_
+     00000798  C$Sprite_ |    00000799  A$Sprite_ |    0000079A  A$Sprite_
+     0000079C  A$Sprite_ |    0000079D  A$Sprite_ |    0000079F  A$Sprite_
+     000007A1  A$Sprite_ |    000007A3  A$Sprite_ |    000007A5  A$Sprite_
+     000007A7  A$Sprite_ |    000007A9  A$Sprite_ |    000007AB  A$Sprite_
+     000007AB  C$Sprite_ |    000007AC  A$Sprite_ |    000007AD  A$Sprite_
+     000007AF  A$Sprite_ |    000007B0  A$Sprite_ |    000007B1  A$Sprite_
+     000007B2  A$Sprite_ |    000007B5  A$Sprite_ |    000007B6  A$Sprite_
+     000007B7  A$Sprite_ |    000007B8  A$Sprite_ |    000007B9  A$Sprite_
+     000007BA  A$Sprite_ |    000007BA  C$Sprite_ |    000007BB  A$Sprite_
+     000007BE  A$Sprite_ |    000007BF  A$Sprite_ |    000007BF  C$Sprite_
+     000007C1  A$Sprite_ |    000007C1  C$Sprite_ |    000007C2  A$Sprite_
+     000007C3  A$Sprite_ |    000007C5  A$Sprite_ |    000007C6  A$Sprite_
+     000007C7  A$Sprite_ |    000007CA  A$Sprite_ |    000007CB  A$Sprite_
+     000007CC  A$Sprite_ |    000007CD  A$Sprite_ |    000007CE  A$Sprite_
+     000007CF  A$Sprite_ |    000007CF  C$Sprite_ |    000007D0  A$Sprite_
+     000007D3  A$Sprite_ |    000007D4  A$Sprite_ |    000007D4  C$Sprite_
+     000007D6  A$Sprite_ |    000007D6  C$Sprite_ |    000007D7  A$Sprite_
+     000007D8  A$Sprite_ |    000007DA  A$Sprite_ |    000007DB  A$Sprite_
+     000007DC  A$Sprite_ |    000007DD  A$Sprite_ |    000007E0  A$Sprite_
+     000007E1  A$Sprite_ |    000007E2  A$Sprite_ |    000007E3  A$Sprite_
+     000007E4  A$Sprite_ |    000007E5  A$Sprite_ |    000007E6  A$Sprite_
+     000007E6  C$Sprite_ |    000007E7  A$Sprite_ |    000007EA  A$Sprite_
+     000007EB  A$Sprite_ |    000007EB  C$Sprite_ |    000007ED  A$Sprite_
+     000007ED  C$Sprite_ |    000007EE  A$Sprite_ |    000007EF  A$Sprite_
+     000007F1  A$Sprite_ |    000007F2  A$Sprite_ |    000007F3  A$Sprite_
+     000007F4  A$Sprite_ |    000007F7  A$Sprite_ |    000007F8  A$Sprite_
+     000007F9  A$Sprite_ |    000007FA  A$Sprite_ |    000007FB  A$Sprite_
+     000007FC  A$Sprite_ |    000007FD  A$Sprite_ |    000007FD  C$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000007FE  A$Sprite_ |    00000801  A$Sprite_ |    00000802  A$Sprite_
+     00000802  C$Sprite_ |    00000802  C$Sprite_ |    00000805  A$Sprite_
+     00000806  A$Sprite_ |    00000809  A$Sprite_ |    0000080A  A$Sprite_
+     0000080A  C$Sprite_ |    0000080A  XG$transl |    0000080B  A$Sprite_
+     0000080B  C$Sprite_ |    0000080B  G$transla |    0000080B  _translat
+     0000080C  A$Sprite_ |    0000080D  A$Sprite_ |    00000810  A$Sprite_
+     00000810  C$Sprite_ |    00000812  A$Sprite_ |    00000813  A$Sprite_
+     00000814  A$Sprite_ |    00000815  A$Sprite_ |    00000818  A$Sprite_
+     00000819  A$Sprite_ |    0000081A  A$Sprite_ |    0000081B  A$Sprite_
+     0000081C  A$Sprite_ |    0000081C  C$Sprite_ |    0000081D  A$Sprite_
+     0000081E  A$Sprite_ |    00000820  A$Sprite_ |    00000821  A$Sprite_
+     00000823  A$Sprite_ |    00000825  A$Sprite_ |    00000827  A$Sprite_
+     0000082A  A$Sprite_ |    0000082C  A$Sprite_ |    0000082F  A$Sprite_
+     00000832  A$Sprite_ |    00000832  C$Sprite_ |    00000833  A$Sprite_
+     00000834  A$Sprite_ |    00000835  A$Sprite_ |    00000836  A$Sprite_
+     00000837  A$Sprite_ |    00000838  A$Sprite_ |    00000839  A$Sprite_
+     0000083A  A$Sprite_ |    0000083C  A$Sprite_ |    0000083D  A$Sprite_
+     0000083E  A$Sprite_ |    00000841  A$Sprite_ |    00000842  A$Sprite_
+     00000843  A$Sprite_ |    00000844  A$Sprite_ |    00000845  A$Sprite_
+     00000846  A$Sprite_ |    00000849  A$Sprite_ |    0000084A  A$Sprite_
+     0000084B  A$Sprite_ |    0000084C  A$Sprite_ |    0000084D  A$Sprite_
+     0000084E  A$Sprite_ |    00000850  A$Sprite_ |    00000851  A$Sprite_
+     00000852  A$Sprite_ |    00000855  A$Sprite_ |    00000856  A$Sprite_
+     00000857  A$Sprite_ |    00000858  A$Sprite_ |    00000859  A$Sprite_
+     0000085A  A$Sprite_ |    0000085D  A$Sprite_ |    0000085E  A$Sprite_
+     0000085F  A$Sprite_ |    00000860  A$Sprite_ |    00000861  A$Sprite_
+     00000862  A$Sprite_ |    00000864  A$Sprite_ |    00000865  A$Sprite_
+     00000866  A$Sprite_ |    00000869  A$Sprite_ |    0000086A  A$Sprite_
+     0000086B  A$Sprite_ |    0000086C  A$Sprite_ |    0000086D  A$Sprite_
+     0000086E  A$Sprite_ |    00000871  A$Sprite_ |    00000872  A$Sprite_
+     00000873  A$Sprite_ |    00000874  A$Sprite_ |    00000875  A$Sprite_
+     00000876  A$Sprite_ |    00000877  A$Sprite_ |    00000879  A$Sprite_
+     0000087A  A$Sprite_ |    0000087B  A$Sprite_ |    0000087E  A$Sprite_
+     0000087F  A$Sprite_ |    00000880  A$Sprite_ |    00000881  A$Sprite_
+     00000882  A$Sprite_ |    00000883  A$Sprite_ |    00000883  C$Sprite_
+     00000886  A$Sprite_ |    00000886  C$Sprite_ |    00000887  A$Sprite_
+     00000888  A$Sprite_ |    00000889  A$Sprite_ |    0000088A  A$Sprite_
+     0000088B  A$Sprite_ |    0000088C  A$Sprite_ |    0000088D  A$Sprite_
+     0000088E  A$Sprite_ |    00000890  A$Sprite_ |    00000891  A$Sprite_
+     00000892  A$Sprite_ |    00000893  A$Sprite_ |    00000896  A$Sprite_
+     00000897  A$Sprite_ |    00000898  A$Sprite_ |    00000899  A$Sprite_
+     0000089A  A$Sprite_ |    0000089B  A$Sprite_ |    0000089E  A$Sprite_
+     0000089F  A$Sprite_ |    000008A0  A$Sprite_ |    000008A1  A$Sprite_
+     000008A2  A$Sprite_ |    000008A3  A$Sprite_ |    000008A5  A$Sprite_
+     000008A6  A$Sprite_ |    000008A7  A$Sprite_ |    000008A8  A$Sprite_
+     000008AB  A$Sprite_ |    000008AC  A$Sprite_ |    000008AD  A$Sprite_
+     000008AE  A$Sprite_ |    000008AF  A$Sprite_ |    000008B0  A$Sprite_
+     000008B3  A$Sprite_ |    000008B4  A$Sprite_ |    000008B5  A$Sprite_
+     000008B6  A$Sprite_ |    000008B7  A$Sprite_ |    000008B8  A$Sprite_
+     000008BA  A$Sprite_ |    000008BB  A$Sprite_ |    000008BC  A$Sprite_
+     000008BD  A$Sprite_ |    000008C0  A$Sprite_ |    000008C1  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000008C2  A$Sprite_ |    000008C3  A$Sprite_ |    000008C4  A$Sprite_
+     000008C5  A$Sprite_ |    000008C8  A$Sprite_ |    000008C9  A$Sprite_
+     000008CA  A$Sprite_ |    000008CB  A$Sprite_ |    000008CC  A$Sprite_
+     000008CD  A$Sprite_ |    000008CF  A$Sprite_ |    000008D0  A$Sprite_
+     000008D1  A$Sprite_ |    000008D2  A$Sprite_ |    000008D5  A$Sprite_
+     000008D6  A$Sprite_ |    000008D7  A$Sprite_ |    000008D8  A$Sprite_
+     000008D9  A$Sprite_ |    000008DA  A$Sprite_ |    000008DA  C$Sprite_
+     000008DD  A$Sprite_ |    000008DD  C$Sprite_ |    000008DE  A$Sprite_
+     000008DF  A$Sprite_ |    000008E0  A$Sprite_ |    000008E1  A$Sprite_
+     000008E2  A$Sprite_ |    000008E3  A$Sprite_ |    000008E4  A$Sprite_
+     000008E5  A$Sprite_ |    000008E7  A$Sprite_ |    000008E8  A$Sprite_
+     000008E9  A$Sprite_ |    000008EA  A$Sprite_ |    000008ED  A$Sprite_
+     000008EE  A$Sprite_ |    000008EF  A$Sprite_ |    000008F0  A$Sprite_
+     000008F1  A$Sprite_ |    000008F2  A$Sprite_ |    000008F3  A$Sprite_
+     000008F6  A$Sprite_ |    000008F7  A$Sprite_ |    000008F8  A$Sprite_
+     000008F9  A$Sprite_ |    000008FA  A$Sprite_ |    000008FB  A$Sprite_
+     000008FD  A$Sprite_ |    000008FE  A$Sprite_ |    000008FF  A$Sprite_
+     00000900  A$Sprite_ |    00000903  A$Sprite_ |    00000904  A$Sprite_
+     00000905  A$Sprite_ |    00000906  A$Sprite_ |    00000907  A$Sprite_
+     00000908  A$Sprite_ |    00000909  A$Sprite_ |    0000090C  A$Sprite_
+     0000090D  A$Sprite_ |    0000090E  A$Sprite_ |    0000090F  A$Sprite_
+     00000910  A$Sprite_ |    00000911  A$Sprite_ |    00000913  A$Sprite_
+     00000914  A$Sprite_ |    00000915  A$Sprite_ |    00000916  A$Sprite_
+     00000919  A$Sprite_ |    0000091A  A$Sprite_ |    0000091B  A$Sprite_
+     0000091C  A$Sprite_ |    0000091D  A$Sprite_ |    0000091E  A$Sprite_
+     0000091F  A$Sprite_ |    00000922  A$Sprite_ |    00000923  A$Sprite_
+     00000924  A$Sprite_ |    00000925  A$Sprite_ |    00000926  A$Sprite_
+     00000927  A$Sprite_ |    00000929  A$Sprite_ |    0000092A  A$Sprite_
+     0000092B  A$Sprite_ |    0000092C  A$Sprite_ |    0000092F  A$Sprite_
+     00000930  A$Sprite_ |    00000931  A$Sprite_ |    00000932  A$Sprite_
+     00000933  A$Sprite_ |    00000934  A$Sprite_ |    00000935  A$Sprite_
+     00000935  C$Sprite_ |    00000937  A$Sprite_ |    00000937  C$Sprite_
+     00000938  A$Sprite_ |    00000939  A$Sprite_ |    0000093A  A$Sprite_
+     0000093B  A$Sprite_ |    0000093C  A$Sprite_ |    0000093D  A$Sprite_
+     0000093E  A$Sprite_ |    0000093F  A$Sprite_ |    00000941  A$Sprite_
+     00000942  A$Sprite_ |    00000943  A$Sprite_ |    00000944  A$Sprite_
+     00000947  A$Sprite_ |    00000948  A$Sprite_ |    00000949  A$Sprite_
+     0000094A  A$Sprite_ |    0000094B  A$Sprite_ |    0000094C  A$Sprite_
+     0000094D  A$Sprite_ |    00000950  A$Sprite_ |    00000951  A$Sprite_
+     00000952  A$Sprite_ |    00000953  A$Sprite_ |    00000954  A$Sprite_
+     00000955  A$Sprite_ |    00000957  A$Sprite_ |    00000958  A$Sprite_
+     00000959  A$Sprite_ |    0000095A  A$Sprite_ |    0000095D  A$Sprite_
+     0000095E  A$Sprite_ |    0000095F  A$Sprite_ |    00000960  A$Sprite_
+     00000961  A$Sprite_ |    00000962  A$Sprite_ |    00000963  A$Sprite_
+     00000966  A$Sprite_ |    00000967  A$Sprite_ |    00000968  A$Sprite_
+     00000969  A$Sprite_ |    0000096A  A$Sprite_ |    0000096B  A$Sprite_
+     0000096D  A$Sprite_ |    0000096E  A$Sprite_ |    0000096F  A$Sprite_
+     00000970  A$Sprite_ |    00000973  A$Sprite_ |    00000974  A$Sprite_
+     00000975  A$Sprite_ |    00000976  A$Sprite_ |    00000977  A$Sprite_
+     00000978  A$Sprite_ |    00000979  A$Sprite_ |    0000097C  A$Sprite_
+     0000097D  A$Sprite_ |    0000097E  A$Sprite_ |    0000097F  A$Sprite_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000007F1 =        2033. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000980  A$Sprite_ |    00000981  A$Sprite_ |    00000983  A$Sprite_
+     00000984  A$Sprite_ |    00000985  A$Sprite_ |    00000986  A$Sprite_
+     00000989  A$Sprite_ |    0000098A  A$Sprite_ |    0000098B  A$Sprite_
+     0000098C  A$Sprite_ |    0000098D  A$Sprite_ |    0000098E  A$Sprite_
+     0000098F  A$Sprite_ |    0000098F  C$Sprite_ |    0000098F  C$Sprite_
+     00000992  A$Sprite_ |    00000993  A$Sprite_ |    00000996  A$Sprite_
+     00000997  A$Sprite_ |    00000998  A$Sprite_ |    00000999  A$Sprite_
+     00000999  C$Sprite_ |    00000999  XG$transl |    0000099A  A$System$
+     0000099A  C$System. |    0000099A  G$cpu_wai |    0000099A  _cpu_wait
+     0000099C  A$System$ |    0000099C  C$System. |    0000099E  A$System$
+     0000099F  A$System$ |    000009A0  A$System$ |    000009A1  A$System$
+     000009A4  A$System$ |    000009A5  A$System$ |    000009A6  A$System$
+     000009A9  A$System$ |    000009AB  A$System$ |    000009AC  A$System$
+     000009AD  A$System$ |    000009AE  A$System$ |    000009AF  A$System$
+     000009B0  A$System$ |    000009B1  A$System$ |    000009B2  A$System$
+     000009B3  A$System$ |    000009B4  A$System$ |    000009B5  A$System$
+     000009B6  A$System$ |    000009B7  A$System$ |    000009B8  A$System$
+     000009B9  A$System$ |    000009BA  A$System$ |    000009BB  A$System$
+     000009BC  A$System$ |    000009BD  A$System$ |    000009BF  A$System$
+     000009C0  A$System$ |    000009C1  A$System$ |    000009C3  A$System$
+     000009C5  A$System$ |    000009C6  A$System$ |    000009C7  A$System$
+     000009C8  A$System$ |    000009C9  A$System$ |    000009CA  A$System$
+     000009CB  A$System$ |    000009CD  A$System$ |    000009CE  A$System$
+     000009CF  A$System$ |    000009D1  A$System$ |    000009D2  A$System$
+     000009D3  A$System$ |    000009D4  A$System$ |    000009D5  A$System$
+     000009D6  A$System$ |    000009D7  A$System$ |    000009D8  A$System$
+     000009D9  A$System$ |    000009DA  A$System$ |    000009DB  A$System$
+     000009DC  A$System$ |    000009DD  A$System$ |    000009DE  A$System$
+     000009DF  A$System$ |    000009E1  A$System$ |    000009E1  C$System.
+     000009E4  A$System$ |    000009E4  C$System. |    000009E5  A$System$
+     000009E7  A$System$ |    000009E9  A$System$ |    000009E9  C$System.
+     000009E9  XG$cpu_wa |    000009EA  A$System$ |    000009EA  C$System.
+     000009EA  C$System. |    000009EA  G$render$ |    000009EA  _render  
+     000009EC  A$System$ |    000009EE  A$System$ |    000009F0  A$System$
+     000009F0  C$System. |    000009F0  XG$render
+ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER0               00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000020  .call_hl 
+ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER1               00000000    00000005 =           5. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000028  .MemsetSm
+ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER2               00000000    00000007 =           7. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000030  .MemcpySm
+ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER3               00000000    00000008 =           8. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER4               00000000    0000004E =          78. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000080  .int      |    0000008F  _wait_int |    0000009C  __standar
+     000000AC  _refresh_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER5               00000000    00000002 =           2. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER6               00000000    00000030 =          48. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER7               00000000    00000006 =           6. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER8               00000000    00000003 =           3. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER9               00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADERa               00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADERb               00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADERc               00000000    00000002 =           2. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADERd               00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADERe               00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADERf               00000000    00000002 =           2. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER10              00000000    00000082 =         130. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000150  .reset    |    00000150  _reset    |    00000157  .code_sta
+     000001B7  _exit     |    000001BB  _set_inte
+ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HEADER11              00000000    00000001 =           1. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HOME                  000009F1    000002C1 =         705. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000009F1  .memset_s |    000009FA  .memcpy_s |    00000A17  .remove_V
+     00000A1A  .remove_i |    00000A37  .add_VBL  |    00000A3A  .add_int 
+     00000A45  .wait_vbl |    00000A45  _wait_vbl |    00000A55  .display_
+     00000A55  _display_ |    00000A6D  _remove_V |    00000A78  _add_VBL 
+     00000A83  __divsuch |    00000A90  __modsuch |    00000A9A  __divusch
+     00000AAC  __modusch |    00000ABC  __divscha |    00000AC8  __modscha
+     00000AD2  __divsint |    00000AE3  __modsint |    00000AF2  __divucha
+     00000AFE  __moducha |    00000B08  __divuint |    00000B19  __moduint
+     00000B28  .div8     |    00000B28  .mod8     |    00000B30  .div16   
+     00000B30  .mod16    |    00000B66  .divu8    |    00000B66  .modu8   
+     00000B69  .divu16   |    00000B69  .modu16   |    00000BAA  _set_tile
+     00000BAF  _set_bkg_ |    00000BAF  _set_win_ |    00000BB7  _set_spri
+     00000BE7  __mulsuch |    00000BF1  __mulusch |    00000BFB  __mulscha
+     00000C0D  __mulucha |    00000C19  __mulint  |    00000C3F  .padup   
+     00000C3F  _waitpadu |    00000C4F  .jpad     |    00000C4F  _joypad  
+     00000C77  _waitpad  |    00000C7A  .wait_pad |    00000C81  _delay   
+     00000C86  .delay   
+ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_GSINIT                00000CB2    0000000C =          12. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000CB2  gsinit   
+ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_GSFINAL               00000CBE    00000001 =           1. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_DATA                  0000C0A0    00000019 =          25. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     0000C0A0  __cpu     |    0000C0A1  __is_GBA  |    0000C0A2  .mode    
+     0000C0A3  .sys_time |    0000C0A3  _sys_time |    0000C0A5  .int_0x40
+ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HRAM12                00000000    00000003 =           3. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     0000FF90  __current |    0000FF92  __shadow_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
+
+Files Linked                              [ module(s) ]
+
+C:\gbdk\lib/small/asxxxx/gb/crt0.o        [ Runtime ]
+build/buildfiles/Clean_Up_Crew.o          [ Clean_Up_Crew ]
+build/buildfiles/engine/Map_Engine.o      [ Map_Engine ]
+build/buildfiles/engine/Sound.o           [ Sound ]
+build/buildfiles/engine/Sprite_Engine.o   [ Sprite_Engine ]
+build/buildfiles/engine/System.o          [ System ]
+
+
+Libraries Linked                          [ object file ]
+
+C:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib  [ div.o ]
+C:\gbdk\lib/small/asxxxx/gb/gb.lib        [ sfr.o ]
+C:\gbdk\lib/small/asxxxx/gb/gb.lib        [ set_data.o ]
+C:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib  [ mul.o ]
+C:\gbdk\lib/small/asxxxx/gb/gb.lib        [ pad.o ]
+C:\gbdk\lib/small/asxxxx/gb/gb.lib        [ delay.o ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+
+User Base Address Definitions
+
+_DATA=0xC0A0
+_CODE=0x0200
+ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
+
+User Global Definitions
+
+_shadow_OAM=0xC000
+.STACK=0xE000
+.refresh_OAM=0xFF80
+
+
