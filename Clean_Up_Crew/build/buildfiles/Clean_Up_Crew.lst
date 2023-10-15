@@ -9,147 +9,154 @@
                                       9 ; Public variables in this module
                                      10 ;--------------------------------------------------------
                                      11 	.globl _main
-                                     12 	.globl _render
-                                     13 	.globl _init_game
-                                     14 	.globl _game_loop
-                                     15 	.globl _update
-                                     16 	.globl _input
-                                     17 ;--------------------------------------------------------
-                                     18 ; special function registers
-                                     19 ;--------------------------------------------------------
+                                     12 	.globl _move_player
+                                     13 	.globl _create_player_old
+                                     14 	.globl _init_game
+                                     15 	.globl _game_loop
+                                     16 	.globl _update
+                                     17 	.globl _input
+                                     18 ;--------------------------------------------------------
+                                     19 ; special function registers
                                      20 ;--------------------------------------------------------
-                                     21 ; ram data
-                                     22 ;--------------------------------------------------------
-                                     23 	.area _DATA
-                                     24 ;--------------------------------------------------------
-                                     25 ; ram data
-                                     26 ;--------------------------------------------------------
-                                     27 	.area _INITIALIZED
-                                     28 ;--------------------------------------------------------
-                                     29 ; absolute external ram data
-                                     30 ;--------------------------------------------------------
-                                     31 	.area _DABS (ABS)
-                                     32 ;--------------------------------------------------------
-                                     33 ; global & static initialisations
-                                     34 ;--------------------------------------------------------
-                                     35 	.area _HOME
-                                     36 	.area _GSINIT
-                                     37 	.area _GSFINAL
-                                     38 	.area _GSINIT
-                                     39 ;--------------------------------------------------------
-                                     40 ; Home
-                                     41 ;--------------------------------------------------------
-                                     42 	.area _HOME
+                                     21 ;--------------------------------------------------------
+                                     22 ; ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area _DATA
+                                     25 ;--------------------------------------------------------
+                                     26 ; ram data
+                                     27 ;--------------------------------------------------------
+                                     28 	.area _INITIALIZED
+                                     29 ;--------------------------------------------------------
+                                     30 ; absolute external ram data
+                                     31 ;--------------------------------------------------------
+                                     32 	.area _DABS (ABS)
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area _HOME
+                                     37 	.area _GSINIT
+                                     38 	.area _GSFINAL
+                                     39 	.area _GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
                                      43 	.area _HOME
-                                     44 ;--------------------------------------------------------
-                                     45 ; code
-                                     46 ;--------------------------------------------------------
-                                     47 	.area _CODE
-                           000000    48 	G$main$0$0	= .
-                                     49 	.globl	G$main$0$0
-                           000000    50 	C$Clean_Up_Crew.c$62$0_0$121	= .
-                                     51 	.globl	C$Clean_Up_Crew.c$62$0_0$121
-                                     52 ;src/Clean_Up_Crew.c:62: int main(int argc, char *argv[]) 
-                                     53 ;	---------------------------------
-                                     54 ; Function main
-                                     55 ; ---------------------------------
-      000000                         56 _main::
-                           000000    57 	C$Clean_Up_Crew.c$65$1_0$121	= .
-                                     58 	.globl	C$Clean_Up_Crew.c$65$1_0$121
-                                     59 ;src/Clean_Up_Crew.c:65: init_game();
-      000000 CDr0Ar00                60 	call	_init_game
-                           000003    61 	C$Clean_Up_Crew.c$68$1_0$121	= .
-                                     62 	.globl	C$Clean_Up_Crew.c$68$1_0$121
-                                     63 ;src/Clean_Up_Crew.c:68: game_loop();
-      000003 CDr0Br00                64 	call	_game_loop
-                           000006    65 	C$Clean_Up_Crew.c$70$1_0$121	= .
-                                     66 	.globl	C$Clean_Up_Crew.c$70$1_0$121
-                                     67 ;src/Clean_Up_Crew.c:70: return 0;
-      000006 11 00 00                68 	ld	de, #0x0000
-                           000009    69 	C$Clean_Up_Crew.c$71$1_0$121	= .
-                                     70 	.globl	C$Clean_Up_Crew.c$71$1_0$121
-                                     71 ;src/Clean_Up_Crew.c:71: }
-                           000009    72 	C$Clean_Up_Crew.c$71$1_0$121	= .
-                                     73 	.globl	C$Clean_Up_Crew.c$71$1_0$121
-                           000009    74 	XG$main$0$0	= .
-                                     75 	.globl	XG$main$0$0
-      000009 C9                      76 	ret
-                           00000A    77 	G$init_game$0$0	= .
-                                     78 	.globl	G$init_game$0$0
-                           00000A    79 	C$Clean_Up_Crew.c$79$1_0$123	= .
-                                     80 	.globl	C$Clean_Up_Crew.c$79$1_0$123
-                                     81 ;src/Clean_Up_Crew.c:79: void init_game()
-                                     82 ;	---------------------------------
-                                     83 ; Function init_game
-                                     84 ; ---------------------------------
-      00000A                         85 _init_game::
-                           00000A    86 	C$Clean_Up_Crew.c$84$1_0$123	= .
-                                     87 	.globl	C$Clean_Up_Crew.c$84$1_0$123
-                                     88 ;src/Clean_Up_Crew.c:84: }
-                           00000A    89 	C$Clean_Up_Crew.c$84$1_0$123	= .
-                                     90 	.globl	C$Clean_Up_Crew.c$84$1_0$123
-                           00000A    91 	XG$init_game$0$0	= .
-                                     92 	.globl	XG$init_game$0$0
-      00000A C9                      93 	ret
-                           00000B    94 	G$game_loop$0$0	= .
-                                     95 	.globl	G$game_loop$0$0
-                           00000B    96 	C$Clean_Up_Crew.c$92$1_0$124	= .
-                                     97 	.globl	C$Clean_Up_Crew.c$92$1_0$124
-                                     98 ;src/Clean_Up_Crew.c:92: void game_loop()
-                                     99 ;	---------------------------------
-                                    100 ; Function game_loop
-                                    101 ; ---------------------------------
-      00000B                        102 _game_loop::
-                           00000B   103 	C$Clean_Up_Crew.c$94$1_0$124	= .
-                                    104 	.globl	C$Clean_Up_Crew.c$94$1_0$124
-                                    105 ;src/Clean_Up_Crew.c:94: while(1)
-      00000B                        106 00102$:
-                           00000B   107 	C$Clean_Up_Crew.c$100$2_0$125	= .
-                                    108 	.globl	C$Clean_Up_Crew.c$100$2_0$125
-                                    109 ;src/Clean_Up_Crew.c:100: render();
-      00000B CDr00r00               110 	call	_render
-                           00000E   111 	C$Clean_Up_Crew.c$102$1_0$124	= .
-                                    112 	.globl	C$Clean_Up_Crew.c$102$1_0$124
-                                    113 ;src/Clean_Up_Crew.c:102: }
-                           00000E   114 	C$Clean_Up_Crew.c$102$1_0$124	= .
-                                    115 	.globl	C$Clean_Up_Crew.c$102$1_0$124
-                           00000E   116 	XG$game_loop$0$0	= .
-                                    117 	.globl	XG$game_loop$0$0
-      00000E 18 FB                  118 	jr	00102$
-                           000010   119 	G$update$0$0	= .
-                                    120 	.globl	G$update$0$0
-                           000010   121 	C$Clean_Up_Crew.c$110$1_0$127	= .
-                                    122 	.globl	C$Clean_Up_Crew.c$110$1_0$127
-                                    123 ;src/Clean_Up_Crew.c:110: void update()
-                                    124 ;	---------------------------------
-                                    125 ; Function update
-                                    126 ; ---------------------------------
-      000010                        127 _update::
-                           000010   128 	C$Clean_Up_Crew.c$113$1_0$127	= .
-                                    129 	.globl	C$Clean_Up_Crew.c$113$1_0$127
-                                    130 ;src/Clean_Up_Crew.c:113: }
-                           000010   131 	C$Clean_Up_Crew.c$113$1_0$127	= .
-                                    132 	.globl	C$Clean_Up_Crew.c$113$1_0$127
-                           000010   133 	XG$update$0$0	= .
-                                    134 	.globl	XG$update$0$0
-      000010 C9                     135 	ret
-                           000011   136 	G$input$0$0	= .
-                                    137 	.globl	G$input$0$0
-                           000011   138 	C$Clean_Up_Crew.c$121$1_0$129	= .
-                                    139 	.globl	C$Clean_Up_Crew.c$121$1_0$129
-                                    140 ;src/Clean_Up_Crew.c:121: void input()
-                                    141 ;	---------------------------------
-                                    142 ; Function input
-                                    143 ; ---------------------------------
-      000011                        144 _input::
-                           000011   145 	C$Clean_Up_Crew.c$124$1_0$129	= .
-                                    146 	.globl	C$Clean_Up_Crew.c$124$1_0$129
-                                    147 ;src/Clean_Up_Crew.c:124: }
-                           000011   148 	C$Clean_Up_Crew.c$124$1_0$129	= .
-                                    149 	.globl	C$Clean_Up_Crew.c$124$1_0$129
-                           000011   150 	XG$input$0$0	= .
-                                    151 	.globl	XG$input$0$0
-      000011 C9                     152 	ret
-                                    153 	.area _CODE
-                                    154 	.area _INITIALIZER
-                                    155 	.area _CABS (ABS)
+                                     44 	.area _HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area _CODE
+                           000000    49 	G$main$0$0	= .
+                                     50 	.globl	G$main$0$0
+                           000000    51 	C$Clean_Up_Crew.c$63$0_0$129	= .
+                                     52 	.globl	C$Clean_Up_Crew.c$63$0_0$129
+                                     53 ;src/Clean_Up_Crew.c:63: int main(int argc, char *argv[]) 
+                                     54 ;	---------------------------------
+                                     55 ; Function main
+                                     56 ; ---------------------------------
+      000000                         57 _main::
+                           000000    58 	C$Clean_Up_Crew.c$66$1_0$129	= .
+                                     59 	.globl	C$Clean_Up_Crew.c$66$1_0$129
+                                     60 ;src/Clean_Up_Crew.c:66: init_game();
+      000000 CDr0Ar00                61 	call	_init_game
+                           000003    62 	C$Clean_Up_Crew.c$69$1_0$129	= .
+                                     63 	.globl	C$Clean_Up_Crew.c$69$1_0$129
+                                     64 ;src/Clean_Up_Crew.c:69: game_loop();
+      000003 CDr0Dr00                65 	call	_game_loop
+                           000006    66 	C$Clean_Up_Crew.c$71$1_0$129	= .
+                                     67 	.globl	C$Clean_Up_Crew.c$71$1_0$129
+                                     68 ;src/Clean_Up_Crew.c:71: return 0;
+      000006 11 00 00                69 	ld	de, #0x0000
+                           000009    70 	C$Clean_Up_Crew.c$72$1_0$129	= .
+                                     71 	.globl	C$Clean_Up_Crew.c$72$1_0$129
+                                     72 ;src/Clean_Up_Crew.c:72: }
+                           000009    73 	C$Clean_Up_Crew.c$72$1_0$129	= .
+                                     74 	.globl	C$Clean_Up_Crew.c$72$1_0$129
+                           000009    75 	XG$main$0$0	= .
+                                     76 	.globl	XG$main$0$0
+      000009 C9                      77 	ret
+                           00000A    78 	G$init_game$0$0	= .
+                                     79 	.globl	G$init_game$0$0
+                           00000A    80 	C$Clean_Up_Crew.c$80$1_0$130	= .
+                                     81 	.globl	C$Clean_Up_Crew.c$80$1_0$130
+                                     82 ;src/Clean_Up_Crew.c:80: void init_game()
+                                     83 ;	---------------------------------
+                                     84 ; Function init_game
+                                     85 ; ---------------------------------
+      00000A                         86 _init_game::
+                           00000A    87 	C$Clean_Up_Crew.c$89$1_0$130	= .
+                                     88 	.globl	C$Clean_Up_Crew.c$89$1_0$130
+                                     89 ;src/Clean_Up_Crew.c:89: create_player_old();
+                           00000A    90 	C$Clean_Up_Crew.c$92$1_0$130	= .
+                                     91 	.globl	C$Clean_Up_Crew.c$92$1_0$130
+                                     92 ;src/Clean_Up_Crew.c:92: }
+                           00000A    93 	C$Clean_Up_Crew.c$92$1_0$130	= .
+                                     94 	.globl	C$Clean_Up_Crew.c$92$1_0$130
+                           00000A    95 	XG$init_game$0$0	= .
+                                     96 	.globl	XG$init_game$0$0
+      00000A C3r00r00                97 	jp	_create_player_old
+                           00000D    98 	G$game_loop$0$0	= .
+                                     99 	.globl	G$game_loop$0$0
+                           00000D   100 	C$Clean_Up_Crew.c$100$1_0$131	= .
+                                    101 	.globl	C$Clean_Up_Crew.c$100$1_0$131
+                                    102 ;src/Clean_Up_Crew.c:100: void game_loop()
+                                    103 ;	---------------------------------
+                                    104 ; Function game_loop
+                                    105 ; ---------------------------------
+      00000D                        106 _game_loop::
+                           00000D   107 	C$Clean_Up_Crew.c$102$1_0$131	= .
+                                    108 	.globl	C$Clean_Up_Crew.c$102$1_0$131
+                                    109 ;src/Clean_Up_Crew.c:102: while(1)
+      00000D                        110 00102$:
+                           00000D   111 	C$Clean_Up_Crew.c$109$2_0$132	= .
+                                    112 	.globl	C$Clean_Up_Crew.c$109$2_0$132
+                                    113 ;src/Clean_Up_Crew.c:109: input();
+      00000D CDr13r00               114 	call	_input
+                           000010   115 	C$Clean_Up_Crew.c$111$1_0$131	= .
+                                    116 	.globl	C$Clean_Up_Crew.c$111$1_0$131
+                                    117 ;src/Clean_Up_Crew.c:111: }
+                           000010   118 	C$Clean_Up_Crew.c$111$1_0$131	= .
+                                    119 	.globl	C$Clean_Up_Crew.c$111$1_0$131
+                           000010   120 	XG$game_loop$0$0	= .
+                                    121 	.globl	XG$game_loop$0$0
+      000010 18 FB                  122 	jr	00102$
+                           000012   123 	G$update$0$0	= .
+                                    124 	.globl	G$update$0$0
+                           000012   125 	C$Clean_Up_Crew.c$119$1_0$134	= .
+                                    126 	.globl	C$Clean_Up_Crew.c$119$1_0$134
+                                    127 ;src/Clean_Up_Crew.c:119: void update()
+                                    128 ;	---------------------------------
+                                    129 ; Function update
+                                    130 ; ---------------------------------
+      000012                        131 _update::
+                           000012   132 	C$Clean_Up_Crew.c$122$1_0$134	= .
+                                    133 	.globl	C$Clean_Up_Crew.c$122$1_0$134
+                                    134 ;src/Clean_Up_Crew.c:122: }
+                           000012   135 	C$Clean_Up_Crew.c$122$1_0$134	= .
+                                    136 	.globl	C$Clean_Up_Crew.c$122$1_0$134
+                           000012   137 	XG$update$0$0	= .
+                                    138 	.globl	XG$update$0$0
+      000012 C9                     139 	ret
+                           000013   140 	G$input$0$0	= .
+                                    141 	.globl	G$input$0$0
+                           000013   142 	C$Clean_Up_Crew.c$130$1_0$135	= .
+                                    143 	.globl	C$Clean_Up_Crew.c$130$1_0$135
+                                    144 ;src/Clean_Up_Crew.c:130: void input()
+                                    145 ;	---------------------------------
+                                    146 ; Function input
+                                    147 ; ---------------------------------
+      000013                        148 _input::
+                           000013   149 	C$Clean_Up_Crew.c$133$1_0$135	= .
+                                    150 	.globl	C$Clean_Up_Crew.c$133$1_0$135
+                                    151 ;src/Clean_Up_Crew.c:133: move_player();
+                           000013   152 	C$Clean_Up_Crew.c$134$1_0$135	= .
+                                    153 	.globl	C$Clean_Up_Crew.c$134$1_0$135
+                                    154 ;src/Clean_Up_Crew.c:134: }
+                           000013   155 	C$Clean_Up_Crew.c$134$1_0$135	= .
+                                    156 	.globl	C$Clean_Up_Crew.c$134$1_0$135
+                           000013   157 	XG$input$0$0	= .
+                                    158 	.globl	XG$input$0$0
+      000013 C3r00r00               159 	jp	_move_player
+                                    160 	.area _CODE
+                                    161 	.area _INITIALIZER
+                                    162 	.area _CABS (ABS)

@@ -11,13 +11,15 @@
 /***************************************
  * Includes
  * ************************************/
-#include <gb/gb.h>
-#include <stdio.h>
-#include <stdint.h>
+/* Engine */
 #include "../include/engine/Sprite_Engine.h"
 #include "../include/engine/Sound.h"
 #include "../include/engine/Map_Engine.h"
 #include "../include/engine/System.h"
+/* Gameplay */
+#include "../include/gameplay/Players/Player.h"
+#include <gb/gb.h>
+#include <stdint.h>
 
 
 /***************************************
@@ -30,7 +32,6 @@
  * ************************************/
 void init_game();
 void game_loop();
-void render();
 void update();
 void input();
 
@@ -81,6 +82,13 @@ void init_game()
     // TODO: initialize game
 
     // TODO: Load the starting map
+    /* If no argv passed, load main menu, else load specified map */
+
+    /* Load Player */
+    //create_player();
+    create_player_old();
+
+    //render();
 }
 
 /**
@@ -94,10 +102,11 @@ void game_loop()
     while(1)
     {
 
-    // TODO: update game state
+        // TODO: update game state
 
-    // TODO: render game
-    render();
+        // TODO: render game
+
+        input();
     }
 }
 
@@ -121,5 +130,6 @@ void update()
 void input()
 {
     // TODO: handle input
+    move_player();
 }
 

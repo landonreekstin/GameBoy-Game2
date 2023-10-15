@@ -12,20 +12,20 @@ S A$System$99 Def000030
 S XG$cpu_wait$0$0 Def00004F
 S G$render$0$0 Def000050
 S A$System$100 Def000031
+S C$System.c$20$2_0$102 Def00004A
 S _render Def000050
 S A$System$110 Def00003D
 S A$System$101 Def000033
 S A$System$111 Def00003E
 S A$System$102 Def000034
-S C$System.c$22$2_0$102 Def00004F
-S C$System.c$20$3_0$103 Def000047
-S C$System.c$15$0_0$102 Def000000
 S A$System$112 Def00003F
 S A$System$103 Def000035
+S C$System.c$23$2_0$102 Def00004F
+S C$System.c$21$3_0$103 Def000047
+S C$System.c$16$0_0$102 Def000000
 S A$System$122 Def000047
 S A$System$113 Def000040
 S A$System$104 Def000037
-S C$System.c$17$1_0$101 Def000002
 S A$System$150 Def000050
 S A$System$132 Def00004D
 S A$System$114 Def000041
@@ -34,28 +34,28 @@ S A$System$160 Def000056
 S A$System$151 Def000052
 S A$System$115 Def000042
 S A$System$106 Def000039
-S C$System.c$24$2_0$104 Def000050
 S A$System$152 Def000054
 S A$System$116 Def000043
 S A$System$107 Def00003A
+S C$System.c$18$2_0$102 Def000002
 S A$System$126 Def00004A
 S A$System$117 Def000044
 S A$System$108 Def00003B
-S C$System.c$27$1_0$104 Def000050
-S C$System.c$19$2_0$102 Def00004A
+S C$System.c$25$2_0$105 Def000050
 S A$System$127 Def00004B
 S A$System$118 Def000045
 S A$System$109 Def00003C
-S C$System.c$28$1_0$104 Def000056
 S A$System$137 Def00004F
+S C$System.c$28$1_0$105 Def000050
+S C$System.c$29$1_0$105 Def000056
 S XG$render$0$0 Def000056
 S G$cpu_wait$0$0 Def000000
-S A$System$60 Def000005
+S A$System$60 Def000006
 S A$System$70 Def000014
-S A$System$61 Def000006
+S A$System$61 Def000008
 S A$System$80 Def00001E
 S A$System$71 Def000015
-S A$System$62 Def000007
+S A$System$62 Def000009
 S A$System$81 Def00001F
 S A$System$72 Def000016
 S A$System$63 Def00000A
@@ -81,7 +81,7 @@ S A$System$95 Def00002C
 S A$System$86 Def000025
 S A$System$77 Def00001B
 S A$System$68 Def000012
-S A$System$59 Def000004
+S A$System$59 Def000005
 S A$System$96 Def00002D
 S A$System$87 Def000026
 S A$System$78 Def00001C
@@ -99,7 +99,7 @@ A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
 T 00 00 00
 R 00 00 00 00
-T 00 00 00 E8 F8 F8 0A 2A 4F 46 11 E8 03 D5 C5 CD
+T 00 00 00 E8 F8 11 E8 03 D5 F8 0C 2A 5F 56 D5 CD
 R 00 00 00 00
 T 0D 00 00 00 00 E8 04 4B 42 69 60 29 09 29 09 29
 R 00 00 00 00 02 03 00 00

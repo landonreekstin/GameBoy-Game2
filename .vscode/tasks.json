@@ -11,7 +11,7 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew/build/buildscripts"
+                "cwd": "${workspaceFolder}/Clean_Up_Crew"
             },
             "presentation": {
                 "reveal": "always"

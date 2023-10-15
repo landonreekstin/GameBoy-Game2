@@ -8,12 +8,13 @@
  * Includes
  * ************************************/
 #include "../../include/engine/Sound.h"
+#include <gb/gb.h>
 
 /***************************************
  * Functions
  * ************************************/
 
-void sound_setup() 
+void sound_setup(void) 
 {
     NR52_REG = 0x80; // enable sound
     NR50_REG = 0x77; // set volume for both channels to max

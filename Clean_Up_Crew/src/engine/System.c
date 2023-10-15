@@ -8,20 +8,21 @@
  * Includes
  * ************************************/
 #include "../../include/engine/System.h"
+#include <gb/gb.h>
 
 /***************************************
  * Functions
  * ************************************/
-void cpu_wait(uint16_t ms)
+void cpu_wait(UINT16 ms)
 {
-    uint32_t numloops = (ms / 1000) * 60;
-    uint8_t i;
+    UINT32 numloops = (ms / 1000) * 60;
+    UINT8 i;
     for(i = 0; i < numloops; i++){
         wait_vbl_done();
     }     
 }
 
-void render()
+void render(void)
 {
     // TODO: render game
     SHOW_SPRITES;

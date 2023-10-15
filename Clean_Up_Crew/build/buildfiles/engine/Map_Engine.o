@@ -1,6 +1,6 @@
 ;!FILE build/buildfiles/engine/Map_Engine.asm
 XL3
-H 9 areas 34 global symbols
+H 9 areas 33 global symbols
 M Map_Engine
 O -mgbz80
 S _SCX_REG Ref000000
@@ -33,27 +33,26 @@ S A$Map_Engine$99 Def00001F
 S XG$scroll_map$0$0 Def000033
 S G$map_setup$0$0 Def000000
 S A$Map_Engine$100 Def000020
+S C$Map_Engine.c$20$1_0$103 Def000000
 S _map_setup Def000000
-S C$Map_Engine.c$21$1_0$103 Def00000F
 S A$Map_Engine$111 Def00002B
 S A$Map_Engine$102 Def000021
-S C$Map_Engine.c$22$1_0$103 Def000015
-S A$Map_Engine$112 Def00002D
+S C$Map_Engine.c$22$1_0$103 Def00000F
+S A$Map_Engine$112 Def00002E
 S A$Map_Engine$103 Def000023
-S C$Map_Engine.c$23$1_0$103 Def00001B
-S A$Map_Engine$113 Def00002E
+S C$Map_Engine.c$30$1_0$105 Def000033
+S C$Map_Engine.c$23$1_0$103 Def000015
+S A$Map_Engine$122 Def000033
+S A$Map_Engine$113 Def00002F
 S A$Map_Engine$104 Def000024
-S A$Map_Engine$123 Def000033
-S A$Map_Engine$114 Def00002F
+S C$Map_Engine.c$24$1_0$103 Def00001B
+S A$Map_Engine$114 Def000032
 S A$Map_Engine$105 Def000026
-S C$Map_Engine.c$17$0_0$103 Def000000
-S A$Map_Engine$115 Def000032
 S A$Map_Engine$106 Def000028
+S C$Map_Engine.c$18$0_0$103 Def000000
 S A$Map_Engine$107 Def000029
-S C$Map_Engine.c$25$1_0$105 Def00001C
-S C$Map_Engine.c$19$1_0$103 Def000000
-S C$Map_Engine.c$28$1_0$105 Def00002B
-S C$Map_Engine.c$29$1_0$105 Def000033
+S C$Map_Engine.c$26$1_0$105 Def00001C
+S C$Map_Engine.c$29$1_0$105 Def00002B
 S XG$map_setup$0$0 Def00001B
 S G$scroll_map$0$0 Def00001C
 A _DATA size 0 flags 0 addr 0
@@ -76,7 +75,7 @@ T 1C 00 00
 R 00 00 00 00
 T 1C 00 00 F8 03 3A 4F 46 F0 00 00 00 80 E0
 R 00 00 00 00 0B 09 00 00
-T 25 00 00 00 00 00 F0 00 00 00 81 E0 00 00 00 3E
+T 25 00 00 00 00 00 F0 00 00 00 81 E0 00 00 00 11
 R 00 00 00 00 0B 03 00 00 0B 07 01 00 0B 0C 01 00
-T 2C 00 00 E8 F5 33 CD 00 00 33 C9
+T 2C 00 00 E8 03 D5 CD 00 00 E1 C9
 R 00 00 00 00 02 07 05 00

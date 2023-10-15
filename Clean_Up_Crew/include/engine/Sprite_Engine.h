@@ -11,6 +11,7 @@
 #ifndef SPRITE_ENGINE_H
 #define SPRITE_ENGINE_H
 #include <gb/gb.h>
+#include <stdint.h>
 
 /***************************************
  * Defines
@@ -19,26 +20,26 @@
 #define SPRITE_SIZE 8
 
 typedef struct {
-  uint8_t id;
-  uint8_t init_tile;
-  uint8_t max_tile;
-  uint8_t x;
-  uint8_t y;
-  uint8_t velocity;
-  uint8_t is_visible;
-  uint8_t has_hitbox;
+  UINT8 id;
+  UINT8 init_tile;
+  UINT8 max_tile;
+  UINT8 x;
+  UINT8 y;
+  UINT8 velocity;
+  UINT8 is_visible;
+  UINT8 has_hitbox;
 } Sprite;
 
 typedef struct {
-  uint8_t meta_id;
-  uint8_t init_tile;
-  uint8_t max_tile;
-  uint8_t texture_idx;
-  uint8_t x;
-  uint8_t y;
-  uint8_t velocity;
-  uint8_t is_visible;
-  uint8_t has_hitbox;
+  UINT8 meta_id;
+  UINT8 init_tile;
+  UINT8 max_tile;
+  UINT8 texture_idx;
+  UINT8 x;
+  UINT8 y;
+  UINT8 velocity;
+  UINT8 is_visible;
+  UINT8 has_hitbox;
   Sprite* tile0;
   Sprite* tile1;
   Sprite* tile2;
@@ -55,37 +56,116 @@ typedef struct {
  * @param id The sprite's id.
  * @param init_tile The sprite's initial tile.
  * @param max_tile The sprite's maximum tile.
- * @param x The sprite's x position.
- * @param y The sprite's y position.
- * @param velocity The sprite's velocity.
- * @param is_visible Whether the sprite is visible or not.
- * @param has_hitbox Whether the sprite has a hitbox or not.
  * 
  * @return Sprite* Returns a pointer to the initialized sprite.
 */
-void init_sprite(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox);
+void init_sprite(Sprite* sprite, UINT8 id, UINT8 init_tile, UINT8 max_tile);
+
+void init_sprite_old(Sprite* sprite, uint8_t id, uint8_t init_tile, uint8_t max_tile, uint8_t x, uint8_t y, uint8_t velocity);
 
 /**
- * @brief Initializes a 16x16 meta sprite.
+ * @brief Sets the sprite's position.
  * 
- * @param meta Pointer to the meta sprite to initialize.
- * @param meta_id  The meta sprite's id. 
- * @param init_tile  The meta sprite's initial tile.
- * @param max_tile  The meta sprite's maximum tile.
- * @param texture_idx  The meta sprite's texture index.
- * @param x  The meta sprite's x position.
- * @param y  The meta sprite's y position.
- * @param velocity  The meta sprite's velocity.
- * @param is_visible  Whether the meta sprite is visible or not.
- * @param tile0  
- * @param tile1 
- * @param tile2 
- * @param tile3 
+ * @param sprite Pointer to the sprite to set.
+ * @param x The sprite's x position.
+ * @param y The sprite's y position.
  * 
  * @return void
- */
-void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, 
-                    uint8_t x, uint8_t y, uint8_t velocity, uint8_t is_visible, uint8_t has_hitbox, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
+*/
+void set_sprite_position(Sprite* sprite, UINT8 x, UINT8 y);
+
+/**
+ * @brief Sets the sprite's velocity.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param velocity The sprite's velocity.
+ * 
+ * @return void
+*/
+void set_sprite_velocity(Sprite* sprite, UINT8 velocity);
+
+/**
+ * @brief Sets the sprite's visibility.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param is_visible Whether the sprite is visible or not.
+ * 
+ * @return void
+*/
+void set_sprite_visibility(Sprite* sprite, UINT8 is_visible);
+
+/**
+ * @brief Sets the sprite's hitbox.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param has_hitbox Whether the sprite has a hitbox or not.
+ * 
+ * @return void
+*/
+void set_sprite_hitbox(Sprite* sprite, UINT8 has_hitbox);
+
+/**
+ * @brief Sets the sprite's tile.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param meta_id The sprite's meta id.
+ * @param init_tile The sprite's initial tile.
+ * @param max_tile The sprite's maximum tile.
+ * @param texture_idx The sprite's texture index.
+ * 
+ * @return void
+*/
+void init_16x16_meta(MetaSprite16x16* meta, UINT8 meta_id, UINT8 init_tile, UINT8 max_tile, UINT8 texture_idx,
+                    Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
+
+void init_16x16_meta_old(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, uint8_t max_tile, uint8_t texture_idx, uint8_t x, uint8_t y, Sprite* tile0, Sprite* tile1, Sprite* tile2, Sprite* tile3);
+
+/**
+ * @brief Sets the sprite's position.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param meta_id The sprite's meta id.
+ * @param init_tile The sprite's initial tile.
+ * @param max_tile The sprite's maximum tile.
+ * @param texture_idx The sprite's texture index.
+ * @param tile0 Pointer to the sprite's first sub tile.
+ * @param tile1 Pointer to the sprite's second sub tile.
+ * @param tile2 Pointer to the sprite's third sub tile.
+ * @param tile3 Pointer to the sprite's fourth sub tile.
+ * 
+ * @return void
+*/
+void set_16x16_meta_position(MetaSprite16x16* meta, UINT8 x, UINT8 y);
+
+/**
+ * @brief Sets the sprite's velocity.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param velocity The sprite's velocity.
+ * 
+ * @return void
+*/
+void set_16x16_meta_velocity(MetaSprite16x16* meta, UINT8 velocity);
+
+/**
+ * @brief Sets the sprite's visibility.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param is_visible Whether the sprite is visible or not.
+ * 
+ * @return void
+*/
+void set_16x16_meta_visibility(MetaSprite16x16* meta, UINT8 is_visible);
+
+/**
+ * @brief Sets the sprite's hitbox.
+ * 
+ * @param sprite Pointer to the sprite to set.
+ * @param has_hitbox Whether the sprite has a hitbox or not.
+ * 
+ * @return void
+*/
+void set_16x16_meta_hitbox(MetaSprite16x16* meta, UINT8 has_hitbox);
 
 /**
  * @brief Changes the meta sprite's texture index.
@@ -127,7 +207,7 @@ void translate_16x16_meta(MetaSprite16x16 *meta);
  * 
  * @return void
 */
-void setup_sprite(Sprite *s, unsigned char pixels[]);
+void setup_sprite(Sprite *s, UINT8 pixels[]);
 
 /**
  * @brief Loads meta sprite pixel data, sets initial tile and position. 
@@ -137,7 +217,7 @@ void setup_sprite(Sprite *s, unsigned char pixels[]);
  * 
  * @return void
 */
-void setup_16x16_meta(MetaSprite16x16 *meta, unsigned char pixels[]);
+void setup_16x16_meta(MetaSprite16x16 *meta, UINT8 pixels[]);
 
 /**
  * @brief Detects collision between two sprites.
@@ -170,7 +250,7 @@ uint8_t detect_meta_collision(Sprite *sprite, MetaSprite16x16 *meta);
  * @return uint8_t Returns 1 if collision detected, 0 otherwise.
  * 
  */
-uint8_t detect_map_collision(Sprite *sprite, unsigned char *map);
+uint8_t detect_map_collision(Sprite *sprite, UINT8 *map);
 
 /**
  * @brief Detects collision between a meta sprite and map tiles.
@@ -181,6 +261,6 @@ uint8_t detect_map_collision(Sprite *sprite, unsigned char *map);
  * @return uint8_t Returns 1 if collision detected, 0 otherwise.
  * 
  */
-uint8_t detect_meta_map_collision(MetaSprite16x16 *meta, unsigned char *map);
+uint8_t detect_meta_map_collision(MetaSprite16x16 *meta, UINT8 *map);
 
 #endif // SPRITE_ENGINE_H

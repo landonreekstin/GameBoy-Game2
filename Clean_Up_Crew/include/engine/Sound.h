@@ -16,11 +16,11 @@
  * ************************************/
 
 typedef struct {
-  uint8_t freqSweep;
-  uint8_t dutyAndLength;
-  uint8_t volEnvelope;
-  uint8_t freqlsb;
-  uint8_t pbAndFreqMsb;
+  UINT8 freqSweep;
+  UINT8 dutyAndLength;
+  UINT8 volEnvelope;
+  UINT8 freqlsb;
+  UINT8 pbAndFreqMsb;
 } Sound;
 
 /***************************************

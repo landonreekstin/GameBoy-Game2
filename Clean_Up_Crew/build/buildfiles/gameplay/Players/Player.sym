@@ -1,0 +1,240 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  0 A$Player$109                                                   000000 GR
+  0 A$Player$110                                                   000003 GR
+  0 A$Player$111                                                   000004 GR
+  0 A$Player$112                                                   000007 GR
+  0 A$Player$113                                                   000008 GR
+  0 A$Player$114                                                   000009 GR
+  0 A$Player$115                                                   00000A GR
+  0 A$Player$116                                                   00000B GR
+  0 A$Player$117                                                   00000E GR
+  0 A$Player$121                                                   000010 GR
+  0 A$Player$122                                                   000012 GR
+  0 A$Player$123                                                   000013 GR
+  0 A$Player$124                                                   000014 GR
+  0 A$Player$125                                                   000017 GR
+  0 A$Player$126                                                   000018 GR
+  0 A$Player$127                                                   000019 GR
+  0 A$Player$128                                                   00001A GR
+  0 A$Player$129                                                   00001B GR
+  0 A$Player$130                                                   00001E GR
+  0 A$Player$134                                                   000020 GR
+  0 A$Player$135                                                   000022 GR
+  0 A$Player$136                                                   000023 GR
+  0 A$Player$137                                                   000024 GR
+  0 A$Player$138                                                   000027 GR
+  0 A$Player$139                                                   000028 GR
+  0 A$Player$140                                                   000029 GR
+  0 A$Player$141                                                   00002A GR
+  0 A$Player$142                                                   00002B GR
+  0 A$Player$143                                                   00002E GR
+  0 A$Player$147                                                   000030 GR
+  0 A$Player$148                                                   000032 GR
+  0 A$Player$149                                                   000033 GR
+  0 A$Player$150                                                   000034 GR
+  0 A$Player$151                                                   000037 GR
+  0 A$Player$152                                                   000038 GR
+  0 A$Player$153                                                   000039 GR
+  0 A$Player$154                                                   00003A GR
+  0 A$Player$155                                                   00003B GR
+  0 A$Player$156                                                   00003E GR
+  0 A$Player$160                                                   000040 GR
+  0 A$Player$161                                                   000043 GR
+  0 A$Player$162                                                   000044 GR
+  0 A$Player$163                                                   000045 GR
+  0 A$Player$164                                                   000046 GR
+  0 A$Player$165                                                   000047 GR
+  0 A$Player$166                                                   00004A GR
+  0 A$Player$167                                                   00004B GR
+  0 A$Player$168                                                   00004C GR
+  0 A$Player$169                                                   00004D GR
+  0 A$Player$170                                                   00004E GR
+  0 A$Player$171                                                   000051 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Player$172                                                   000052 GR
+  0 A$Player$173                                                   000053 GR
+  0 A$Player$174                                                   000054 GR
+  0 A$Player$175                                                   000055 GR
+  0 A$Player$176                                                   000058 GR
+  0 A$Player$177                                                   000059 GR
+  0 A$Player$178                                                   00005A GR
+  0 A$Player$179                                                   00005B GR
+  0 A$Player$180                                                   00005C GR
+  0 A$Player$181                                                   00005F GR
+  0 A$Player$182                                                   000060 GR
+  0 A$Player$183                                                   000061 GR
+  0 A$Player$184                                                   000062 GR
+  0 A$Player$185                                                   000063 GR
+  0 A$Player$186                                                   000066 GR
+  0 A$Player$187                                                   000067 GR
+  0 A$Player$188                                                   000068 GR
+  0 A$Player$189                                                   000069 GR
+  0 A$Player$190                                                   00006A GR
+  0 A$Player$191                                                   00006D GR
+  0 A$Player$195                                                   00006F GR
+  0 A$Player$196                                                   000072 GR
+  0 A$Player$197                                                   000073 GR
+  0 A$Player$198                                                   000076 GR
+  0 A$Player$199                                                   000077 GR
+  0 A$Player$200                                                   000078 GR
+  0 A$Player$201                                                   000079 GR
+  0 A$Player$202                                                   00007A GR
+  0 A$Player$203                                                   00007D GR
+  0 A$Player$211                                                   00007F GR
+  0 A$Player$224                                                   000080 GR
+  0 A$Player$225                                                   000083 GR
+  0 A$Player$226                                                   000084 GR
+  0 A$Player$227                                                   000085 GR
+  0 A$Player$228                                                   000086 GR
+  0 A$Player$229                                                   000087 GR
+  0 A$Player$230                                                   00008A GR
+  0 A$Player$231                                                   00008B GR
+  0 A$Player$232                                                   00008C GR
+  0 A$Player$233                                                   00008D GR
+  0 A$Player$234                                                   00008E GR
+  0 A$Player$235                                                   000091 GR
+  0 A$Player$236                                                   000092 GR
+  0 A$Player$237                                                   000093 GR
+  0 A$Player$238                                                   000094 GR
+  0 A$Player$239                                                   000095 GR
+  0 A$Player$240                                                   000098 GR
+  0 A$Player$241                                                   000099 GR
+  0 A$Player$242                                                   00009A GR
+  0 A$Player$243                                                   00009B GR
+  0 A$Player$244                                                   00009C GR
+  0 A$Player$245                                                   00009F GR
+  0 A$Player$246                                                   0000A0 GR
+  0 A$Player$247                                                   0000A3 GR
+  0 A$Player$248                                                   0000A4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Player$249                                                   0000A5 GR
+  0 A$Player$250                                                   0000A6 GR
+  0 A$Player$251                                                   0000A7 GR
+  0 A$Player$252                                                   0000AA GR
+  0 A$Player$253                                                   0000AB GR
+  0 A$Player$254                                                   0000AC GR
+  0 A$Player$255                                                   0000AD GR
+  0 A$Player$256                                                   0000AE GR
+  0 A$Player$257                                                   0000B1 GR
+  0 A$Player$261                                                   0000B3 GR
+  0 A$Player$262                                                   0000B6 GR
+  0 A$Player$263                                                   0000B7 GR
+  0 A$Player$264                                                   0000BA GR
+  0 A$Player$265                                                   0000BB GR
+  0 A$Player$266                                                   0000BC GR
+  0 A$Player$267                                                   0000BD GR
+  0 A$Player$268                                                   0000BE GR
+  0 A$Player$269                                                   0000C1 GR
+  0 A$Player$277                                                   0000C3 GR
+  0 A$Player$290                                                   0000C4 GR
+  0 A$Player$291                                                   0000C7 GR
+  0 A$Player$292                                                   0000C8 GR
+  0 A$Player$293                                                   0000C9 GR
+  0 A$Player$294                                                   0000CA GR
+  0 A$Player$295                                                   0000CB GR
+  0 A$Player$296                                                   0000CE GR
+  0 A$Player$304                                                   0000CF GR
+  0 C$Player.c$42$0_0$123                                       =  000000 GR
+  0 C$Player.c$46$1_0$123                                       =  000000 GR
+  0 C$Player.c$47$1_0$123                                       =  000010 GR
+  0 C$Player.c$48$1_0$123                                       =  000020 GR
+  0 C$Player.c$49$1_0$123                                       =  000030 GR
+  0 C$Player.c$51$1_0$123                                       =  000040 GR
+  0 C$Player.c$59$1_0$123                                       =  00006F GR
+  0 C$Player.c$60$1_0$123                                       =  00007F GR
+  0 C$Player.c$62$1_0$125                                       =  000080 GR
+  0 C$Player.c$64$1_0$125                                       =  000080 GR
+  0 C$Player.c$66$1_0$125                                       =  0000B3 GR
+  0 C$Player.c$67$1_0$125                                       =  0000C3 GR
+  0 C$Player.c$69$1_0$127                                       =  0000C4 GR
+  0 C$Player.c$71$1_0$127                                       =  0000C4 GR
+  0 C$Player.c$72$1_0$127                                       =  0000CF GR
+  7 FPlayer$__xinit_PhasmoPlaceholder$0_0$0                     =  00000A GR
+  7 FPlayer$__xinit_p_player_sprite$0_0$0                       =  000008 GR
+  7 FPlayer$__xinit_p_player_sub_tile0$0_0$0                    =  000000 GR
+  7 FPlayer$__xinit_p_player_sub_tile1$0_0$0                    =  000002 GR
+  7 FPlayer$__xinit_p_player_sub_tile2$0_0$0                    =  000004 GR
+  7 FPlayer$__xinit_p_player_sub_tile3$0_0$0                    =  000006 GR
+  2 G$PhasmoPlaceholder$0_0$0                                   =  00000A GR
+  0 G$create_player$0$0                                         =  000000 GR
+  0 G$create_player_old$0$0                                     =  000080 GR
+  0 G$move_player$0$0                                           =  0000C4 GR
+  2 G$p_player_sprite$0_0$0                                     =  000008 GR
+  2 G$p_player_sub_tile0$0_0$0                                  =  000000 GR
+  2 G$p_player_sub_tile1$0_0$0                                  =  000002 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  2 G$p_player_sub_tile2$0_0$0                                  =  000004 GR
+  2 G$p_player_sub_tile3$0_0$0                                  =  000006 GR
+  1 G$player_sprite$0_0$0                                       =  000020 GR
+  1 G$player_sub_tile0$0_0$0                                    =  000000 GR
+  1 G$player_sub_tile1$0_0$0                                    =  000008 GR
+  1 G$player_sub_tile2$0_0$0                                    =  000010 GR
+  1 G$player_sub_tile3$0_0$0                                    =  000018 GR
+  0 XG$create_player$0$0                                        =  00007F GR
+  0 XG$create_player_old$0$0                                    =  0000C3 GR
+  0 XG$move_player$0$0                                          =  0000CF GR
+  2 _PhasmoPlaceholder                                             00000A GR
+  7 __xinit__PhasmoPlaceholder                                     00000A R
+  7 __xinit__p_player_sprite                                       000008 R
+  7 __xinit__p_player_sub_tile0                                    000000 R
+  7 __xinit__p_player_sub_tile1                                    000002 R
+  7 __xinit__p_player_sub_tile2                                    000004 R
+  7 __xinit__p_player_sub_tile3                                    000006 R
+  0 _create_player                                                 000000 GR
+  0 _create_player_old                                             000080 GR
+    _init_16x16_meta                                               ****** GX
+    _init_16x16_meta_old                                           ****** GX
+  0 _move_player                                                   0000C4 GR
+  2 _p_player_sprite                                               000008 GR
+  2 _p_player_sub_tile0                                            000000 GR
+  2 _p_player_sub_tile1                                            000002 GR
+  2 _p_player_sub_tile2                                            000004 GR
+  2 _p_player_sub_tile3                                            000006 GR
+  1 _player_sprite                                                 000020 GR
+  1 _player_sub_tile0                                              000000 GR
+  1 _player_sub_tile1                                              000008 GR
+  1 _player_sub_tile2                                              000010 GR
+  1 _player_sub_tile3                                              000018 GR
+    _set_16x16_meta_hitbox                                         ****** GX
+    _set_16x16_meta_position                                       ****** GX
+    _set_16x16_meta_velocity                                       ****** GX
+    _set_16x16_meta_visibility                                     ****** GX
+    _setup_16x16_meta                                              ****** GX
+    _translate_16x16_meta                                          ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 5.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size     D0   flags    0
+   1 _DATA                                      size     31   flags    0
+   2 _INITIALIZED                               size     4A   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size     4A   flags    0
+   8 _CABS                                      size      0   flags    8
+

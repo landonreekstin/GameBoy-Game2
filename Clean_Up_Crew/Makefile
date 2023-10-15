@@ -10,8 +10,15 @@ SRC_DIR = src
 
 BUILD_DIR = build/buildfiles
 
-CSOURCES := $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/engine/*.c) $(wildcard $(SRC_DIR)/gameplay/*.c) $(SRC_DIR)/Clean_Up_Crew.c
-
+CSOURCES := $(wildcard $(SRC_DIR)/*.c) \
+            $(wildcard $(SRC_DIR)/engine/*.c) \
+            $(wildcard $(SRC_DIR)/gameplay/*.c) \
+            $(wildcard $(SRC_DIR)/gameplay/Ghosts/*.c) \
+            $(wildcard $(SRC_DIR)/gameplay/Items/*.c) \
+            $(wildcard $(SRC_DIR)/gameplay/Maps/*.c) \
+            $(wildcard $(SRC_DIR)/gameplay/Players/*.c) \
+            $(SRC_DIR)/Clean_Up_Crew.c
+			
 COBJECTS := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(CSOURCES))
 
 DEPFILES := $(CSOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.d)

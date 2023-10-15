@@ -45,16 +45,16 @@
 	.area _CODE
 	G$map_setup$0$0	= .
 	.globl	G$map_setup$0$0
-	C$Map_Engine.c$17$0_0$103	= .
-	.globl	C$Map_Engine.c$17$0_0$103
-;src/engine/Map_Engine.c:17: void map_setup(uint8_t* mapTile) 
+	C$Map_Engine.c$18$0_0$103	= .
+	.globl	C$Map_Engine.c$18$0_0$103
+;src/engine/Map_Engine.c:18: void map_setup(UINT8* mapTile) 
 ;	---------------------------------
 ; Function map_setup
 ; ---------------------------------
 _map_setup::
-	C$Map_Engine.c$19$1_0$103	= .
-	.globl	C$Map_Engine.c$19$1_0$103
-;src/engine/Map_Engine.c:19: set_bkg_data(0, 7, mapTile);
+	C$Map_Engine.c$20$1_0$103	= .
+	.globl	C$Map_Engine.c$20$1_0$103
+;src/engine/Map_Engine.c:20: set_bkg_data(0, 7, mapTile);
 	ldhl	sp,	#2
 	ld	a, (hl+)
 	ld	e, a
@@ -64,36 +64,36 @@ _map_setup::
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-	C$Map_Engine.c$21$1_0$103	= .
-	.globl	C$Map_Engine.c$21$1_0$103
-;src/engine/Map_Engine.c:21: SHOW_BKG;
+	C$Map_Engine.c$22$1_0$103	= .
+	.globl	C$Map_Engine.c$22$1_0$103
+;src/engine/Map_Engine.c:22: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-	C$Map_Engine.c$22$1_0$103	= .
-	.globl	C$Map_Engine.c$22$1_0$103
-;src/engine/Map_Engine.c:22: DISPLAY_ON;
+	C$Map_Engine.c$23$1_0$103	= .
+	.globl	C$Map_Engine.c$23$1_0$103
+;src/engine/Map_Engine.c:23: DISPLAY_ON;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-	C$Map_Engine.c$23$1_0$103	= .
-	.globl	C$Map_Engine.c$23$1_0$103
-;src/engine/Map_Engine.c:23: }
-	C$Map_Engine.c$23$1_0$103	= .
-	.globl	C$Map_Engine.c$23$1_0$103
+	C$Map_Engine.c$24$1_0$103	= .
+	.globl	C$Map_Engine.c$24$1_0$103
+;src/engine/Map_Engine.c:24: }
+	C$Map_Engine.c$24$1_0$103	= .
+	.globl	C$Map_Engine.c$24$1_0$103
 	XG$map_setup$0$0	= .
 	.globl	XG$map_setup$0$0
 	ret
 	G$scroll_map$0$0	= .
 	.globl	G$scroll_map$0$0
-	C$Map_Engine.c$25$1_0$105	= .
-	.globl	C$Map_Engine.c$25$1_0$105
-;src/engine/Map_Engine.c:25: void scroll_map(uint8_t scrollSpeed_x, uint8_t scrollSpeed_y) 
+	C$Map_Engine.c$26$1_0$105	= .
+	.globl	C$Map_Engine.c$26$1_0$105
+;src/engine/Map_Engine.c:26: void scroll_map(UINT8 scrollSpeed_x, UINT8 scrollSpeed_y) 
 ;	---------------------------------
 ; Function scroll_map
 ; ---------------------------------
 _scroll_map::
-;src/engine/Map_Engine.c:27: scroll_bkg(scrollSpeed_x, scrollSpeed_y);
+;src/engine/Map_Engine.c:28: scroll_bkg(scrollSpeed_x, scrollSpeed_y);
 	ldhl	sp,	#3
 	ld	a, (hl-)
 	ld	c, a
@@ -105,19 +105,18 @@ _scroll_map::
 	ldh	a, (_SCY_REG + 0)
 	add	a, c
 	ldh	(_SCY_REG + 0), a
-	C$Map_Engine.c$28$1_0$105	= .
-	.globl	C$Map_Engine.c$28$1_0$105
-;src/engine/Map_Engine.c:28: cpu_wait(1000);
-	ld	a, #0xe8
-	push	af
-	inc	sp
+	C$Map_Engine.c$29$1_0$105	= .
+	.globl	C$Map_Engine.c$29$1_0$105
+;src/engine/Map_Engine.c:29: cpu_wait(1000);
+	ld	de, #0x03e8
+	push	de
 	call	_cpu_wait
-	inc	sp
-	C$Map_Engine.c$29$1_0$105	= .
-	.globl	C$Map_Engine.c$29$1_0$105
-;src/engine/Map_Engine.c:29: }
-	C$Map_Engine.c$29$1_0$105	= .
-	.globl	C$Map_Engine.c$29$1_0$105
+	pop	hl
+	C$Map_Engine.c$30$1_0$105	= .
+	.globl	C$Map_Engine.c$30$1_0$105
+;src/engine/Map_Engine.c:30: }
+	C$Map_Engine.c$30$1_0$105	= .
+	.globl	C$Map_Engine.c$30$1_0$105
 	XG$scroll_map$0$0	= .
 	.globl	XG$scroll_map$0$0
 	ret

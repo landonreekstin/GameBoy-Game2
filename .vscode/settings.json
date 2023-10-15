@@ -1,3 +1,10 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "sprite_engine.h": "c",
+        "system.h": "c",
+        "sound.h": "c",
+        "map_engine.h": "c",
+        "player.h": "c"
+    }
 }

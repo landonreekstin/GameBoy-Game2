@@ -15,11 +15,10 @@ Symbol Table
   0 A$Map_Engine$106                                               000028 GR
   0 A$Map_Engine$107                                               000029 GR
   0 A$Map_Engine$111                                               00002B GR
-  0 A$Map_Engine$112                                               00002D GR
-  0 A$Map_Engine$113                                               00002E GR
-  0 A$Map_Engine$114                                               00002F GR
-  0 A$Map_Engine$115                                               000032 GR
-  0 A$Map_Engine$123                                               000033 GR
+  0 A$Map_Engine$112                                               00002E GR
+  0 A$Map_Engine$113                                               00002F GR
+  0 A$Map_Engine$114                                               000032 GR
+  0 A$Map_Engine$122                                               000033 GR
   0 A$Map_Engine$58                                                000000 GR
   0 A$Map_Engine$59                                                000002 GR
   0 A$Map_Engine$60                                                000003 GR
@@ -39,14 +38,14 @@ Symbol Table
   0 A$Map_Engine$97                                                00001C GR
   0 A$Map_Engine$98                                                00001E GR
   0 A$Map_Engine$99                                                00001F GR
-  0 C$Map_Engine.c$17$0_0$103                                   =  000000 GR
-  0 C$Map_Engine.c$19$1_0$103                                   =  000000 GR
-  0 C$Map_Engine.c$21$1_0$103                                   =  00000F GR
-  0 C$Map_Engine.c$22$1_0$103                                   =  000015 GR
-  0 C$Map_Engine.c$23$1_0$103                                   =  00001B GR
-  0 C$Map_Engine.c$25$1_0$105                                   =  00001C GR
-  0 C$Map_Engine.c$28$1_0$105                                   =  00002B GR
-  0 C$Map_Engine.c$29$1_0$105                                   =  000033 GR
+  0 C$Map_Engine.c$18$0_0$103                                   =  000000 GR
+  0 C$Map_Engine.c$20$1_0$103                                   =  000000 GR
+  0 C$Map_Engine.c$22$1_0$103                                   =  00000F GR
+  0 C$Map_Engine.c$23$1_0$103                                   =  000015 GR
+  0 C$Map_Engine.c$24$1_0$103                                   =  00001B GR
+  0 C$Map_Engine.c$26$1_0$105                                   =  00001C GR
+  0 C$Map_Engine.c$29$1_0$105                                   =  00002B GR
+  0 C$Map_Engine.c$30$1_0$105                                   =  000033 GR
   0 G$map_setup$0$0                                             =  000000 GR
   0 G$scroll_map$0$0                                            =  00001C GR
   0 XG$map_setup$0$0                                            =  00001B GR
@@ -58,14 +57,8 @@ Symbol Table
   0 _map_setup                                                     000000 GR
   0 _scroll_map                                                    00001C GR
     _set_bkg_data                                                  ****** GX
+
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 2.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
-
-
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 3.
 Hexadecimal [24-Bits]
 
 Area Table
