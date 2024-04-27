@@ -228,7 +228,7 @@ void setup_16x16_meta(MetaSprite16x16 *meta, UINT8 pixels[]);
  * @return uint8_t Returns 1 if collision detected, 0 otherwise.
  * 
  */
-uint8_t detect_collision(Sprite *sprite1, Sprite *sprite2);
+UINT8 detect_collision(Sprite *sprite1, Sprite *sprite2);
 
 /**
  * @brief Detects collision between a sprite and a meta sprite.

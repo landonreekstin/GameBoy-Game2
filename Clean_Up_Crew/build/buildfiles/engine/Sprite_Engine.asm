@@ -3250,8 +3250,8 @@ _translate_sprite::
 00105$:
 	C$Sprite_Engine.c$308$1_0$202	= .
 	.globl	C$Sprite_Engine.c$308$1_0$202
-;src/engine/Sprite_Engine.c:308: cpu_wait(5000); // change to wait function
-	ld	de, #0x1388
+;src/engine/Sprite_Engine.c:308: cpu_wait(50); // change to wait function
+	ld	de, #0x0032
 	push	de
 	call	_cpu_wait
 	pop	hl

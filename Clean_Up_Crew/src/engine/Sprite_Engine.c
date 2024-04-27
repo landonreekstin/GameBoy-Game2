@@ -305,7 +305,7 @@ void translate_sprite(Sprite *s) {
             //change_sprite_tile(s);
             break;
     }
-    cpu_wait(5000); // change to wait function
+    cpu_wait(50); // change to wait function
 }
 
 void translate_16x16_meta(MetaSprite16x16 *meta) {
@@ -337,4 +337,10 @@ void translate_16x16_meta(MetaSprite16x16 *meta) {
             break;
     }
     cpu_wait(50); // change to wait function
+}
+
+UINT8 detect_collision(Sprite *sprite1, Sprite *sprite2)
+{
+    return (sprite1->x >= sprite2->x && sprite1->x <= sprite2->x + SPRITE_SIZE) &&
+           (sprite1->y >= sprite2->y && sprite1->y <= sprite2->y + SPRITE_SIZE);
 }

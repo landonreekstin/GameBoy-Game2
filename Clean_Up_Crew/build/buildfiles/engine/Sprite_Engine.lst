@@ -3250,8 +3250,8 @@
       000AB5                       3250 00105$:
                            000AB5  3251 	C$Sprite_Engine.c$308$1_0$202	= .
                                    3252 	.globl	C$Sprite_Engine.c$308$1_0$202
-                                   3253 ;src/engine/Sprite_Engine.c:308: cpu_wait(5000); // change to wait function
-      000AB5 11 88 13              3254 	ld	de, #0x1388
+                                   3253 ;src/engine/Sprite_Engine.c:308: cpu_wait(50); // change to wait function
+      000AB5 11 32 00              3254 	ld	de, #0x0032
       000AB8 D5                    3255 	push	de
       000AB9 CDr00r00              3256 	call	_cpu_wait
       000ABC E1                    3257 	pop	hl
