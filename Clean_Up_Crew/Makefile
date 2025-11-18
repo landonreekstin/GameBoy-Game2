@@ -1,51 +1,55 @@
-# GBDK root directory
-GBDK_HOME = C:/gbdk/
+# Get the GBDK location from the environment.
+GBDK_HOME ?= /opt/gbdk/
 
-# Compiler and linker flags for Game Boy
-LCC = $(GBDK_HOME)bin/lcc -Wa-l -Wl-m -Wl-j -DUSE_SFR_FOR_REG -debug
+# --- Tool Definitions ---
+LCC = $(GBDK_HOME)/bin/lcc
 
-PROJECTNAME = build/buildfiles/Clean_Up_Crew.gb
+# --- Flags ---
+LCC_FLAGS = -msm83:gb
 
-SRC_DIR = src
+# --- File Paths ---
+PROJECT_NAME = Clean_Up_Crew
+SRC_DIR      = src
+BUILD_DIR    = build
+OBJ_DIR      = $(BUILD_DIR)/obj
 
-BUILD_DIR = build/buildfiles
+# Define the final ROM and find all sources/objects.
+ROM_FILE     = $(BUILD_DIR)/$(PROJECT_NAME).gb
+SOURCES      := $(shell find $(SRC_DIR) -name '*.c')
+OBJECTS      := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
 
-CSOURCES := $(wildcard $(SRC_DIR)/*.c) \
-            $(wildcard $(SRC_DIR)/engine/*.c) \
-            $(wildcard $(SRC_DIR)/gameplay/*.c) \
-            $(wildcard $(SRC_DIR)/gameplay/Ghosts/*.c) \
-            $(wildcard $(SRC_DIR)/gameplay/Items/*.c) \
-            $(wildcard $(SRC_DIR)/gameplay/Maps/*.c) \
-            $(wildcard $(SRC_DIR)/gameplay/Players/*.c) \
-            $(SRC_DIR)/Clean_Up_Crew.c
-			
-COBJECTS := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(CSOURCES))
+# Explicitly define the GBDK startup object and BOTH required libraries.
+GBDK_CRT = $(GBDK_HOME)/lib/gb/crt0.o
+GBDK_GB_LIB = $(GBDK_HOME)/lib/gb/gb.lib
+GBDK_CORE_LIB = $(GBDK_HOME)/lib/sm83/sm83.lib
 
-DEPFILES := $(CSOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.d)
+# --- Build Rules ---
 
-BINS := $(PROJECTNAME)
+# The default target is the final ROM.
+all: $(ROM_FILE)
 
-all: $(BINS)
+# This is the main rule to link the final ROM from all object files.
+$(ROM_FILE): $(OBJECTS)
+	@echo "Linking $(PROJECT_NAME)..."
+	# Final, explicit linking command:
+	# 1. Call lcc with flags and the output file (-o $@)
+	# 2. Tell lcc NOT to add its own crt0.o or any libraries.
+	# 3. Provide the full path to the correct C runtime object (crt0.o).
+	# 4. Provide all of our project's compiled object files.
+	# 5. Provide the Game Boy library, then the core C library, at the very end.
+	$(LCC) $(LCC_FLAGS) -o $@ -no-crt -no-libs $(GBDK_CRT) $(OBJECTS) $(GBDK_GB_LIB) $(GBDK_CORE_LIB)
+	@echo "Successfully created $(ROM_FILE)"
 
-$(BUILD_DIR)/%.d: $(SRC_DIR)/%.c
-	@set -e; rm -f $@; \
-	$(LCC) -MM $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
-
--include $(DEPFILES)
-
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+# Rule to compile a C source file (.c) into an object file (.o).
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	$(LCC) -c $< -o $@
+	@echo "Compiling $<..."
+	$(LCC) $(LCC_FLAGS) -c -o $@ $<
 
-$(PROJECTNAME): $(COBJECTS)
-	$(LCC) -o $@ $^
+# Rule to clean up all build artifacts.
+clean:
+	@echo "Cleaning build artifacts..."
+	rm -rf $(BUILD_DIR)
 
-clean: 
-	rm -rf $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(BUILD_DIR)/*.lst $(BUILD_DIR)/*.map $(BUILD_DIR)/*.gb $(BUILD_DIR)/*.ihx $(BUILD_DIR)/*.sym $(BUILD_DIR)/*.cdb $(BUILD_DIR)/*.adb $(BUILD_DIR)/*.asm
-
+# Mark these targets as "phony" so make doesn't confuse them with files.
 .PHONY: all clean
-
-
-

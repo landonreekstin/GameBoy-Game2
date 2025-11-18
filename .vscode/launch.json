@@ -2,42 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "emuliciousPath": "C:/Program Files (x86)/Emulicious-with-Java64",
-            "type": "emulicious-debugger",
+            "name": "Build and Run (No Debug)",
+            "type": "cppvsdbg",
             "request": "launch",
-            "name": "Launch in Emulicious",
-            "program": "${workspaceFolder}/Clean_Up_Crew/build/buildfiles/Clean_Up_Crew.gb", // Modify to the appropriate directory
-            "port": 58870,
-            "stopOnEntry": false,
-            "preLaunchTask": "Build Game Boy"
+            "program": "${workspaceFolder}/build/Clean_Up_Crew.gb",
+            "preLaunchTask": "Run in mGBA"
         },
         {
-            "name": "Build Game Boy",
-            "type": "shell",
-            "command": "make", // Use bash to run Makefile
-            "args": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew"
-            },
-            "presentation": {
-                "reveal": "always"
-            },
-            "problemMatcher": {
-                "owner": "cpp",
-                "fileLocation": ["relative", "${workspaceFolder}/Clean_Up_Crew/build/buildfiles"],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
-                }
-            },
+            "name": "Debug with mGBA",
+            "type": "cppdbg",
+            "request": "attach",
+            "miDebuggerServerAddress": "localhost:2345",
+            "program": "${workspaceFolder}/build/Clean_Up_Crew.gb",
+            "MIMode": "gdb",
+            "preLaunchTask": "Run mGBA (GDB Server)"
         }
     ]
 }

@@ -1,38 +1,17 @@
 {
     "configurations": [
         {
-            "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/Clean_Up_Crew/include/**",
-                "C:\\gbdk/**"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "windowsSdkVersion": "10.0.17763.0",
-            "compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\VC\\Tools\\MSVC\\14.16.27023\\bin\\Hostx64\\x64\\cl.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64"
-        },
-        {
             "name": "GameBoy",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/Clean_Up_Crew/include/**",
-                "C:\\gbdk/**"
+                "${env:GBDK_HOME}/include/**"
             ],
             "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
+                "_DEBUG"
             ],
-            "compilerPath": "C:\\gbdk\\bin\\lcc.exe",
+            // The compiler is now in the PATH, but being explicit is safer.
+            "compilerPath": "${env:GBDK_HOME}/bin/lcc",
             "cStandard": "c99",
-            "cppStandard": "c++98",
             "intelliSenseMode": "gcc-x64"
         }
     ],

@@ -2,30 +2,77 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Game Boy",
+            "label": "clean",
             "type": "shell",
-            "command": "make", // Use the "make" command
-            "args": [],
+            "command": "make",
+            "args": ["clean"],
+            "options": {
+                "cwd": "${workspaceFolder}/Clean_Up_Crew"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build (Release)",
+            "type": "shell",
+            "command": "make",
+            "options": {
+                "cwd": "${workspaceFolder}/Clean_Up_Crew"
+            },
+            "dependsOn": ["clean"],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build (Debug)",
+            "type": "shell",
+            "command": "make",
+            "args": ["debug"],
             "options": {
                 "cwd": "${workspaceFolder}/Clean_Up_Crew"
             },
-            "presentation": {
-                "reveal": "always"
+            "dependsOn": ["clean"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Run in mGBA",
+            "type": "shell",
+            "command": "mgba",
+            "args": ["build/Clean_Up_Crew.gb"],
+            "options": {
+                "cwd": "${workspaceFolder}/Clean_Up_Crew"
             },
+            "dependsOn": ["build (Release)"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Run mGBA (GDB Server)",
+            "type": "shell",
+            "command": "mgba",
+            "args": [
+                "--gdb",
+                "build/Clean_Up_Crew.gb"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/Clean_Up_Crew"
+            },
+            "isBackground": true,
+            "dependsOn": ["build (Debug)"],
             "problemMatcher": {
-                "owner": "cpp",
-                "fileLocation": ["relative", "${workspaceFolder}/Clean_Up_Crew/build/buildfiles"],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
+                "pattern": [
+                    {
+                        "regexp": "Listening for gdb on port ([0-9]+)",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Listening for gdb on port",
+                    "endsPattern": "Connection from"
                 }
             }
         }
