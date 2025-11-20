@@ -1,2 +1,6 @@
 .direnv/
 Clean_Up_Crew/build/*
+tools/emulicious/cheats/*
+tools/emulicious/lib/*
+tools/emulicious/projects/*
+tools/emulicious/Emulicious.ini
