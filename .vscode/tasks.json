@@ -6,75 +6,16 @@
             "type": "shell",
             "command": "make",
             "args": ["clean"],
-            "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew"
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "build (Release)",
-            "type": "shell",
-            "command": "make",
-            "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew"
-            },
-            "dependsOn": ["clean"],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": ["$gcc"]
+            "options": { "cwd": "${workspaceFolder}/Clean_Up_Crew" }
         },
         {
             "label": "build (Debug)",
             "type": "shell",
             "command": "make",
             "args": ["debug"],
-            "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew"
-            },
+            "options": { "cwd": "${workspaceFolder}/Clean_Up_Crew" },
             "dependsOn": ["clean"],
-            "problemMatcher": ["$gcc"]
+            "group": { "kind": "build", "isDefault": true }
         },
-        {
-            "label": "Run in mGBA",
-            "type": "shell",
-            "command": "mgba",
-            "args": ["build/Clean_Up_Crew.gb"],
-            "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew"
-            },
-            "dependsOn": ["build (Release)"],
-            "problemMatcher": []
-        },
-        {
-            "label": "Run mGBA (GDB Server)",
-            "type": "shell",
-            "command": "mgba",
-            "args": [
-                "--gdb",
-                "build/Clean_Up_Crew.gb"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/Clean_Up_Crew"
-            },
-            "isBackground": true,
-            "dependsOn": ["build (Debug)"],
-            "problemMatcher": {
-                "pattern": [
-                    {
-                        "regexp": "Listening for gdb on port ([0-9]+)",
-                        "file": 1,
-                        "location": 2,
-                        "message": 3
-                    }
-                ],
-                "background": {
-                    "activeOnStart": true,
-                    "beginsPattern": "Listening for gdb on port",
-                    "endsPattern": "Connection from"
-                }
-            }
-        }
     ]
 }

@@ -6,6 +6,7 @@ LCC = $(GBDK_HOME)/bin/lcc
 
 # --- Flags ---
 LCC_FLAGS = -msm83:gb
+LCC_FLAGS += $(DEBUG_FLAGS)
 
 # --- File Paths ---
 PROJECT_NAME = Clean_Up_Crew
@@ -25,31 +26,28 @@ GBDK_CORE_LIB = $(GBDK_HOME)/lib/sm83/sm83.lib
 
 # --- Build Rules ---
 
-# The default target is the final ROM.
 all: $(ROM_FILE)
 
-# This is the main rule to link the final ROM from all object files.
 $(ROM_FILE): $(OBJECTS)
+	@mkdir -p $(BUILD_DIR)
 	@echo "Linking $(PROJECT_NAME)..."
-	# Final, explicit linking command:
-	# 1. Call lcc with flags and the output file (-o $@)
-	# 2. Tell lcc NOT to add its own crt0.o or any libraries.
-	# 3. Provide the full path to the correct C runtime object (crt0.o).
-	# 4. Provide all of our project's compiled object files.
-	# 5. Provide the Game Boy library, then the core C library, at the very end.
 	$(LCC) $(LCC_FLAGS) -o $@ -no-crt -no-libs $(GBDK_CRT) $(OBJECTS) $(GBDK_GB_LIB) $(GBDK_CORE_LIB)
+	@# Move debug symbols to build dir
+	@mv *.cdb $(BUILD_DIR)/ 2>/dev/null || true
+	@mv *.noi $(BUILD_DIR)/ 2>/dev/null || true
+	@mv *.map $(BUILD_DIR)/ 2>/dev/null || true
 	@echo "Successfully created $(ROM_FILE)"
 
-# Rule to compile a C source file (.c) into an object file (.o).
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
 	@echo "Compiling $<..."
 	$(LCC) $(LCC_FLAGS) -c -o $@ $<
 
-# Rule to clean up all build artifacts.
 clean:
 	@echo "Cleaning build artifacts..."
 	rm -rf $(BUILD_DIR)
 
-# Mark these targets as "phony" so make doesn't confuse them with files.
-.PHONY: all clean
+.PHONY: all clean debug
+
+debug:
+	$(MAKE) all DEBUG_FLAGS="-debug"

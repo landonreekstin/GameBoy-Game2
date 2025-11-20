@@ -2,20 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Build and Run (No Debug)",
-            "type": "cppvsdbg",
+            "name": "Debug with Emulicious",
+            "emuliciousPath": "${workspaceFolder}/tools/emulicious/Emulicious.jar",
+            "type": "emulicious-debugger",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Clean_Up_Crew.gb",
-            "preLaunchTask": "Run in mGBA"
-        },
-        {
-            "name": "Debug with mGBA",
-            "type": "cppdbg",
-            "request": "attach",
-            "miDebuggerServerAddress": "localhost:2345",
-            "program": "${workspaceFolder}/build/Clean_Up_Crew.gb",
-            "MIMode": "gdb",
-            "preLaunchTask": "Run mGBA (GDB Server)"
+            "program": "${workspaceFolder}/Clean_Up_Crew/build/Clean_Up_Crew.gb",
+            "port": 5555,
+            "stopOnEntry": true,
+            "preLaunchTask": "build (Debug)"
         }
     ]
 }
