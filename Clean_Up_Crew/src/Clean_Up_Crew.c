@@ -16,8 +16,10 @@
 #include "../include/engine/Sound.h"
 #include "../include/engine/Map_Engine.h"
 #include "../include/engine/System.h"
+#include "../include/engine/Debug.h"
 /* Gameplay */
 #include "../include/gameplay/Players/Player.h"
+#include "../include/gameplay/Maps/Test_Map.h"
 #include <gb/gb.h>
 #include <stdint.h>
 
@@ -39,6 +41,9 @@ void input();
 /***************************************
  * Local Variables
  * ************************************/
+Map test_map;
+Camera main_camera;
+uint16_t frame_count = 0;
 
 
 /***************************************
@@ -73,63 +78,91 @@ int main(int argc, char *argv[])
 
 /**
  * @brief Function for initializing the game.
- * 
+ *
  * @details This function is responsible for initializing the game.
- * 
+ *
  */
 void init_game()
 {
-    // TODO: initialize game
+    // Initialize the test map
+    map_init(&test_map, TEST_MAP_WIDTH, TEST_MAP_HEIGHT,
+             test_map_tiles, test_map_data, test_map_collision, TEST_MAP_TILE_COUNT);
 
-    // TODO: Load the starting map
-    /* If no argv passed, load main menu, else load specified map */
+    // Load the map into the Game Boy background
+    map_load(&test_map);
 
-    /* Load Player */
-    //create_player();
-    create_player_old();
+    // Initialize the camera for the map
+    camera_init(&main_camera, &test_map);
 
-    //render();
+    // Set player map boundaries for collision detection
+    player_map_width = test_map.width;
+    player_map_height = test_map.height;
+
+    // Create player sprite
+    create_player();
+
+    // Position camera at player's initial world position
+    camera_update(&main_camera, player_world_x, player_world_y);
+    camera_apply(&main_camera);
+
+    debug_print("Game initialized!");
 }
 
 /**
  * @brief Main game loop.
- * 
+ *
  * @details This function is the main game loop. It is responsible for updating the game state and rendering the game.
- * 
+ *
  */
 void game_loop()
 {
     while(1)
     {
-
-        // TODO: update game state
-
-        // TODO: render game
-
+        // Handle input
         input();
+
+        // Update game state
+        update();
+
+        // Wait for VBlank (prevents screen tearing)
+        wait_vbl_done();
     }
 }
 
 /**
  * @brief Function for updating the game state.
- * 
+ *
  * @details This function is responsible for updating the game state.
- * 
+ *
  */
 void update()
 {
-    // TODO: update game state
+    frame_count++;
+
+    // Update camera to follow player's WORLD position
+    camera_update(&main_camera, player_world_x, player_world_y);
+    camera_apply(&main_camera);
+
+    // More frequent debug output to catch movement issues (every 15 frames)
+    if (frame_count % 15 == 0) {
+        uint8_t input = joypad();
+        debug_print("=== INPUT DEBUG ===");
+        debug_print_value("Joypad State", input);
+        debug_print_value("Player World X", player_world_x);
+        debug_print_value("Player World Y", player_world_y);
+        debug_print_value("Camera X", main_camera.x);
+        debug_print_value("Camera Y", main_camera.y);
+    }
 }
 
 /**
  * @brief Function for handling input.
- * 
+ *
  * @details This function is responsible for handling input.
- * 
+ *
  */
 void input()
 {
-    // TODO: handle input
     move_player();
 }
 
