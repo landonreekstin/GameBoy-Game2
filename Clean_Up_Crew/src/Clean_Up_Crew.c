@@ -143,6 +143,11 @@ void update()
     camera_update(&main_camera, player_world_x, player_world_y);
     camera_apply(&main_camera);
 
+    // Sync sprite screen position: world position relative to camera
+    set_16x16_meta_position(p_player_sprite,
+                            player_world_x - main_camera.x,
+                            player_world_y - main_camera.y);
+
     // More frequent debug output to catch movement issues (every 15 frames)
     if (frame_count % 15 == 0) {
         uint8_t input = joypad();

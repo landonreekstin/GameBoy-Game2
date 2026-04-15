@@ -104,6 +104,6 @@ void camera_update(Camera* camera, uint8_t target_x, uint8_t target_y)
 
 void camera_apply(const Camera* camera)
 {
-    // Scroll the background to match camera position
-    scroll_bkg(camera->x, camera->y);
+    // Set background scroll to absolute camera position
+    move_bkg(camera->x, camera->y);
 }

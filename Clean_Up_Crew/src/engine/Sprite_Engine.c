@@ -111,10 +111,11 @@ void set_16x16_meta_position(MetaSprite16x16* meta, uint8_t x, uint8_t y)
     meta->x = x;
     meta->y = y;
 
-    // Update all sub-sprite positions using loop
+    // Update all sub-sprite positions and apply to hardware
     for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
         meta->tiles[i].x = meta->x + ((i & 1) ? SPRITE_SIZE : 0);  // Right tiles get +8 offset
         meta->tiles[i].y = meta->y + ((i & 2) ? SPRITE_SIZE : 0);  // Bottom tiles get +8 offset
+        move_sprite(meta->tiles[i].id, meta->tiles[i].x, meta->tiles[i].y);
     }
 }
 
