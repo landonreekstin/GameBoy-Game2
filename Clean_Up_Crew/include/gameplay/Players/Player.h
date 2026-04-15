@@ -24,45 +24,41 @@
 #define PLAYER_INIT_Y        50
 #define PLAYER_INIT_VELOCITY 1
 
-extern Sprite player_sub_tile0;
-extern Sprite player_sub_tile1;
-extern Sprite player_sub_tile2;
-extern Sprite player_sub_tile3;
-extern Sprite* p_player_sub_tile0;
-extern Sprite* p_player_sub_tile1;
-extern Sprite* p_player_sub_tile2;
-extern Sprite* p_player_sub_tile3;
 extern MetaSprite16x16 player_sprite;
 extern MetaSprite16x16* p_player_sprite;
+
+// Player world position (where player is in the 256x256 map)
+extern uint8_t player_world_x;
+extern uint8_t player_world_y;
+
+// Map boundaries for collision detection (set during initialization)
+extern uint8_t player_map_width;
+extern uint8_t player_map_height;
 
 /* Bank of tiles. */
 #define PhasmoPlaceholderBank 0
 /* Start of tile array. */
-extern UINT8 PhasmoPlaceholder[];
+extern uint8_t PhasmoPlaceholder[];
 
 /***************************************
  * Prototypes
  * ************************************/
 /**
  * @brief Sets up the test player.
- * 
+ *
  * @details Sets up the test player.
- * 
+ *
  * @param void
- * 
+ *
  * @return void
  */
 void create_player(void);
 
-void create_player_old(void);
-
 /**
  * @brief Moves the player.
- * 
+ *
  * @details Moves the player using the Joypad.
- * 
- * @param void
- * 
+ *
  * @return void
  */
 inline void move_player(void);

@@ -13,18 +13,23 @@
 /***************************************
  * Defines
  * ************************************/
-Sprite player_sub_tile0;
-Sprite player_sub_tile1;
-Sprite player_sub_tile2;
-Sprite player_sub_tile3;
-Sprite* p_player_sub_tile0 = &player_sub_tile0;
-Sprite* p_player_sub_tile1 = &player_sub_tile1;
-Sprite* p_player_sub_tile2 = &player_sub_tile2;
-Sprite* p_player_sub_tile3 = &player_sub_tile3;
 MetaSprite16x16 player_sprite;
 MetaSprite16x16* p_player_sprite = &player_sprite;
+
+// Player world position tracking
+uint8_t player_world_x = PLAYER_INIT_X;
+uint8_t player_world_y = PLAYER_INIT_Y;
+
+// Map boundaries (set during init_game)
+uint8_t player_map_width = 0;
+uint8_t player_map_height = 0;
+
+// Player screen position (fixed - player stays centered on screen)
+#define PLAYER_SCREEN_X 72  // Centered horizontally (160/2 - 16/2 = 72)
+#define PLAYER_SCREEN_Y 64  // Centered vertically (144/2 - 16/2 = 64)
+
 /* Start of tile array. */
-UINT8 PhasmoPlaceholder[] =
+uint8_t PhasmoPlaceholder[] =
 {
   0x00,0x1F,0x0E,0x31,0x1F,0x20,0x00,0x3F,
   0x1F,0x23,0x0F,0x33,0x0F,0x10,0x07,0x18,
@@ -41,32 +46,55 @@ UINT8 PhasmoPlaceholder[] =
  * ************************************/
 void create_player(void)
 {
-  // initialize  meta 16x16 sprite
-  
-  set_16x16_meta_position(p_player_sprite, PLAYER_INIT_X, PLAYER_INIT_Y);
-  set_16x16_meta_velocity(p_player_sprite, PLAYER_INIT_VELOCITY);
-  set_16x16_meta_visibility(p_player_sprite, 1);
-  set_16x16_meta_hitbox(p_player_sprite, 1);
+  // Initialize sprite at FIXED SCREEN position (player stays centered)
+  init_16x16_meta(p_player_sprite, PLAYER_SPRITE_ID, PLAYER_INIT_TILE, PLAYER_MAX_TILE, PLAYER_TEXTURE_IDX,
+                  PLAYER_SCREEN_X, PLAYER_SCREEN_Y);
 
-  init_16x16_meta(p_player_sprite, PLAYER_SPRITE_ID, PLAYER_INIT_TILE, PLAYER_MAX_TILE, PLAYER_TEXTURE_IDX, 
-                  p_player_sub_tile0, p_player_sub_tile1, p_player_sub_tile2, p_player_sub_tile3);
-
-  // TODO: separate init function into multiple functions
-  // set_sprite_tiles()
-  // set_sprite_position()
-  // Have sub tiles set inside init function
-
-  setup_16x16_meta(p_player_sprite, PhasmoPlaceholder);  
-}
-
-void create_player_old(void)
-{
-  init_16x16_meta_old(p_player_sprite, 0, 0, 4, 0, 50, 50, p_player_sub_tile0, p_player_sub_tile1, p_player_sub_tile2, p_player_sub_tile3);
-
-  setup_16x16_meta(p_player_sprite, PhasmoPlaceholder);  
+  // Load sprite graphics and configure hardware
+  setup_16x16_meta(p_player_sprite, PhasmoPlaceholder);
 }
 
 inline void move_player(void)
 {
-  translate_16x16_meta(p_player_sprite);
+  // Read joypad input - use fresh reading each frame
+  uint8_t input = joypad();
+
+  // Store OLD position for comparison
+  uint8_t old_x = player_world_x;
+  uint8_t old_y = player_world_y;
+
+  // Calculate new position directly from input (NO velocity accumulation)
+  int16_t new_x = (int16_t)player_world_x;
+  int16_t new_y = (int16_t)player_world_y;
+
+  // Check each direction independently and update position
+  // NOTE: Using separate if statements allows diagonal movement
+  if (input & J_LEFT) {
+    new_x -= DEFAULT_SCROLL_SPEED;
+  }
+  if (input & J_RIGHT) {
+    new_x += DEFAULT_SCROLL_SPEED;
+  }
+  if (input & J_UP) {
+    new_y -= DEFAULT_SCROLL_SPEED;
+  }
+  if (input & J_DOWN) {
+    new_y += DEFAULT_SCROLL_SPEED;
+  }
+
+  // Clamp to map boundaries (in pixels)
+  uint16_t max_x = (player_map_width * 8) - 16;  // Map width - player sprite width (16x16)
+  uint16_t max_y = (player_map_height * 8) - 16; // Map height - player sprite height (16x16)
+
+  if (new_x < 0) new_x = 0;
+  if (new_x > (int16_t)max_x) new_x = (int16_t)max_x;
+  if (new_y < 0) new_y = 0;
+  if (new_y > (int16_t)max_y) new_y = (int16_t)max_y;
+
+  // Update world position (this is the ONLY place player position should change)
+  player_world_x = (uint8_t)new_x;
+  player_world_y = (uint8_t)new_y;
+
+  // IMPORTANT: Sprite screen position stays fixed at 72,64
+  // The camera/background scrolls instead of the sprite moving
 }
