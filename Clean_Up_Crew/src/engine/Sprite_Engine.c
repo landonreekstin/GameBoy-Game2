@@ -115,7 +115,9 @@ void set_16x16_meta_position(MetaSprite16x16* meta, uint8_t x, uint8_t y)
     for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
         meta->tiles[i].x = meta->x + ((i & 1) ? SPRITE_SIZE : 0);  // Right tiles get +8 offset
         meta->tiles[i].y = meta->y + ((i & 2) ? SPRITE_SIZE : 0);  // Bottom tiles get +8 offset
-        move_sprite(meta->tiles[i].id, meta->tiles[i].x, meta->tiles[i].y);
+        move_sprite(meta->tiles[i].id,
+                    meta->tiles[i].x + SPRITE_OAM_X_OFS,
+                    meta->tiles[i].y + SPRITE_OAM_Y_OFS);
     }
 }
 
@@ -162,7 +164,9 @@ void show_16x16_meta(MetaSprite16x16* meta)
 {
     // Show all tiles by moving them to their proper positions
     for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
-        move_sprite(meta->tiles[i].id, meta->tiles[i].x, meta->tiles[i].y);
+        move_sprite(meta->tiles[i].id,
+                    meta->tiles[i].x + SPRITE_OAM_X_OFS,
+                    meta->tiles[i].y + SPRITE_OAM_Y_OFS);
     }
     meta->is_visible = 1;
 }
@@ -182,7 +186,9 @@ void setup_16x16_meta(MetaSprite16x16 *meta, uint8_t pixels[])
     // Configure all sub-sprites using loop
     for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
         set_sprite_tile(meta->tiles[i].id, meta->tiles[i].init_tile);
-        move_sprite(meta->tiles[i].id, meta->tiles[i].x, meta->tiles[i].y);
+        move_sprite(meta->tiles[i].id,
+                    meta->tiles[i].x + SPRITE_OAM_X_OFS,
+                    meta->tiles[i].y + SPRITE_OAM_Y_OFS);
     }
 
     SHOW_SPRITES;

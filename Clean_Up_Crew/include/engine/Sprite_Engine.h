@@ -21,6 +21,11 @@
 #define META_SPRITE_TILE_COUNT 4
 #define META_SPRITE_SIZE (SPRITE_SIZE * 2)  // 16x16 meta sprite
 
+// Game Boy hardware OAM offsets: move_sprite stores raw OAM values.
+// OAM_X = screen_x + 8, OAM_Y = screen_y + 16
+#define SPRITE_OAM_X_OFS 8
+#define SPRITE_OAM_Y_OFS 16
+
 // Meta sprite tile indices
 #define META_TILE_TOP_LEFT     0
 #define META_TILE_TOP_RIGHT    1
