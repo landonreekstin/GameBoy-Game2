@@ -1,21 +1,27 @@
-/** 
- * @brief Test map header file.
- * 
- * @details Contains all sprite, map, and gameplay definitions for the Test Map.
- * 
-*/
+/**
+ * @brief Test Map Header
+ *
+ * @details Provides access to test map data for camera/engine testing
+ */
 
-/***************************************
- * Includes
- * ************************************/
 #ifndef TEST_MAP_H
 #define TEST_MAP_H
-#include "Map_Engine.h"
+
+#include "../../engine/Map_Engine.h"
+#include <stdint.h>
 
 /***************************************
  * Defines
  * ************************************/
-#define TEST_MAP_WIDTH  20  // TODO: Change to what test map width is
-#define TEST_MAP_HEIGHT 20  // TODO: Change to what test map height is
+#define TEST_MAP_WIDTH  32
+#define TEST_MAP_HEIGHT 32
+#define TEST_MAP_TILE_COUNT 3
+
+/***************************************
+ * External Data
+ * ************************************/
+extern const uint8_t test_map_tiles[];
+extern const uint8_t test_map_data[];
+extern const uint8_t test_map_collision[];
 
 #endif // TEST_MAP_H
