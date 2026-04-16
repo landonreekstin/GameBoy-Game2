@@ -94,9 +94,10 @@ void init_game()
     // Initialize the camera for the map
     camera_init(&main_camera, &test_map);
 
-    // Set player map boundaries for collision detection
+    // Set player map boundaries and map pointer for collision detection
     player_map_width = test_map.width;
     player_map_height = test_map.height;
+    player_map = &test_map;
 
     // Create player sprite
     create_player();

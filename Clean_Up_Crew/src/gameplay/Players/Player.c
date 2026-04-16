@@ -24,6 +24,9 @@ uint8_t player_world_y = PLAYER_INIT_Y;
 uint8_t player_map_width = 0;
 uint8_t player_map_height = 0;
 
+// Active map for tile collision (set during init_game)
+const Map* player_map = 0;
+
 // Player screen position (fixed - player stays centered on screen)
 #define PLAYER_SCREEN_X 72  // Centered horizontally (160/2 - 16/2 = 72)
 #define PLAYER_SCREEN_Y 64  // Centered vertically (144/2 - 16/2 = 64)
@@ -54,47 +57,55 @@ void create_player(void)
   setup_16x16_meta(p_player_sprite, PhasmoPlaceholder);
 }
 
+// Returns 1 if the 16x16 player footprint at (px, py) overlaps any solid tile.
+static uint8_t player_is_solid(uint8_t px, uint8_t py)
+{
+    uint8_t left   = px / TILE_SIZE;
+    uint8_t right  = (px + META_SPRITE_SIZE - 1) / TILE_SIZE;
+    uint8_t top    = py / TILE_SIZE;
+    uint8_t bottom = (py + META_SPRITE_SIZE - 1) / TILE_SIZE;
+
+    return (map_get_tile_collision(player_map, left,  top)    == TILE_SOLID) ||
+           (map_get_tile_collision(player_map, right, top)    == TILE_SOLID) ||
+           (map_get_tile_collision(player_map, left,  bottom) == TILE_SOLID) ||
+           (map_get_tile_collision(player_map, right, bottom) == TILE_SOLID);
+}
+
 inline void move_player(void)
 {
-  // Read joypad input - use fresh reading each frame
-  uint8_t input = joypad();
+    uint8_t input = joypad();
 
-  // Store OLD position for comparison
-  uint8_t old_x = player_world_x;
-  uint8_t old_y = player_world_y;
+    int16_t new_x = (int16_t)player_world_x;
+    int16_t new_y = (int16_t)player_world_y;
 
-  // Calculate new position directly from input (NO velocity accumulation)
-  int16_t new_x = (int16_t)player_world_x;
-  int16_t new_y = (int16_t)player_world_y;
+    // Map pixel boundaries
+    int16_t max_x = (int16_t)((player_map_width  * TILE_SIZE) - META_SPRITE_SIZE);
+    int16_t max_y = (int16_t)((player_map_height * TILE_SIZE) - META_SPRITE_SIZE);
 
-  // Check each direction independently and update position
-  // NOTE: Using separate if statements allows diagonal movement
-  if (input & J_LEFT) {
-    new_x -= DEFAULT_SCROLL_SPEED;
-  }
-  if (input & J_RIGHT) {
-    new_x += DEFAULT_SCROLL_SPEED;
-  }
-  if (input & J_UP) {
-    new_y -= DEFAULT_SCROLL_SPEED;
-  }
-  if (input & J_DOWN) {
-    new_y += DEFAULT_SCROLL_SPEED;
-  }
+    // --- X axis ---
+    if (input & J_LEFT)  new_x -= DEFAULT_SCROLL_SPEED;
+    if (input & J_RIGHT) new_x += DEFAULT_SCROLL_SPEED;
 
-  // Clamp to map boundaries (in pixels)
-  uint16_t max_x = (player_map_width * 8) - 16;  // Map width - player sprite width (16x16)
-  uint16_t max_y = (player_map_height * 8) - 16; // Map height - player sprite height (16x16)
+    if (new_x < 0)       new_x = 0;
+    if (new_x > max_x)   new_x = max_x;
 
-  if (new_x < 0) new_x = 0;
-  if (new_x > (int16_t)max_x) new_x = (int16_t)max_x;
-  if (new_y < 0) new_y = 0;
-  if (new_y > (int16_t)max_y) new_y = (int16_t)max_y;
+    // Revert X if destination overlaps a solid tile (wall slide: Y still resolves)
+    if (player_map && player_is_solid((uint8_t)new_x, player_world_y)) {
+        new_x = (int16_t)player_world_x;
+    }
 
-  // Update world position (this is the ONLY place player position should change)
-  player_world_x = (uint8_t)new_x;
-  player_world_y = (uint8_t)new_y;
+    // --- Y axis ---
+    if (input & J_UP)    new_y -= DEFAULT_SCROLL_SPEED;
+    if (input & J_DOWN)  new_y += DEFAULT_SCROLL_SPEED;
 
-  // IMPORTANT: Sprite screen position stays fixed at 72,64
-  // The camera/background scrolls instead of the sprite moving
+    if (new_y < 0)       new_y = 0;
+    if (new_y > max_y)   new_y = max_y;
+
+    // Revert Y if destination overlaps a solid tile (uses resolved new_x for accuracy)
+    if (player_map && player_is_solid((uint8_t)new_x, (uint8_t)new_y)) {
+        new_y = (int16_t)player_world_y;
+    }
+
+    player_world_x = (uint8_t)new_x;
+    player_world_y = (uint8_t)new_y;
 }

@@ -12,6 +12,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "../../engine/Sprite_Engine.h"
+#include "../../engine/Map_Engine.h"
 
 /***************************************
  * Defines
@@ -20,8 +21,8 @@
 #define PLAYER_INIT_TILE     0
 #define PLAYER_MAX_TILE      4
 #define PLAYER_TEXTURE_IDX   0
-#define PLAYER_INIT_X        50
-#define PLAYER_INIT_Y        50
+#define PLAYER_INIT_X        64
+#define PLAYER_INIT_Y        80
 #define PLAYER_INIT_VELOCITY 1
 
 extern MetaSprite16x16 player_sprite;
@@ -34,6 +35,9 @@ extern uint8_t player_world_y;
 // Map boundaries for collision detection (set during initialization)
 extern uint8_t player_map_width;
 extern uint8_t player_map_height;
+
+// Active map for tile collision lookups (set during initialization)
+extern const Map* player_map;
 
 /* Bank of tiles. */
 #define PhasmoPlaceholderBank 0
