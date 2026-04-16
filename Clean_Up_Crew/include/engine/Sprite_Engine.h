@@ -56,6 +56,8 @@ typedef struct {
   uint8_t velocity;
   uint8_t is_visible;
   uint8_t has_hitbox;
+  uint8_t anim_frame;                    // Current animation frame index (0 = idle)
+  uint8_t flip_x;                        // 1 = facing left (swap tile columns + S_FLIPX), 0 = facing right
   Sprite tiles[META_SPRITE_TILE_COUNT];  // Embedded array: [0]=top-left, [1]=top-right, [2]=bottom-left, [3]=bottom-right
 } MetaSprite16x16;
 
@@ -218,6 +220,28 @@ void change_sprite_tile(Sprite *s);
  * @return void
 */
 void animate_sprite(Sprite *s);
+
+/**
+ * @brief Advances a 16x16 meta sprite to its next animation frame.
+ *        Each frame is a group of META_SPRITE_TILE_COUNT consecutive tiles.
+ *        No-op if only one frame of tiles is loaded (max_tile <= META_SPRITE_TILE_COUNT).
+ *        Call on a frame-counter interval from the game loop — does not block.
+ *
+ * @param meta Pointer to the meta sprite to animate.
+ *
+ * @return void
+*/
+void animate_16x16_meta(MetaSprite16x16 *meta);
+
+/**
+ * @brief Resets a 16x16 meta sprite to its idle (frame 0) tiles.
+ *        Call when the sprite stops moving to restore the default pose.
+ *
+ * @param meta Pointer to the meta sprite to reset.
+ *
+ * @return void
+*/
+void reset_16x16_meta_anim(MetaSprite16x16 *meta);
 
 /**
  * @brief Awaits joypad input to move the sprite.

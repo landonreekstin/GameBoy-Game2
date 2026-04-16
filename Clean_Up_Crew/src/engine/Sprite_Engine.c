@@ -68,6 +68,8 @@ void init_16x16_meta(MetaSprite16x16* meta, uint8_t meta_id, uint8_t init_tile, 
     meta->velocity = DEFAULT_SCROLL_SPEED;
     meta->is_visible = 1;
     meta->has_hitbox = 1;
+    meta->anim_frame = 0;
+    meta->flip_x = 0;
 
     // Initialize all 4 sub-sprites in a loop
     // Layout: [0]=top-left, [1]=top-right, [2]=bottom-left, [3]=bottom-right
@@ -111,10 +113,14 @@ void set_16x16_meta_position(MetaSprite16x16* meta, uint8_t x, uint8_t y)
     meta->x = x;
     meta->y = y;
 
-    // Update all sub-sprite positions and apply to hardware
+    // Update all sub-sprite positions and apply to hardware.
+    // When flip_x is set, swap the left/right column offsets so the
+    // correct tile occupies each screen column after S_FLIPX is applied.
     for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
-        meta->tiles[i].x = meta->x + ((i & 1) ? SPRITE_SIZE : 0);  // Right tiles get +8 offset
-        meta->tiles[i].y = meta->y + ((i & 2) ? SPRITE_SIZE : 0);  // Bottom tiles get +8 offset
+        uint8_t x_ofs = meta->flip_x ? ((i & 1) ? 0 : SPRITE_SIZE)   // flipped: odd tiles → left col
+                                     : ((i & 1) ? SPRITE_SIZE : 0);   // normal:  odd tiles → right col
+        meta->tiles[i].x = meta->x + x_ofs;
+        meta->tiles[i].y = meta->y + ((i & 2) ? SPRITE_SIZE : 0);
         move_sprite(meta->tiles[i].id,
                     meta->tiles[i].x + SPRITE_OAM_X_OFS,
                     meta->tiles[i].y + SPRITE_OAM_Y_OFS);
@@ -211,6 +217,26 @@ void animate_sprite(Sprite *s)
     for (uint8_t tile_idx = 0; tile_idx < s->max_tile; tile_idx++) {
         set_sprite_tile(s->id, tile_idx);
         delay(350);
+    }
+}
+
+void animate_16x16_meta(MetaSprite16x16 *meta)
+{
+    uint8_t num_frames = meta->max_tile / META_SPRITE_TILE_COUNT;
+    if (num_frames <= 1) return;
+
+    meta->anim_frame = (meta->anim_frame + 1) % num_frames;
+    uint8_t base_tile = meta->init_tile + (meta->anim_frame * META_SPRITE_TILE_COUNT);
+    for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
+        set_sprite_tile(meta->tiles[i].id, base_tile + i);
+    }
+}
+
+void reset_16x16_meta_anim(MetaSprite16x16 *meta)
+{
+    meta->anim_frame = 0;
+    for (uint8_t i = 0; i < META_SPRITE_TILE_COUNT; i++) {
+        set_sprite_tile(meta->tiles[i].id, meta->init_tile + i);
     }
 }
 

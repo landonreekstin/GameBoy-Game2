@@ -18,7 +18,7 @@ Core systems that everything else depends on.
 - [x] `hide_16x16_meta` / `show_16x16_meta`
 - [x] `detect_collision` (AABB, sprite vs sprite)
 - [x] `detect_meta_collision` (AABB, sprite vs meta sprite)
-- [ ] `animate_16x16_meta` — cycle tiles on a 16x16 meta sprite (parallel to `animate_sprite`)
+- [x] `animate_16x16_meta` / `reset_16x16_meta_anim` — frame-counter-based walk animation (non-blocking); each frame is a 4-tile group; no-op until art adds a second frame
 
 ### Map Engine
 - [x] `map_init` / `map_load` (tile graphics + tile map + collision map)
@@ -38,11 +38,10 @@ Core systems that everything else depends on.
 
 ## Phase 2: Player Polish
 
-- [x] Wall slide — per-axis collision resolution (done as part of tile collision implementation)
-- [ ] Walk animation — cycle sprite tiles while moving (frame counter gated)
-- [ ] Idle frame — return to tile 0 when no input
-- [ ] Facing direction — flip sprite horizontally for left vs right movement
-- [x] Wall slide — when blocked on one axis, allow movement on the other (prevents "sticky" corners)
+- [x] Wall slide — per-axis collision resolution (both axes checked independently)
+- [x] Walk animation — `animate_16x16_meta` called every `PLAYER_ANIM_RATE` ticks while input held
+- [x] Idle frame — `reset_16x16_meta_anim` returns to tile 0 when no input
+- [x] Facing direction — `S_FLIPX` on all 4 sub-sprites + column swap in `set_16x16_meta_position` via `flip_x` flag
 - [ ] Movement speed — configurable per-axis, foundation for later slow/speed effects
 
 ---
@@ -141,6 +140,7 @@ Items that are known but not yet scoped into a phase:
 
 ## Current Focus
 
-> **Phase 2 → player animation & tile type response**
-> Tile collision and wall slide are complete. Next: walk animation (cycle sprite tiles while moving),
-> idle frame (return to tile 0 on no input), and tile type response (water slows player).
+> **Phase 2 → movement speed & tile type response**
+> Walk animation, idle frame, and facing direction are complete. Next: movement speed (configurable
+> per-axis), then tile type response (water slows player). Walk animation requires a second art frame
+> from Christian before it is visually active — the mechanism is wired and ready.

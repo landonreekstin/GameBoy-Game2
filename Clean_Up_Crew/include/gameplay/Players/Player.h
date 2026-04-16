@@ -19,11 +19,12 @@
  * ************************************/
 #define PLAYER_SPRITE_ID     0
 #define PLAYER_INIT_TILE     0
-#define PLAYER_MAX_TILE      4
+#define PLAYER_MAX_TILE      8   // 2 animation frames × 4 tiles per frame
 #define PLAYER_TEXTURE_IDX   0
 #define PLAYER_INIT_X        64
 #define PLAYER_INIT_Y        80
 #define PLAYER_INIT_VELOCITY 1
+#define PLAYER_ANIM_RATE     8   // Game ticks between walk animation frame advances
 
 extern MetaSprite16x16 player_sprite;
 extern MetaSprite16x16* p_player_sprite;
