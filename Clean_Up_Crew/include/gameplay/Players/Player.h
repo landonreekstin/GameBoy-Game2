@@ -24,6 +24,8 @@
 #define PLAYER_INIT_X        64
 #define PLAYER_INIT_Y        80
 #define PLAYER_INIT_VELOCITY 1
+#define PLAYER_DEFAULT_SPEED 2   // Normal movement speed (pixels per tick)
+#define PLAYER_WATER_SPEED   1   // Reduced speed on water tiles
 #define PLAYER_ANIM_RATE     8   // Game ticks between walk animation frame advances
 
 extern MetaSprite16x16 player_sprite;
@@ -39,6 +41,10 @@ extern uint8_t player_map_height;
 
 // Active map for tile collision lookups (set during initialization)
 extern const Map* player_map;
+
+// Per-axis movement speed (pixels per tick); set by tile type response to apply slow effects
+extern uint8_t player_speed_x;
+extern uint8_t player_speed_y;
 
 /* Bank of tiles. */
 #define PhasmoPlaceholderBank 0

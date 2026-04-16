@@ -27,6 +27,10 @@ uint8_t player_map_height = 0;
 // Active map for tile collision (set during init_game)
 const Map* player_map = 0;
 
+// Per-axis movement speed (pixels per tick); default 2, reduced to 1 on water tiles
+uint8_t player_speed_x = PLAYER_DEFAULT_SPEED;
+uint8_t player_speed_y = PLAYER_DEFAULT_SPEED;
+
 // Player screen position (fixed - player stays centered on screen)
 #define PLAYER_SCREEN_X 72  // Centered horizontally (160/2 - 16/2 = 72)
 #define PLAYER_SCREEN_Y 64  // Centered vertically (144/2 - 16/2 = 64)
@@ -103,6 +107,20 @@ inline void move_player(void)
 
     uint8_t input = joypad();
 
+    // --- Tile type response: sample tile under player center, adjust speed ---
+    if (player_map) {
+        uint8_t tile = map_get_tile_collision(player_map,
+            (player_world_x + META_SPRITE_SIZE / 2) / TILE_SIZE,
+            (player_world_y + META_SPRITE_SIZE / 2) / TILE_SIZE);
+        if (tile == TILE_WATER) {
+            player_speed_x = PLAYER_WATER_SPEED;
+            player_speed_y = PLAYER_WATER_SPEED;
+        } else {
+            player_speed_x = PLAYER_DEFAULT_SPEED;
+            player_speed_y = PLAYER_DEFAULT_SPEED;
+        }
+    }
+
     int16_t new_x = (int16_t)player_world_x;
     int16_t new_y = (int16_t)player_world_y;
 
@@ -111,8 +129,8 @@ inline void move_player(void)
     int16_t max_y = (int16_t)((player_map_height * TILE_SIZE) - META_SPRITE_SIZE);
 
     // --- X axis ---
-    if (input & J_LEFT)  new_x -= DEFAULT_SCROLL_SPEED;
-    if (input & J_RIGHT) new_x += DEFAULT_SCROLL_SPEED;
+    if (input & J_LEFT)  new_x -= player_speed_x;
+    if (input & J_RIGHT) new_x += player_speed_x;
 
     if (new_x < 0)       new_x = 0;
     if (new_x > max_x)   new_x = max_x;
@@ -123,8 +141,8 @@ inline void move_player(void)
     }
 
     // --- Y axis ---
-    if (input & J_UP)    new_y -= DEFAULT_SCROLL_SPEED;
-    if (input & J_DOWN)  new_y += DEFAULT_SCROLL_SPEED;
+    if (input & J_UP)    new_y -= player_speed_y;
+    if (input & J_DOWN)  new_y += player_speed_y;
 
     if (new_y < 0)       new_y = 0;
     if (new_y > max_y)   new_y = max_y;

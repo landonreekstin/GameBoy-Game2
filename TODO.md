@@ -32,7 +32,7 @@ Core systems that everything else depends on.
 - [x] Map boundary clamping (coordinate-based, pixel precision)
 - [x] OAM hardware offset applied correctly to `move_sprite` calls
 - [x] **Tile-based collision** — stop player from entering solid tiles (wall, box obstacles)
-- [ ] **Tile type response** — different behavior per tile type (e.g. water slows, solid blocks)
+- [x] **Tile type response** — water tiles (`TILE_WATER`) halve movement speed; solid tiles block
 
 ---
 
@@ -42,7 +42,7 @@ Core systems that everything else depends on.
 - [x] Walk animation — `animate_16x16_meta` called every `PLAYER_ANIM_RATE` ticks while input held
 - [x] Idle frame — `reset_16x16_meta_anim` returns to tile 0 when no input
 - [x] Facing direction — `S_FLIPX` on all 4 sub-sprites + column swap in `set_16x16_meta_position` via `flip_x` flag
-- [ ] Movement speed — configurable per-axis, foundation for later slow/speed effects
+- [x] Movement speed — configurable per-axis (`player_speed_x/y`), foundation for later slow/speed effects
 
 ---
 
@@ -140,7 +140,7 @@ Items that are known but not yet scoped into a phase:
 
 ## Current Focus
 
-> **Phase 2 → movement speed & tile type response**
-> Walk animation, idle frame, and facing direction are complete. Next: movement speed (configurable
-> per-axis), then tile type response (water slows player). Walk animation requires a second art frame
-> from Christian before it is visually active — the mechanism is wired and ready.
+> **Phase 3 → Entity System**
+> Phases 1 and 2 are complete. Next: entity base type, fixed pool, and update loop. Walk animation
+> requires a second art frame from Christian before it is visually active — the mechanism is wired
+> and ready.
