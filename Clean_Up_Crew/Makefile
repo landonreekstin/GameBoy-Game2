@@ -5,8 +5,9 @@ GBDK_HOME ?= /opt/gbdk/
 LCC = $(GBDK_HOME)/bin/lcc
 
 # --- Flags ---
-LCC_FLAGS = -msm83:gb
-LCC_FLAGS += $(DEBUG_FLAGS)
+LCC_FLAGS  = -msm83:gb
+LCC_FLAGS  += $(DEBUG_FLAGS)
+LFLAGS     = -Wl-yo4 -Wl-yt1
 
 # --- File Paths ---
 PROJECT_NAME = Clean_Up_Crew
@@ -31,7 +32,7 @@ all: $(ROM_FILE)
 $(ROM_FILE): $(OBJECTS)
 	@mkdir -p $(BUILD_DIR)
 	@echo "Linking $(PROJECT_NAME)..."
-	$(LCC) $(LCC_FLAGS) -o $@ -no-crt -no-libs $(GBDK_CRT) $(OBJECTS) $(GBDK_GB_LIB) $(GBDK_CORE_LIB)
+	$(LCC) $(LCC_FLAGS) $(LFLAGS) -o $@ -no-crt -no-libs $(GBDK_CRT) $(OBJECTS) $(GBDK_GB_LIB) $(GBDK_CORE_LIB)
 	@# Move debug symbols to build dir
 	@mv *.cdb $(BUILD_DIR)/ 2>/dev/null || true
 	@mv *.noi $(BUILD_DIR)/ 2>/dev/null || true

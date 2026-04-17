@@ -21,8 +21,8 @@
 #define PLAYER_INIT_TILE     0
 #define PLAYER_MAX_TILE      8   // 2 animation frames × 4 tiles per frame
 #define PLAYER_TEXTURE_IDX   0
-#define PLAYER_INIT_X        64
-#define PLAYER_INIT_Y        80
+#define PLAYER_INIT_X        40   /* Haunted House: tile (5,5) = Entrance */
+#define PLAYER_INIT_Y        40
 #define PLAYER_INIT_VELOCITY 1
 #define PLAYER_DEFAULT_SPEED 2   // Normal movement speed (pixels per tick)
 #define PLAYER_WATER_SPEED   1   // Reduced speed on water tiles

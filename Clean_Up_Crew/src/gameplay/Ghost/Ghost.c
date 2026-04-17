@@ -9,6 +9,9 @@
 
 #include "../../../include/gameplay/Ghost/Ghost.h"
 #include "../../../include/gameplay/Players/Player.h"
+#include "../../../include/gameplay/Evidence/Evidence.h"
+#include "../../../include/gameplay/GameState/GameState.h"
+#include "../../../include/gameplay/Sanity/Sanity.h"
 
 Ghost the_ghost;
 
@@ -67,18 +70,20 @@ static void ghost_step_roam(Ghost* g, const Map* map)
     }
 }
 
-/* Move ghost one step per axis toward the player, respecting solid tiles. */
+/* Move ghost one step per axis toward the player, respecting solid tiles.
+ * Hunt speed scales with player's fear level (low sanity = faster ghost). */
 static void ghost_step_hunt(Ghost* g, const Map* map)
 {
     Entity* e    = g->entity;
     uint8_t new_x = e->world_x;
     uint8_t new_y = e->world_y;
+    uint8_t speed = (sanity_get_fear_level() >= 2) ? GHOST_HUNT_SPEED_HIGH : GHOST_MOVE_SPEED;
 
-    if      (new_x < player_world_x) new_x += GHOST_MOVE_SPEED;
-    else if (new_x > player_world_x) new_x -= GHOST_MOVE_SPEED;
+    if      (new_x < player_world_x) new_x += speed;
+    else if (new_x > player_world_x) new_x -= speed;
 
-    if      (new_y < player_world_y) new_y += GHOST_MOVE_SPEED;
-    else if (new_y > player_world_y) new_y -= GHOST_MOVE_SPEED;
+    if      (new_y < player_world_y) new_y += speed;
+    else if (new_y > player_world_y) new_y -= speed;
 
     if (!ghost_tile_solid(map, new_x, e->world_y)) e->world_x = new_x;
     if (!ghost_tile_solid(map, e->world_x, new_y)) e->world_y = new_y;
@@ -127,6 +132,15 @@ uint8_t ghost_update(const Camera* camera, const Map* map)
 
         case GHOST_HUNTING:
             ghost_step_hunt(&the_ghost, map);
+
+            /* Ghost occasionally cuts power when starting a hunt */
+            if (the_ghost.state_timer == 0) {
+                /* Use entity ai_dir as a pseudo-random seed (changes each hunt) */
+                if ((e->ai_dir & 7) == 0) {
+                    ghost_cut_power();
+                }
+            }
+
             if (++the_ghost.state_timer >= GHOST_HUNT_TICKS ||
                 chebyshev(e->world_x, e->world_y, player_world_x, player_world_y)
                     > GHOST_ESCAPE_DIST) {
@@ -145,6 +159,14 @@ uint8_t ghost_update(const Camera* camera, const Map* map)
         else                   hide_16x16_meta(&e->sprite);
     } else {
         hide_16x16_meta(&e->sprite);
+    }
+
+    /* --- Ghost Orb: passive evidence when very close --- */
+    {
+        uint8_t dist = chebyshev(e->world_x, e->world_y, player_world_x, player_world_y);
+        if (dist <= GHOST_ORB_RANGE && the_ghost.visible) {
+            evidence_collect(EVIDENCE_GHOST_ORB);
+        }
     }
 
     /* --- Player collision (hunting + visible only) --- */

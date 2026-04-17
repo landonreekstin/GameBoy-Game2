@@ -2,10 +2,10 @@
 
 /**
  * @brief Authors: Landon Reekstin - Software Development, Christian Blaney - Artistic Design
- *  
- * 
+ *
+ *
  * @details This file is the main file for the game. It contains the main game loop and the main function.
- * 
+ *
  */
 
 /***************************************
@@ -19,9 +19,14 @@
 #include "../include/engine/Debug.h"
 /* Gameplay */
 #include "../include/gameplay/Players/Player.h"
-#include "../include/gameplay/Maps/Test_Map.h"
+#include "../include/gameplay/Maps/Haunted_House.h"
 #include "../include/engine/Entity_Engine.h"
 #include "../include/gameplay/Ghost/Ghost.h"
+#include "../include/gameplay/Sanity/Sanity.h"
+#include "../include/gameplay/GameState/GameState.h"
+#include "../include/gameplay/Inventory/Inventory.h"
+#include "../include/gameplay/Evidence/Evidence.h"
+#include "../include/gameplay/Items/ItemSprites.h"
 #include <gb/gb.h>
 #include <stdint.h>
 
@@ -38,12 +43,13 @@ void init_game();
 void game_loop();
 void update();
 void input();
+void check_item_pickups();
 
 
 /***************************************
  * Local Variables
  * ************************************/
-Map test_map;
+Map haunted_house_map;
 Camera main_camera;
 uint16_t frame_count = 0;
 
@@ -55,26 +61,22 @@ uint16_t frame_count = 0;
 
 /**
  * @brief Main function for the game.
- * 
+ *
  * @details This function initializes the game and starts the main game loop.
- * 
+ *
  * @param argc Number of command line arguments. 2
- * 
+ *
  * @param argv Array of command line arguments.
  *             argv[0] - Name of the program. "Clean_Up_Crew"
- *             argv[1] - Name of a map file to load on startup. 
+ *             argv[1] - Name of a map file to load on startup.
  *                       Default: Main Menu
- * 
- * @return int 
+ *
+ * @return int
  */
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
-    // TODO: initialize game
     init_game();
-
-    // TODO: start game loop
     game_loop();
-
     return 0;
 }
 
@@ -86,36 +88,53 @@ int main(int argc, char *argv[])
  */
 void init_game()
 {
-    // Initialize the test map
-    map_init(&test_map, TEST_MAP_WIDTH, TEST_MAP_HEIGHT,
-             test_map_tiles, test_map_data, test_map_collision, TEST_MAP_TILE_COUNT);
+    Entity* e;
+
+    // Initialize the Haunted House map
+    map_init(&haunted_house_map, HAUNTED_HOUSE_WIDTH, HAUNTED_HOUSE_HEIGHT,
+             haunted_house_tiles, haunted_house_data, haunted_house_collision,
+             HAUNTED_HOUSE_TILE_COUNT);
 
     // Load the map into the Game Boy background
-    map_load(&test_map);
+    map_load(&haunted_house_map);
 
     // Initialize the camera for the map
-    camera_init(&main_camera, &test_map);
+    camera_init(&main_camera, &haunted_house_map);
 
     // Set player map boundaries and map pointer for collision detection
-    player_map_width = test_map.width;
-    player_map_height = test_map.height;
-    player_map = &test_map;
+    player_map_width  = haunted_house_map.width;
+    player_map_height = haunted_house_map.height;
+    player_map        = &haunted_house_map;
 
     // Create player sprite
     create_player();
 
-    // Initialize entity pool and spawn a test NPC with patrol AI.
-    // Reuses PhasmoPlaceholder tiles (already loaded by create_player) — no extra VRAM cost.
+    // Initialize all game systems
     entity_pool_init();
-    {
-        Entity* npc = entity_spawn(ENTITY_NPC, 32, 64, 0, 4, PhasmoPlaceholder);
-        if (npc) {
-            entity_set_patrol(npc, 32, 64, 128, 64);
-        }
-    }
+    gamestate_init();
+    sanity_init();
+    inventory_init();
 
-    // Spawn ghost far from the player's starting position
-    ghost_spawn(192, 80);
+    // Spawn item entities at their room positions.
+    // ai_dir is repurposed to store the item subtype (ITEM_SUBTYPE_*).
+    // init_tile values map to sprite VRAM slots 8-23.
+    e = entity_spawn(ENTITY_ITEM, 160,  40, ITEM_SPRITE_EMF_INIT_TILE,   4, EMFReaderSprite);
+    if (e) e->ai_dir = ITEM_SUBTYPE_EMF;
+
+    e = entity_spawn(ENTITY_ITEM,  64, 144, ITEM_SPRITE_FLASH_INIT_TILE, 4, FlashlightSprite);
+    if (e) e->ai_dir = ITEM_SUBTYPE_FLASHLIGHT;
+
+    e = entity_spawn(ENTITY_ITEM, 176, 128, ITEM_SPRITE_THERM_INIT_TILE, 4, ThermometerSprite);
+    if (e) e->ai_dir = ITEM_SUBTYPE_THERMOMETER;
+
+    e = entity_spawn(ENTITY_ITEM, 160, 216, ITEM_SPRITE_SBOX_INIT_TILE,  4, SpiritBoxSprite);
+    if (e) e->ai_dir = ITEM_SUBTYPE_SPIRIT_BOX;
+
+    // Spawn ghost in Library; pseudo-random ghost type from frame_count boot seed
+    ghost_spawn(200, 136);
+
+    // Assign ghost type after entity pool is populated (evidence_init reads ghost_type)
+    evidence_init((uint8_t)((frame_count & 3) + 1));
 
     // Position camera at player's initial world position
     camera_update(&main_camera, player_world_x, player_world_y);
@@ -134,14 +153,32 @@ void game_loop()
 {
     while(1)
     {
-        // Handle input
+        if (game_state != GAME_PLAYING) {
+            // Freeze on win/lose — Phase 5 will add proper screens
+            if (game_state == GAME_WIN)  debug_print("YOU WIN!");
+            if (game_state == GAME_LOSE) debug_print("GAME OVER");
+            while(1) { wait_vbl_done(); }
+        }
+
         input();
-
-        // Update game state
         update();
-
-        // Wait for VBlank (prevents screen tearing)
         wait_vbl_done();
+    }
+}
+
+/**
+ * @brief Scans entity pool for ENTITY_ITEM entries and picks them up on player contact.
+ */
+void check_item_pickups()
+{
+    uint8_t i;
+    for (i = 0; i < ENTITY_POOL_SIZE; i++) {
+        Entity* e = &entity_pool[i];
+        if (e->type != ENTITY_ITEM) continue;
+        if (entity_collides_player(e, player_world_x, player_world_y)) {
+            inventory_add(e->ai_dir);
+            entity_despawn(e);
+        }
     }
 }
 
@@ -153,6 +190,8 @@ void game_loop()
  */
 void update()
 {
+    uint8_t ghost_hit;
+
     frame_count++;
 
     // Update camera to follow player's WORLD position
@@ -160,25 +199,36 @@ void update()
     camera_apply(&main_camera);
 
     // Update all entities (AI, tile collision, screen position sync)
-    entity_update_all(&main_camera, &test_map);
+    entity_update_all(&main_camera, &haunted_house_map);
 
-    // Update ghost (separate from entity pool loop)
-    ghost_update(&main_camera, &test_map);
+    // Update ghost; returns 1 if it caught the player this frame
+    ghost_hit = ghost_update(&main_camera, &haunted_house_map);
 
     // Sync sprite screen position: world position relative to camera
     set_16x16_meta_position(p_player_sprite,
                             player_world_x - main_camera.x,
                             player_world_y - main_camera.y);
 
-    // More frequent debug output to catch movement issues (every 15 frames)
+    // Check for item pickups
+    check_item_pickups();
+
+    // Update room tracking and sanity
+    player_current_room = get_player_room(player_world_x, player_world_y);
+    sanity_update(is_player_in_dark(), ghost_hit);
+
+    // Lose condition: sanity drained to zero
+    if (player_sanity == 0) {
+        game_set_state(GAME_LOSE);
+        return;
+    }
+
+    // Periodic debug output (every 15 frames)
     if (frame_count % 15 == 0) {
-        uint8_t input = joypad();
-        debug_print("=== INPUT DEBUG ===");
-        debug_print_value("Joypad State", input);
-        debug_print_value("Player World X", player_world_x);
-        debug_print_value("Player World Y", player_world_y);
-        debug_print_value("Camera X", main_camera.x);
-        debug_print_value("Camera Y", main_camera.y);
+        debug_print_value("Player World X",    player_world_x);
+        debug_print_value("Player World Y",    player_world_y);
+        debug_print_value("player_sanity",     player_sanity);
+        debug_print_value("player_room",       player_current_room);
+        debug_print_value("evidence_mask",     evidence_collected);
     }
 }
 
@@ -192,4 +242,3 @@ void input()
 {
     move_player();
 }
-

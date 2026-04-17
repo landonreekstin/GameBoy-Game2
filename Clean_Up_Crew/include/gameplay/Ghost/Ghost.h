@@ -32,8 +32,10 @@
 #define GHOST_HUNT_TRIGGER_DIST  32  /* Chebyshev dist (px) that triggers HUNTING     */
 #define GHOST_ESCAPE_DIST        64  /* Chebyshev dist (px) that ends HUNTING         */
 #define GHOST_ROAM_INTERVAL      40  /* Frames between direction changes while roaming */
-#define GHOST_MOVE_SPEED          1  /* Pixels per tick (roam and hunt)               */
+#define GHOST_MOVE_SPEED          1  /* Pixels per tick (roam and normal hunt)        */
+#define GHOST_HUNT_SPEED_HIGH     2  /* Hunt speed when player sanity <= FEAR_LOW     */
 #define GHOST_ROAM_RADIUS        48  /* Half-side of the roam bounding box (px)       */
+#define GHOST_ORB_RANGE          24  /* Chebyshev px for passive ghost orb evidence   */
 
 /***************************************
  * Ghost struct

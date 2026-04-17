@@ -9,6 +9,8 @@
  * ************************************/
 #include "../../../include/gameplay/Players/Player.h"
 #include "../../../include/engine/Sprite_Engine.h"
+#include "../../../include/gameplay/Inventory/Inventory.h"
+#include "../../../include/gameplay/GameState/GameState.h"
 
 /***************************************
  * Defines
@@ -104,8 +106,22 @@ inline void move_player(void)
 {
     static uint8_t anim_counter = 0;
     static uint8_t facing_left  = 0;
+    static uint8_t prev_input   = 0;
 
     uint8_t input = joypad();
+
+    /* --- Edge-triggered action buttons --- */
+    if ((input & J_A) && !(prev_input & J_A)) {
+        inventory_use_active();
+    }
+    if ((input & J_B) && !(prev_input & J_B)) {
+        inventory_cycle_slot();
+    }
+    if ((input & J_START) && !(prev_input & J_START)) {
+        gamestate_try_escape();
+    }
+
+    prev_input = input;
 
     // --- Tile type response: sample tile under player center, adjust speed ---
     if (player_map) {
