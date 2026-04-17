@@ -20,6 +20,7 @@
 /* Gameplay */
 #include "../include/gameplay/Players/Player.h"
 #include "../include/gameplay/Maps/Test_Map.h"
+#include "../include/engine/Entity_Engine.h"
 #include <gb/gb.h>
 #include <stdint.h>
 
@@ -102,6 +103,16 @@ void init_game()
     // Create player sprite
     create_player();
 
+    // Initialize entity pool and spawn a test NPC with patrol AI.
+    // Reuses PhasmoPlaceholder tiles (already loaded by create_player) — no extra VRAM cost.
+    entity_pool_init();
+    {
+        Entity* npc = entity_spawn(ENTITY_NPC, 32, 64, 0, 4, PhasmoPlaceholder);
+        if (npc) {
+            entity_set_patrol(npc, 32, 64, 128, 64);
+        }
+    }
+
     // Position camera at player's initial world position
     camera_update(&main_camera, player_world_x, player_world_y);
     camera_apply(&main_camera);
@@ -143,6 +154,9 @@ void update()
     // Update camera to follow player's WORLD position
     camera_update(&main_camera, player_world_x, player_world_y);
     camera_apply(&main_camera);
+
+    // Update all entities (AI, tile collision, screen position sync)
+    entity_update_all(&main_camera, &test_map);
 
     // Sync sprite screen position: world position relative to camera
     set_16x16_meta_position(p_player_sprite,
