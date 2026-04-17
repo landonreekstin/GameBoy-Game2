@@ -21,6 +21,7 @@
 #include "../include/gameplay/Players/Player.h"
 #include "../include/gameplay/Maps/Test_Map.h"
 #include "../include/engine/Entity_Engine.h"
+#include "../include/gameplay/Ghost/Ghost.h"
 #include <gb/gb.h>
 #include <stdint.h>
 
@@ -113,6 +114,9 @@ void init_game()
         }
     }
 
+    // Spawn ghost far from the player's starting position
+    ghost_spawn(192, 80);
+
     // Position camera at player's initial world position
     camera_update(&main_camera, player_world_x, player_world_y);
     camera_apply(&main_camera);
@@ -157,6 +161,9 @@ void update()
 
     // Update all entities (AI, tile collision, screen position sync)
     entity_update_all(&main_camera, &test_map);
+
+    // Update ghost (separate from entity pool loop)
+    ghost_update(&main_camera, &test_map);
 
     // Sync sprite screen position: world position relative to camera
     set_16x16_meta_position(p_player_sprite,

@@ -64,10 +64,10 @@ Game Boy can't do dynamic allocation. All entities live in fixed pools.
 ## Phase 4: Game Systems (Clean Up Crew Specific)
 
 ### Ghost
-- [ ] Ghost entity — moves independently, has a home room/area
-- [ ] Ghost AI states: idle, roaming, hunting
-- [ ] Ghost visibility — can be toggled (ghost may be invisible at times)
-- [ ] Ghost-player interaction — triggers fear/sanity effect on contact
+- [x] Ghost entity — moves independently, has a home room/area
+- [x] Ghost AI states: idle, roaming, hunting
+- [x] Ghost visibility — can be toggled (ghost may be invisible at times)
+- [ ] Ghost-player interaction — triggers fear/sanity effect on contact (hook ready; needs sanity system)
 
 ### Equipment & Items
 - [ ] Item entity type — static, player can walk over to collect
@@ -140,7 +140,6 @@ Items that are known but not yet scoped into a phase:
 
 ## Current Focus
 
-> **Phase 4 → Game Systems (Ghost, Items, Core Loop)**
-> Phases 1–3 are complete. Next: ghost entity with AI states, item pickups, and the evidence/sanity
-> loop. Walk animation requires a second art frame from Christian before it is visually active —
-> the mechanism is wired and ready.
+> **Phase 4 → Game Systems (Items, Sanity, Core Loop)**
+> Ghost entity done: idle → roaming → hunting state machine, visibility toggle, player-collision
+> hook (returns 1 on contact). Next: sanity system and item pickups.

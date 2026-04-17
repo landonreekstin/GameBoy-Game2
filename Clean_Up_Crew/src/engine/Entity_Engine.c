@@ -173,7 +173,8 @@ void entity_update_all(const Camera* camera, const Map* map)
     uint8_t i;
     for (i = 0; i < ENTITY_POOL_SIZE; i++) {
         Entity* e = &entity_pool[i];
-        if (e->type == ENTITY_NONE) continue;
+        if (e->type == ENTITY_NONE)  continue;
+        if (e->type == ENTITY_GHOST) continue;  /* managed by ghost_update() */
 
         /* AI step */
         if (map) {
