@@ -9,6 +9,8 @@
  * ************************************/
 #include "../../../include/gameplay/Players/Player.h"
 #include "../../../include/engine/Sprite_Engine.h"
+#include "../../../include/gameplay/Inventory/Inventory.h"
+#include "../../../include/gameplay/GameState/GameState.h"
 
 /***************************************
  * Defines
@@ -42,7 +44,7 @@ uint8_t player_speed_y = PLAYER_DEFAULT_SPEED;
  *   shifted down 1px to produce a visible leg-bob. Placeholder until
  *   Christian supplies final walk cycle art.
  */
-uint8_t PhasmoPlaceholder[] =
+const uint8_t PhasmoPlaceholder[] =
 {
   /* --- Frame 0: idle --- */
   /* tile 0: top-left */
@@ -78,6 +80,14 @@ uint8_t PhasmoPlaceholder[] =
  * ************************************/
 void create_player(void)
 {
+  // Explicitly initialize globals whose .data init values may be inaccessible
+  // when the ROM spans into bank 2 (crt0 would read from VRAM instead of ROM).
+  p_player_sprite  = &player_sprite;
+  player_world_x   = PLAYER_INIT_X;
+  player_world_y   = PLAYER_INIT_Y;
+  player_speed_x   = PLAYER_DEFAULT_SPEED;
+  player_speed_y   = PLAYER_DEFAULT_SPEED;
+
   // Initialize sprite at FIXED SCREEN position (player stays centered)
   init_16x16_meta(p_player_sprite, PLAYER_SPRITE_ID, PLAYER_INIT_TILE, PLAYER_MAX_TILE, PLAYER_TEXTURE_IDX,
                   PLAYER_SCREEN_X, PLAYER_SCREEN_Y);
@@ -104,8 +114,22 @@ inline void move_player(void)
 {
     static uint8_t anim_counter = 0;
     static uint8_t facing_left  = 0;
+    static uint8_t prev_input   = 0;
 
     uint8_t input = joypad();
+
+    /* --- Edge-triggered action buttons --- */
+    if ((input & J_A) && !(prev_input & J_A)) {
+        inventory_use_active();
+    }
+    if ((input & J_B) && !(prev_input & J_B)) {
+        inventory_cycle_slot();
+    }
+    if ((input & J_START) && !(prev_input & J_START)) {
+        gamestate_try_escape();
+    }
+
+    prev_input = input;
 
     // --- Tile type response: sample tile under player center, adjust speed ---
     if (player_map) {

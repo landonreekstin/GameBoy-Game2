@@ -271,7 +271,7 @@ void translate_16x16_meta(MetaSprite16x16 *meta);
  *
  * @return void
 */
-void setup_sprite(Sprite *s, uint8_t pixels[]);
+void setup_sprite(Sprite *s, const uint8_t pixels[]);
 
 /**
  * @brief Loads meta sprite pixel data, sets initial tile and position.
@@ -281,7 +281,7 @@ void setup_sprite(Sprite *s, uint8_t pixels[]);
  *
  * @return void
 */
-void setup_16x16_meta(MetaSprite16x16 *meta, uint8_t pixels[]);
+void setup_16x16_meta(MetaSprite16x16 *meta, const uint8_t pixels[]);
 
 /**
  * @brief Detects collision between two sprites.

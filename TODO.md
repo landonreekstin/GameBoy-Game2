@@ -50,24 +50,24 @@ Core systems that everything else depends on.
 
 Game Boy can't do dynamic allocation. All entities live in fixed pools.
 
-- [ ] `Entity` base type — position, type tag, active flag, optional sprite ref
-- [ ] Entity pool — fixed-size array (size TBD based on ROM/RAM budget)
-- [ ] Entity update loop — called each frame from `update()`
-- [ ] Entity visibility culling — skip update/render for entities outside camera view
-- [ ] Entity-to-player collision — trigger response when entity overlaps player
-- [ ] Entity-to-tile collision — entities respect map solid tiles
-- [ ] Simple patrol AI — entity walks a fixed path (A→B→A)
-- [ ] Random walk AI — entity wanders within a bounded area
+- [x] `Entity` base type — position, type tag, active flag, embedded sprite
+- [x] Entity pool — fixed-size array of 8 (`entity_pool[ENTITY_POOL_SIZE]`)
+- [x] Entity update loop — `entity_update_all()` called each frame from `update()`
+- [x] Entity visibility culling — `entity_is_in_view()` hides/shows sprite per camera bounds
+- [x] `entity_collides_player()` — AABB test in world space (caller triggers response)
+- [x] Entity-to-tile collision — solid tiles block entity movement per-axis
+- [x] Simple patrol AI — `entity_set_patrol()` walks A→B→A
+- [x] Random walk AI — `entity_set_wander()` cycles cardinal directions within a bounding box
 
 ---
 
 ## Phase 4: Game Systems (Clean Up Crew Specific)
 
 ### Ghost
-- [ ] Ghost entity — moves independently, has a home room/area
-- [ ] Ghost AI states: idle, roaming, hunting
-- [ ] Ghost visibility — can be toggled (ghost may be invisible at times)
-- [ ] Ghost-player interaction — triggers fear/sanity effect on contact
+- [x] Ghost entity — moves independently, has a home room/area
+- [x] Ghost AI states: idle, roaming, hunting
+- [x] Ghost visibility — can be toggled (ghost may be invisible at times)
+- [ ] Ghost-player interaction — triggers fear/sanity effect on contact (hook ready; needs sanity system)
 
 ### Equipment & Items
 - [ ] Item entity type — static, player can walk over to collect
@@ -140,7 +140,6 @@ Items that are known but not yet scoped into a phase:
 
 ## Current Focus
 
-> **Phase 3 → Entity System**
-> Phases 1 and 2 are complete. Next: entity base type, fixed pool, and update loop. Walk animation
-> requires a second art frame from Christian before it is visually active — the mechanism is wired
-> and ready.
+> **Phase 4 → Game Systems (Items, Sanity, Core Loop)**
+> Ghost entity done: idle → roaming → hunting state machine, visibility toggle, player-collision
+> hook (returns 1 on contact). Next: sanity system and item pickups.
