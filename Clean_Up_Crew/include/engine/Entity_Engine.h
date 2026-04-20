@@ -91,7 +91,7 @@ void entity_pool_init(void);
  * @return Pointer to the spawned Entity, or NULL if pool is full.
  */
 Entity* entity_spawn(uint8_t type, uint8_t world_x, uint8_t world_y,
-                     uint8_t init_tile, uint8_t max_tile, uint8_t pixels[]);
+                     uint8_t init_tile, uint8_t max_tile, const uint8_t pixels[]);
 
 /**
  * @brief Despawns an entity: marks slot free and hides its sprite.

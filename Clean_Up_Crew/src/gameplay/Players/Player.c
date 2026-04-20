@@ -44,7 +44,7 @@ uint8_t player_speed_y = PLAYER_DEFAULT_SPEED;
  *   shifted down 1px to produce a visible leg-bob. Placeholder until
  *   Christian supplies final walk cycle art.
  */
-uint8_t PhasmoPlaceholder[] =
+const uint8_t PhasmoPlaceholder[] =
 {
   /* --- Frame 0: idle --- */
   /* tile 0: top-left */
@@ -80,6 +80,14 @@ uint8_t PhasmoPlaceholder[] =
  * ************************************/
 void create_player(void)
 {
+  // Explicitly initialize globals whose .data init values may be inaccessible
+  // when the ROM spans into bank 2 (crt0 would read from VRAM instead of ROM).
+  p_player_sprite  = &player_sprite;
+  player_world_x   = PLAYER_INIT_X;
+  player_world_y   = PLAYER_INIT_Y;
+  player_speed_x   = PLAYER_DEFAULT_SPEED;
+  player_speed_y   = PLAYER_DEFAULT_SPEED;
+
   // Initialize sprite at FIXED SCREEN position (player stays centered)
   init_16x16_meta(p_player_sprite, PLAYER_SPRITE_ID, PLAYER_INIT_TILE, PLAYER_MAX_TILE, PLAYER_TEXTURE_IDX,
                   PLAYER_SCREEN_X, PLAYER_SCREEN_Y);

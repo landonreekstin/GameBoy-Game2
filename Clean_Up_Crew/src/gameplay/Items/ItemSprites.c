@@ -20,7 +20,7 @@
  *   Top: antenna nub + display window (light center, dark frame)
  *   Bottom: button row with alternating dark buttons
  * ---------------------------------------------------------------------- */
-uint8_t EMFReaderSprite[] = {
+const uint8_t EMFReaderSprite[] = {
     /* Tile 0: top-left — body with antenna + display */
     0x08,0x08, 0x08,0x08, 0x3F,0x3F, 0x3F,0x21, 0x33,0x2D, 0x33,0x2D, 0x3F,0x21, 0x3F,0x3F,
     /* Tile 1: top-right — body right edge */
@@ -35,7 +35,7 @@ uint8_t EMFReaderSprite[] = {
  * Flashlight — circular lens on left, cylindrical body extending right,
  *              narrow grip handle below center
  * ---------------------------------------------------------------------- */
-uint8_t FlashlightSprite[] = {
+const uint8_t FlashlightSprite[] = {
     /* Tile 0: top-left — circular lens (ring outline, dark fill) */
     0x00,0x00, 0x1C,0x1C, 0x3E,0x3E, 0x62,0x7E, 0x62,0x7E, 0x3E,0x3E, 0x1C,0x1C, 0x00,0x00,
     /* Tile 1: top-right — cylindrical body (solid border, dark interior) */
@@ -50,7 +50,7 @@ uint8_t FlashlightSprite[] = {
  * Thermometer — vertical glass tube with tick marks on left side,
  *               mercury bulb at bottom (round, dark center)
  * ---------------------------------------------------------------------- */
-uint8_t ThermometerSprite[] = {
+const uint8_t ThermometerSprite[] = {
     /* Tile 0: top-left — tube top with tick marks */
     0x00,0x00, 0x00,0x00, 0x0C,0x0C, 0x0E,0x0A, 0x0E,0x0A, 0x4E,0x4A, 0x0E,0x0A, 0x4E,0x4A,
     /* Tile 1: top-right — empty (tube is narrow, fits in left half) */
@@ -65,7 +65,7 @@ uint8_t ThermometerSprite[] = {
  * Spirit Box — walkie-talkie body with antenna, diagonal speaker grill
  *              (light dots on dark), LED status row at bottom
  * ---------------------------------------------------------------------- */
-uint8_t SpiritBoxSprite[] = {
+const uint8_t SpiritBoxSprite[] = {
     /* Tile 0: top-left — body + speaker grill + antenna */
     0x04,0x04, 0x04,0x04, 0x3F,0x3F, 0x21,0x3F, 0x29,0x37, 0x25,0x3B, 0x23,0x3D, 0x21,0x3F,
     /* Tile 1: top-right — body right half */

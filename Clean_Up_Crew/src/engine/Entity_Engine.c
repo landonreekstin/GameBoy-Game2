@@ -106,7 +106,7 @@ void entity_pool_init(void)
 }
 
 Entity* entity_spawn(uint8_t type, uint8_t world_x, uint8_t world_y,
-                     uint8_t init_tile, uint8_t max_tile, uint8_t pixels[])
+                     uint8_t init_tile, uint8_t max_tile, const uint8_t pixels[])
 {
     uint8_t i;
     for (i = 0; i < ENTITY_POOL_SIZE; i++) {

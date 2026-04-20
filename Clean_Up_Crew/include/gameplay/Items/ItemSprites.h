@@ -22,9 +22,9 @@
 #define ITEM_SPRITE_SBOX_INIT_TILE   20
 #define ITEM_SPRITE_TILE_COUNT       4
 
-extern uint8_t EMFReaderSprite[];
-extern uint8_t FlashlightSprite[];
-extern uint8_t ThermometerSprite[];
-extern uint8_t SpiritBoxSprite[];
+extern const uint8_t EMFReaderSprite[];
+extern const uint8_t FlashlightSprite[];
+extern const uint8_t ThermometerSprite[];
+extern const uint8_t SpiritBoxSprite[];
 
 #endif /* ITEM_SPRITES_H */

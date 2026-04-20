@@ -177,14 +177,14 @@ void show_16x16_meta(MetaSprite16x16* meta)
     meta->is_visible = 1;
 }
 
-void setup_sprite(Sprite *s, uint8_t pixels[])
+void setup_sprite(Sprite *s, const uint8_t pixels[])
 {
     set_sprite_data(s->init_tile, s->max_tile, pixels);    // (initial tile, final tile, sprite char array)
     set_sprite_tile(s->id, s->init_tile);                  // (sprite index, tile), gives sprite its id
     move_sprite(s->id, s->x, s->y);                        // (sprite index, x, y)
 }
 
-void setup_16x16_meta(MetaSprite16x16 *meta, uint8_t pixels[])
+void setup_16x16_meta(MetaSprite16x16 *meta, const uint8_t pixels[])
 {
     // Load sprite tile data once for all tiles
     set_sprite_data(meta->init_tile, meta->max_tile, pixels);

@@ -49,7 +49,7 @@ extern uint8_t player_speed_y;
 /* Bank of tiles. */
 #define PhasmoPlaceholderBank 0
 /* Start of tile array. */
-extern uint8_t PhasmoPlaceholder[];
+extern const uint8_t PhasmoPlaceholder[];
 
 /***************************************
  * Prototypes
